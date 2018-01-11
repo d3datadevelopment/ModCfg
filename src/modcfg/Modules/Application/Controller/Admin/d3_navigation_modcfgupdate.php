@@ -20,11 +20,17 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Install\d3install;
 use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Facts\Facts;
 use OxidEsales\Eshop\Core\ShopVersion;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Module\Module;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 
 class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 {
@@ -38,6 +44,9 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return string
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws DBALException
      */
     public function render()
     {
@@ -61,6 +70,11 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws Exception
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _doStartUpChecks()
     {
@@ -76,6 +90,8 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DatabaseConnectionException
+     * @throws Exception
      */
     protected function _doModCfgUpdateRequired()
     {
@@ -87,7 +103,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
         $aMessages = array();
 
-        if (class_exists(d3install::class) && d3install::getInstance()->getUpdateInstaller()->getRequiredUpdates()) {
+        if (class_exists(d3install::class) && d3install::getInstance()->getUpdateInstaller()->getModuleInstallations()) {
             $aMessages['d3__updatecheck'] = sprintf(
                 Registry::getLang()->translateString('D3_UPDATE_REQUIRED_MODCFGUPDATE'),
                 $this->_d3getUpdateWizzardUrl()
@@ -101,6 +117,12 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _d3ModLicenceCheck()
     {
@@ -147,6 +169,12 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _d3ModUpdateCheck()
     {
@@ -178,7 +206,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
                 $oUpdateServer->setParameter(
                     'sEdition',
                     $oShopVersionConverter->fixEditionToDefaultEdition(
-                        (oxNew(Facts::class))->getEdition()
+                        oxNew(Facts::class)->getEdition()
                     )
                 );
                 $oUpdateServer->setParameter(
@@ -253,6 +281,9 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
      * @param $sModCfgId
      *
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function isModuleActive($sModCfgId)
     {
@@ -271,6 +302,14 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
         return $blActive;
     }
 
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
     public function d3ClearTmp()
     {
         /** @var $oClrTmp d3clrtmp */
@@ -291,6 +330,14 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
         }
     }
 
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
     public function d3ExecCommand1()
     {
         /** @var $oClrTmp d3clrtmp */
@@ -298,6 +345,14 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
         $oClrTmp->d3ExecCommand(1);
     }
 
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
     public function d3ExecCommand2()
     {
         /** @var $oClrTmp d3clrtmp */

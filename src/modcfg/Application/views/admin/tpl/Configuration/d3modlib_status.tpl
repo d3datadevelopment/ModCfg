@@ -533,10 +533,10 @@ dl dd.listitem2
                                                     [{/foreach}]
                                                 [{/if}]
                                                 [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
-                                                <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_LICKEY"}]</dt>
+                                                <dt class="listitem[{$itemno}]"><label for="licencekey">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_LICKEY"}]</label></dt>
                                                 <dd class="listitem[{$itemno}]">
                                                     [{strip}]
-                                                        <textarea style="width: 300px; height: 100px;">
+                                                        <textarea id="licencekey" style="width: 300px; height: 100px;">
                                                             [{$oModule->getFieldData('oxserial')}]
                                                         </textarea>
                                                     [{/strip}]

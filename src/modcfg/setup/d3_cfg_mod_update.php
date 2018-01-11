@@ -18,18 +18,26 @@
 namespace D3\ModCfg\setup;
 
 use D3\ModCfg\Application\Model\d3database;
+use D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
 use D3\ModCfg\Application\Model\Install\d3install_updatebase;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbtable;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use OxidEsales\Facts\Facts;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\ShopVersion;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Application\Model\Shop;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\ConnectionException;
+use Doctrine\DBAL\DBALException;
 
 class d3_cfg_mod_update extends d3install_updatebase
 {
@@ -665,6 +673,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
      */
     public function checkModCfgMultiLangTable()
     {
@@ -673,6 +682,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkConvertModCfgToMultiLangTable()
     {
@@ -681,6 +693,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function registerModCfgMultiLangTable()
     {
@@ -689,6 +705,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function convertModCfgToMultilangTable()
     {
@@ -697,6 +717,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
      */
     public function checkModprofileMultiLangTable()
     {
@@ -705,6 +726,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function registerModprofileMultiLangTable()
     {
@@ -713,6 +738,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
      */
     public function checkModCfgVariantMultiLangTable()
     {
@@ -721,6 +747,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function registerModCfgVariantMultiLangTable()
     {
@@ -730,6 +760,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
     /**
      * Bugfix for empty multishoptables from rev. 1244 in 4.3.4.0
      * @return bool
+     * @throws ConnectionException
      */
     public function checkOxarticlesMultiShopTable()
     {
@@ -751,6 +782,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
     /**
      * Bugfix for empty multishoptables from rev. 1244 in 4.3.4.0
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function resetMultiShopTables()
     {
@@ -778,6 +813,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function registerModProfileMultiShopTable()
     {
@@ -786,6 +825,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkConvertModprofileToMultiLangTable()
     {
@@ -794,6 +836,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function convertModprofileToMultilangTable()
     {
@@ -802,6 +848,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkConvertModCfgVariantToMultiLangTable()
     {
@@ -810,6 +859,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function convertModCfgVariantToMultilangTable()
     {
@@ -818,6 +871,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModCfgFields()
     {
@@ -829,7 +886,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
             $oShopVersionConverter->fixVersionToDefaultEdition(ShopVersion::getVersion())
         );
 
-        if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition((oxNew(Facts::class))->getEdition())) == 'EE'
+        if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition())) == 'EE'
             && version_compare($sVersion, '5.2.0', '>=')
         ) {
             unset($this->aFields['PROF_OXSHOPINCL']);
@@ -854,6 +911,11 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
         return false;
     }
 
+    /**
+     * @return bool|mixed
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws StandardException
+     */
     public function activateModCfgModule()
     {
         $blRet = true;
@@ -885,6 +947,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function hasToCleanOldLibs()
     {
@@ -903,6 +968,13 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     public function cleanOldLibs()
     {
@@ -958,7 +1030,12 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
         $oCleaning = oxNew(d3_cfg_mod_cleaning::class, $this);
         return $oCleaning->hasDisabledD3VendorItem();
     }
-    
+
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanD3VendorItem()
     {
         /** @var d3_cfg_mod_cleaning $oCleaning */
@@ -968,6 +1045,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool true, if table is missing
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModCfgTableExist()
     {
@@ -976,6 +1056,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function addModCfgTable()
     {
@@ -1009,6 +1093,8 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateModCfgTableEngine()
     {
@@ -1036,6 +1122,8 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateModProfileTableEngine()
     {
@@ -1063,6 +1151,8 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateModCfgVariantTableEngine()
     {
@@ -1074,6 +1164,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function hasModProfileExclInclItems()
     {
@@ -1082,6 +1175,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateModProfileExclInclItems()
     {
@@ -1096,6 +1192,8 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
      */
     public function hasNoModCfgItem()
     {
@@ -1123,6 +1221,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateModCfgItem()
     {
@@ -1194,7 +1296,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
                             'use_quote'     => true,
                         ),
                         'OXSHOPVERSION'  => array (
-                            'content'       => $oShopVersionConverter->fixEditionToDefaultEdition((oxNew(Facts::class))->getEdition()),
+                            'content'       => $oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition()),
                             'force_update'  => true,
                             'use_quote'     => true,
                         ),
@@ -1220,6 +1322,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool true, if table is missing
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModProfileTableExist()
     {
@@ -1228,6 +1333,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function addModProfileTable()
     {
@@ -1244,7 +1353,7 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
                 $oShopVersionConverter->fixVersionToDefaultEdition(ShopVersion::getVersion())
             );
 
-            if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition((oxNew(Facts::class))->getEdition())) == 'EE'
+            if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition())) == 'EE'
                 && version_compare($sShopVersion, '5.2.0', '>=')
             ) {
                 unset($this->aFields['PROF_OXSHOPINCL']);
@@ -1265,6 +1374,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool true, if table is missing
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModCfgVariantTableExist()
     {
@@ -1273,6 +1385,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function addModCfgVariantTable()
     {
@@ -1295,6 +1411,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool true, if table is missing
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkCacheTableExist()
     {
@@ -1303,6 +1422,10 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function addCacheTable()
     {
@@ -1325,6 +1448,8 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
      */
     public function hasDuplicateBlockItem()
     {
@@ -1346,6 +1471,9 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function deleteDuplicateBlockItems()
     {
@@ -1405,6 +1533,13 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ParameterNotFoundException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     public function hasUnregisteredFiles()
     {
@@ -1413,6 +1548,12 @@ HpOcFVTMkd0bXRXR1JJNDMvNkVRcjVMV2k=';
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     public function showUnregisteredFiles()
     {

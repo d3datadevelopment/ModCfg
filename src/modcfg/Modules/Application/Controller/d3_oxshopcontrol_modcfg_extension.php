@@ -19,9 +19,19 @@ use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Core\Exception\CookieException;
+use OxidEsales\Eshop\Core\Exception\RoutingException;
+use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\AccessRightException;
 
 class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extension_parent
 {
@@ -37,6 +47,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
      * @param null $sFunction
      * @param null $aParams
      * @param null $aViewsChain
+     * @throws Exception
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function start ($sClass = null, $sFunction = null, $aParams = null, $aViewsChain = null)
     {
@@ -77,6 +93,9 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
      * check, if developer mode has to be enabled
      *
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function _d3CheckDevMode()
     {
@@ -104,10 +123,14 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     /**
      * @param string $sClass
      * @param string $sFunction
-     * @param null   $aParams
-     * @param null   $aViewsChain
-     *
-     * @return null|void
+     * @param null $aParams
+     * @param null $aViewsChain
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _process($sClass, $sFunction, $aParams = null, $aViewsChain = null)
     {
@@ -136,6 +159,9 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function _d3CanWriteExc2Log()
     {
@@ -153,6 +179,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param $oException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _d3WriteExc2Log($oException)
     {
@@ -215,8 +247,10 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Application\Controller\FrontendController $view
-     * @return null|void
+     * @param FrontendController $view
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function stopMonitoring($view)
     {
@@ -262,7 +296,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\RoutingException $oEx
+     * @param RoutingException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function handleRoutingException($oEx)
     {
@@ -273,6 +313,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param DatabaseException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function handleDatabaseException(DatabaseException $oEx)
     {
@@ -282,7 +328,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\SystemComponentException $oEx
+     * @param SystemComponentException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleSystemException($oEx)
     {
@@ -292,7 +344,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\CookieException $oEx
+     * @param CookieException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleCookieException($oEx)
     {
@@ -302,7 +360,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\EshopEnterprise\Core\Exception\AccessRightException $oEx
+     * @param AccessRightException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleAccessRightsException($oEx)
     {
@@ -313,6 +377,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param StandardException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleBaseException($oEx)
     {

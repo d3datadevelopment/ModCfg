@@ -18,7 +18,13 @@
 namespace D3\ModCfg\setup;
 
 use D3\ModCfg\Application\Model\d3filesystem;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Install\d3install;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 
@@ -26,6 +32,14 @@ class Events
 {
     public static $_ConfirmParamName = 'd3confirm';
 
+    /**
+     * @throws DatabaseConnectionException
+     * @throws StandardException
+     * @throws SystemComponentException
+     * @throws DBALException
+     * @throws DatabaseErrorException
+     * @throws d3ShopCompatibilityAdapterException
+     */
     public static function onActivate()
     {
         d3install::checkUpdateStart();
@@ -43,9 +57,9 @@ class Events
         echo "
         <script type='text/javascript'>
             if (confirm(
-                unescape(
-                    'Der D3-Modul-Connector stellt Basisfunktionen f%FCr andere D3-Module bereit.\\nDeaktivieren Sie diesen daher nur dann, wenn Sie alle anderen D3-Module zuvor ebenfalls unter \\'Erweiterungen -> Module\\' deaktiviert haben.\\nAnsonsten kann es zum Ausfall des Shops im Frontend oder Backend kommen.\\nSoll der Modul-Connector wirklich deaktiviert werden?\\n\\n'
-                    + 
+                decodeURIComponent(
+                    'Der D3-Modul-Connector stellt Basisfunktionen f%C3%BCr andere D3-Module bereit.\\nDeaktivieren Sie diesen daher nur dann, wenn Sie alle anderen D3-Module zuvor ebenfalls unter \\'Erweiterungen -> Module\\' deaktiviert haben.\\nAnsonsten kann es zum Ausfall des Shops im Frontend oder Backend kommen.\\nSoll der Modul-Connector wirklich deaktiviert werden?\\n\\n'
+                    +
                     'The D3 module connector provides basic functions for other D3 modules.\\nTherefore, disable the D3 module connector only, if you have previously deactivated all other D3 modules in \\'Extensions -> Modules\\'.\\nOtherwise, the shop may fail in the frontend or backend.\\nShould the module connector be disabled?'
                     )
                 )

@@ -122,7 +122,6 @@ $aModule = [
     'templates'   => [
         #d3_cfg_mod
         'd3_cfg_mod_.tpl'       => 'd3/modcfg/Application/views/admin/tpl/d3_cfg_mod_.tpl',
-        'd3_adm_header.tpl'     => 'd3/modcfg/Application/views/admin/tpl/d3_adm_header.tpl',
         'd3_adm_navigation.tpl' => 'd3/modcfg/Application/views/admin/tpl/d3_adm_navigation.tpl',
         'd3_cfg_mod_inc.tpl'    => 'd3/modcfg/Application/views/admin/tpl/inc/d3_cfg_mod_inc.tpl',
         'd3_cfg_mod_bottom.tpl' => 'd3/modcfg/Application/views/admin/tpl/inc/d3_cfg_mod_bottom.tpl',

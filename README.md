@@ -2,7 +2,7 @@
 Basisbibliothek für D3-Module
 
 ## Systemanforderungen:
-- installierten OXID eShop
+- installierter OXID eShop
 - PHP-Version, für die Installationspakete verfügbar sind
 - Installation via Composer
 - ionCubeLoader
