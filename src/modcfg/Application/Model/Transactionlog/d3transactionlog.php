@@ -1,178 +1,375 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+namespace D3\ModCfg\Application\Model\Transactionlog;
+
+use D3\ModCfg\Application\Model\Parametercontainer\Registry;
+use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Model\BaseModel;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseException;
+
+final class d3transactionlog extends BaseModel
+{
+    const TYPE_REQUEST = 'request';
+
+    const TYPE_RESPONSE = 'response';
+
+    /** @var string */
+    protected $_sCoreTable = 'd3transactionlog';
+
+    /** @var string */
+    protected $_sClassName = self::class;
+
+    /** @var  AbstractReader */
+    protected $reader;
+
+    /** @var array */
+    protected $fieldDataProividers = array(
+        'd3reference'         => '',
+        'd3transactiontime'   => '',
+        'd3transactionstatus' => '',
+    );
+
+    /**
+     * @param AbstractReader $reader
+     * @param null                                           $group
+     */
+    public function __construct(AbstractReader $reader, $group = null)
+    {
+        parent::__construct();
+
+        $this->init();
+        $this->setTransactionLogReader($reader);
+        $this->setGroup($group);
+    }
+
+    /**
+     * @param AbstractReader $reader
+     *
+     * @return $this
+     */
+    public function setTransactionLogReader(AbstractReader $reader)
+    {
+        $this->reader = $reader;
+
+        return $this;
+    }
+
+    /**
+     * @return AbstractReader
+     */
+    public function getTransactionLogReader()
+    {
+        return $this->reader;
+    }
+
+    /**
+     * @param $value
+     *
+     * @return $this
+     */
+    public function setGroup($value)
+    {
+        $this->assign(array('d3group' => $value));
+
+        return $this;
+    }
+
+    /**
+     * @param $value
+     *
+     * @return $this
+     */
+    public function setModid($value)
+    {
+        $this->assign(array('d3modid' => $value));
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModid()
+    {
+        return $this->getFieldData('d3modid');
+    }
+
+    /**
+     * @param $value
+     *
+     * @return $this
+     */
+    public function setSessionId($value)
+    {
+        $this->assign(array('oxsessid' => $value));
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionId()
+    {
+        return $this->getFieldData('oxsessid');
+    }
+
+    /**
+     * @param $value
+     *
+     * @return $this
+     */
+    public function setProfileid($value)
+    {
+        $this->assign(array('d3profileid' => $value));
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProfileid()
+    {
+        return $this->getFieldData('d3profileid');
+    }
+
+    /**
+     * @return mixed
+     * @throws \RuntimeException
+     */
+    public function getGroup()
+    {
+        if ($this->getFieldData('d3group') == '') {
+            throw new \RuntimeException('Reference number (group) was not initialized!');
+        }
+
+        return $this->getFieldData('d3group');
+    }
+
+    /**
+     * @return $this
+     */
+    public function markAsRequest()
+    {
+        $this->assign(array('d3action' => self::TYPE_REQUEST));
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function markAsResponse()
+    {
+        $this->assign(array('d3action' => self::TYPE_RESPONSE));
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAction()
+    {
+        return $this->getFieldData('d3action');
+    }
+
+    /**
+     * @param $data
+     *
+     * @return $this
+     */
+    public function setTransactiondata($data)
+    {
+        $this->assign(array('d3transactiondata' => base64_encode(serialize($data))));
+        $this->reader->read($data);
+
+        return $this;
+    }
+
+    /**
+     * @return AbstractReader
+     */
+    public function getTransactiondata()
+    {
+        $this->reader->read(unserialize(base64_decode($this->getFieldData('d3transactiondata'))));
+
+        return $this->reader;
+    }
+
+    /**
+     * Sets transaction time if not already defined
+     * @return mixed
+     * @throws DatabaseConnectionException
+     * @throws DatabaseException
+     * @throws \BadMethodCallException
+     */
+    public function save()
+    {
+        if ($this->exists()) {
+            throw new \BadMethodCallException("This instance was alredy saved! You must create a new instance!");
+        }
+
+        $this->invokeFieldDataProviders();
+
+        $return = parent::save();
+
+        Registry::getInstance()->add($this);
+
+        return $return;
+    }
+
+    /**
+     * executes all defined field data providers
+     *
+     * @return $this
+     */
+    private function invokeFieldDataProviders()
+    {
+        $providers = $this->getFieldDataProviders();
+        array_walk($providers, array($this, 'executeDataProvider'));
+
+        return $this;
+    }
+
+    /**
+     * Defines a data provider for the given field
+     *
+     * @param          $field
+     * @param callable $callback
+     *
+     * @throws \BadMethodCallException
+     * @return d3transactionlog
+     */
+    public function setFieldDataProvider($field, $callback)
+    {
+        if (false == is_callable($callback)) {
+            throw new \BadMethodCallException("You did not provide a valid callback!");
+        }
+
+        $this->fieldDataProividers[$field] = $callback;
+
+        return $this;
+    }
+
+    /**
+     * Returns all field data providers
+     *
+     * @return array
+     */
+    private function getFieldDataProviders()
+    {
+        return $this->fieldDataProividers;
+    }
+
+    /**
+     * @param BaseModel $object
+     *
+     * @return mixed
+     */
+    public function referTo(BaseModel $object)
+    {
+        $referer = oxNew(object2d3transactionlog::class);
+        $referer->assign(
+            array(
+                 'oxobjectid' => $object->getId(),
+                 'd3group'    => $this->getGroup(),
+                 'oxtype'     => $object->getClassName(),
+            )
+        );
+
+        return $referer->save();
+    }
+
+    /**
+     * Returns a list of transactions associated to the given object
+     *
+     * @param BaseModel $object
+     * @param array $aFilter
+     *
+     * @return d3transactionloglist
+     */
+    public function getTransactionsFor(BaseModel $object, $aFilter = array())
+    {
+        $list  = oxNew(d3transactionloglist::class, $this);
+        $type  = self::TYPE_RESPONSE;
+        $query = <<<QUERY
+SELECT {$this->getCoreTableName()}.* FROM {$this->getCoreTableName()}
+LEFT JOIN d3_d3log_oxobject2d3transactionlog ON {$this->getCoreTableName()}.d3group = d3_d3log_oxobject2d3transactionlog.d3group
+WHERE
+    d3_d3log_oxobject2d3transactionlog.oxobjectid = '{$object->getId()}'
+    AND {$this->getCoreTableName()}.d3action = '{$type}' AND {$this->_getFilterQuery($aFilter)}
+ORDER BY {$this->getCoreTableName()}.d3lognr
+QUERY;
+        $list->selectString($query);
+
+        return $list;
+    }
+
+    /**
+     * @param array $aFilter
+     * @return string
+     */
+    protected function _getFilterQuery($aFilter)
+    {
+        return count($aFilter) ? implode(' AND ', array_map(array($this, '_getFilterFieldQuery'), array_keys($aFilter), $aFilter)) : ' 1 ';
+    }
+
+    /**
+     * @param $sField
+     * @param $sValue
+     * @return string
+     * @throws DatabaseConnectionException
+     */
+    protected function _getFilterFieldQuery($sField, $sValue)
+    {
+        if (strtolower(trim($sField)) == 'd3transactiondata') {
+            return 'CONVERT(FROM_BASE64('.$this->getCoreTableName() . '.' . $sField . ') USING latin1) LIKE ' .
+                DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->quote($sValue);
+        }
+
+        return $this->getCoreTableName().'.'.$sField . ' LIKE ' . DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->quote($sValue);
+    }
+
+    /**
+     * @param $sGroupNumber
+     *
+     * @return d3transactionloglist
+     */
+    public function getTransactionsByGroup($sGroupNumber)
+    {
+        $list  = oxNew(d3transactionloglist::class, $this);
+
+        $query = <<<QUERY
+SELECT {$this->getCoreTableName()}.* FROM {$this->getCoreTableName()}
+WHERE
+   {$this->getCoreTableName()}.d3group = '{$sGroupNumber}'
+ORDER BY {$this->getCoreTableName()}.d3lognr
+QUERY;
+        $list->selectString($query);
+
+        return $list;
+    }
+
+    /**
+     * Invokes callbacks and sets the provided data as field values
+     *
+     * @param $callback
+     * @param $key
+     * @throws /BadMethodCallException
+     */
+    private function executeDataProvider($callback, $key)
+    {
+        if (!is_callable($callback)) {
+            throw new \BadMethodCallException(
+                "You did not provide a data provider for field '$key'! Use \$transactionLog->setFieldDataProvider('$key', callable);"
+            );
+        }
+
+        $data = array($key => call_user_func($callback));
+        $this->assign($data);
+    }
+}

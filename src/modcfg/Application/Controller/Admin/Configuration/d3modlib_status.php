@@ -1,53 +1,88 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Configuration;
+
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod_licencecheck;
+use D3\ModCfg\Application\Model\Log\d3log;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+
+class d3modlib_status extends d3mod_status
+{
+    /**
+     * additional multilang item, which will added as last part to help url
+     *
+     * @var string
+     */
+    protected $_sHelpLinkMLAdd = 'D3MODCFG_LIB_HELPLINK_STATUS';
+    protected $_sRemoteUpdateSessionVarname = 'd3RemoteLibList';
+    protected $_sRemoteModuleSessionVarname = 'd3RemoteLibs';
+    public $aRemoteLibs = array();
+    protected $_aHiddenModules = array('d3install_lib', 'd3log_lib', 'd3clrtmp_lib');
+
+    /**
+     * @return string
+     */
+    public function getModuleType()
+    {
+        return 'lib';
+    }
+
+    /**
+     * @return bool
+     */
+    public function getShowNewItems()
+    {
+        return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function showNoUpdateMessage()
+    {
+        $oLicenceCheck = new d3_cfg_mod_licencecheck(new d3_cfg_mod);
+        return $oLicenceCheck->isSource();
+    }
+
+    /**
+     * @return array
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function getUsedMailMessageSlots()
+    {
+        /** @var d3log $oLog */
+        $oLog = oxNew(d3log::class);
+        $aSlots = $oLog->getUsedMailMessageSlots();
+        array_push($aSlots, end($aSlots) + 1);
+
+        return $aSlots;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitleIdent()
+    {
+        return 'D3_MOD_LIB_INSTALLED';
+    }
+}

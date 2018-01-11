@@ -1,132 +1,200 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link          http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Log;
+
+use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_list;
+use D3\ModCfg\Application\Model\Log\d3log;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
+use OxidEsales\Eshop\Core\UtilsDate;
+
+class d3_cfg_log_list extends d3_cfg_mod_list
+{
+    protected $_sListClass = d3log::class;
+
+    protected $_sDefSortField = 'oxcounter';
+
+    protected $_sDefSortOrder = 'desc';
+
+    protected $_sThisTemplate = 'd3_cfg_log_list.tpl';
+
+    // enable language depended configuration
+    protected $_blD3ShowLangSwitch = false;
+
+    protected $_blShowListItems = true;
+
+    /**
+     * @return null
+     */
+    public function render()
+    {
+        $sPwrSearchFld = Registry::get(Request::class)->getRequestEscapedParameter("pwrsearchfld");
+
+        if (false == isset($sPwrSearchFld)) {
+            $sPwrSearchFld = "oxaction";
+        }
+
+        /** @var d3log $oD3Log */
+        $oD3Log = null;
+        $oList  = $this->getItemList();
+
+        $this->_aViewData["art_category"] = null;
+        $this->_aViewData["_act"] = null;
+        $this->_aViewData["readonly"] = false;
+        $this->_aViewData["folder"] = false;
+
+        if ($oList) {
+            foreach ($oList as $key => $oD3Log) {
+                $sFieldName = "d3log__" . strtolower($sPwrSearchFld);
+
+                // formatting view
+                if (false == Registry::getConfig()->getConfigParam('blSkipFormatConversion')) {
+                    $oConvertInstance = Registry::get(UtilsDate::class);
+                    if ($oD3Log->$sFieldName->fldtype == "datetime") {
+                        $oConvertInstance->convertDBDateTime($oD3Log->$sFieldName);
+                    } elseif ($oD3Log->$sFieldName->fldtype == "timestamp") {
+                        $oConvertInstance->convertDBTimestamp($oD3Log->$sFieldName);
+                    } elseif ($oD3Log->$sFieldName->fldtype == "date") {
+                        $oConvertInstance->convertDBDate($oD3Log->$sFieldName);
+                    }
+                }
+
+                $oD3Log->pwrsearchval = $oD3Log->$sFieldName->value;
+                $oList[$key]          = $oD3Log;
+            }
+        }
+
+        $sRet = parent::render();
+
+        // load fields
+        if (false == $oD3Log && $oList) {
+            /** @var $oD3Log d3log */
+            $oD3Log = $oList->getBaseObject();
+        }
+
+        $this->addTplParam('pwrsearchfields', $oD3Log->getSearchableFields());
+        $this->addTplParam('pwrsearchfld', strtoupper($sPwrSearchFld));
+
+        if ($this->getViewDataElement('where')) {
+            $oTmp       = $this->getViewDataElement('where');
+            $sFieldName = "d3log__" . strtoupper($sPwrSearchFld);
+            if (isset($oTmp->$sFieldName)) {
+                $this->addTplParam('pwrsearchinput', $oTmp->$sFieldName);
+            }
+        }
+
+        $aFilter = $this->getListFilter();
+        $this->addTplParam('pwrsearchinput', isset($aFilter["d3log"][$sPwrSearchFld]) ? $aFilter["d3log"][$sPwrSearchFld] : null);
+
+        $this->addTplParam('default_edit', d3_cfg_log_main::class);
+
+        return $sRet;
+    }
+
+    /**
+     * @return array
+     */
+    public function buildWhere()
+    {
+        $this->_aWhere = parent::buildWhere();
+        if (false == is_array($this->_aWhere)) {
+            $this->_aWhere = array();
+        }
+
+        $this->_aWhere['d3log.oxshopid'] = Registry::getConfig()->getShopId() ?
+            Registry::getConfig()->getShopId() :
+            Registry::getSession()->getVariable("actshop");
+
+        if ((false == isset($this->_aWhere['d3log.oxmodid']) || false == $this->_aWhere['d3log.oxmodid'])
+            && Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId')
+        ) {
+            $this->_aWhere['d3log.oxmodid'] = '%' . Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId') . '%';
+        } elseif ((false == isset($this->_aWhere['d3log.oxmodid']) || false == $this->_aWhere['d3log.oxmodid'])
+            && $this->_sModId
+        ) {
+            $this->_aWhere['d3log.oxmodid'] = '%' . $this->_sModId . '%';
+        }
+
+        return $this->_aWhere;
+    }
+
+    /**
+     * @param string $sModId
+     *
+     * @return array
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function getLogTypeList($sModId = '')
+    {
+        if (Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId')) {
+            $sModId = Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId');
+        }
+
+        /** @var $oLog d3log */
+        $oLog = oxNew(d3log::class);
+
+        return $oLog->getLogTypeList($sModId);
+    }
+
+    /**
+     * @param string $sModId
+     *
+     * @return array
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function getModIdList($sModId = '')
+    {
+        if (Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId')) {
+            $sModId = Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId');
+        }
+
+        /** @var $oLog d3log */
+        $oLog = oxNew(d3log::class);
+
+        return $oLog->getModIdList($sModId);
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function deleteentry()
+    {
+        /** @var $oLog d3log */
+        $oLog = oxNew(d3log::class);
+        $oLog->delLog();
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getAdditionalFormParams()
+    {
+        $aParams = parent::d3getAdditionalFormParams();
+
+        if (Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId')) {
+            $aParams['sD3ModId'] = Registry::get(Request::class)->getRequestEscapedParameter('sD3ModId');
+        }
+
+        return $aParams;
+    }
+}

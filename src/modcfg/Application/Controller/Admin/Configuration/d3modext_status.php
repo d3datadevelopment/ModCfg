@@ -1,46 +1,81 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-6e+Z
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Configuration;
+
+class d3modext_status extends d3mod_status
+{
+    /**
+     * additional multilang item, which will added as last part to help url
+     *
+     * @var string
+     */
+    protected $_sHelpLinkMLAdd = 'D3MODCFG_EXT_HELPLINK_STATUS';
+    protected $_sRemoteUpdateSessionVarname = 'd3RemoteExtList';
+    protected $_sRemoteModuleSessionVarname = 'd3RemoteExt';
+    protected $_sMenuSubItemTitle = 'd3mxextensions';
+    public $aRemoteMods = array();
+    protected $_sClassName = self::class;
+
+    /**
+     * @return string
+     */
+    public function getModuleType()
+    {
+        return 'ext';
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getRemoteMods()
+    {
+        return array();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getShowNewItems()
+    {
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitleIdent()
+    {
+        return 'D3_MOD_EXT_INSTALLED';
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsOrderStep()
+    {
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getLink()
+    {
+        return '';
+    }
+}

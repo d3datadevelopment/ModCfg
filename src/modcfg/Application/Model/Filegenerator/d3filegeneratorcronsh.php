@@ -1,49 +1,77 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+ /**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Filegenerator;
+
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+
+class d3filegeneratorcronsh extends d3filegenerator
+{
+    protected $_sContentNameBaseKey = 'D3_SHGENERATOR_CRON_';
+    protected $_sScriptPath;
+    protected $_aSortedParameterList = array();
+
+    protected $_aContentList = array(
+        'standard'              => 'd3shpattern_cron_standard.tpl',
+        'profihost_php56'       => 'd3shpattern_cron_profihost56.tpl',
+        'profihost_php70'       => 'd3shpattern_cron_profihost70.tpl',
+        'hetzner_php56_cgi'     => 'd3shpattern_cron_hetzner56cgi.tpl',
+        'hetzner_php70_cgi'     => 'd3shpattern_cron_hetzner70cgi.tpl',
+        'hetzner_php56_cli'     => 'd3shpattern_cron_hetzner56cli.tpl',
+        'hetzner_php70_cli'     => 'd3shpattern_cron_hetzner70cli.tpl',
+        'domainfactory_php56'   => 'd3shpattern_cron_domainfactory56.tpl',
+        'domainfactory_php70'   => 'd3shpattern_cron_domainfactory70.tpl',
+        'mittwald'              => 'd3shpattern_cron_mittwald.tpl',
+    );
+
+    /**
+     * @param $sPath
+     */
+    public function setScriptPath($sPath)
+    {
+        $this->_sScriptPath = $sPath;
+    }
+
+    /**
+     * @param array $aParameterList
+     */
+    public function setSortedParameterList(array $aParameterList)
+    {
+        ksort($aParameterList);
+        $this->_aSortedParameterList = $aParameterList;
+    }
+
+    /**
+     * @return \Smarty
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    protected function _configureSmarty()
+    {
+        $oSmarty = parent::_configureSmarty();
+
+        $oSmarty->assign('sPHPInterpreterPath', $this->getPHPInterpreterPath());
+        if ($this->_sScriptPath) {
+            $oSmarty->assign('sScriptPath', $this->_sScriptPath);
+        }
+        if ($this->_aSortedParameterList) {
+            $oSmarty->assign('aParameters', $this->_aSortedParameterList);
+        }
+
+        return $oSmarty;
+    }
+}

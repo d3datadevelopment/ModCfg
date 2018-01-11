@@ -1,64 +1,111 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+ /**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development, Thomas Dartsch
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Parametercontainer;
+
+use \D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
+
+class d3ParameterContainer implements d3ParameterContainerInterface
+{
+    protected $aParameters = array();
+
+    /**
+     * Constructor.
+     * @param array $aParameters An array of parameters
+     */
+    public function __construct(array $aParameters = array())
+    {
+        $this->add($aParameters);
+    }
+
+    /**
+     * Clears all parameters.
+     */
+    public function clear()
+    {
+        $this->aParameters = array();
+    }
+
+    /**
+     * Adds parameters to the service container parameters.
+     * @param array $aParameters An array of parameters
+     */
+    public function add(array $aParameters)
+    {
+        foreach ($aParameters as $sKey => $mValue) {
+            $this->set(strtolower($sKey), $mValue);
+        }
+    }
+
+    /**
+     * Gets the service container parameters.
+     * @return array An array of parameters
+     */
+    public function all()
+    {
+        return $this->aParameters;
+    }
+
+    /**
+     * Gets a service container parameter.
+     * @param string $sName The parameter name
+     * @return mixed  The parameter value
+     * @throws d3ParameterNotFoundException if the parameter is not defined
+     */
+    public function get($sName)
+    {
+        $sName = strtolower($sName);
+
+        if (false == array_key_exists($sName, $this->aParameters) ||
+            false == $sName
+        ) {
+            throw new d3ParameterNotFoundException($sName);
+        }
+
+        return $this->aParameters[$sName];
+    }
+
+    /**
+     * Sets a service container parameter.
+     *
+     * @param string $sName  The parameter name
+     * @param mixed  $mValue The parameter value
+     */
+    public function set($sName, $mValue)
+    {
+        $this->aParameters[strtolower($sName)] = $mValue;
+    }
+
+    /**
+     * Returns true if a parameter name is defined.
+     * @param string $sName The parameter name
+     * @return Boolean true if the parameter name is defined, false otherwise
+     */
+    public function has($sName)
+    {
+        return array_key_exists(strtolower($sName), $this->aParameters);
+    }
+
+    /**
+     * Removes a parameter.
+     *
+     * @param string $sName The parameter name
+     */
+    public function remove($sName)
+    {
+        unset($this->aParameters[strtolower($sName)]);
+    }
+}

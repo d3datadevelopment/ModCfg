@@ -1,58 +1,94 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-HR+cPoRk9LaBVPwUqY6mUk1N102hAxEYMVDMdOkuYmy6T23o9RAGKwXgTIAX18WBGqOnt0uixTdP
-0nUBkN1t8A09i5Bu/Mr7jfW3h9g5D2Z2TFUfMAG8Uy1TmpimRit6r5h7jg9+wD6dSS4GzXZIJdbs
-V4UpUW0wHG43cVCP+Nk35BkfabdG7Cikl4TWA5cXJeLqxHprNgrdsZvKU31uXKTuV43bcXsADOJm
-CsQRzMoERDDBAEWhNmQK7+jgOI84JzWKRMIpgKkiivk+cFURgXbRtQ8FRN1Z27TM31E5HE8OGnrz
-36Gx/rZJGZKdwx6RXxaMk/CIb95tO/FRAZ41qvo/LXtGmKeF2NlVqDGQhRNUhKOUdkvF0GxvAj/c
-cLz8aoJIUJLHHdvYbxPepiIsSOWDnFhxvgRf50WwjlpnPaX4sbRXJjcIWq7nUkyUlKSP6L/vEH+1
-DSRT6oUyiYKFC+hpgHWvUUYc7lVqdON4H+1aoRMet4eLfer7YHouRnQwJrugMCvmPkNmaQ/0WhZD
-3y4Kl038nSw6Y9z5PUtqeQSgAzTair90S0Q7anY+ywawN8dP476fOJ3YWJuJg32X5NY5k+pqPAk7
-oOwKZUGqG6avAcppkFQnZ4oD2f1PHRglWfPyJthiwqKD3febpsmHA/iAfVvQA8L67F6bMkQfw8tX
-AEXVajtPAzu49tEcLmuVLWe7B49ryys00iLzKnjVarsgvZitaZ29t57MZ/JOXsA/ZQOxcl0mLteh
-5rsfPzycNCzu3/m3Ao2ivRlK101/Gd5uJZ6clA0sEJt4AOW+CIEtm+DiOR/p7LeSQLZfnV60EwT8
-bWLxh1LeNIOMTBWbFtiuDnYZnUp13ZjLYBQmVaqxWKe0ikxAjWz9ScbjU6p9vMcOSDVQixoco9rt
-DKDAs4COlPXG8Jlqs1OLIlT2YmF8cChF5yTtva2hFvpbHulH/6tnssrS93WatdHrQWh45mAMZxk4
-vrb1CN4cP2lyEyFsbStzp9szUU1+XWr1RwtEfUPdAn6w6BB1iJG1QNp0WOECvHSc+NgOX4PVCHcv
-0M/RyL3J1Po5WKd3zR5iZKzaUvj3CZIFgtijOVEiLX319ZQBTP7aYxrinsZLnfwVcsQX68T9RgW2
-QT6sGnaOK6q/H+si6cxFgiql+flvIE29WZY6h7UkJztbePJYhzukttrlKJJ5KsjJnSrXQvsvD3YG
-iluap8H8FuxyEkkLijwL5KZ3wAYvV+xfT4jqWu18UJGJoyd7g17JRgD0XYVJVMzbfwJ97XUw9ABD
-f0MeWmv53sAkhoVHVZOKRaxdVrcpPly8KdsNot2awBMDXDCE7EiSI9vl/rNQgvz75iuYQ139jzco
-Yh2DLh4UPmVrnN/nr3DoeOh1BE8VFG3ZoyBPCReMH2EuPY4LISRYK/b5WKB4FcaXxIB3YW0Dj8KR
-42Tx+MyjCAXocwiWZjXr/YuoPzOUg5m5tCQk+YmFeNoFBFZqXilT4WIdV8RaD4rZMeEZ/bU2VIpt
-UpI5NqY5vNN2UVcepDsTECAJ5lTsnLfYIR216qS7oz7IbNBiw2dcmcFHwEEA3XcIx5ET0fl28CVL
-Vx2XaI7gu8X/Q6szwl/Y6iEsuQYBBGqTCKfuBxakg1PS+DlMBucAEC2no2UGCdPOPDSzRHPktesv
-CLViKAUioCRPBFaZSpl/whZzo8tUCqrtiibp/44A7+z0E/jkWnCaACFNpeANJk/kpOqORIzmoMHy
-n2QMGNFiQMeZhSZJKwQ9jFswQLUEvWSitmC/mOc8EVnLKeyj9yaBvuXQQss8KmU9XLwPmMYB8Z0N
-T8hYYfCurKk4NPDhhqtMXM6yucssUssU6Nb6ysKBes91GsXVMNyfWWbrvYPNUmgbIBLEYXzeHwxH
-2NQPRRWPVmI6Zqfhgz8OuyDWuD+RcMV//vslMyr3/aCS6+Ai48Js7F9f3ZiuNIqx/byLy/rhiPZv
-obTGVQoijvsLrgOGgu3UPgrDSB4zi8CbeF6mqUMy9kkBtAKhkv3C8LSGMNSa49SSfZP85E7WsUS4
-8oVA7otflTrmSyPTVHOGRvyudRzFXq95ZByBC75uiTUM1x9u868gDeSR1iReKOxlztnwlJgzKUej
-m2f3/15ULwAmuBdVExtGx8k75wFbn40v2g+0+Ucks86ilECSyhOJyUb/s7owRc4xd9bl08Sh4meB
-EGVHcMSP/vCOvcVjO9fp5rqftST6jDV59k7bjCP0bJS6/HtkcYOfa7lXnVdd31Ga6OhYtcmvvoIq
-pNxj4Yx0cWMPUtAVkfA3xFCFTCCZp31rRndx7ISJyqkvY5oxOrP2OL7o3v//fYItf9LqvEVFJVw7
-dhdGrr8VO24vhPOix+o9aLSsD4PL+UG0Mr0Yo8su8eyg/MXDKehQGkvDAu2qkJA+miSbXh/935I2
-PigD7CwivAUdWUNvqrYMwWJABgEh/ZtTlaryuAes3vesc350EdYMcELQD///qRwPQbizEfhUBBLY
-j+ri3uHNob9tAaBD1eXZeZiski2S4l6Pwwbq6thXiYwMhRBMXonmJhURgFk+4zFRzUla8S6C+Uvi
-fjvUHxhAZkGonNZChUMwWOHxM/qFgd5v2f/2UZQnwg7NXm5xOwvLZF0u4hs5MInnen5aeQ6AatCH
-up2qBZCiM/Xl2hoB/5wSYVxSZk8T0WwHKo6KdXtYpiIsyu8psm30NAEYViPjoPAUYsp/cjyd1KZz
-A5qJtXaBV3vELDQfsYznlVwi+4usD7KWCDW1w4ukCkwgkBcVPRfeKThs/LavW2FCtFgYQ62efDw9
-nxfRCtRrIUCT/czj+QWCwDK6MnAuS1ATXC7Tq45PnzZIU3jmMoJHPAhisk5Xpm/h/isej+sv9ROh
-OPpu8FtabgGn48ZX6iO/qBul/lUnVPXTDg9koEXKAW3C8bua/ufOolnIdw+I7p+VSD3mPzAkzcQB
-x7othiolEqvvvF5wYH3z3xvcgr4pJOVSOQfZM4FpBntQYqrZ6OPG32koa1DEQDvQA2Zc8hrW0scd
-DdoV1OpR1bI0nbdZHx8fnAAZaHTYIl+GKQX6GU011ocm7ehzy8wSbldJpVeDVFoEPt0oQ20IjR1k
-9F1iNxiMo1bGLjpztdfCJySPRBg/jNUBHjkhuPTS5g+R90DScnx8wcexRwTsnLX4J6EZYGOjbmIx
-b3Fosaf7sLj8nsrY8mrNTJ/MRfLil7WR3+0cKb0Kv5iUTzN9/ZkKG+HL3LlqnzE0OrW3CbN5rrAo
-bDffH6aq3c9ZQm/5pf8cWcilz7dUWQtSJD0D3b2l243N6nEzI7r+580R8DOOX7pRhJQGIbwoA73l
-PiLENEUETCStVaIWoKG8cE8CTGa9WXWbFPWvy2oJGJO9lBMV54Yb/vxYNkFzUUdCyLCS/ya6BY3N
-ef1d9d1S5UfKZzDkBFePQsbXOOaw/J/jkuUrqWDG7XA+3ysCYi6d2TD0iqLPo2R+3+otaUhbTNGF
-dDFya1k2/C+OogNlxT1CBRybcUKi5mrOK7fimuUgOegNKs3VT5nHY/pWzyPmzT5I37dXxbHej/2A
-j0LXFj8VdCDKpbA0s+0FYf5cmmPRvwKZ0yP5kAQ2GzZ171mtClfD3t+EwZbI8MPdfohHH8gJIdRN
-h8QPETM/JbcEakoEJvbpVkp7ikwembOirY4sDuUCpdgh/jqa2r+RY5xvgSrwcytwIQdjzXbMjzlW
-X1Iu9LcAQKKaJXKemXoOdVDgj1vJB3CUwQ8QLnzCB4o7lYtXm/DhV9UcNeso7q5vs6XsTcH8aoHP
-7Ab7Y1nOmurH+NJZARXQ2FlnxsbvPPAq/99/nesPxrYMrHAugT/Xa/dZ7kCVEqyd1MLplzNVi2TE
-VGpOW8DAKGgWqtOV1b7g81q/IYERtNiHpkFuXbh5lv6clqb/NclMAy/QBWPOj2ldENyzpoXkS6M6
-k/ToRtvlfkSEikx5hfbiC91E+YNhIG7hcFEIDDfcUnoSyKu26OM7Wan5gbNSAFueaPE7ePNcgWCi
-SX6iqF0ojCzJQ+6OkGMErgO=
+<?php
+ /**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development, Thomas Dartsch
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Installcheck;
+
+use D3\ModCfg\Application\Model\Parametercontainer\d3ParameterContainer;
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
+use OxidEsales\Eshop\Core\Model\BaseModel;
+use OxidEsales\Eshop\Core\Model\ListModel;
+
+class d3installcheck extends ListModel
+{
+    /** @var d3ParameterContainer */
+    public $oParameterContainer;
+    public $aInstallCheckItems = array(
+        d3InstallCheckModuleVersionsIdentical::class,
+        d3InstallCheckExtendItemsAreActive::class,
+        d3InstallCheckClassItemsAreAvailable::class,
+        d3InstallCheckTemplateItemsAreAvailable::class,
+        d3InstallCheckBlockItemsAreActive::class,
+        d3InstallCheckHasNoInstallItem::class,
+    );
+
+    /**
+     * d3installcheck constructor.
+     * @param d3_cfg_mod $oModCfg
+     * @throws d3ParameterNotFoundException
+     */
+    public function __construct(d3_cfg_mod $oModCfg)
+    {
+        parent::__construct();
+
+        $this->oParameterContainer = oxNew(d3parameterContainer::class);
+        $this->oParameterContainer->set('oSet', $oModCfg);
+
+        $this->setInstallCheckList();
+    }
+
+    /**
+     * @throws d3ParameterNotFoundException
+     */
+    public function setInstallCheckList()
+    {
+        if (is_array($this->aInstallCheckItems) && count($this->aInstallCheckItems)) {
+            foreach ($this->aInstallCheckItems as $sClassName) {
+                $this->offsetSet($sClassName, $this->_getCheckItemObject($sClassName));
+            }
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasErrors()
+    {
+        if ($this->count()) {
+            /** @var d3InstallCheckInterface $oInstallCheckItem */
+            foreach ($this->getArray() as $oInstallCheckItem) {
+                if (false == $oInstallCheckItem->hasCheckPassed()) {
+                    return true;
+                };
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $sClassName
+     * @return BaseModel
+     * @throws d3ParameterNotFoundException
+     */
+    protected function _getCheckItemObject($sClassName)
+    {
+        return oxNew(
+            $sClassName,
+            $this->oParameterContainer->get('oSet')
+        );
+    }
+}

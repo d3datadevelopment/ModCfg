@@ -1,42 +1,59 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Exception;
+
+/**
+ * handle d3_cfg_mod specific exceptions
+ */
+class d3_cfg_mod_exception extends d3modprofile_exception
+{
+    protected $_sCompareData;
+
+    /**
+     * @return string
+     */
+    public function getString()
+    {
+        $sStr = __CLASS__ . " (time: " . date(
+                'Y-m-d H:i:s'
+            ) . "): [{$this->code}]: {$this->message} ";
+
+        if ($this->getCompareData()) {
+            $sStr .= "(".$this->getCompareData().") ";
+        }
+
+        $sStr .= "- Faulty ModCfg: " . $this->getModCfgId();
+        //." \n Stack Trace: {$this->getTraceAsString()}\n\n";
+
+        return $sStr;
+    }
+
+    /**
+     * @param $sCompareData
+     */
+    public function setCompareData($sCompareData)
+    {
+        $this->_sCompareData = $sCompareData;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompareData()
+    {
+        return $this->_sCompareData;
+    }
+}

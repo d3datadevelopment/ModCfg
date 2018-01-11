@@ -1,44 +1,79 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-ribI
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author        D3 Data Development <support@shopmodule.com>
+ * @link          http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Parametercontainer;
+
+use D3\ModCfg\Application\Model\Log\d3log;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Model\BaseModel;
+use OxidEsales\Eshop\Core\Exception\DatabaseException;
+
+class Registry
+{
+    protected static $instance;
+    protected $objects = array();
+    protected $shoudISave = false;
+
+    /**
+     *
+     * @return $this
+     */
+    static public function getInstance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = oxNew(Registry::class);
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * @param BaseModel $baseModel
+     */
+    public function add(BaseModel $baseModel)
+    {
+        if (is_null($baseModel->getId())) {
+            $baseModel->setId();
+        }
+        $this->objects[$baseModel->getId()] = clone $baseModel;
+        if ($baseModel instanceof d3log) {
+            $baseModel::remove($baseModel->d3getModId());
+        }
+    }
+
+
+    /**
+     * save and clear objects
+     * @throws DatabaseException
+     * @throws DatabaseConnectionException
+     */
+    public function save()
+    {
+        if ($this->shoudISave) {
+            foreach ($this->objects as $object) {
+                /** @var $object BaseModel */
+                if (false == $object->exists()) {
+                    $object->save();
+                }
+            }
+        }
+
+        $this->objects = array();
+    }
+
+    public function allowSave()
+    {
+        $this->shoudISave = true;
+    }
+}

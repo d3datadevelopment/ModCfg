@@ -1,59 +1,69 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-sPSAEH1gVB5YgCLiBh8ggsYH0VTGlDMMFKC=
+<?php
+
+namespace D3\ModCfg\Application\Model\Transactionlog;
+
+use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Model\ListModel;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+
+/**
+ * Class d3transactionloglist
+ */
+class d3transactionloglist extends ListModel
+{
+    /** @var AbstractReader */
+    private $logreader;
+
+    /**
+     * Class Constructor
+     *
+     * @param string $transactionlog
+     *
+     * @internal param string $sObjectName Associated list item object type
+     */
+    public function __construct($transactionlog)
+    {
+        if (!($transactionlog instanceof d3transactionlog)) {
+            throw new \InvalidArgumentException('You have not provided a d3transactionlog instance');
+        }
+
+        parent::__construct();
+
+        $this->init($transactionlog->getClassName());
+        $this->logreader = $transactionlog->getTransactionLogReader();
+    }
+
+    /**
+     * Selects and SQL, creates objects and assign them
+     *
+     * @param string $sql
+     * @param array $parameters
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function selectString($sql, array $parameters = array())
+    {
+        $this->clear();
+
+        $oDb = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
+        if ($this->_aSqlLimit[0] || $this->_aSqlLimit[1]) {
+            $rs = $oDb->selectLimit($sql, $this->_aSqlLimit[1], $this->_aSqlLimit[0], $parameters);
+        } else {
+            $rs = $oDb->select($sql, $parameters);
+        }
+
+        if ($rs != false && $rs->count() > 0) {
+            while (!$rs->EOF) {
+                $oListObject = oxNew($this->_sObjectsInListName, $this->logreader);
+
+                $this->_assignElement($oListObject, $rs->fields);
+
+                $this->add($oListObject);
+
+                $rs->fetchRow();
+            }
+        }
+    }
+}

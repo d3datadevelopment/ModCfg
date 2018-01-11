@@ -1,319 +1,646 @@
-<?php //00727
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  Expiration date: never  @package Modul-Connector @version 5.1.0.0 PHP5.6 - PHP7.0 (11.01.2018) @author Daniel Seifert support@shopmodule.com support@shopmodule.com @copyright (C) 2018, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-Kae/e7p/rLJI
+<?php
+
+// finalize show install info
+// rollBack in case of aborted install
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Install;
+
+use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
+use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\d3utils;
+use D3\ModCfg\Application\Model\Install\d3install;
+use D3\ModCfg\Application\Model\Log\d3log;
+use D3\ModCfg\Application\Model\d3filesystem;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
+use OxidEsales\Eshop\Core\Exception\DatabaseException;
+
+class d3_mod_install extends d3_cfg_mod_main
+{
+    protected $_sModId = 'd3modcfg_lib';
+    public $sModId;
+    public $sThisTemplate = 'd3_mod_install.tpl';
+    protected $_sMenuSubItemTitle = 'D3_INSTALL';
+    protected $_sStep = false;
+    public $sRedirectStep = false;
+    /** @var d3install */
+    public $oInstall;
+    public $sFnc;
+    public $oModInfo;
+    public $oModData;
+    public $aQuestions;
+    public $blAvoidAutoRedirect = false;
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function init()
+    {
+        parent::init();
+
+        $this->oInstall = d3install::getInstance();
+
+        if (Registry::getSession()->getVariable('d3InstallType') == 'expert' &&
+            false == Registry::get(Request::class)->getRequestEscapedParameter('expconf') &&
+            false == in_array(
+                Registry::get(Request::class)->getRequestEscapedParameter('nextStep'),
+                array('init', 'getArchive', 'extractArchive', 'showDescription', 'checkDescFile')
+            ) &&
+            false == Registry::get(Request::class)->getRequestEscapedParameter('addStep')
+        ) {
+            $this->blAvoidAutoRedirect = true;
+        }
+
+        $this->sFnc   = preg_replace('@_[0-9]$@', '', Registry::get(Request::class)->getRequestEscapedParameter('nextStep'));
+        $this->sModId = Registry::get(Request::class)->getRequestEscapedParameter('modid');
+        d3install::getInstance()->setModId($this->sModId);
+        $oUpdateServer = d3install::getInstance()->getFromUpdateServer();
+
+        if (d3_cfg_mod::isAvailable($this->sModId) && d3_cfg_mod::get($this->sModId)->getLicenseData('modversion')) {
+            $oUpdateServer->setParameter(
+                'sLicModVersion',
+                d3_cfg_mod::get($this->sModId)->getLicenseData('modversion')
+            );
+        }
+
+        /** @var d3shopversionconverter $oShopVersionConverter */
+        $oShopVersionConverter = oxNew(d3shopversionconverter::class);
+        $oUpdateServer->setParameter('sModId', $this->sModId);
+        $oUpdateServer->setParameter(
+            'sEdition',
+            $oShopVersionConverter->fixEditionToDefaultEdition($this->getShopEdition())
+        );
+        $oUpdateServer->setParameter(
+            'sShopVersion',
+            $oShopVersionConverter->fixVersionToDefaultEdition($this->getShopVersion())
+        );
+        $this->oModInfo = $oUpdateServer->getRemoteModuleVersion();
+    }
+
+    /**
+     * @return string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function render()
+    {
+        parent::render();
+
+        if (false == $this->hasDemoshopMode() && $this->sFnc && method_exists($this, $this->sFnc)) {
+            $this->{$this->sFnc}();
+        } elseif (false == $this->hasDemoshopMode() && $this->sFnc) {
+            $this->addTplParam('blNonExistingFunction', $this->sFnc);
+            return $this->sThisTemplate;
+        } else {
+            $this->blAvoidAutoRedirect = true;
+            $this->initSetup();
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        }
+
+        return $this->sThisTemplate;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasDemoShopMode()
+    {
+        return Registry::get(d3utils::class)->hasDemoshopMode();
+    }
+
+    /**
+     * @return d3_cfg_mod|false
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    protected function _d3GetSet()
+    {
+        if (d3_cfg_mod::isCallable()) {
+            return d3_cfg_mod::get($this->_sModId);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return false|d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    protected function _d3GetLog()
+    {
+        if ($this->_d3GetSet()) {
+            return $this->_d3GetSet()->d3getLog();
+        } else {
+            return false;
+        }
+    }
+
+    public function initSetup()
+    {
+        $this->_sStep = "init";
+        $this->oInstall->init();
+
+        return;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActStep()
+    {
+        return $this->oInstall->getActStep('ID');
+    }
+
+    /**
+     * @return string
+     */
+    public function getNextStep()
+    {
+        return $this->oInstall->getNextStep('ID');
+    }
+
+    /**
+     * @return string
+     */
+    public function getFurtherStep()
+    {
+        return $this->oInstall->getNextStep('ID');
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetModId()
+    {
+        return $this->sModId;
+    }
+
+    /**
+     * @return mixed
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws DatabaseException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function getModName()
+    {
+        if (false == $this->oModData) {
+            /** @var d3shopversionconverter $oShopVersionConverter */
+            $oShopVersionConverter = oxNew(d3shopversionconverter::class);
+            $oUpdateServer = $this->oInstall->getFromUpdateServer();
+            $oUpdateServer->setParameter('sModId', $this->oModInfo['availableversion']['modid']);
+            $oUpdateServer->setParameter(
+                'sEdition',
+                $oShopVersionConverter->fixEditionToDefaultEdition($this->getShopEdition())
+            );
+            $this->oModData = $oUpdateServer->getModuleInfo();
+        }
+
+        return $this->oModData['modtitle'];
+    }
+
+    protected function _registerInstallType()
+    {
+        Registry::getSession()->setVariable(
+            'd3InstallType',
+            strtolower(Registry::get(Request::class)->getRequestEscapedParameter('installtype'))
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function d3getActTitleMLIdent()
+    {
+        return "D3_INSTALL_SETUPSTEPS_" . strtoupper($this->getActStep());
+    }
+
+    /**
+     * @return string
+     */
+    public function d3getActDescMLIdent()
+    {
+        return $this->d3getActTitleMLIdent() . "_DESC";
+    }
+
+    /**
+     * @param $sRedirectStep
+     */
+    public function setRedirectStep($sRedirectStep)
+    {
+        $this->sRedirectStep = $sRedirectStep;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getRedirectStep()
+    {
+        if ($this->sRedirectStep) {
+            return $this->sRedirectStep;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param null $aDetails
+     */
+    protected function _d3SetConfirmParameters($aDetails = null)
+    {
+        $this->addTplParam('blExpertMode', true);
+
+        if ($aDetails) {
+            $this->addTplParam('aStepDetails', $aDetails);
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function getArchive()
+    {
+        $this->_registerInstallType();
+
+        if ($this->oInstall->getArchive($this->oModInfo)) {
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        } else {
+            $this->setRedirectStep('error');
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function extractArchive()
+    {
+        if ($this->oInstall->zip_extract($this->oModInfo)) {
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        } else {
+            $this->setRedirectStep('error');
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function showDescription()
+    {
+        $this->addTplParam('sDescriptionContent', $this->oInstall->getDescriptionContent());
+
+        if (Registry::get(Request::class)->getRequestEscapedParameter('confirmDesc')) {
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function copyFiles()
+    {
+        if ($this->_d3GetLog()) {
+            $this->_d3GetLog()->Log(
+                d3log::INFO,
+                __CLASS__,
+                __FUNCTION__,
+                __LINE__,
+                'copyFiles',
+                Registry::getSession()->getVariable('d3InstallType') . " - " .
+                Registry::get(Request::class)->getRequestEscapedParameter('expconf'),
+                false
+            );
+        }
+
+        if (Registry::getSession()->getVariable('d3InstallType') == 'expert' &&
+            false == Registry::get(Request::class)->getRequestEscapedParameter('expconf')
+        ) {
+            $this->_d3SetConfirmParameters($this->oInstall->copyFiles_getDetails($this->oModInfo));
+            return;
+        }
+
+        if ($this->oInstall->copyFiles($this->oModInfo)) {
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        } else {
+            $this->setRedirectStep('error');
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function rollback_copyFiles()
+    {
+        if ($this->oInstall->rollback_copyFiles()) {
+            $this->setRedirectStep('rollback_end');
+            $this->_sStep = "rollback_copyFiles";
+        } else {
+            $this->setRedirectStep('error');
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function activateModule()
+    {
+        if ($this->_d3GetLog()) {
+            $this->_d3GetLog()->Log(
+                d3log::INFO,
+                __CLASS__,
+                __FUNCTION__,
+                __LINE__,
+                'activateModule',
+                Registry::getSession()->getVariable('d3InstallType') . " - " .
+                Registry::get(Request::class)->getRequestEscapedParameter('expconf'),
+                false
+            );
+        }
+
+        if (Registry::getSession()->getVariable('d3InstallType') == 'expert' &&
+            false == Registry::get(Request::class)->getRequestEscapedParameter('expconf')
+        ) {
+            $this->_d3SetConfirmParameters($this->oInstall->activateModule_getDetails($this->oModInfo));
+            return;
+        }
+
+        if ($this->oInstall->activateModule($this->oModInfo)) {
+            $this->setRedirectStep($this->oInstall->getNextStep('ID'));
+        } else {
+            $this->setRedirectStep('error');
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserQuestions()
+    {
+        return $this->aQuestions;
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function finished()
+    {
+        $this->oInstall->removeArchive($this->oModInfo);
+        $this->addTplParam('sLogURI', $this->oInstall->getLogURI());
+        $this->_sStep = "finished";
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function rollback_end()
+    {
+        $this->addTplParam('sLogURI', $this->oInstall->getLogURI());
+        $this->_sStep = "rollback_end";
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function cleanup()
+    {
+        if ($this->oInstall->cleanUp()) {
+            $this->addTplParam('blClrTmpSuccess', true);
+        }
+
+        $this->addTplParam('blClrTmp', true);
+        $this->addTplParam('sLogURI', $this->oInstall->getLogURI());
+        $this->_sStep = "finished";
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function error()
+    {
+        $this->oInstall->removeArchive($this->oModInfo);
+        $this->addTplParam('sLogURI', $this->oInstall->getLogURI());
+        $this->_sStep = "error";
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstallProtokoll()
+    {
+        return $this->oInstall->getProtokoll();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getProtokollStatus()
+    {
+        $blStatus = true;
+        foreach ($this->getInstallProtokoll() as $oProtokollItem) {
+            if ($oProtokollItem->Status < 1) {
+                $blStatus = false;
+            }
+        }
+
+        return $blStatus;
+    }
+
+    public function rollback()
+    {
+        $this->setRedirectStep('rollback_' . $this->oInstall->getPrevStep('ID'));
+        $this->_sStep = "initRollBack";
+    }
+
+    /**
+     * @param $sRet
+     * @return bool|mixed|string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function buildRetUrl($sRet)
+    {
+        if ($this->blAvoidAutoRedirect) {
+            return false;
+        }
+
+        /** @var $oFS d3filesystem */
+        $oFS  = oxNew(d3filesystem::class);
+        $sUrl = false;
+        $sURI = false;
+
+        $sSeparator = ini_get('arg_separator.output');
+        $sHTMLSeparator = htmlspecialchars($sSeparator);
+
+        $sRequestUri = $oFS->getCurrentUrl();
+
+        $aSearch  = array('('.$sSeparator.'nextStep=([^'.$sSeparator.']*))', '('.$sSeparator.'addStep=([0-9]{1}))', '('.$sSeparator.'expconf=([0-9]{1}))');
+        $sReplace = '';
+        if ($sRet) {
+            if ($sRequestUri) {
+                foreach ($aSearch as $sSearch) {
+                    $sURI = $sRequestUri = preg_replace('@' . $sSearch . '@', $sReplace, $sRequestUri);
+                }
+
+                strstr($sURI, '?') ? $sDelimiter = $sSeparator : $sDelimiter = '?';
+                $sUrl = $sURI . $sDelimiter . 'nextStep=' . $sRet;
+            } else {
+                $sURI = $_SERVER['REQUEST_URI'];
+                foreach ($aSearch as $sSearch) {
+                    $sURI = preg_replace('@' . $sSearch . '@', $sReplace, $sURI);
+                }
+                strstr($sURI, '?') ? $sDelimiter = $sSeparator : $sDelimiter = '?';
+                $sProtokoll = $oFS->getSSLProtokollStatus();
+                $sUrl       = $sProtokoll . "://" . $_SERVER['HTTP_HOST'] . $sURI . $sDelimiter . 'nextStep=' . $sRet;
+            }
+        }
+
+        $this->_d3GetLog()->Log(d3log::INFO, __CLASS__, __FUNCTION__, __LINE__, 'buildReturnUrl', $sUrl, false);
+
+        $sUrl = str_replace($sSeparator, $sHTMLSeparator, str_replace($sHTMLSeparator, $sSeparator, $sUrl));
+
+        return $sUrl;
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function filedownload()
+    {
+        /** @var $oFS d3filesystem */
+        $oFS = oxNew(d3filesystem::class);
+        $oFS->startDirectDownload($this->oModInfo->URL);
+
+        return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProgressStatus()
+    {
+        $iActStepCount = $this->oInstall->getActStepCount();
+        $iMaxStepCount = $this->oInstall->getMaxStepCount() - 1;
+
+        $iPercent = round(100 / $iMaxStepCount * $iActStepCount);
+        return $iPercent . "%";
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function hasAlternateConnect()
+    {
+        if ($this->_d3GetSet()->getValue('blInstall_forceFtpConnect')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserMessages()
+    {
+        return array();
+    }
+}
