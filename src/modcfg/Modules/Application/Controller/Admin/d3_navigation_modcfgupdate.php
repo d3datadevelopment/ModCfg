@@ -15,6 +15,8 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Application\Controller\Admin;
+
 use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Install\d3install;
@@ -24,6 +26,7 @@ use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Facts\Facts;
 use OxidEsales\Eshop\Core\ShopVersion;
 use OxidEsales\Eshop\Core\Registry;
@@ -70,9 +73,10 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
-     * @throws Exception
+     * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
@@ -90,8 +94,12 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
     /**
      * @return array
+     * @throws DBALException
      * @throws DatabaseConnectionException
-     * @throws Exception
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws SystemComponentException
+     * @throws d3ShopCompatibilityAdapterException
      */
     protected function _doModCfgUpdateRequired()
     {

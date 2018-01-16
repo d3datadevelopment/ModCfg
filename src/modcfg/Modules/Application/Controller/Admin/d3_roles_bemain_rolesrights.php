@@ -14,6 +14,9 @@
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
  * @link      http://www.oxidmodule.com
  */
+
+namespace D3\ModCfg\Modules\Application\Controller\Admin;
+
 class d3_roles_bemain_rolesrights extends d3_roles_bemain_rolesrights_parent
 {
     /**
@@ -23,7 +26,7 @@ class d3_roles_bemain_rolesrights extends d3_roles_bemain_rolesrights_parent
     {
         $sRet = parent::render();
 
-        $domDocument = new DOMDocument();
+        $domDocument = new \DOMDocument();
         $oxiddoms = $this->getNavigation()->getDomXml()->documentElement->firstChild->childNodes;
 
         // fuege oxid bams hinzu
@@ -33,7 +36,7 @@ class d3_roles_bemain_rolesrights extends d3_roles_bemain_rolesrights_parent
         }
 
         $domBom = $this->getNavigation()->getDomXml()->documentElement->childNodes;
-        /** @var $oxmenu DOMElement */
+        /** @var $oxmenu \DOMElement */
         foreach ($domBom as $oxmenu) {
             if ($oxmenu->hasAttributes()) {
                 if ($oxmenu->getAttribute('id') == 'd3mxd3modules') {

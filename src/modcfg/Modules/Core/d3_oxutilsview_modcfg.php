@@ -15,8 +15,11 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Core;
+
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Exception\FileException;
+use \Smarty;
 
 class d3_oxutilsview_modcfg extends d3_oxutilsview_modcfg_parent
 {

@@ -15,6 +15,8 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Core;
+
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Config;
 

@@ -15,10 +15,13 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Application\Controller;
+
 use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use D3\ModCfg\Application\Model\Parametercontainer\Registry as ParameterContainerRegistry;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
@@ -43,16 +46,17 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     private $_blDevMode = null;
 
     /**
-     * @param null $sClass
-     * @param null $sFunction
-     * @param null $aParams
-     * @param null $aViewsChain
-     * @throws Exception
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
+     * @param null|string $sClass
+     * @param null|string $sFunction
+     * @param null|array $aParams
+     * @param null|array $aViewsChain
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws DatabaseException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     public function start ($sClass = null, $sFunction = null, $aParams = null, $aViewsChain = null)
     {
@@ -86,7 +90,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         parent::start($sClass, $sFunction, $aParams, $aViewsChain);
 
         // doesn't work if Utils::redirect is called
-        \D3\ModCfg\Application\Model\Parametercontainer\Registry::getInstance()->save();
+        ParameterContainerRegistry::getInstance()->save();
     }
 
     /**
@@ -142,7 +146,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         ) {
             try {
                 parent::_process($sClass, $sFunction, $aParams, $aViewsChain);
-            } catch (Exception $oEx) {
+            } catch (\Exception $oEx) {
                 if (d3_cfg_mod::get($this->_sLogSetId)->getValue('blLog_showAllExceptions')) {
                     echo $oEx->getMessage();
                     echo "<pre>";

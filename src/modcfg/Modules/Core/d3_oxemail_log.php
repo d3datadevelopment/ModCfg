@@ -14,6 +14,8 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Core;
+
 class d3_oxemail_log extends d3_oxemail_log_parent
 {
     /**
