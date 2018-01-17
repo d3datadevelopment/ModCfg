@@ -46,6 +46,11 @@ All notable changes to this project will be documented in this file.
 ## 5.1.0.0 - 2017-12-18<a name="c5100"></a>
 ### Added
 - composerfähige Installation
+- Migrationsqueries (von OXID 4.10 / 5.x)
+- Bereinigung der genierten Bilder auch für andere Objekttypen
+
+### Changed
+- als deprecated markierten Code entfernt
 
 ## 5.0.0.0 - 2017-11-23<a name="c5000"></a>
 ### Added

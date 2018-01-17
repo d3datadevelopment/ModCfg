@@ -72,9 +72,77 @@ class d3ShopMaintenance extends d3_cfg_mod_main
     {
         /** @var $oClrTmp d3clrtmp */
         $oClrTmp = $this->_getClrTmp();
-        $oClrTmp->clearGeneratedImgs();
+        $oClrTmp->clearGeneratedProductImgs();
 
         Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenCategoryImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedCategoryImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENCATIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenManufacturerImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedManufacturerImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENMNFIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenVendorImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedVendorImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENVNDIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenWrappingImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedWrappingImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENWRPIMGS_SUCC');
     }
 
     /**

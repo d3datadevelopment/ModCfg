@@ -318,14 +318,85 @@ class d3clrtmp extends Base
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    public function clearGeneratedImgs()
+    public function clearGeneratedProductImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getProductImageTypes());
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedCategoryImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getCategoryImageTypes());
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedManufacturerImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getManufacturerImageTypes());
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedVendorImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getVendorImageTypes());
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedWrappingImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getWrappingImageTypes());
+    }
+
+    /**
+     * @param $aTypesList
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedImgs($aTypesList)
     {
         startProfile(__METHOD__);
 
         /** @var d3filesystem $oFS */
         $oFS = oxNew(d3filesystem::class);
 
-        foreach ($this->getAllImageFolders() as $sFolder) {
+        foreach ($this->getImageFoldersByType($aTypesList) as $sFolder) {
             $oFS->setDevMode(false);
             $oFS->setNoAdditionalExistCheck(true);
             $oFS->del_dir($sFolder, null, true, false);
@@ -499,16 +570,13 @@ class d3clrtmp extends Base
         $this->_blHideErrorMsg = true;
     }
 
-    /**
-     * @return array
-     */
-    public function getAllImageFolders()
+    public function getImageFoldersByType($aTypesList)
     {
         $aDirs = array();
 
-        foreach ($this->d3getProductImageTypes() as $sImgType) {
+        foreach ($aTypesList as $sImgType) {
             $aDirs[] = Registry::getConfig()->getPictureDir(true).
-                Registry::get("oxUtilsFile")->getImageDirByType($sImgType, true);
+                       Registry::get("oxUtilsFile")->getImageDirByType($sImgType, true);
         }
 
         return $aDirs;
@@ -524,6 +592,38 @@ class d3clrtmp extends Base
         array_walk($aPicRange, array($this, 'd3fixPicTypeNames'), 'M');
 
         return array_merge($aTypes, $aPicRange);
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getCategoryImageTypes()
+    {
+        return array('TC', 'CICO', 'PICO');
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getManufacturerImageTypes()
+    {
+        return array('MICO');
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getVendorImageTypes()
+    {
+        return array('VICO');
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getWrappingImageTypes()
+    {
+        return array('WP');
     }
 
     /**
