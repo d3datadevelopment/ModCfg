@@ -1,198 +1,123 @@
-<?php
-
-/**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
- * http://www.shopmodule.com
- *
- * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author        D3 Data Development - <support@shopmodule.com>
- * @link          http://www.oxidmodule.com
- */
-
-date_default_timezone_set('Europe/Berlin');
-
-/**
- * Class d3PreCheckInFolder
- */
-class d3PreCheckInFolder
-{
-    public $sVersion = '4.10.2';
-
-    /**
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->sVersion;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasMinPhpVersion()
-    {
-        $aArgs = func_get_args();
-
-        if (version_compare(phpversion(), $aArgs[0]['version'], '>=')) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasMaxPhpVersion()
-    {
-        $aArgs = func_get_args();
-
-        if (version_compare(phpversion(), $aArgs[0]['version'], '<=')) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasFromToPhpVersion()
-    {
-        $aArgs = func_get_args();
-
-        if ((version_compare(phpversion(), $aArgs[0]['from'], '>=')) && (version_compare(
-                phpversion(),
-                $aArgs[0]['to'],
-                '<'
-            ))
-        ) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasZendLoaderOptimizer()
-    {
-        if ((version_compare(phpversion(), '5.2.0', '>=')
-            && version_compare(phpversion(), '5.2.900', '<')
-            && function_exists('zend_optimizer_version')
-        ) || (
-            version_compare(phpversion(), '5.3.0', '>=')
-            && version_compare(phpversion(), '5.6.900', '<')
-            && function_exists('zend_loader_version')
-        )) {
-            if (function_exists('opcache_get_status')
-                && ($aOpCacheStatus = opcache_get_status())
-                && $aOpCacheStatus['opcache_enabled']
-            ) {
-                return null;
-            } else {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasIonCubeLoader()
-    {
-        if (function_exists('ioncube_loader_version')) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasExtension()
-    {
-        $aArgs = func_get_args();
-
-        if (extension_loaded($aArgs[0]['type'])) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasMinCurlVersion()
-    {
-        $aArgs = func_get_args();
-
-        $aCurlVersion = curl_version();
-        return version_compare($aCurlVersion['version'], $aArgs[0]['version'], '>=');
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasMinOpenSSLVersion()
-    {
-        $aArgs = func_get_args();
-        return version_compare($this->get_openssl_version_number(true), $aArgs[0]['version'], '>=');
-    }
-
-    /**
-     * @param bool $patch_as_number
-     * @param null $openssl_version_number
-     * @return bool|string
-     */
-    protected function get_openssl_version_number($patch_as_number=false,$openssl_version_number=null) {
-        if (is_null($openssl_version_number)) $openssl_version_number = OPENSSL_VERSION_NUMBER;
-        $openssl_numeric_identifier = str_pad((string)dechex($openssl_version_number),8,'0',STR_PAD_LEFT);
-
-        $openssl_version_parsed = array();
-        $preg = '/(?<major>[[:xdigit:]])(?<minor>[[:xdigit:]][[:xdigit:]])(?<fix>[[:xdigit:]][[:xdigit:]])';
-        $preg.= '(?<patch>[[:xdigit:]][[:xdigit:]])(?<type>[[:xdigit:]])/';
-        preg_match_all($preg, $openssl_numeric_identifier, $openssl_version_parsed);
-        $openssl_version = false;
-        if (!empty($openssl_version_parsed)) {
-            $alphabet = array(1=>'a',2=>'b',3=>'c',4=>'d',5=>'e',6=>'f',7=>'g',8=>'h',9=>'i',10=>'j',11=>'k',
-                12=>'l',13=>'m',14=>'n',15=>'o',16=>'p',17=>'q',18=>'r',19=>'s',20=>'t',21=>'u',
-                22=>'v',23=>'w',24=>'x',25=>'y',26=>'z');
-            $openssl_version = intval($openssl_version_parsed['major'][0]).'.';
-            $openssl_version.= intval($openssl_version_parsed['minor'][0]).'.';
-            $openssl_version.= intval($openssl_version_parsed['fix'][0]);
-            $patchlevel_dec = hexdec($openssl_version_parsed['patch'][0]);
-            if (!$patch_as_number && array_key_exists($patchlevel_dec, $alphabet)) {
-                $openssl_version.= $alphabet[$patchlevel_dec]; // ideal for text comparison
-            }
-            else {
-                $openssl_version.= '.'.$patchlevel_dec; // ideal for version_compare
-            }
-        }
-        return $openssl_version;
-    }
-}
-
-/**
- * @param $mVar
- */
-function dumpvar($mVar)
-{
-    echo "<pre>";
-    print_r($mVar);
-    echo "</pre>";
-}
-
-if (!isset($_SERVER['REMOTE_ADDR']) || !isset($_SERVER['HTTP_USER_AGENT'])) {
-    $oPreCheck = new d3PreCheckInFolder();
-    if (isset($_GET['fnc']) && $_GET['fnc']) {
-        $aParams = isset($_GET['params']) ? unserialize(stripslashes(urldecode($_GET['params']))) : array();
-        echo serialize(call_user_func(array($oPreCheck, $_GET['fnc']), $aParams));
-    }
-}
+<?php //006fc
+// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 5.1.0.0 PHP56 (${currentDate}) @author Daniel Seifert support@shopmodule.com @copyright (C) ${currentYear}, D3 Data Development @see http://www.shopmodule.com
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+?>
+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
