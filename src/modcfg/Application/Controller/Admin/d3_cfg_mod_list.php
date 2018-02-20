@@ -1,206 +1,352 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin;
+
+use D3\ModCfg\Application\Model\Configuration\d3modprofile;
+use D3\ModCfg\Application\Model\d3database;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Application\Controller\Admin\AdminListController;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Model\ListModel;
+use OxidEsales\Eshop\Core\StrMb;
+use OxidEsales\Eshop\Core\TableViewNameGenerator;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
+use OxidEsales\Eshop\Core\StrRegular;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Str;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+
+class d3_cfg_mod_list extends AdminListController
+{
+    protected $_sThisTemplate = 'd3_cfg_mod_list.tpl';
+    protected $_sModId = '';
+    protected $_sMenuItemTitle = 'd3mxcfg';
+    protected $_sMenuSubItemTitle = 'd3mxlibs';
+    protected $_blUpdateMain = null;
+    // enable language depended configuration
+    protected $_blD3ShowLangSwitch = true;
+    protected $_blShowListItems = false;
+    protected $_sListClass = d3modprofile::class;
+    protected $_sDefSortField = 'oxsort';
+    protected $_sDefSortOrder = 'asc';
+    protected $_blDesc = false;
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->addTplParam('actlocation', false);
+        $this->addTplParam('Errors', false);
+        $this->addTplParam('box', 'box');
+        $this->addTplParam('readonly', false);
+        $this->addTplParam('shop', Registry::getConfig()->getActiveShop());
+        $this->addTplParam('art_category', null);
+        $this->addTplParam('_act', null);
+        $this->addTplParam('readonly', false);
+        $this->addTplParam('lstrt', false);
+        $this->addTplParam('updatenav', false);
+        $this->addTplParam('delshopid', false);
+        $this->addTplParam('issubvariant', false);
+
+        parent::__construct();
+
+        if ($this->_sListClass) {
+            /** @var d3modprofile $oListObject */
+            $oListObject = oxNew($this->_sListClass);
+            if (method_exists($oListObject, 'd3IsMultilang')) {
+                $this->_blD3ShowLangSwitch = $oListObject->d3IsMultilang();
+            }
+        }
+    }
+
+    /**
+     * @return null
+     */
+    public function render()
+    {
+        $sRet = parent::render();
+
+        // default page number 1
+        $this->addTplParam('oxid', Registry::get(Request::class)->getRequestEscapedParameter('oxid'));
+        if (false == $this->getViewDataElement('oxid')) {
+            $this->addTplParam('oxid', 1);
+        }
+
+        if ($this->getViewDataElement('oxid') == -1 &&
+            (false == $this->_sListClass or (
+                    $this->_sListClass == d3modprofile::class &&
+                    false == $this->d3getModId()
+                )
+            )
+        ) {
+            // wenn kein Eintrag gewaehlt und keine Liste gezeigt wird
+            $this->addTplParam('oxid', 1);
+        }
+
+        // disabled because of errors while delete list items
+        //$this->addTplParam('default_edit', d3_cfg_mod_main::class);
+        $this->addTplParam('updatemain', $this->_blUpdateMain);
+        $this->addTplParam('blShowLangSwitch', $this->_blD3ShowLangSwitch);
+
+        /*
+        if (Registry::get(Request::class)->getRequestEscapedParameter('listitems') && $this->getViewDataElement('where')) {
+            $aWhere = $this->getViewDataElement('where');
+        }
+        */
+
+        if ($this->d3getShowListItems()) {
+            $sFolder  = Registry::get(Request::class)->getRequestEscapedParameter("folder");
+            $sFolder = $sFolder ? $sFolder : -1;
+            $this->addTplParam("folder", $sFolder);
+        }
+
+        $this->d3FixNamespaceNavigation();
+
+        return $sRet;
+    }
+
+    /**
+     * escape namespace slashes for javascript use
+     */
+    public function d3FixNamespaceNavigation()
+    {
+        /** @var \DOMElement $oNavi */
+        foreach ($this->getViewDataElement('editnavi') as $oNavi) {
+            /** @var \DOMAttr $oAttribute */
+            foreach ($oNavi->attributes as $oAttribute) {
+                if (strtolower($oAttribute->name) == 'cl'
+                    && strstr($oAttribute->nodeValue, '\\')
+                    && false == strstr($oAttribute->nodeValue, '\\\\')
+                ) {
+                    $oAttribute->nodeValue = addslashes($oAttribute->nodeValue);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param array $aWhere
+     * @param string $sqlFull
+     * @return string
+     * @throws DatabaseConnectionException
+     */
+    protected function _prepareWhereQuery($aWhere, $sqlFull)
+    {
+        $oDb = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
+        $sQ = parent::_prepareWhereQuery($aWhere, $sqlFull);
+
+        $oProfiles = $this->d3getListItemObject();
+
+        if ($this->_sListClass != d3modprofile::class) {
+            $sSqlActiveSnippet = $oProfiles->getSqlActiveSnippet();
+            if ($sSqlActiveSnippet) {
+                $sQ .= " AND (".$sSqlActiveSnippet.") ";
+            }
+        }
+
+        $sFolder = Registry::get(Request::class)->getRequestEscapedParameter('folder');
+        //searchong for empty oxfolder fields
+        if ($sFolder && $sFolder != '-1') {
+            $sQ .= " and ( ".$oProfiles->getViewName().".oxfolder = ".$oDb->quote($sFolder)." ) ";
+        }
+
+        return $sQ;
+    }
+
+    /**
+     * Calculates list items count
+     * @param string $sSql SQL query used co select list items
+     * @throws DatabaseConnectionException
+     * @throws DBALException
+     */
+    protected function _calcListItemsCount($sSql)
+    {
+        /** @var StrMb|StrRegular $oStr */
+        $oStr = Str::getStr();
+
+        // count SQL
+        $oQB = d3database::getInstance()->getQueryBuilder();
+        $oQB->select('count(*)')->from('');
+
+        $sSql = $oStr->preg_replace('/select .*? from/i', $oQB->getSQL(), $sSql);
+
+        // removing order by
+        $sSql = $oStr->preg_replace('/order by .*$/i', '', $sSql);
+
+        $sSql .= ' LIMIT 1';
+
+        // con of list items which fits current search conditions
+        $this->_iListSize = DatabaseProvider::getDb()->getOne($sSql, false);
+
+        // set it into session that other frames know about size of DB
+        Registry::getSession()->setVariable('iArtCnt', $this->_iListSize);
+    }
+
+    /**
+     * @return array
+     */
+    public function d3getAdditionalFormParams()
+    {
+        return array();
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetMenuItemTitle()
+    {
+        return $this->_sMenuItemTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3GetMenuSubItemTitle()
+    {
+        return $this->_sMenuSubItemTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3getModId()
+    {
+        return $this->_sModId;
+    }
+
+    /**
+     * @return bool
+     */
+    public function d3getShowListItems()
+    {
+        return $this->_blShowListItems;
+    }
+
+    /**
+     * @return string
+     */
+    public function d3getListItemClass()
+    {
+        return $this->_sListClass;
+    }
+
+    /**
+     * @return d3modprofile
+     */
+    public function d3getListItemObject()
+    {
+        $oObject = oxNew($this->d3getListItemClass());
+        return $oObject;
+    }
+
+    /**
+     * @return mixed
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function getSelectableFolderList()
+    {
+        $oProfile = $this->d3getListItemObject();
+        return $oProfile->d3getSelectableFolderList();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsOrderStep()
+    {
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLink()
+    {
+        return '';
+    }
+
+    /**
+     * @param null $sSql
+     * bugfix for OXID error (EE521):
+     * @return null|string
+     * @throws DatabaseConnectionException
+     */
+    protected function _prepareOrderByQuery($sSql = null)
+    {
+        // sorting
+        $aSortFields = $this->getListSorting();
+
+        if (is_array($aSortFields) && count($aSortFields)) {
+
+            // only add order by at full sql not for count(*)
+            $sSql .= ' order by ';
+            $blSep = false;
+
+            $oListItem = $this->getItemListBaseObject();
+            $iLangId = $oListItem->isMultilang() ? $oListItem->getLanguage() : Registry::getLang()->getBaseLanguage();
+
+            $descending = Registry::get(Request::class)->getRequestEscapedParameter('adminorder');
+            $descending = $descending !== null ? (bool)$descending : $this->_blDesc;
+
+            foreach ($aSortFields as $sTable => $aFieldData) {
+                if ($sTable && isset($this->_sListClass) && class_exists($this->_sListClass)) {
+                    $oListObject = oxNew($this->_sListClass);
+                    $sTable = $oListObject->getViewName() . '.';
+                } else {
+                    /** @var TableViewNameGenerator $oViewNameGenerator */
+                    $oViewNameGenerator = oxNew(TableViewNameGenerator::class);
+                    $sTable = $sTable ? ($oViewNameGenerator->getViewName($sTable, $iLangId) . '.') : '';
+                }
+
+                foreach ($aFieldData as $sColumn => $sSortDir) {
+
+                    $sField = $sTable . $sColumn;
+                    //add table name to column name if no table name found attached to column name
+                    $sSql .= ((($blSep) ? ', ' : '')) . DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->quoteIdentifier($sField);
+
+                    //V oxActive field search always DESC
+                    $this->addTplParam("nextSortDir", "desc");
+                    if ($descending || $sColumn == "oxactive" || strcasecmp($sSortDir, 'desc') == 0) {
+                        $sSql .= ' desc ';
+                        $this->addTplParam("nextSortDir", "asc");
+                    }
+
+                    $blSep = true;
+                }
+            }
+        }
+
+        return $sSql;
+    }
+
+    /**
+     * @return ListModel
+     */
+    public function getItemList()
+    {
+        if (false == $this->_blShowListItems) {
+            $oList = oxNew($this->_sListType);
+            return $oList;
+        }
+
+        return parent::getItemList();
+    }
+}

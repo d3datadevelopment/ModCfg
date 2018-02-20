@@ -18,6 +18,10 @@ namespace D3\ModCfg\setup;
 use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Install\d3install_updatebase;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbtable;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\ConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 
 class d3log_update extends d3install_updatebase
 {
@@ -631,6 +635,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkLogTableExist()
     {
@@ -639,6 +646,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws DBALException
+     * @throws ConnectionException
      */
     public function updateLogTableExist()
     {
@@ -670,6 +681,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateLogTableEngine()
     {
@@ -697,6 +710,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateTALogTableEngine()
     {
@@ -724,6 +739,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateO2DLogTableEngine()
     {
@@ -735,6 +752,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function isTALogTableNotExisting()
     {
@@ -743,6 +763,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateTALogTableExist()
     {
@@ -763,6 +787,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool true, if error
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkLogFields()
     {
@@ -777,6 +805,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateLogFields()
     {
@@ -791,6 +823,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool true, if error
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkLogIndizes()
     {
@@ -799,6 +834,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateLogIndizes()
     {
@@ -807,6 +845,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function hasOldIndizes()
     {
@@ -834,6 +875,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function removeOldIndizes()
     {
@@ -864,6 +908,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkO2DLogTableExist()
     {
@@ -872,6 +919,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function updateO2DLogTableExist()
     {
@@ -894,6 +945,9 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function hasOldTALogTable()
     {
@@ -910,6 +964,10 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function deleteOldTALogTable()
     {

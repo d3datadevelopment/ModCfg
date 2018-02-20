@@ -1,62 +1,88 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-qS2M6IIZ/4kf3AWAszJbPh4+0+dL
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Maintenance;
+
+use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
+use D3\ModCfg\Application\Model\d3database;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Module\Module;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\TableViewNameGenerator;
+
+class d3maintenance extends d3_cfg_mod_main
+{
+    public $_sThisTemplate = 'd3maintenance.tpl';
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws DBALException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function repairModuleDbItems()
+    {
+        //d3utils::getInstance()->repairModuleStructure();
+
+        // unable to disable moduwle without session lost
+
+        $sModulesDir = Registry::getConfig()->getModulesDir();
+        $oModuleList = oxNew( "oxModuleList" );
+        $aModules = $oModuleList->getModulesFromDir( $sModulesDir );
+
+        $aActiveModules = array();
+
+        /** @var $oModule Module */
+        foreach ($aModules as $oModule) {
+            if ($oModule->isRegistered() && $oModule->isActive()) {
+                $aActiveModules[] = $oModule->getId();
+            }
+        }
+
+        $aRemoveFields = array('aDisabledModules', 'aModulePaths', 'aModuleTemplates', 'aModuleVersions',
+            'aModuleEvents', 'aModules', 'aModuleFiles');
+
+        /** @var TableViewNameGenerator $oViewNameGenerator */
+        $oViewNameGenerator = oxNew(TableViewNameGenerator::class);
+
+        $oQueryBuilder = d3database::getInstance()->getQueryBuilder();
+        $oQueryBuilder->delete($oViewNameGenerator->getViewName('oxconfig'))
+            ->where("oxvarnamme IN ('".implode($aRemoveFields, "','")."'")
+            ->andWhere('oxshopid = ?');
+
+        $sSelect = $oQueryBuilder->getSQL();
+
+        $aParams = array(Registry::getConfig()->getActiveShop()->getId());
+        DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->Execute($sSelect, $aParams);
+
+        foreach ($aActiveModules as $sCurrentModId) {
+            /** @var $oMod Module */
+            $oMod = oxNew(Module::class);
+            $oMod->load($sCurrentModId);
+
+            /** @var d3ShopCompatibilityAdapterHandler $oD3CompatibilityAdapterHandler */
+            $oD3CompatibilityAdapterHandler = oxNew(d3ShopCompatibilityAdapterHandler::class);
+            $oD3CompatibilityAdapterHandler->call('oxmodule__activate', array($oMod));
+        }
+    }
+}

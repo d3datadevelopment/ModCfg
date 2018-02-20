@@ -1,98 +1,388 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-HR+cPtvdvS7q/TtsWQ5muhjLMaInqejfObGYAPguoy/6XDjc6Z88LSgRGKGqdoim4V8F3YNvHNby
-kP7WxuT0JRZzPDHhboBQfDIi79IvDGSOqgZSu5dXE1fRs5S3NJZxaMPR9TvfACbofG6N7iCqBlOG
-68boj9jmiNRq4DEAbveggrluplDH5/ENrR9i54uGaE246Bsg+BFHzT7JtuWJIkZOHr8YjHuZaFG2
-Re/2dD9c9RyGc8QWEXU8IxfZQYTp1cgdNcfunKtVbCePpTasA8Dw+r2qw6XhxBe0jV13/jPLMoXO
-CiLd8WeeylpORmAsdBahAV8zfVfVS1/XQ9vd1iYyL+VlrZDngw27JbIrSP/JkfFYABtafIg2t4N7
-VIVyvQCncujHGlOXWkqS6P5ZAr0mtgcvGjommFAvzLII3uhTEPr5dzkI9KqX5heNqR4cXgZ3i0aj
-RK717giecXS7QRr+aftBTkyOa3g4atb3oxhQgwDKOUkc7pIEKRV3PbPYU2/6+sspd0PcY3EXc2RK
-6N3gOQK1wpjvf5BUmFwsLjM0z9nP4pqcZEZuJVIfgyZ+BRXVDIaB/zd8nIO8trXg1trbcPJ04oPJ
-AZLLiv5JM/vJcN0IIydmDU1Fa2K65JNKYm6IIbtfCaWLxCY7JHTayb+FYw8hyk66r+rmElpeWBwd
-WJJhny+IMGyt3veXi2EppaYa+hskLzzHTZ/5/GIfKklQcjZAXCYlsathrO+4NDn2orpWsbqUAZyE
-zYMrf1e9XMQDmO0aKbJs0PuPkYHHK3d+cPVrPMLbx0IE9glPp9LsemNF8rOpxznNYYCo1Pjk8+mm
-C0LP/g0i7WkFmBf+eESxD2lasUwA4tTF+WRxVx+C5x/dJf+3cLsdAjY/wIIQATBMQxB5MBUC0Ltg
-NKyhWDw+JpELRPIo+jo0S8KzLZGvErjIMdWmlj8BWG5eWKTUm5dTMihDXeglaP30V58/sSjnYP9Q
-RWLCTVUa5vKpHqQijsTJCF/lx9zm1p8Y9lX3zAjDMUWIjUlstUWqybDRx/6cwdt/+U/C76AMllem
-2FgaK8kGWKjqFVJA0sI82SWHFJyCZ86q6ySkBqVvbv6Ib3/BoSOOn/yNJ+g7R7BM3pPvdDXAxMyf
-afWGbctubc5p8D+Kmj794+enoECJ9Fz7zFJ859Jo1D89D3A6U8IF5WQQkKb0YcM/tcxwzCJlVNqw
-8CqC9c8O1bPGYdWw5y1+uL8tJWVMZLaDfIUpjGTnr5rF4WlOesPjRv71i7rilZ19vGEDuye74HuU
-IncEaqTSAdlHgFkhH6NHJ82Trqh4+R87zqz1CI+pC/0O8wReUWKXeI0L8Iug/zUzv4ONy24g3FcP
-9Ig0TK1BtjHdInlnbA2Hrz1J202kMSObhIoy0INjVOnrEzMqugGIyCoJtK0Az93A1YqnFIQLM50J
-I7sn3DIeffwZUHEc2o1aOG18dnS3uOw3sNIJXBB+nWFaLIpkdlvp8HAFEsLmfD2f6TQi2AjL22Ys
-K1r9fVwedptSHV7XnjO1aXfistkVdX7frmuEbWiR+lK5R+zxcR2wk3Lv26v78ujnGn3A4nm6I0r4
-9Q7vYH9BmyBBliJ2iUe7Av412mwJqKoATZvIgwytWbJbcctZLjI+MUzD69KiVCBtM0xHK9nzWUDn
-fb+KE+96oW5/tnOMwoNb/I7/dJwuUPmt4jCq1olzxt1ErBFURlbxBigLQBKnDQjq+A/4h5rJtvLK
-Umr2PTXN4KveIK6SqX8h+7zyDuBP4qubkuHjpEvew1dAdiZUyTZsZZDWIhJDWWKt90/pns85ggJ8
-Yc8dnv96taZJsP20Lhcd1UHHO9U4YCToq/hqkMRSivB02N48wIMv3Ni/esgVorcHpzDDDu0YBHrN
-ZypvPAZVAzH5bdhEUkcY792oMcWvJ+9wGpatz/0DXywC/GKk7dYPfDy1Zb6BspNIMrM+PdYexP1Y
-k1TsoaAtVjVcKt3QiSLcuKHduPtMDcEGQ3aqnngVgcYdqAyxdPk+rYxYSh3rQFy+sNi8FLLhhsGd
-NPK/nkJV+vdEom5LfL39M+lC8UqKLQ57f2V6zAWBT1Pdy6mK3Kgae2BMdPE0b1WXUXh/z7p0RbTH
-i6finyg2bhST+1cpnhAGNJ9nUgf1QhBrG6iejYz+ePoG7Vbknhz8MCpd/dLKtsYazDANm8R/8HXn
-U4gOfr04rJJvbVoPKt2JOZ8mtdePW5dZZlDn3QWEQD854+eNPEifTQA5j+XJQb2+CMGsPdTQYe3g
-s6EYEsyY/x8NPPcVrrAoLOFnTkmKz2nEYNEKxHS55wkavf5UR5hkp27wBp4PhmvguyeK24Va2J5s
-YItGBlOENCIuRI+znDYXVA9bhEgr/TgI8QD7a24bBjb7DmuLDNERNHZ8X1iI8rTw+WplWhXRbMqM
-FkvCY7m15BWYcVHPhgV5pLTJ+nVUIuBTqB2OsB7P36lPAAEN0QMrCQZ7aMhRCZHIGgOv63ucllUP
-GOYxktTto9dosqgHPEUvkpMqBNi6NmcI7fNBOHXxY0BlLKIGmyvpm2mewYKk7vBOuZfu3aQo1wbs
-OrJmXb2MMseQxvAnkJ57UkaAK5+5hXP8dZOPFTbllPDxHZ+DAOpzhwmFOp/LCVwApTYUaWkH1gca
-1c7Bqz31qSuaoY0ftTWwq0XGv9X0wxNC159Nq3KAUy3nkn/aeanKbeWd0dw4Xw8X1l9YjB4vjZaa
-wHCuAA96XkestfCbaQr6Gexk6e3Ud8sLWwATqEFFBpV0Qh85cKS4sX/dwe2SnVmU3R4gyXSCGOIQ
-SoVlZo0te+qI3tDGOTeeDkRyGBfObQ6lMydLviaxoFnPrmVldIKpbfqrW/N8n38jY9Wv/z0xWctK
-yhgaiCixmp/LdOxpSXTEaNcBlSpIkbxcc+46hao76LWm0d+DzQiH8skIJhRsXVaixV9Z4yoUxzqL
-W0gpuK6e1VET3gltqZYDiIKsuzXFBAycBr7YbhaRUb4jVZ0En6lLwNVqRdAhcj+JxR+nFlW+MDSi
-rxrpn1S8d7O81e7BTKsx4u6L7nmrN0+HWdCeFOE3UFzeVBhV4tgitV8Tycj7MDyztbbwfIcD3sJL
-euh4lXXkNl8E9X3jDLHq1c+bj61XeX3kVqBEIGDrcfF8a/yNIHFjOAyfqJ0o4F1QZ/Omy8aAO+Nq
-ZvF5RPb2+sB37/5pGgseZMLKSEF7bPGBZdMn4Mq0VtahHAjPW+f2jC+q0e8zV2wKmB1XuxVc4L1r
-Udk88On+x+eTBGlIinVvG7HMFG4Dd04X+UDF91Rw8Pw9zwb5bq2samgr1KgIxEZpSa2zsEq85M1j
-PQEmzAw5rUDs6O1UScROX00W+tKBCVWGRefZCaqM9MiAojbjM1GjU9UfePLV3/O1bdNa6pyTEAP3
-4Qmz/nsxS3rjjLXY5Iy2ne2OfkJ9j5MVLdTokRPh6FZzRhS/I3bGVcNt2dyDb0f0NxOYlnvlTnc3
-vnUUtxTv3YEnFpJnWxZguiL8uCuax1CRN4cpU0MG144Jj8SSjFvXZx31R70ijHdLaKfdWQ417VdA
-xfAVIypI7/IV5bQwVpYNHSx4VGyM/yM0SIcNgqA6hV5mNc3NdxyHzUp/NAgv07rKOmx0tq5aYdzb
-wMQQMGqog4h9kzt5eDvG38GYbbWpn96rc+nqEk2Jhz0kppVqYhKgvqi4TAQddKQYsQXJA6vAbsRb
-4ogbTEk0qFtCJm5dCrRuJoQn656BCcyNKnkQn0NkA5WahUTKC2JPswZMo3aIEzNC1hP9GcTwq0pG
-lCVD4+qT54dLg3ErcDvrr5IryMxiNyNoHoXmyIoRM53N+Vq2X57SJLeOOj/cJllDAMg+E3D1uTvn
-w0KqJL+s4xJ4fJbpDOoqS30SJ+C8jEnXnNKbTEStllSEwnw0hi+35EJA94pSmW/8nCLFz2LkK0Rv
-8aNTRs9V1ZToC7MnK+v7tSbCoe+PKe2DzRAG//onw+UOZYx3GvAIxGRSDNeQnRjpj0TuSNtNSe92
-5MjG8QJHFIyN9gCJB4t+5mgGFNrnosoYMptqeH22YHDSx0Tz9WJLplwRa60uHXF+A4q7hvarWs5K
-bH1k1NSCN1dZNF+tYYu4yCv2JNSLHsDIxAIw4qGeOTfzw0E6EUdJgJLl5Tu1r2ZUW/Pa8bfuyVLQ
-HA1wNHTnhiOJDMOidLeUtBkopbxGmjH9cF0NXlQhZi/Owx1Q1H01X0+Z+M9fLa4AcFZreQKdLkaA
-EBNWS/3oWQqNRhx93GPixbK5HkB+Azi4l5b8loLixP/qmYIcv46DNilgphTuITc1NPNhVmzb+LjA
-fOcngDUCKAfBrdRSJ3R/0VXwDjxqiQrFAoEI2XbBiDfS0rOitO9/giLVZEHcD3ePCi9u4LjiyWw0
-a/7Ow6gvJGFbWo8zBEUPAB4rOZ0eWD0jgCXMnT6mf+7uHkwG3cbacmH+hB1zeZt3OG/Ym5UK2wdk
-bQkGo7DV0CGtCg6+rN+EuSp6qceaQaHXl6y9yQK4hm8AVX1MD8Xugy+PnXd0nq3Kf+q6NHO0PsHD
-ter2e70pelpSQepIXmi4W+HzcSGE1bgnspAOoXD+YSKnv82O5EV+Ak2GxTO4QXaoeO0LBh2WyXaA
-9xy1MKoDa76H/dwKUsOWIgW1nMisFXbFXFSYOuF1IdYsj2a3PksHDzGo9zeAUgvO2/rB7jWBYI9F
-5vcp7PevCo2k69+5scMhMni0Ryw4xbXzHaSmKH+hdiLdkORY6ME2u8fwgjD13/CjlkKJGmA6ytKq
-ihJqv9SILO3QZ2R7DIbYLl2QVgnATP+LJ/uF4ukaH3GxMn6F3/URV94NbyycAe9muTDn7RBp+djS
-2F5uDEOO11RCkOtOR0uFxIfnOMLaEB8i+CmQRNBE+pDaA9JqXLYmmOqp1WSdM97tn12nPvgrrqI9
-tYkSwxq8mPfd6CsiFHwMtoYqwCuh60lZSvV4uH6EPVUwdcHFxtXRkXJFq3WYYhYfKPAyKOHcgscd
-zYj9d1DVZK+0YQ0rdcJw7l5YBOdm9QBrJQnwSr//ylEDdFzh8mEO7sgs/0uBkoH40VMuqPk9wFNt
-xx4eTb2vs/DUUmnkBE4JzdnVujOzCoMrYn8MS3g8+BJTOzi1npGgBOn4vNulE13bFlDTe+8pEi5V
-is6+mAaHcFDExjJRgGqkZOTaCYpAFmhtJ3TXzjB1HHkwAo3mOoeKzkVoP5WaPtKSNltrXxyGe05H
-NnS2PbnYeIw0ti+CTqPBGa6ObYK1p3la1awvDjnU6j1XxGBfsJSsYKAUYTYuVgAF656si3tgZMef
-vRxDKdK8ZoW7uKwm8jAnDIXKhYd2VC0C16DbyO8uOXGxRKnfUKzIX/rRVRdlqZ/qpU+u5KQreJMq
-5QldeaoY0vjclk3TJKIXetszsR0gDcCjETNFPlfyOVHekefYjFQHniXndteE8d2tr4LcxKA/LcYA
-0+dpTRl9gHM37ai+uYiEmSiswxLU41XvY1Gt31a4Vyj4Mf5eTBoUD1zHoe9AQxrFO2IZ/I9GEou2
-LEw1Rqk97eJ+MukNglmBkOqgxdCrTRZZkHHZFSz4alyQAiVzTdrDDLisqvMyjWbia5BsLdPSj1uq
-W3/Lvxx0EZhbdo8WUdIsAD4IBlCdeuBQk6rLQmSnKn9anJwfrsOgEu2MV1wCoqe8B7r1NHtcmOhG
-ZaQ/A2RHXIVimk/BGVVNkz4EFXMO5c8JTQjMpWxDqr5/8r1rifU1aSqRdFaakn9B3jtDUL/5x5QV
-gcODo5R+yaxP+r0sULqikTQQDmbLW8Wi8VfP9Ed4ESA1nGHaXzGrlNNypsStH00mZhMnZaEtsT4p
-vI9nEeHzi0O9JjhniSM9LEwG9ma5rWJ+KUeksw10Sh/r7lCLt/jy6jqz2hwM65DHd49UEdM2C2KD
-P0DwKbbgMoKRT/Esu3eNu4rd1G87mLohomcXXB1xdgt9jmVAeCN6mcR/xO6xoNMdII7/h1dJnWyl
-iAk25mEDXfxumuXSIJIqHFPd6ESkuj1MV8iqN9yLRxkJZxk8RHC6jqZu2MgWzJ0T7LY+JwxR8fsR
-WqMHLsCBa97tkJPl3oaO8VL5XBCPB1tjD6uvCGgFlYVL/ARNKrY8VyRdIabg+5uwrcUs0wWoEibG
-z84l0YVD3INC01BZwn+ybtpjD335DveceUZ9gvzLlzmFVFg9hcAlBPDqHmEfdxjUvLPPthy5NQQi
-AXP8eH9i2dxw8bDCq1JQKOAasWYuFagNpgxk/c8nBgLOtJxgJCKBVVEGEqjG2WUUpO6o7bJe3uiu
-St2uxOx37OfnFYgGxfHUK12ynReVgQcvlsqXK0NQ87D9jh1Za4WxYBEZVC3P8rTjtYraCBot2QDp
-CAyA9dC4X8WeHgN9FNAGj89j5OyGITdhPhUMxiElp0+Jeva0iaUEkgBnTnRfH6fqYUzQL/OE62uw
-Gg9DUlC/ulfSoOZQMNzPi9KlP26Fsoh/VHbt2WDTbCN/vzsR1oHtC76l0cYI3nY9UZPgLUefLj+z
-dFi610RzcRugPw1Gjw6UXNfHDJrqzDRg0DD9SUt/jtsJk4lPAa++bo0uChNqMcVE7FV+jj7lYWH+
-2MPzNPi39ztzwWtdJuMgM/5BwsiCRP/UrW6NKcjLI8f6I9Jwy7XlR61VE0F6R0hyFi+iAAYOVkAA
-IKbO47WEGE0w2SXPh+qwZPIMbn21XVcwK3CISCQkWlUo6ZbM7MAB4i/Rim1hXuKzimWBmmbEO+4r
-2H7Y/w1yiMalIAb7i17sJP43gMxHJL9ldUn4P0HBRIQec8aaCZx1FRTR7tdbSvAD09bcbVxSxyCI
-Fmts7ImarO87UfM1TsrrgX1crSL+eTZVlqjQPPymgND6AC1n+PVpxK+3gpF5qd5xWqMYUyu+vqaw
-IrVTq3k9FeXnIhlw9IBtxE8T6Am12C8mUkIs6LHZkHinpWzrunxuQE8Pkt3+ZZPTYsoEE72zwvpe
-/NdeqG0YtDmtvxnTNQbZK/XQstkwWqqEFyqACfraA4VZZ2iD/u95KFaZvDEAeVnn9VAPR6lGYuj+
-b10aIJFPIDWtWEep99ZSvOZoiDqmyEaoYCjNKejqLQu2ENWjAW8dEykp1mxlusyCT8k1fZrISMs5
-0l/ZWhP+VJ/yZ7s1sKQqykC6Zm==
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Maintenance;
+
+use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
+use D3\ModCfg\Application\Model\d3filesystem;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use D3\ModCfg\Application\Model\Maintenance\d3maintenanceactions;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Registry;
+
+class d3ShopMaintenance extends d3_cfg_mod_main
+{
+    public $_sThisTemplate = 'd3shopmaintenance.tpl';
+    protected $_sMenuSubItemTitle = 'd3tbclclr_mtn';
+    protected $_sModId = 'd3modcfg_lib';
+    protected $_sTickerUrl = null;
+    /** @var d3filesystem */
+    public $oFS = null;
+    /** @var d3clrtmp */
+    public $oClrTmp;
+
+    /**
+     * @return string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function render()
+    {
+        $sRet = parent::render();
+        $this->addTplParam(
+            'aCheckResults',
+            $this->getMaintenanceActions()->getCheckResults()
+        );
+
+        return $sRet;
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenArticleImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedProductImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenCategoryImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedCategoryImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENCATIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenManufacturerImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedManufacturerImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENMNFIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenVendorImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedVendorImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENVNDIMGS_SUCC');
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGenWrappingImgs()
+    {
+        /** @var $oClrTmp d3clrtmp */
+        $oClrTmp = $this->_getClrTmp();
+        $oClrTmp->clearGeneratedWrappingImgs();
+
+        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENWRPIMGS_SUCC');
+    }
+
+    /**
+     * @return d3clrtmp
+     */
+    protected function _getClrTmp()
+    {
+        if (false == $this->oClrTmp) {
+            $this->oClrTmp = oxNew(d3clrtmp::class);
+        }
+
+        return $this->oClrTmp;
+    }
+
+    public function checkItems()
+    {
+        $this->getMaintenanceActions()->checkAllActions();
+    }
+
+    /**
+     * @return d3maintenanceactions
+     */
+    public function getMaintenanceActions()
+    {
+        return oxNew(d3maintenanceactions::class);
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws DBALException
+     */
+    public function fixOxArtextendsItems()
+    {
+        $this->getMaintenanceActions()->fixOxArtextendsItems();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearAcc2Art()
+    {
+        $this->getMaintenanceActions()->fixClearAcc2Art();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearAct2Art()
+    {
+        $this->getMaintenanceActions()->fixClearAct2Art();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearArtextends()
+    {
+        $this->getMaintenanceActions()->fixClearArtextends();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearCat2Attrib()
+    {
+        $this->getMaintenanceActions()->fixClearCat2Attrib();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearNewssubscribed()
+    {
+        $this->getMaintenanceActions()->fixClearNewssubscribed();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearDel2Delset()
+    {
+        $this->getMaintenanceActions()->fixClearDel2Delset();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Action()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Action();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Art()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Art();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Attrib()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Attrib();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Cat()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Cat();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Disc()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Disc();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Group()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Group();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2List()
+    {
+        $this->getMaintenanceActions()->fixClearObj2List();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Payment()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Payment();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObj2Sellist()
+    {
+        $this->getMaintenanceActions()->fixClearObj2Sellist();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearPrice2Art()
+    {
+        $this->getMaintenanceActions()->fixClearPrice2Art();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearObject2Delivery()
+    {
+        $this->getMaintenanceActions()->fixClearObject2Delivery();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function clearVariantsWithoutParent()
+    {
+        $this->getMaintenanceActions()->fixClearVariantsWithoutParent();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function fixVariantParentAsVar()
+    {
+        $this->getMaintenanceActions()->fixVariantParentAsVar();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function fixVariantActive()
+    {
+        $this->getMaintenanceActions()->fixVariantActive();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function unassignInactiveCountries()
+    {
+        $this->getMaintenanceActions()->fixUnassignInactiveCountries();
+    }
+
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function deactivateEmptyCategories()
+    {
+        $this->getMaintenanceActions()->fixDeactivateEmptyCategories();
+    }
+
+    /**
+     * @return string
+     */
+    protected function _d3GetModId()
+    {
+        return $this->_sModId;
+    }
+}

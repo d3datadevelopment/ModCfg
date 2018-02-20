@@ -20,11 +20,18 @@ namespace D3\ModCfg\setup;
 use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Install\d3install_updatebase;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\ModuleList;
 use OxidEsales\Eshop\Core\Config;
 use OxidEsales\Eshop\Application\Model\Shop;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\ConnectionException;
+use Doctrine\DBAL\DBALException;
 
 class d3_cfg_mod_cleaning
 {
@@ -50,31 +57,64 @@ class d3_cfg_mod_cleaning
         return array('d3install_lib', 'd3log_lib', 'd3clrtmp_lib');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldModuleFiles()
     {
         $this->_cleanOldModuleItem('aModuleFiles');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldModuleTemplates()
     {
         $this->_cleanOldModuleItem('aModuleTemplates');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldModulePaths()
     {
         $this->_cleanOldModuleItem('aModulePaths');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldModuleVersions()
     {
         $this->_cleanOldModuleItem('aModuleVersions');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldModuleEvents()
     {
         $this->_cleanOldModuleItem('aModuleEvents');
     }
 
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
     public function deleteOldLibs()
     {
         /** @var d3filesystem $oFS */
@@ -103,6 +143,11 @@ class d3_cfg_mod_cleaning
         Registry::getSession()->deleteVariable('d3RemoteLibs');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldEnabledModules()
     {
         $oConfig = Registry::getConfig();
@@ -152,11 +197,25 @@ class d3_cfg_mod_cleaning
         $this->_changeToShop($sCurrentShopId);
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanOldDisabledModules()
     {
         $this->_cleanOldModuleItem('aDisabledModules');
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
     public function transferSettings()
     {
         if (false == d3_cfg_mod::isAvailable('d3modcfg_lib')) {
@@ -178,6 +237,7 @@ class d3_cfg_mod_cleaning
 
     /**
      * @param $sNewShopId
+     * @throws ConnectionException
      */
     protected function _changeToShop($sNewShopId)
     {
@@ -203,6 +263,12 @@ class d3_cfg_mod_cleaning
 
     /**
      * @param $iLang
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _transferLangSettings($iLang)
     {
@@ -240,6 +306,11 @@ class d3_cfg_mod_cleaning
         }
     }
 
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws ConnectionException
+     */
     public function deleteSettings()
     {
         /** @var d3_cfg_mod $oModCfg */
@@ -301,6 +372,9 @@ class d3_cfg_mod_cleaning
 
     /**
      * @param $sItemId
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
      */
     protected function _cleanOldModuleItem($sItemId)
     {
@@ -349,6 +423,11 @@ class d3_cfg_mod_cleaning
         return false;
     }
 
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
     public function cleanD3VendorItem()
     {
         $sItemId = 'aDisabledModules';

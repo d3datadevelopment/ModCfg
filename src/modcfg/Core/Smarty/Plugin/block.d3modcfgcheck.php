@@ -16,6 +16,12 @@
  */
 
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
 
 /**
  * Smarty plugin
@@ -38,6 +44,12 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
  * @param $smarty \Smarty
  *
  * @return string|null
+ * @throws DBALException
+ * @throws DatabaseConnectionException
+ * @throws DatabaseErrorException
+ * @throws StandardException
+ * @throws d3ShopCompatibilityAdapterException
+ * @throws d3_cfg_mod_exception
  */
 function smarty_block_d3modcfgcheck($params, $sContent, &$smarty)
 {
@@ -73,8 +85,6 @@ function smarty_block_d3modcfgcheck($params, $sContent, &$smarty)
         ) {
             return $sContent;
         }
-    } else {
-        // ToDo: add log
     }
 
     return null;

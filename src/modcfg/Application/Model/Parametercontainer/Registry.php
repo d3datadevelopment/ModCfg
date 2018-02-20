@@ -1,42 +1,79 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author        D3 Data Development <support@shopmodule.com>
+ * @link          http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Parametercontainer;
+
+use D3\ModCfg\Application\Model\Log\d3log;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Model\BaseModel;
+use OxidEsales\Eshop\Core\Exception\DatabaseException;
+
+class Registry
+{
+    protected static $instance;
+    protected $objects = array();
+    protected $shoudISave = false;
+
+    /**
+     *
+     * @return $this
+     */
+    static public function getInstance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = oxNew(Registry::class);
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * @param BaseModel $baseModel
+     */
+    public function add(BaseModel $baseModel)
+    {
+        if (is_null($baseModel->getId())) {
+            $baseModel->setId();
+        }
+        $this->objects[$baseModel->getId()] = clone $baseModel;
+        if ($baseModel instanceof d3log) {
+            $baseModel::remove($baseModel->d3getModId());
+        }
+    }
+
+
+    /**
+     * save and clear objects
+     * @throws DatabaseException
+     * @throws DatabaseConnectionException
+     */
+    public function save()
+    {
+        if ($this->shoudISave) {
+            foreach ($this->objects as $object) {
+                /** @var $object BaseModel */
+                if (false == $object->exists()) {
+                    $object->save();
+                }
+            }
+        }
+
+        $this->objects = array();
+    }
+
+    public function allowSave()
+    {
+        $this->shoudISave = true;
+    }
+}

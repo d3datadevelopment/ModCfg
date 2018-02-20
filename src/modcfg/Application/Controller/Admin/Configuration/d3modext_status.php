@@ -1,34 +1,81 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-rXAuYtvbL4aVzNhdLWQZLEI/RW==
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Configuration;
+
+class d3modext_status extends d3mod_status
+{
+    /**
+     * additional multilang item, which will added as last part to help url
+     *
+     * @var string
+     */
+    protected $_sHelpLinkMLAdd = 'D3MODCFG_EXT_HELPLINK_STATUS';
+    protected $_sRemoteUpdateSessionVarname = 'd3RemoteExtList';
+    protected $_sRemoteModuleSessionVarname = 'd3RemoteExt';
+    protected $_sMenuSubItemTitle = 'd3mxextensions';
+    public $aRemoteMods = array();
+    protected $_sClassName = self::class;
+
+    /**
+     * @return string
+     */
+    public function getModuleType()
+    {
+        return 'ext';
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getRemoteMods()
+    {
+        return array();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getShowNewItems()
+    {
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitleIdent()
+    {
+        return 'D3_MOD_EXT_INSTALLED';
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsOrderStep()
+    {
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getLink()
+    {
+        return '';
+    }
+}

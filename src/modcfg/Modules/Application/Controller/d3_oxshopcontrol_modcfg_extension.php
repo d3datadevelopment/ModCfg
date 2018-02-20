@@ -15,13 +15,26 @@
  * @link      http://www.oxidmodule.com
  */
 
+namespace D3\ModCfg\Modules\Application\Controller;
+
 use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use D3\ModCfg\Application\Model\Parametercontainer\Registry as ParameterContainerRegistry;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Core\Exception\CookieException;
+use OxidEsales\Eshop\Core\Exception\RoutingException;
+use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\Exception\AccessRightException;
 
 class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extension_parent
 {
@@ -33,10 +46,17 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     private $_blDevMode = null;
 
     /**
-     * @param null $sClass
-     * @param null $sFunction
-     * @param null $aParams
-     * @param null $aViewsChain
+     * @param null|string $sClass
+     * @param null|string $sFunction
+     * @param null|array $aParams
+     * @param null|array $aViewsChain
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws DatabaseException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     public function start ($sClass = null, $sFunction = null, $aParams = null, $aViewsChain = null)
     {
@@ -70,13 +90,16 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         parent::start($sClass, $sFunction, $aParams, $aViewsChain);
 
         // doesn't work if Utils::redirect is called
-        \D3\ModCfg\Application\Model\Parametercontainer\Registry::getInstance()->save();
+        ParameterContainerRegistry::getInstance()->save();
     }
 
     /**
      * check, if developer mode has to be enabled
      *
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function _d3CheckDevMode()
     {
@@ -104,10 +127,14 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     /**
      * @param string $sClass
      * @param string $sFunction
-     * @param null   $aParams
-     * @param null   $aViewsChain
-     *
-     * @return null|void
+     * @param null $aParams
+     * @param null $aViewsChain
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _process($sClass, $sFunction, $aParams = null, $aViewsChain = null)
     {
@@ -119,7 +146,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         ) {
             try {
                 parent::_process($sClass, $sFunction, $aParams, $aViewsChain);
-            } catch (Exception $oEx) {
+            } catch (\Exception $oEx) {
                 if (d3_cfg_mod::get($this->_sLogSetId)->getValue('blLog_showAllExceptions')) {
                     echo $oEx->getMessage();
                     echo "<pre>";
@@ -136,6 +163,9 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function _d3CanWriteExc2Log()
     {
@@ -153,6 +183,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param $oException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _d3WriteExc2Log($oException)
     {
@@ -215,8 +251,10 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Application\Controller\FrontendController $view
-     * @return null|void
+     * @param FrontendController $view
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     protected function stopMonitoring($view)
     {
@@ -262,7 +300,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\RoutingException $oEx
+     * @param RoutingException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function handleRoutingException($oEx)
     {
@@ -273,6 +317,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param DatabaseException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function handleDatabaseException(DatabaseException $oEx)
     {
@@ -282,7 +332,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\SystemComponentException $oEx
+     * @param SystemComponentException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleSystemException($oEx)
     {
@@ -292,7 +348,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\Eshop\Core\Exception\CookieException $oEx
+     * @param CookieException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleCookieException($oEx)
     {
@@ -302,7 +364,13 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
     }
 
     /**
-     * @param \OxidEsales\EshopEnterprise\Core\Exception\AccessRightException $oEx
+     * @param AccessRightException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleAccessRightsException($oEx)
     {
@@ -313,6 +381,12 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
 
     /**
      * @param StandardException $oEx
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
      */
     protected function _handleBaseException($oEx)
     {

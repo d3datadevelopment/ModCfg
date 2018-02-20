@@ -1,40 +1,77 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+ /**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Filegenerator;
+
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+
+class d3filegeneratorcronsh extends d3filegenerator
+{
+    protected $_sContentNameBaseKey = 'D3_SHGENERATOR_CRON_';
+    protected $_sScriptPath;
+    protected $_aSortedParameterList = array();
+
+    protected $_aContentList = array(
+        'standard'              => 'd3shpattern_cron_standard.tpl',
+        'profihost_php56'       => 'd3shpattern_cron_profihost56.tpl',
+        'profihost_php70'       => 'd3shpattern_cron_profihost70.tpl',
+        'hetzner_php56_cgi'     => 'd3shpattern_cron_hetzner56cgi.tpl',
+        'hetzner_php70_cgi'     => 'd3shpattern_cron_hetzner70cgi.tpl',
+        'hetzner_php56_cli'     => 'd3shpattern_cron_hetzner56cli.tpl',
+        'hetzner_php70_cli'     => 'd3shpattern_cron_hetzner70cli.tpl',
+        'domainfactory_php56'   => 'd3shpattern_cron_domainfactory56.tpl',
+        'domainfactory_php70'   => 'd3shpattern_cron_domainfactory70.tpl',
+        'mittwald'              => 'd3shpattern_cron_mittwald.tpl',
+    );
+
+    /**
+     * @param $sPath
+     */
+    public function setScriptPath($sPath)
+    {
+        $this->_sScriptPath = $sPath;
+    }
+
+    /**
+     * @param array $aParameterList
+     */
+    public function setSortedParameterList(array $aParameterList)
+    {
+        ksort($aParameterList);
+        $this->_aSortedParameterList = $aParameterList;
+    }
+
+    /**
+     * @return \Smarty
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    protected function _configureSmarty()
+    {
+        $oSmarty = parent::_configureSmarty();
+
+        $oSmarty->assign('sPHPInterpreterPath', $this->getPHPInterpreterPath());
+        if ($this->_sScriptPath) {
+            $oSmarty->assign('sScriptPath', $this->_sScriptPath);
+        }
+        if ($this->_aSortedParameterList) {
+            $oSmarty->assign('aParameters', $this->_aSortedParameterList);
+        }
+
+        return $oSmarty;
+    }
+}

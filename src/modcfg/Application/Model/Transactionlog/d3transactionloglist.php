@@ -1,53 +1,69 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-XSxCFwdpqMqAMeUfJso2dtqfXGfhk3yofLlkZnG=
+<?php
+
+namespace D3\ModCfg\Application\Model\Transactionlog;
+
+use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Model\ListModel;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+
+/**
+ * Class d3transactionloglist
+ */
+class d3transactionloglist extends ListModel
+{
+    /** @var AbstractReader */
+    private $logreader;
+
+    /**
+     * Class Constructor
+     *
+     * @param string $transactionlog
+     *
+     * @internal param string $sObjectName Associated list item object type
+     */
+    public function __construct($transactionlog)
+    {
+        if (!($transactionlog instanceof d3transactionlog)) {
+            throw new \InvalidArgumentException('You have not provided a d3transactionlog instance');
+        }
+
+        parent::__construct();
+
+        $this->init($transactionlog->getClassName());
+        $this->logreader = $transactionlog->getTransactionLogReader();
+    }
+
+    /**
+     * Selects and SQL, creates objects and assign them
+     *
+     * @param string $sql
+     * @param array $parameters
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     */
+    public function selectString($sql, array $parameters = array())
+    {
+        $this->clear();
+
+        $oDb = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
+        if ($this->_aSqlLimit[0] || $this->_aSqlLimit[1]) {
+            $rs = $oDb->selectLimit($sql, $this->_aSqlLimit[1], $this->_aSqlLimit[0], $parameters);
+        } else {
+            $rs = $oDb->select($sql, $parameters);
+        }
+
+        if ($rs != false && $rs->count() > 0) {
+            while (!$rs->EOF) {
+                $oListObject = oxNew($this->_sObjectsInListName, $this->logreader);
+
+                $this->_assignElement($oListObject, $rs->fields);
+
+                $this->add($oListObject);
+
+                $rs->fetchRow();
+            }
+        }
+    }
+}

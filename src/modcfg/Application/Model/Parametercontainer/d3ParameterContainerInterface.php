@@ -1,30 +1,66 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
+<?php
+ /**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development, Thomas Dartsch
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Parametercontainer;
+
+use D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
+
+interface d3ParameterContainerInterface
+{
+    /**
+     * Clears all parameters.
+     */
+    public function clear();
+
+    /**
+     * Adds parameters to the service container parameters.
+     * @param array $aParameters An array of parameters
+     */
+    public function add(array $aParameters);
+
+    /**
+     * Gets the service container parameters.
+     * @return array An array of parameters
+     */
+    public function all();
+
+    /**
+     * Gets a container parameter.
+     * @param string $sName The parameter name
+     * @return mixed  The parameter value
+     * @throws d3ParameterNotFoundException if the parameter is not defined
+     */
+    public function get($sName);
+
+    /**
+     * Sets a service container parameter.
+     * @param string $sName  The parameter name
+     * @param mixed  $mValue The parameter value
+     */
+    public function set($sName, $mValue);
+
+    /**
+     * Returns true if a parameter name is defined.
+     * @param string $sName The parameter name
+     * @return Boolean true if the parameter name is defined, false otherwise
+     */
+    public function has($sName);
+
+    /**
+     * @param $sName
+     */
+    public function remove($sName);
+}

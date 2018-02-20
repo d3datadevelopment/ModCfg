@@ -512,12 +512,60 @@
                         <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
                             <tr>
                                 <td valign="top" class="edittext">
-                                    <label for="cleargeneratedpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENIMGS_DESC"}]
+                                    <label for="cleargeneratedarticlepictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENIMGS_DESC"}]
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
                                         <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('clearGenArticleImgs');}">
                                             <i class="fa fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="edittext">
+                                    <label for="cleargeneratedcategorypictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENCATIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENCATIMGS_DESC"}]
+                                </td>
+                                <td>
+                                    <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('clearGenCategoryImgs');}">
+                                            <i class="fa fa-check-circle fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="edittext">
+                                    <label for="cleargeneratedmanufacturerpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENMNFIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENMNFIMGS_DESC"}]
+                                </td>
+                                <td>
+                                    <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('clearGenManufacturerImgs');}">
+                                            <i class="fa fa-check-circle fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="edittext">
+                                    <label for="cleargeneratedvendorpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENVNDIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENVNDIMGS_DESC"}]
+                                </td>
+                                <td>
+                                    <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('clearGenVendorImgs');}">
+                                            <i class="fa fa-check-circle fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" class="edittext">
+                                    <label for="cleargeneratedwrappingpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENWRPIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENWRPIMGS_DESC"}]
+                                </td>
+                                <td>
+                                    <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('clearGenWrappingImgs');}">
+                                            <i class="fa fa-check-circle fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>
                                 </td>

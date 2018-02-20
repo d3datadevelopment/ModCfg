@@ -52,14 +52,12 @@ $aModule = [
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
     'extend'      => [
-        OxidCore\Module\ModuleInstaller::class  =>
-            'd3/modcfg/Modules/Application/Model/d3_oxmoduleinstaller_activecheck',
-        OxidAdminController\NavigationController::class  =>
-            'd3/modcfg/Modules/Application/Controller/Admin/d3_navigation_modcfgupdate',
-        OxidModel\Shop::class => 'd3/modcfg/Modules/Application/Model/d3_oxshop_modcfg',
-        OxidCore\ShopControl::class  => 'd3/modcfg/Modules/Application/Controller/d3_oxshopcontrol_modcfg_extension',
-        OxidCore\Theme::class => 'd3/modcfg/Modules/Core/d3_oxtheme_modcfg',
-        OxidCore\UtilsView::class => 'd3/modcfg/Modules/Core/d3_oxutilsview_modcfg',
+        OxidCore\Module\ModuleInstaller::class  => D3\ModCfg\Modules\Application\Model\d3_oxmoduleinstaller_activecheck::class,
+        OxidAdminController\NavigationController::class  => D3\ModCfg\Modules\Application\Controller\Admin\d3_navigation_modcfgupdate::class,
+        OxidModel\Shop::class => D3\ModCfg\Modules\Application\Model\d3_oxshop_modcfg::class,
+        OxidCore\ShopControl::class  => D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension::class,
+        OxidCore\Theme::class => D3\ModCfg\Modules\Core\d3_oxtheme_modcfg::class,
+        OxidCore\UtilsView::class => D3\ModCfg\Modules\Core\d3_oxutilsview_modcfg::class,
 // ToDo: check, if we can enable this
         // OxidCore\Email::class => 'd3/modcfg/Modules/Core/d3_oxemail_log',
         # see at end of file for further dynamic extensions
@@ -122,7 +120,6 @@ $aModule = [
     'templates'   => [
         #d3_cfg_mod
         'd3_cfg_mod_.tpl'       => 'd3/modcfg/Application/views/admin/tpl/d3_cfg_mod_.tpl',
-        'd3_adm_header.tpl'     => 'd3/modcfg/Application/views/admin/tpl/d3_adm_header.tpl',
         'd3_adm_navigation.tpl' => 'd3/modcfg/Application/views/admin/tpl/d3_adm_navigation.tpl',
         'd3_cfg_mod_inc.tpl'    => 'd3/modcfg/Application/views/admin/tpl/inc/d3_cfg_mod_inc.tpl',
         'd3_cfg_mod_bottom.tpl' => 'd3/modcfg/Application/views/admin/tpl/inc/d3_cfg_mod_bottom.tpl',
@@ -333,6 +330,13 @@ $aModule = [
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_list.php',
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_extend.php',
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_main.php',
+
+        'd3/modcfg/Modules/Application/Controller/d3_oxshopcontrol_modcfg_extension.php',
+        'd3/modcfg/Modules/Application/Controller/Admin/d3_navigation_modcfgupdate.php',
+        'd3/modcfg/Modules/Application/Model/d3_oxshop_modcfg.php',
+        'd3/modcfg/Modules/Application/Model/d3_oxmoduleinstaller_activecheck.php',
+        'd3/modcfg/Modules/Core/d3_oxtheme_modcfg.php',
+        'd3/modcfg/Modules/Core/d3_oxutilsview_modcfg.php'
     ],
     'd3SetupClasses'    => [
         ModuleSetup\d3_cfg_mod_update::class,

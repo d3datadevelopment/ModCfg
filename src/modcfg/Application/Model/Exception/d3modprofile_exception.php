@@ -1,49 +1,90 @@
-<?php //004fb
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-t7Q1NI66g2OP3b0hafjyf4XybMb+e0wWh/T/t0C=
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Exception;
+
+use \OxidEsales\Eshop\Core\Exception\StandardException;
+use \OxidEsales\Eshop\Core\Registry;
+
+/**
+ * handle d3modprofile specific exceptions
+ */
+class d3modprofile_exception extends StandardException
+{
+    private $_sModId;
+
+    protected $_sType;
+
+    /**
+     * @return string
+     */
+    public function getString()
+    {
+        return __CLASS__ . " (time: " . date(
+                'Y-m-d H:i:s'
+            ) . "): [{$this->code}]: {$this->message} - Faulty ModProfile: " . $this->getModCfgId();
+        //." \n Stack Trace: {$this->getTraceAsString()}\n\n";
+    }
+
+    public function debugOut()
+    {
+        //We are most likely are already dealing with an exception so making sure no other exceptions interfere
+        try {
+            $sLogMsg = $this->getString() . "\n Stack Trace: {$this->getTraceAsString(
+                )} \n---------------------------------------------\n";
+            Registry::getUtils()->writeToLog($sLogMsg, $this->getLogFileName());
+        } catch (\Exception $e) {
+        }
+    }
+
+    /**
+     * @param $sModId
+     */
+    public function setModCfgId($sModId)
+    {
+        $this->_sModId = $sModId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModCfgId()
+    {
+        return $this->_sModId;
+    }
+
+    /**
+     * @param $sType
+     */
+    public function setExcType($sType)
+    {
+        $this->_sType = $sType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExcType()
+    {
+        return $this->_sType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExcMessage()
+    {
+        return $this->message;
+    }
+}

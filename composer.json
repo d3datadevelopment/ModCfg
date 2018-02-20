@@ -1,5 +1,5 @@
 {
-  "name": "D3/ModCfg",
+  "name": "d3/modcfg",
   "description": "D3 Module Connector",
   "type": "oxideshop-module",
   "keywords": [
@@ -11,9 +11,23 @@
     "configuration",
     "license"
   ],
+  "authors": [
+    {
+        "name": "D3 Data Development (Inh. Thomas Dartsch)",
+        "email": "info@shopmodule.com",
+        "homepage": "http://www.oxidmodule.com",
+        "role": "Owner"
+    }
+  ],
+  "support": {
+    "email": "support@shopmodule.com"
+  },
   "homepage": "https://www.oxidmodule.com/",
   "license": [
-    "proprietary"
+    "proprietary",
+    "SIL OFL 1.1",
+    "MIT License",
+    "CC BY 3.0"
   ],
   "extra": {
     "oxideshop": {
@@ -22,7 +36,7 @@
     }
   },
   "require": {
-    "php": "8.1.*",
+    "php": "7.1 - 7.2",
     "ext-ionCube-Loader": "*",
     "oxid-esales/oxideshop-ce": "6.0.x"
   },
