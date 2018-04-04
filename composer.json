@@ -38,7 +38,7 @@
   "require": {
     "php": "7.1 - 7.2",
     "ext-ionCube-Loader": "*",
-    "oxid-esales/oxideshop-ce": "6.0 - 6.1"
+    "oxid-esales/oxideshop-ce": "6.0 - 6.2"
   },
   "autoload": {
     "psr-4": {
