@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Table of Contents
 - [Unreleased](#cUnreleased)
+- [5.1.0.1](#c5101)
 - [5.1.0.0](#c5100)
 - [5.0.0.0](#c5000)
 - [4.5.0.0](#c4500)
@@ -42,6 +43,10 @@ All notable changes to this project will be documented in this file.
 - [4.0.0.0](#c4000)
 
 ## Unreleased<a name="cUnreleased"></a>
+
+## 5.1.0.1 - 2018-04-26<a name="c5101"></a>
+### Changed
+- Klassenname von d3counter korrigiert
 
 ## 5.1.0.0 - 2017-12-18<a name="c5100"></a>
 ### Added
