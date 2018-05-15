@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Table of Contents
 - [Unreleased](#cUnreleased)
+- [5.1.1.0](#c5110)
 - [5.1.0.1](#c5101)
 - [5.1.0.0](#c5100)
 - [5.0.0.0](#c5000)
@@ -44,11 +45,28 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased<a name="cUnreleased"></a>
 
-## 5.1.0.1 - 2018-04-26<a name="c5101"></a>
-### Changed
-- Klassenname von d3counter korrigiert
+## 5.1.1.0 - 2018-05-15 - #7481<a name="c5110"></a>
+### Added
+- Datenbank-Query-Cache-Check hinzugefügt
+- sh-Vorlagen-Templates für PHP 7.1 und 7.2 bei Profihost hinzugefügt
 
-## 5.1.0.0 - 2017-12-18<a name="c5100"></a>
+### Changed
+- Freigabe für OXID eShop 6.2
+- FontAwesome auf Version 5 aktualisiert
+- Lizenzformulare im Admin werden erst auf Anforderung geladen 
+- zusätzliche Admin-Bedienelemente werden nur bei aktiviertem Connector dargestellt
+- vendormetadata entfernt
+
+### Fixed
+- Speicherung mehrsprachiger Konfigurationseinstellungen korrigiert (#7476)
+- getSqlActiveSnippet verwendet ForceCoreTable-Parameter
+. fehlende Templates in Metadata nachgetragen
+
+## 5.1.0.1 - 2018-04-26 - #7403<a name="c5101"></a>
+### Changed
+- Klassenname von d3counter korrigiert (#7393)
+
+## 5.1.0.0 - 2017-12-18 - #7482<a name="c5100"></a>
 ### Added
 - composerfähige Installation
 - Migrationsqueries (von OXID 4.10 / 5.x)
@@ -57,7 +75,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - als deprecated markierten Code entfernt
 
-## 5.0.0.0 - 2017-11-23<a name="c5000"></a>
+## 5.0.0.0 - 2017-11-23 - #6951<a name="c5000"></a>
 ### Added
 - Log-Export auch für modulspezifische Log-Auswertungen möglich
 - Template-Block-Verwaltung eingefügt
