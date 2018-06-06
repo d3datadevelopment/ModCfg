@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Table of Contents
 - [Unreleased](#cUnreleased)
+- [5.1.1.1](#c5111)
 - [5.1.1.0](#c5110)
 - [5.1.0.1](#c5101)
 - [5.1.0.0](#c5100)
@@ -45,6 +46,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased<a name="cUnreleased"></a>
 
+## 5.1.1.1 - 2018-06-06 - #7578<a name="c5111"></a>
+### Fixed
+- Einstellungs-Überladung korrigiert - verwendet Einstellungen der Hauptsprache, wenn in aktueller Sprache keine Einstellungen gespeichert wurden
+
+### Changed
+- kleine Textänderungen in der Installationsroutine
+
 ## 5.1.1.0 - 2018-05-15 - #7481<a name="c5110"></a>
 ### Added
 - Datenbank-Query-Cache-Check hinzugefügt
@@ -60,7 +68,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Speicherung mehrsprachiger Konfigurationseinstellungen korrigiert (#7476)
 - getSqlActiveSnippet verwendet ForceCoreTable-Parameter
-. fehlende Templates in Metadata nachgetragen
+- fehlende Templates in Metadata nachgetragen
 
 ## 5.1.0.1 - 2018-04-26 - #7403<a name="c5101"></a>
 ### Changed

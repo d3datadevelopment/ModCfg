@@ -98,15 +98,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.1.1.0';
-    public $sModRevision = '5110';
+    public $sModVersion = '5.1.1.1';
+    public $sModRevision = '5111';
     public $sBaseConf =
-        'px9v2==M245cFBhTjNQZndGRzhwN0VzV1ZwS2xwZ3IvejBpWVZBRUxVMXNMa1NROWNqbDlYaDROamtmK
-0VJbTl5RUN5R0RWREdzQ2F2aXFzTGJiRmY5WDYyWm1sZWJDcm9zWjBlRUVsYTlvWXNKb0p4cWxnd2FpS
-kk1U2lVdnJZME9SL0drMDFNVFpMVExSeHJyRjBjZXVuakk4VnY1K1hEenNrVTc0UUdaT05Kc1hWeThHU
-GxnT0NDZ1Z0VUk0WXZ4SVBzSUlMZ0Q1VXpHWDF6MStVSkFHbVNEdGtYdDlHelJXbm8rV01Lbm1YOEp2e
-UNaUWNvQ0d2OGViQnRNeFRJOEFlR1ZRNDcwZU1FRzZWeENSRTAyZUhvMTZNUjdmY2FGTEN0NGFQY3hKZ
-GtTdmJraVA0UjA5RzlzWnhDTng3eEk3NEY=';
+        'fhjv2==SmNpYW1FTkRSNTdyWGFTeFFuT1FLa2NHdnpBQy9Wdk43ZzRwSlZGaVlVdUVlZVZKWTFhcERGM
+kFJS0RRRHNmNDRJZGg3SFhMSUhGVVk4WUtmanh1V2YrS1J5cmd4cHlVaGlPejVQMlptOXZSdGllS2ZpW
+WxiZmxnNUxMTXZRbERIQTV5SG5BRjdxTjFrajJiRFJHYUVjbVk0alJTMGFNMlNTS0JORW1QY1NaVzlCR
+0o3NS9wcFUwYzhZendBQXMzVExhTVo3YjllWjN1QUJhemhESnZEbkVoYlpjOW5DZ1Q4ME5lNUpXRkNkW
+DFpdDdZd2s4d25WTkRMK0dZQWdHVWJGUHgwaHFoQm40M1kxZVBmQVBva2I3YSt6YWZTQ01IR1Nyc0JTW
+nY5QlRJc0dPeE1IL1dEcUZsdlUxa2lWNlI=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
