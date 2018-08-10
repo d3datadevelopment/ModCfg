@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3modcfg_lib';
 
-    public $sModVersion = '5.1.1.1';
+    public $sModVersion = '5.1.1.2';
 
     /********************** check configuration section ************************/
 

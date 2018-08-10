@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Table of Contents
 - [Unreleased](#cUnreleased)
+- [5.1.1.2](#c5112)
 - [5.1.1.1](#c5111)
 - [5.1.1.0](#c5110)
 - [5.1.0.1](#c5101)
@@ -46,6 +47,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased<a name="cUnreleased"></a>
 
+## 5.1.1.2 - 2018-08-10 - #7834<a name="c5112"></a>
+### Added
+- Migrationsdatei zu Oxid 6.x hinzugefügt (docs/migration_to_OXID_6.x.md)
+
+### Changed
+- Kompatibität zu Oxid Shop 6.0.3 und der Oxid Compilation 6.1.0 hergestellt
+
 ## 5.1.1.1 - 2018-06-06 - #7578<a name="c5111"></a>
 ### Fixed
 - Einstellungs-Überladung korrigiert - verwendet Einstellungen der Hauptsprache, wenn in aktueller Sprache keine Einstellungen gespeichert wurden
@@ -61,7 +69,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Freigabe für OXID eShop 6.2
 - FontAwesome auf Version 5 aktualisiert
-- Lizenzformulare im Admin werden erst auf Anforderung geladen 
+- Lizenzformulare im Admin werden erst auf Anforderung geladen
 - zusätzliche Admin-Bedienelemente werden nur bei aktiviertem Connector dargestellt
 - vendormetadata entfernt
 
