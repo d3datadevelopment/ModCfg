@@ -21,6 +21,7 @@ use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Registry;
 
 class d3log_exception extends StandardException
 {
@@ -86,7 +87,13 @@ class d3log_exception extends StandardException
      */
     public function debugOut()
     {
-        parent::debugOut();
+        if (method_exists(Registry::class, 'getLogger')) {
+            $logger = Registry::getLogger();
+            $logger->error($this);
+        } else {
+            // backward compatible for OXID < 6.1
+            parent::debugOut();
+        }
 
         $this->oD3Log->log(
             $this->iErrorLevel,

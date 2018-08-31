@@ -98,15 +98,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.1.1.2';
-    public $sModRevision = '5112';
+    public $sModVersion = '5.1.1.3';
+    public $sModRevision = '5113';
     public $sBaseConf =
-        '5Trv2==c0NsR1hIU21SU2VMVGpkVEJxd3R2VUtjRUdPdkh1UWk0N1B5T1hHaTh6bUR2N2dwckFacUpjT
-kRYbUR1d2tUVnBSSE1PQmpPWk1NNWY2L1dyTWhaL1Q0bkRuejVjVWxKSFFiajNlQ3k4dmNBazRtUExVQ
-zBhb0R3TVpoaFdKOXQ1NUdHa1QxZHYzd2V4QmV1Y3g5bkgwSHh6L1RIMnh6VEZ1ZWxJTzRFRjltUTRxZ
-W1xZGJTNzVtN3cvZ1c1aEpkY3J1K0ZlbHpCWUU2M1R0M2pZQUZOeEg0eFJkdW5jOFV6SjVpYzhISFRKe
-Gc4NHpMdjkrNm1vb0FaMnBCVXRnVFpQTlY3N1p3WFFBa1g0Q1l3Slkwa0dKaXNETDFMOEhXT1piQVpkO
-XNWOWg1Q0hjN20zcS9OcHN3d2o5Qk9oMWc=';
+        'z3fv2==RjZwTzVrTlpMSnV6TjVHMXdydlFSVDBwWVJEVXVaUXljQVBmZitNM2pLcm0vMWUxQXNYcEVqd
+GkzYkdRTmVhdDYyTGZTSDhadXZZTHRyUlRKcXpFMkRIQlR3bWVvakpRRHh6OVZ2eThjd0JSTS91K0xSY
+W1UVDNIV3NONGVKdUtlejJKOGpiaWJEYitwZ3l1NmVZR1JkT2hvTXZ2aEk2VTlZV1o5SE9Gcng0RlFQT
+UxXcmp4Q1VJR0FUUzUxVXBHWWVoNEthWjRkRmQ0NnJQc3RhYktoMCtQSU1RSzF1dk8yY2pLSGVyUGd4U
+FR1Q3hsRkFzM1czeHRrMU4rRUdldlFjYlpyb05EYzBTUm9NdXpRaTQ5eS83ZDAyN0tSUkVhaklJazcwc
+GZwbjJtM20yQzJDcVJaNDRyMEJNTUNHdXo=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -923,8 +923,7 @@ XNWOWg1Q0hjN20zcS9OcHN3d2o5Qk9oMWc=';
         if ($this->isModCfgModuleInactive()) {
             if ($this->hasExecute()) {
                 /** @var Module $oModule */
-                $sClassName = class_exists(\oxModule::class) ? \oxModule::class : Module::class;
-                $oModule = oxNew($sClassName);
+                $oModule = oxNew(Module::class);
                 $oModule->load($this->sModKey);
 
 
