@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3modcfg_lib';
 
-    public $sModVersion = '5.1.1.2';
+    public $sModVersion = '5.1.1.3';
 
     /********************** check configuration section ************************/
 
@@ -52,7 +52,7 @@ class requConfig
         'hasMinPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                'version' => '5.2.0'
+                'version' => '5.6.0'
             )
         ),
 
@@ -60,7 +60,7 @@ class requConfig
         'hasMaxPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
-                'version' => '5.6.200'
+                'version' => '7.1.200'
             )
         ),
 
@@ -69,7 +69,7 @@ class requConfig
             'blExec'  => 1,
             'aParams' => array(
                 'from' => '5.6.0',
-                'to'   => '7.1.200',
+                'to'   => '7.2.200',
             )
         ),
 
@@ -126,7 +126,7 @@ class requConfig
             ),
         ),
 
-        // minimal benötigte Shopversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
+        // minimal benötigte Compilationversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
         'hasMinShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -136,13 +136,13 @@ class requConfig
             ),
         ),
 
-        // maximal verwendbare Shopversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
+        // maximal verwendbare Compilationversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
         'hasMaxShopVersion'      => array(
-            'blExec'  => 0,
+            'blExec'  => 1,
             'aParams' => array(
-                'PE' => '6.0.200',
-                'CE' => '6.0.200',
-                'EE' => '6.0.200'
+                'PE' => '6.1.200',
+                'CE' => '6.1.200',
+                'EE' => '6.1.200'
             ),
         ),
 
@@ -209,7 +209,7 @@ date_default_timezone_set('Europe/Berlin');
  */
 class requCheck
 {
-    public $sVersion = '4.10.2';
+    public $sVersion = '5.0.0';
 
     protected $_db = false;
 
@@ -2178,10 +2178,8 @@ class requTests
     public function hasMinShopVersion(&$aConfiguration)
     {
         if ($this->getDb()) {
-            $sField  = 'oxversion';
-            $sSelect = "SELECT " . $sField . " FROM oxshops WHERE 1 ORDER BY oxversion ASC LIMIT 1";
-            $rResult = mysqli_query($this->getDb(), $sSelect);
-            $oResult = mysqli_fetch_object($rResult);
+            require_once '../vendor/oxid-esales/oxideshop-ce/source/Core/ShopVersion.php';
+            $shopVersion = OxidEsales\EshopCommunity\Core\ShopVersion::getVersion();
 
             $oEditionResult = $this->_getShopEdition();
             $sEdition       = strtoupper($oEditionResult->oxedition);
@@ -2198,7 +2196,7 @@ class requTests
                 $aConfiguration['aParams'] = array('version' => $aConfiguration['aParams'][$sEdition]);
             }
 
-            if (version_compare($oResult->oxversion, $aConfiguration['aParams']['version'], '>=')) {
+            if (version_compare($shopVersion, $aConfiguration['aParams']['version'], '>=')) {
                 return true;
             }
         }
@@ -2214,10 +2212,8 @@ class requTests
     public function hasMaxShopVersion(&$aConfiguration)
     {
         if ($this->getDb()) {
-            $sField  = 'oxversion';
-            $sSelect = "SELECT " . $sField . " FROM oxshops WHERE 1 ORDER BY oxversion DESC LIMIT 1";
-            $rResult = mysqli_query($this->getDb(), $sSelect);
-            $oResult = mysqli_fetch_object($rResult);
+            require_once '../vendor/oxid-esales/oxideshop-ce/source/Core/ShopVersion.php';
+            $shopVersion = OxidEsales\EshopCommunity\Core\ShopVersion::getVersion();
 
             $oEditionResult = $this->_getShopEdition();
             $sEdition       = strtoupper($oEditionResult->oxedition);
@@ -2234,7 +2230,7 @@ class requTests
                 $aConfiguration['aParams'] = array('version' => $aConfiguration['aParams'][$sEdition]);
             }
 
-            if (version_compare($oResult->oxversion, $aConfiguration['aParams']['version'], '<=')) {
+            if (version_compare($shopVersion, $aConfiguration['aParams']['version'], '<=')) {
                 return true;
             }
         }

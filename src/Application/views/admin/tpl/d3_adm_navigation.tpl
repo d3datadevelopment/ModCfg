@@ -7,11 +7,11 @@
 [{/strip}][{/capture}]
 
 [{capture name="sModuleContent"}]
-    [{oxstyle include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/d3_mod_cfg.css')}]
+    [{oxstyle include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/d3_mod_cfg.min.css')}]
     [{oxstyle}]
 
-    [{oxscript include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fontawesome-all.js')}]
-    [{oxscript include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fa-v4-shims.js')}]
+    [{oxscript include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fontawesome-all.min.js')}]
+    [{oxscript include=$oViewConf->getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fa-v4-shims.min.js')}]
     [{oxscript}]
 
 </head>

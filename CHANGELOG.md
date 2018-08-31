@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Table of Contents
 - [Unreleased](#cUnreleased)
+- [5.1.1.3](#c5113)
 - [5.1.1.2](#c5112)
 - [5.1.1.1](#c5111)
 - [5.1.1.0](#c5110)
@@ -47,12 +48,22 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased<a name="cUnreleased"></a>
 
+## 5.1.1.3 - 2018-08-30 - #7893<a name="c5113"></a>
+### Added
+- Stylesheets werden aus LESS-Dateien erzeugt
+- Zufallsgenerator für Zeichenketten hinzugefügt
+
+### Changed
+- vollständige Kompatibilität zur OXID Compilation 6.1.0 hergestellt
+- Dokumentation zu HTML-Format geändert
+- Moduldateiliste kann aus Namespaceklassennamen der Metadata generiert werden
+
 ## 5.1.1.2 - 2018-08-10 - #7834<a name="c5112"></a>
 ### Added
 - Migrationsdatei zu Oxid 6.x hinzugefügt (docs/migration_to_OXID_6.x.md)
 
 ### Changed
-- Kompatibität zu Oxid Shop 6.0.3 und der Oxid Compilation 6.1.0 hergestellt
+- Kompatibilität zu Oxid Shop 6.0.3 und der Oxid Compilation 6.1.0 hergestellt
 
 ## 5.1.1.1 - 2018-06-06 - #7578<a name="c5111"></a>
 ### Fixed
@@ -69,7 +80,11 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Freigabe für OXID eShop 6.2
 - FontAwesome auf Version 5 aktualisiert
+<<<<<<< c8f4316c0ef30a8838bc4793caf2f82f0f737a22
 - Lizenzformulare im Admin werden erst auf Anforderung geladen
+=======
+- Lizenzformulare im Admin werden erst auf Anforderung geladen 
+>>>>>>> use FQNS from metadata v2 to check existing module files
 - zusätzliche Admin-Bedienelemente werden nur bei aktiviertem Connector dargestellt
 - vendormetadata entfernt
 

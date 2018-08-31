@@ -43,7 +43,15 @@ class d3modprofile_exception extends StandardException
         try {
             $sLogMsg = $this->getString() . "\n Stack Trace: {$this->getTraceAsString(
                 )} \n---------------------------------------------\n";
-            Registry::getUtils()->writeToLog($sLogMsg, $this->getLogFileName());
+
+            $utils = Registry::getUtils();
+            if (method_exists($utils, 'writeToLog')) {
+                // backward compatible for OXID < 6.1
+                $utils->writeToLog($sLogMsg, $this->getLogFileName());
+            } elseif (method_exists(Registry::class, 'getLogger')) {
+                $logger = Registry::getLogger();
+                $logger->error($sLogMsg);
+            }
         } catch (\Exception $e) {
         }
     }
