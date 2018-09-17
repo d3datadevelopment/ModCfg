@@ -1,4 +1,4 @@
-[{if $oView->getAction() == 'skip' }]
+[{if $oView->getAction() == 'skip' && !$oView->getError()}]
 <script type='text/javascript'>
     [{assign var="sFormerClassUrl" value=$oView->getFormerClassUrl()}]
     document.location = '[{$sFormerClassUrl|escape:"javascript"}]';
@@ -438,6 +438,13 @@
         <div class="installnavigation">
     [{/if}]
 
+    [{if $oView->getError()}]
+        <h2>[{oxmultilang ident="D3_CFG_MOD_UPDATE_JOB_ERROR"}]</h2>
+        <div class="updatedesc">
+            [{$oView->getErrorMessageText()}]
+        </div>
+    [{/if}]
+
     [{if $oView->getAction() && $oView->getAction() != 'autoinstall'}]
         <form action="[{$oViewConf->getSelfLink()}]" method="post">
             [{$oViewConf->getHiddenSid()}]
@@ -455,10 +462,6 @@
             </span>
         </form>
     [{elseif $oView->getError()}]
-        <h2>[{oxmultilang ident="D3_CFG_MOD_UPDATE_JOB_ERROR"}]</h2>
-        <div class="updatedesc">
-            [{$oView->getErrorMessageText()}]
-        </div>
         [{if $oView->getCheckList()}]
             <ol class="steps">
                 [{foreach from=$oView->getCheckList() item="aCheckItem" key="key"}]

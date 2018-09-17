@@ -24,7 +24,9 @@ use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
 use D3\ModCfg\Application\Model\Parametercontainer\Registry as ParameterContainerRegistry;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use Exception;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Core\DebugInfo;
 use OxidEsales\Eshop\Core\Exception\CookieException;
 use OxidEsales\Eshop\Core\Exception\RoutingException;
 use OxidEsales\Eshop\Core\Exception\SystemComponentException;
@@ -57,6 +59,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws \Exception
      */
     public function start ($sClass = null, $sFunction = null, $aParams = null, $aViewsChain = null)
     {
@@ -266,7 +269,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         } else {
             if ($this->_isDebugMode() && (!$this->isAdmin() || d3_cfg_mod::get('d3modcfg_lib')->getValue('blLog_enableAdminProfiling'))) {
                 $debugLevel = $this->getConfig()->getConfigParam('iDebug');
-                $debugInfo = oxNew('oxDebugInfo');
+                $debugInfo = oxNew(DebugInfo::class);
 
                 $logId = md5(time() . rand() . rand());
                 $header = $debugInfo->formatGeneralInfo();

@@ -51,8 +51,8 @@ class d3_cfg_log extends d3_cfg_mod_
      */
     public function render()
     {
-        $this->addTplParam('sListClass', 'd3_cfg_log_list');
-        $this->addTplParam('sMainClass', 'd3_cfg_log_main');
+        $this->addTplParam('sListClass', d3_cfg_log_list::class);
+        $this->addTplParam('sMainClass', d3_cfg_log_main::class);
 
         return parent::render();
     }

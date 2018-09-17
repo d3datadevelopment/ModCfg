@@ -24,6 +24,7 @@ use OxidEsales\Eshop\Core\Database\Adapter\DatabaseInterface;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3maintenanceactions
 {
@@ -112,7 +113,7 @@ class d3maintenanceactions
             $oDb->execute($sCleanUpQuery);
         }
 
-        Registry::get("oxUtilsView")->addErrorToDisplay(
+        Registry::get(UtilsView::class)->addErrorToDisplay(
             sprintf(
                 Registry::getLang()->translateString($sMessageIdent),
                 $iRow

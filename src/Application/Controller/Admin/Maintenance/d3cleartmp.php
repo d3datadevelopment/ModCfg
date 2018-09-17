@@ -32,6 +32,7 @@ use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3ClearTmp extends d3_cfg_mod_main
 {
@@ -146,15 +147,15 @@ class d3ClearTmp extends d3_cfg_mod_main
                 Registry::getConfig()->getActiveView()->addTplParam('clearViews', true);
                 $blClrTmp = $oClrTmp->updateViews();
                 if (true === $blClrTmp) {
-                    Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_VIEWUPDATESUCCESS'));
+                    Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_VIEWUPDATESUCCESS'));
                 } elseif (false === $blClrTmp) {
-                    Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_VIEWUPDATENOSUCCESS'));
+                    Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_VIEWUPDATENOSUCCESS'));
                 }
             }
         }
 
         if ($blReturn) {
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_SUCCESS'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3_CFG_CLRTMP_SUCCESS'));
         }
     }
 

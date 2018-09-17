@@ -255,6 +255,8 @@ class d3_mod_update extends AdminController
             $blStepByStep         = true;
             $this->setAction('manualyinstall');
             $this->_blUpdateBreak = d3install::getInstance()->performUpdateProcess($blStepByStep, $blExecute);
+            $this->_blError       = d3install::getInstance()->getUpdateProcessErrorStatus();
+            $this->_sErrorMsg     = d3install::getInstance()->getUpdateProcessErrorMessage();
             $aActionList          = d3install::getInstance()->performUpdateChecklist($blStepByStep);
             $this->_aUserSelections   = d3install::getInstance()->getUserSelections();
             $this->aCheckList     = $aActionList;

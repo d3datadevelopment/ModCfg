@@ -32,6 +32,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3_cfg_log_main extends d3_cfg_mod_main
 {
@@ -284,7 +285,7 @@ class d3_cfg_log_main extends d3_cfg_mod_main
             if ($oEmail->send()) {
                 $this->addTplParam('blMailSend', true);
             } else {
-                Registry::get("oxUtilsView")->addErrorToDisplay(
+                Registry::get(UtilsView::class)->addErrorToDisplay(
                     new StandardException(sprintf(
                         Registry::getLang()->translateString('D3_LOG_MAIL_NOTSEND'),
                         implode('', $aPath)

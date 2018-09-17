@@ -29,6 +29,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\DbMetaDataHandler;
 use OxidEsales\Eshop\Core\Base;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3clrtmp extends Base
 {
@@ -576,7 +577,7 @@ class d3clrtmp extends Base
 
         foreach ($aTypesList as $sImgType) {
             $aDirs[] = Registry::getConfig()->getPictureDir(true).
-                       Registry::get("oxUtilsFile")->getImageDirByType($sImgType, true);
+                       Registry::get(UtilsView::class)->getImageDirByType($sImgType, true);
         }
 
         return $aDirs;

@@ -10,17 +10,17 @@
  */
 
 /**
- * Alle Anforderungen sind über $this->_aCheck konfigurierbar. Manche Anforderungen haben dazu noch weitergehende
+ * Alle Anforderungen sind Ã¼ber $this->_aCheck konfigurierbar. Manche Anforderungen haben dazu noch weitergehende
  * Informationen. Die Struktur dieser Requirementbeschreibungen:
  *
  * array(
- *      'blExec'    => 1,           // obligatorisch: 0 = keine Prüfung, 1 = Püfung wird ausgeführt
- *      'aParams'   => array(...),  // optional, Inhalt ist von jeweiliger Prüfung abhängig
+ *      'blExec'    => 1,           // obligatorisch: 0 = keine PrÃ¼fung, 1 = PÃ¼fung wird ausgefÃ¼hrt
+ *      'aParams'   => array(...),  // optional, Inhalt ist von jeweiliger PrÃ¼fung abhÃ¤ngig
  * )
  *
  * "Desc1": Diese Struktur kann allein eine Bedingung beschreiben. Wenn mehrere dieser Bedingungen
- * nötig sind (z.B. bei unterschiedlichen Bibliotheksanforderungen), kann diese Struktur als
- * Arrayelemente auch mehrfach genannt werden (kaskadierbar). Grundsätzlich sind alle Requirements
+ * nÃ¶tig sind (z.B. bei unterschiedlichen Bibliotheksanforderungen), kann diese Struktur als
+ * Arrayelemente auch mehrfach genannt werden (kaskadierbar). GrundsÃ¤tzlich sind alle Requirements
  * kaskadierbar, jedoch ergibt dies nicht bei allen Sinn. :) Eine Kaskadierung sieht so aus:
  *
  * array(
@@ -34,7 +34,7 @@
  *      )
  * )
  *
- * Unbedingt zu vermeiden sind Änderungen in der Scriptlogik, da diese bei Updates nur schwer zu übernehmen sind.
+ * Unbedingt zu vermeiden sind Ã„nderungen in der Scriptlogik, da diese bei Updates nur schwer zu Ã¼bernehmen sind.
  */
 
 class requConfig
@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3modcfg_lib';
 
-    public $sModVersion = '5.1.1.3';
+    public $sModVersion = '5.1.1.4';
 
     /********************** check configuration section ************************/
 
@@ -56,7 +56,7 @@ class requConfig
             )
         ),
 
-        // größte erlaubte PHP-Version
+        // grÃ¶ÃŸte erlaubte PHP-Version
         'hasMaxPhpVersion'       => array(
             'blExec'  => 0,
             'aParams' => array(
@@ -69,26 +69,26 @@ class requConfig
             'blExec'  => 1,
             'aParams' => array(
                 'from' => '5.6.0',
-                'to'   => '7.2.200',
+                'to'   => '7.2.900',
             )
         ),
 
-        // benötigt Zend Optimizer (PHP 5.2) bzw. Zend Guard Loader (> PHP 5.2)
+        // benÃ¶tigt Zend Optimizer (PHP 5.2) bzw. Zend Guard Loader (> PHP 5.2)
         'hasZendLoaderOptimizer' => array(
             'blExec' => 0,
         ),
 
-        // benötigt IonCubeLoader
+        // benÃ¶tigt IonCubeLoader
         'hasIonCubeLoader'       => array(
             'blExec' => 1,
         ),
 
-        // benötigt Zend Decoder oder IonCubeLoader
+        // benÃ¶tigt Zend Decoder oder IonCubeLoader
         'hasIonCubeOrZendLoader'       => array(
             'blExec' => 0,
         ),
 
-        // benötigte PHP-Extension (kaskadierbar (siehe "Desc1"))
+        // benÃ¶tigte PHP-Extension (kaskadierbar (siehe "Desc1"))
         'hasExtension'           => array(
             array(
                 'blExec'  => 1,
@@ -110,7 +110,7 @@ class requConfig
             ),
         ),
 
-        // benötigte cURL-Version
+        // benÃ¶tigte cURL-Version
         'hasMinCurlVersion'           => array(
             'blExec'  => 0,
             'aParams' => array(
@@ -118,7 +118,7 @@ class requConfig
             ),
         ),
 
-        // benötigte OpenSSL-Version (Angabe in Versionsformat)
+        // benÃ¶tigte OpenSSL-Version (Angabe in Versionsformat)
         'hasMinOpenSSLVersion'           => array(
             'blExec'  => 0,
             'aParams' => array(
@@ -126,7 +126,7 @@ class requConfig
             ),
         ),
 
-        // minimal benötigte Compilationversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
+        // minimal benÃ¶tigte Compilationversion (editionsgetrennt), wird (sofern mÃ¶glich) Remote aktualisiert
         'hasMinShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -136,7 +136,7 @@ class requConfig
             ),
         ),
 
-        // maximal verwendbare Compilationversion (editionsgetrennt), wird (sofern möglich) Remote aktualisiert
+        // maximal verwendbare Compilationversion (editionsgetrennt), wird (sofern mÃ¶glich) Remote aktualisiert
         'hasMaxShopVersion'      => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -146,7 +146,7 @@ class requConfig
             ),
         ),
 
-        // verfügbar für diese Shopeditionen, wird (sofern möglich) Remote aktualisiert
+        // verfÃ¼gbar fÃ¼r diese Shopeditionen, wird (sofern mÃ¶glich) Remote aktualisiert
         'isShopEdition'          => array(
             'blExec'  => 1,
             'aParams' => array(
@@ -158,12 +158,12 @@ class requConfig
             ),
         ),
 
-        // benötigt Modul-Connector
+        // benÃ¶tigt Modul-Connector
         'hasModCfg'              => array(
             'blExec' => 0
         ),
 
-        // benötigt mindestens diese Erweiterungen / Version lt. d3_cfg_mod (kaskadierbar (siehe "Desc1"))
+        // benÃ¶tigt mindestens diese Erweiterungen / Version lt. d3_cfg_mod (kaskadierbar (siehe "Desc1"))
         'hasMinModCfgVersion'    => array(
             array(
                 'blExec'  => 0,
@@ -187,13 +187,13 @@ class requConfig
             ),
         ),
 
-        // benötigt neuen Lizenzschlüssel
+        // benÃ¶tigt neuen LizenzschlÃ¼ssel
         'requireNewLicence'    => array(
             array(
                 'blExec'  => 0,
                 'aParams' => array(
-                    'checkVersion' => true, // soll Versionsnummer des installierten Moduls gegengeprüft werden?
-                    'remainingDigits' => 2, // zu prüfende Stellen für neue Lizenz
+                    'checkVersion' => true, // soll Versionsnummer des installierten Moduls gegengeprÃ¼ft werden?
+                    'remainingDigits' => 2, // zu prÃ¼fende Stellen fÃ¼r neue Lizenz
                 ),
             ),
         ),
@@ -317,7 +317,7 @@ class requCheck
         try {
             /** @var SplFileInfo $oFileInfo */
             $oIterator = new RecursiveDirectoryIterator($sFolder);
-
+        
             foreach ($oIterator as $oFileInfo) {
                 if (in_array($oFileInfo->getFileName(), $aIgnoreDirItems)) {
                     continue;
@@ -339,12 +339,12 @@ class requCheck
 
         return $aCheckScripts;
     }
-
+    
     public function addMessage($sMessage)
     {
         $this->aMessages[md5($sMessage)] = $sMessage;
     }
-
+    
     public function getMessages()
     {
         return $this->aMessages;
@@ -929,7 +929,7 @@ EOT;
         $sScriptName        = $_SERVER['SCRIPT_NAME'];
         $sTranslShopPhpInfo = $this->translate('showPhpInfo');
         $sTranslDependent   = $this->translate('dependentoffurther');
-
+        
         if (count($this->oBase->getMessages())) {
             echo '<span class="messages"><ul>';
             foreach ($this->oBase->getMessages() as $sMessage) {
