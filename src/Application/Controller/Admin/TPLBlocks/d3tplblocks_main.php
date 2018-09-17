@@ -28,6 +28,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3tplblocks_Main extends d3_cfg_mod_main
 {
@@ -135,7 +136,7 @@ class d3tplblocks_Main extends d3_cfg_mod_main
         $oTplBlock->assign($aParams);
         $oTplBlock->save();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_MOVEFIRST_SUCC'));
+        Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_MOVEFIRST_SUCC'));
 
         if (method_exists($this, 'setEditObjectId')) {
             $this->setEditObjectId($oTplBlock->getId());
@@ -176,7 +177,7 @@ class d3tplblocks_Main extends d3_cfg_mod_main
                 $this->setEditObjectId($oTplBlock->getId());
             }
 
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_MOVEFIRST_SUCC'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_MOVEFIRST_SUCC'));
             $this->addTplParam("updatelist", "1");
         }
 

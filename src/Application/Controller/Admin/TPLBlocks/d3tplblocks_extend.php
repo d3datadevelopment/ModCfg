@@ -29,6 +29,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3tplblocks_extend extends d3_cfg_mod_main
 {
@@ -145,10 +146,10 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             $oTplBlocks = oxNew(d3oxtplblocks::class);
             $oTplBlocks->clearTplBlocks($sModuleId);
 
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_REMBLOCKS_SUCC'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_REMBLOCKS_SUCC'));
             $this->addTplParam("updatelist", "1");
         } else {
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
         stopProfile(__METHOD__);
@@ -170,10 +171,10 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             $oTplBlocks = oxNew(d3oxtplblocks::class);
             $oTplBlocks->refreshTplBlocks($sModuleId);
 
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_REFBLOCKS_SUCC'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_REFBLOCKS_SUCC'));
             $this->addTplParam("updatelist", "1");
         } else {
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
         stopProfile(__METHOD__);
@@ -193,10 +194,10 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             $oTplBlocks = oxNew(d3oxtplblocks::class);
             $oTplBlocks->deactivateTplBlocks($sModuleId);
 
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_DEACTBLOCKS_SUCC'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_DEACTBLOCKS_SUCC'));
             $this->addTplParam("updatelist", "1");
         } else {
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
         stopProfile(__METHOD__);
@@ -216,10 +217,10 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             $oTplBlocks = oxNew(d3oxtplblocks::class);
             $oTplBlocks->activateTplBlocks($sModuleId);
 
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_ACTBLOCKS_SUCC'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_ACTBLOCKS_SUCC'));
             $this->addTplParam("updatelist", "1");
         } else {
-            Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
+            Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
         stopProfile(__METHOD__);
@@ -237,7 +238,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
         $oTplBlocks = oxNew(d3oxtplblocks::class);
         $oTplBlocks->clearDuplicates();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay(new StandardException('D3TPLBLOCKS_CLEARDUPLICATES_SUCC'));
+        Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_CLEARDUPLICATES_SUCC'));
         $this->addTplParam("updatelist", "1");
 
         stopProfile(__METHOD__);

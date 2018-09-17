@@ -77,17 +77,18 @@
     <div class="Page__header">
         <h1><a href="../installation/Shopupgrade.html">Shopupgrade</a></h1>
                 <span class="ModifiedDate">
-                        16.08.2018        </span>
+                        13.09.2018        </span>
                     </div>
 
     <div class="s-content">
         <p>Möchten Sie ein Upgrade Ihres Shops durchführen (z.B. von Version 5 auf 6), erfordert dies auch ein Upgrade des Modul-Connectors. Führen Sie hierzu die folgenden Schritte aus. Die sonst üblichen Updateschritte funktionieren darin leider nicht.</p>
 <ul>
-<li>Deaktivieren Sie alle <i class='fab fa-d3 d3fa-color-blue'></i> Module im Adminbereich unter <span class="navi_element">Erweiterungen</span> -&gt; <span class="navi_element">Module</span>.</li>
+<li>Deaktivieren Sie alle Module im Adminbereich unter <span class="navi_element">Erweiterungen</span> -&gt; <span class="navi_element">Module</span>, die den <i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector erfordern.</li>
 <li>Deaktivieren Sie den <i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector im Adminbereich unter <span class="navi_element">Erweiterungen</span> -&gt; <span class="navi_element">Module</span>
 </li>
+<li>Löschen Sie die Ordner der <i class='fab fa-d3 d3fa-color-blue'></i>-Module und des <i class='fab fa-d3 d3fa-color-blue'></i>-Modul-Connectors aus Ihrem Shop bzw. verschieben Sie diese außerhalb des modules-Ordners</li>
+<li>Bestätigen Sie im Adminbereich Ihres Shops unter <span class="navi_element">Erweiterungen</span> -&gt; <span class="navi_element">Module</span> das Entfernen der registrierten Module</li>
 <li>Führen Sie das Shopupgrade durch.</li>
-<li>Aktualisieren Sie den <i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector.</li>
 <li>Zur Anpassung der bestehenden Datenbank-Einträge führen Sie diese Abfragen in der Shopdatenbank aus:
 <pre><code class="language-mysql">UPDATE d3modprofile SET oxshopid = 1 WHERE oxshopid = 'oxbaseshop';
 UPDATE d3modprofile2shop SET oxshopid = 1 WHERE oxshopid = 'oxbaseshop';
@@ -96,6 +97,7 @@ UPDATE d3_cfg_mod SET oxshopid = 1 WHERE oxshopid = 'oxbaseshop';
 UPDATE d3_d3log_oxobject2d3transactionlog SET oxshopid = 1 WHERE oxshopid = 'oxbaseshop';
 </code></pre>
 </li>
+<li>Installieren Sie den <i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector.</li>
 <li>Aktivieren Sie den <i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector im Adminbereich unter <span class="navi_element">Erweiterungen</span> -&gt; <span class="navi_element">Module</span>.</li>
 </ul>
     </div>

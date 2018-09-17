@@ -69,8 +69,8 @@ class d3modlib extends d3_cfg_mod_
      */
     public function render()
     {
-        $this->addTplParam('sListClass', 'd3modlib_list');
-        $this->addTplParam('sMainClass', 'd3modlib_status');
+        $this->addTplParam('sListClass', d3modlib_list::class);
+        $this->addTplParam('sMainClass', d3modlib_status::class);
         return parent::render();
     }
 }

@@ -51,8 +51,8 @@ class d3sysitems extends d3_cfg_mod_
      */
     public function render()
     {
-        $this->addTplParam('sListClass', 'd3sysitems_list');
-        $this->addTplParam('sMainClass', 'd3moditems_main');
+        $this->addTplParam('sListClass', d3sysitems_list::class);
+        $this->addTplParam('sMainClass', d3cfgitems::class);
         return parent::render();
     }
 }

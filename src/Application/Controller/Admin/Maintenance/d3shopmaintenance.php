@@ -28,6 +28,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3ShopMaintenance extends d3_cfg_mod_main
 {
@@ -74,7 +75,7 @@ class d3ShopMaintenance extends d3_cfg_mod_main
         $oClrTmp = $this->_getClrTmp();
         $oClrTmp->clearGeneratedProductImgs();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENIMGS_SUCC');
+        Registry::get(UtilsView::class)->addErrorToDisplay('D3_CFG_CLRTMP_GENIMGS_SUCC');
     }
 
     /**
@@ -91,7 +92,7 @@ class d3ShopMaintenance extends d3_cfg_mod_main
         $oClrTmp = $this->_getClrTmp();
         $oClrTmp->clearGeneratedCategoryImgs();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENCATIMGS_SUCC');
+        Registry::get(UtilsView::class)->addErrorToDisplay('D3_CFG_CLRTMP_GENCATIMGS_SUCC');
     }
 
     /**
@@ -108,7 +109,7 @@ class d3ShopMaintenance extends d3_cfg_mod_main
         $oClrTmp = $this->_getClrTmp();
         $oClrTmp->clearGeneratedManufacturerImgs();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENMNFIMGS_SUCC');
+        Registry::get(UtilsView::class)->addErrorToDisplay('D3_CFG_CLRTMP_GENMNFIMGS_SUCC');
     }
 
     /**
@@ -125,7 +126,7 @@ class d3ShopMaintenance extends d3_cfg_mod_main
         $oClrTmp = $this->_getClrTmp();
         $oClrTmp->clearGeneratedVendorImgs();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENVNDIMGS_SUCC');
+        Registry::get(UtilsView::class)->addErrorToDisplay('D3_CFG_CLRTMP_GENVNDIMGS_SUCC');
     }
 
     /**
@@ -142,7 +143,7 @@ class d3ShopMaintenance extends d3_cfg_mod_main
         $oClrTmp = $this->_getClrTmp();
         $oClrTmp->clearGeneratedWrappingImgs();
 
-        Registry::get("oxUtilsView")->addErrorToDisplay('D3_CFG_CLRTMP_GENWRPIMGS_SUCC');
+        Registry::get(UtilsView::class)->addErrorToDisplay('D3_CFG_CLRTMP_GENWRPIMGS_SUCC');
     }
 
     /**

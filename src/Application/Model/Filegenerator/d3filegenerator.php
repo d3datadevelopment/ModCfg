@@ -28,6 +28,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Application\Model\Shop;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3filegenerator
 {
@@ -193,7 +194,7 @@ class d3filegenerator
         /** @var Shop $oShop */
         $oShop = Registry::getConfig()->getActiveShop();
         /** @var \Smarty $oSmarty */
-        $oSmarty = Registry::get("oxUtilsView")->getSmarty();
+        $oSmarty = Registry::get(UtilsView::class)->getSmarty();
         $oSmarty->assign('oShop', $oShop);
         $oSmarty->assign('oConfig', Registry::getConfig());
         $oSmarty->assign('oViewConf', Registry::getConfig()->getActiveView()->getViewConfig());

@@ -18,6 +18,7 @@ namespace D3\ModCfg\Application\Model\Encoding;
 
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\UtilsView;
 
 class d3encoder
 {
@@ -92,7 +93,7 @@ class d3encoder
         try {
             $mRet = call_user_func(array($this, $this->getEncodingMethodName()), $mValue);
         } catch (d3_cfg_mod_exception $oEx) {
-            Registry::get("oxUtilsView")->addErrorToDisplay($oEx, false);
+            Registry::get(UtilsView::class)->addErrorToDisplay($oEx, false);
         }
 
         return $mRet;
