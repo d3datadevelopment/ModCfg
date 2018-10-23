@@ -48,7 +48,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '5.1.1.4',
+    'version'     => '5.1.1.5',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
@@ -351,5 +351,5 @@ $aModule = [
 // EE only
 // check for compatible roles_bemain class, if it's missing, extension causes some autoload errors
 if (class_exists(OxidAdminController\RolesBackendMain::class)) {
-    $aModule['extend'][OxidAdminController\RolesBackendMain::class] = 'd3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights';
+    $aModule['extend'][OxidAdminController\RolesBackendMain::class] = D3\ModCfg\Modules\Application\Controller\Admin\d3_roles_bemain_rolesrights::class;
 }

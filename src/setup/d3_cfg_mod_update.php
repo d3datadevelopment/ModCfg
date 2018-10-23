@@ -90,6 +90,8 @@ class d3_cfg_mod_update extends d3install_updatebase
               'do'    => 'showUnregisteredFiles'),
         array('check' => 'hasDuplicateBlockItem',
               'do'    => 'deleteDuplicateBlockItems'),
+        array('check' => 'hasNonNamespacedRolesBemainExtension',
+              'do'    => 'removeNonNamespacedRolesBemainExtension'),
         array('check' => 'checkModCfgSameRevision',
               'do'    => 'updateModCfgSameRevision'),
         array('check' => 'hasDisabledD3VendorItem',
@@ -98,15 +100,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.1.1.4';
-    public $sModRevision = '5114';
+    public $sModVersion = '5.1.1.5';
+    public $sModRevision = '5115';
     public $sBaseConf =
-        '1oSv2==S3BQTkduL1lxTmZXL3Y3bUJZTlZUckV4WXAyN3p3ZytsZnQ1czh0cXlYYnlvMStvWlNIdFBGV
-DJ6VFdyQjZoMUlwNGtXSlMyejVabGthdXNzN2dRWDJmcGNHNDE2bVhYNSszK0dDcDNKY1Qrd3pPUW1OV
-jVVRHZGaXZxdStVS21ya0RKVys3V08rZEEzRDd5Y1h4UUE5cDZXWUVJNnlIbDh2dlNPWW5XbnQ2MGdVR
-2x4b0hGS0lKRjJIV0lJMFlKbFA0R2N1ZnZUVnNBQ1d4OTVZRm5sdUZvVHIyeXA3WnZ3WmJ6Y2YwaUFZZ
-0xiWmZObW1QU2hoeWdKcklPYUc2OUx4b3g1TjMzV0Z4K2RwTEJkQmg5WTVhbk0yQS8vVkFYbDgwMVpnN
-3RXczF3NlQ2MGRBU3RLYkFqbUdnYVI2NW8=';
+        'Y5Nv2==TU96YmlUaFVSaXJiWlR1QkdIYldacWxDL0FiYnJJN2RaRENWdVJDTHpieU9nZHoxYmtuZDNJR
+lN1YTNFMFMwOVVtVFpBMlJEaXM1ZjFDd1NPWlBnTG91dHQ5OXJiS2tRUGRTK1o2WUJCK3NTcUEvSy9qN
+TEzb1hPaytkK1JxaVE1U1UvcW1Xb3R1UWkrOE0wNkxVZzVUTzZET2F6dDBWSU9DbGJrRHFsSHRLaG1EV
+zR0dllpY0ZrWlkrNkhTc1M4Q00rTDN4UE5HRHZDd05MMGxITlMrMkZqWUtDc3pBSngvdHA0TnFaNVhPW
+DhmcWgxN05VcXVvNkVxMCthRFVpVjFJRGtTbmkrbWlrVkZjZjU5T3hGQjd6c09pa1VpNjQrZ1R4N015T
+k8wb3AwMVNDdEZiLzJQUWU3aGt1TVNyd24=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -1528,6 +1530,59 @@ jVVRHZGaXZxdStVS21ya0RKVys3V08rZEEzRDd5Y1h4UUE5cDZXWUVJNnlIbDh2dlNPWW5XbnQ2MGdVR
         }
 
         return $blRet;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasNonNamespacedRolesBemainExtension()
+    {
+        $aModules = Registry::getConfig()->getConfigParam('aModules');
+        if (is_array($aModules)
+            && isset($aModules['OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain'])
+            && stristr($aModules['OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain'], 'd3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights')
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @throws ConnectionException
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     */
+    public function removeNonNamespacedRolesBemainExtension()
+    {
+        $oConfig = Registry::getConfig();
+        $sCurrentShopId = $oConfig->getActiveShop()->getId();
+
+        if ($this->hasNonNamespacedRolesBemainExtension()) {
+            /** @var Shop $oShop */
+            foreach ($this->getShopList() as $oShop) {
+                $this->_changeToShop($oShop->getId());
+
+                $aModules = $oConfig->getConfigParam('aModules');
+                $aExtensions = array_flip(explode('&', $aModules['OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain']));
+                unset($aExtensions['d3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights']);
+                $aModules['OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain'] = implode('&', array_flip($aExtensions));
+
+                $this->fixOxconfigVariable(
+                    'aModules',
+                    $oConfig->getActiveShop()->getId(),
+                    '',
+                    $aModules,
+                    'aarr'
+                );
+
+                if ($this->hasExecute()) {
+                    $oConfig->setConfigParam('aModules', $aModules);
+                }
+            }
+
+            $this->_changeToShop($sCurrentShopId);
+        }
     }
 
     /**
