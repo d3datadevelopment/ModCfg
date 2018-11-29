@@ -183,7 +183,7 @@ class d3_cfg_mod_cleaning
 
             $this->oUpdateBase->fixOxconfigVariable(
                 'aModules',
-                Registry::getConfig()->getActiveShop()->getId(),
+                $oShop->getId(),
                 '',
                 $aModuleList,
                 'aarr'
@@ -393,7 +393,7 @@ class d3_cfg_mod_cleaning
 
             $this->oUpdateBase->fixOxconfigVariable(
                 $sItemId,
-                Registry::getConfig()->getActiveShop()->getId(),
+                $oShop->getId(),
                 '',
                 $aModuleInfos,
                 'aarr'
@@ -449,7 +449,7 @@ class d3_cfg_mod_cleaning
 
                 $this->oUpdateBase->fixOxconfigVariable(
                     $sItemId,
-                    Registry::getConfig()->getActiveShop()->getId(),
+                    $oShop->getId(),
                     '',
                     $aModuleInfos,
                     'aarr'

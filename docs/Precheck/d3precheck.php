@@ -43,7 +43,7 @@ class requConfig
 
     public $sModId   = 'd3modcfg_lib';
 
-    public $sModVersion = '5.1.1.5';
+    public $sModVersion = '5.1.1.6';
 
     /********************** check configuration section ************************/
 
@@ -317,7 +317,7 @@ class requCheck
         try {
             /** @var SplFileInfo $oFileInfo */
             $oIterator = new RecursiveDirectoryIterator($sFolder);
-        
+
             foreach ($oIterator as $oFileInfo) {
                 if (in_array($oFileInfo->getFileName(), $aIgnoreDirItems)) {
                     continue;
@@ -339,12 +339,12 @@ class requCheck
 
         return $aCheckScripts;
     }
-    
+
     public function addMessage($sMessage)
     {
         $this->aMessages[md5($sMessage)] = $sMessage;
     }
-    
+
     public function getMessages()
     {
         return $this->aMessages;
@@ -929,7 +929,7 @@ EOT;
         $sScriptName        = $_SERVER['SCRIPT_NAME'];
         $sTranslShopPhpInfo = $this->translate('showPhpInfo');
         $sTranslDependent   = $this->translate('dependentoffurther');
-        
+
         if (count($this->oBase->getMessages())) {
             echo '<span class="messages"><ul>';
             foreach ($this->oBase->getMessages() as $sMessage) {
