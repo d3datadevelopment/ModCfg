@@ -100,15 +100,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.1.1.6';
-    public $sModRevision = '5116';
+    public $sModVersion = '5.1.1.7';
+    public $sModRevision = '5117';
     public $sBaseConf =
-        'Pbov2==NW9MTEZJdWpIdVZlc0Y0Y1JhZlpzaU51NEJOZ2RYcURJZWRSZlRoYnJGLzRPUmM1dHZiQTNNb
-0NkREhONnphOVFnMHg4OExZelNsNDVJSnpZK3ZTWm16YTUvUXpJOW5YRTVnUmFsSWlwMVZXcEFubVpaY
-TQ3VFV6b2tJOUhaZGdlMGtZYmZyVkQveDhwTlgyVEw0MnNWWEQzSldvNk1aWTdiQU1NTTg2UHJ1ajY0R
-VN2Z0EwYy81YUdYdnRpbjVuWnFsSFAvU05yZTRKb1FNdkJRbXJBMGxoQSt2SlpOSTV6YUIrR1I4TXJCU
-kZIK1FSZ1BQQzdLN3VBdlhYanpxTlEzNGRlbTZjSm1zUGlOVm0xQ3dMS3VSWU1hUWEwUXQyNjlBRk9BN
-G5qL1VOd0VZNjVpNk1McGJuRDZkaDBKbm0=';
+        'fHcv2==MGF0RXRYTUlCODB3dXhTcUQzWVBqNFk1SWNybkl3d0cyQzgzL05rL1VXQjdCL0UzbFpqaXgzT
+XpMaG5malJ6Y2VnNkl4TnJ3TlprNG1MamhLQnVkbHRyLzRGdHZEV2FxYlFqMUdGeVV1dm84U0ppTms2Z
+3hPemZDUDY3bGwzMlkrek9ldG9oYzF5MWZsOUFqUnc2ZDBmMm0zdksySzVSTUR4UUdySU1jUnJWZE05W
+mxEUmlYWGVNdDJKT1ZtcU9PdFljR2F4WVpBMmxwN3VQeEVGZ3RJaTRxMlF5bWZla0lhVVlORVYrSFJGb
+lRyaHRrZHdQaVhjMVBIcWVZT2hpM1ZQNVhoT1VLV0gzTlRxWlZlM3daTHFud0dTMzRPd0NNUFBGRURsN
+it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -767,17 +767,20 @@ G5qL1VOd0VZNjVpNk1McGJuRDZkaDBKbm0=';
     public function checkOxarticlesMultiShopTable()
     {
         $blRet = false;
-        $sCurrentShopId = Registry::getConfig()->getShopId();
-        /** @var Shop $oShop */
-        foreach ($this->getShopList() as $oShop) {
-            $this->_changeToShop($oShop->getId());
-            if (false == in_array('oxarticles', Registry::getConfig()->getConfigParam('aMultiShopTables'))) {
-                $blRet = true;
-                break;
-            };
+        
+        if (in_array(oxNew(Facts::class)->getEdition(), array('B2B', 'EE'))) {
+            $sCurrentShopId = Registry::getConfig()->getShopId();
+            /** @var Shop $oShop */
+            foreach ($this->getShopList() as $oShop) {
+                $this->_changeToShop($oShop->getId());
+                if (false == in_array('oxarticles', Registry::getConfig()->getConfigParam('aMultiShopTables'))) {
+                    $blRet = true;
+                    break;
+                };
+            }
+            $this->_changeToShop($sCurrentShopId);
         }
-        $this->_changeToShop($sCurrentShopId);
-
+        
         return $blRet;
     }
 
@@ -791,12 +794,14 @@ G5qL1VOd0VZNjVpNk1McGJuRDZkaDBKbm0=';
      */
     public function resetMultiShopTables()
     {
-        $sCurrentShopId = Registry::getConfig()->getShopId();
-        /** @var Shop $oShop */
-        foreach ($this->getShopList() as $oShop) {
-            $this->_changeToShop($oShop->getId());
-            if (false == in_array('oxarticles', Registry::getConfig()->getConfigParam('aMultiShopTables'))) {
-                $this->deleteMultiShopTables($oShop->getId());
+        if (in_array(oxNew(Facts::class)->getEdition(), array('B2B', 'EE'))) {
+            $sCurrentShopId = Registry::getConfig()->getShopId();
+            /** @var Shop $oShop */
+            foreach ($this->getShopList() as $oShop) {
+                $this->_changeToShop($oShop->getId());
+                if (false == in_array('oxarticles', Registry::getConfig()->getConfigParam('aMultiShopTables'))) {
+                    $this->deleteMultiShopTables($oShop->getId());
+                }
             }
         }
 
