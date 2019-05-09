@@ -23,13 +23,14 @@ use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\DbMetaDataHandler;
 use OxidEsales\Eshop\Core\Base;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
-use OxidEsales\Eshop\Core\UtilsView;
+use OxidEsales\Eshop\Core\UtilsFile;
 
 class d3clrtmp extends Base
 {
@@ -72,7 +73,7 @@ class d3clrtmp extends Base
      */
     public function clearAllCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $this->blUpdateViewCheck = true;
 
@@ -83,7 +84,7 @@ class d3clrtmp extends Base
             $this->_createSmartyFolder();
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -99,12 +100,12 @@ class d3clrtmp extends Base
      */
     public function clearFrontendCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(?<!class_file_paths)\.{1}php$%"; // % is delimiter; all, except 'class_file_paths'
 
         $blRet = (bool)$this->_clearCache($sPattern, false, $this->_sSmartyFolderName);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -120,12 +121,12 @@ class d3clrtmp extends Base
      */
     public function clearLangCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = '%.*langcache.*\.{1}txt$%'; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -141,12 +142,12 @@ class d3clrtmp extends Base
      */
     public function clearMenuCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec)_menu_[a-z]{2}_xml.*\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -162,12 +163,12 @@ class d3clrtmp extends Base
      */
     public function clearClassPathCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec)_class_file_paths\.{1}php$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -183,12 +184,12 @@ class d3clrtmp extends Base
      */
     public function clearStructureCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec)_aLocal.*Cache\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -204,12 +205,12 @@ class d3clrtmp extends Base
      */
     public function clearTagcloudCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec)_tagcloud__.*_[0-9]{1}[_]{1,2}\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -225,12 +226,12 @@ class d3clrtmp extends Base
      */
     public function clearSeoCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec).*seo\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -246,12 +247,12 @@ class d3clrtmp extends Base
      */
     public function clearModuleCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%(config)\..*(module).*\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -267,12 +268,12 @@ class d3clrtmp extends Base
      */
     public function clearDataBaseStructCache()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sPattern = "%.*(oxeec|oxpec)_.*(allfields|fieldnames|tbdsc).*\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blRet;
     }
@@ -289,7 +290,7 @@ class d3clrtmp extends Base
      */
     public function clearUserCache($iSlot)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if ($this->_d3GetSet()->getValue('sClrTmp_useraction' . $iSlot . 'name') &&
             $this->_d3GetSet()->getValue('sClrTmp_useraction' . $iSlot . 'pattern')
@@ -302,12 +303,30 @@ class d3clrtmp extends Base
             ) . "%";
 
             $blRet = (bool)$this->_clearCache($sPattern);
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             return $blRet;
         }
 
         return false;
+    }
+
+    /**
+     * @return bool
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function clearGeneratedAllImgs()
+    {
+        return $this->clearGeneratedImgs($this->d3getProductImageTypes())
+            && $this->clearGeneratedImgs($this->d3getCategoryImageTypes())
+            && $this->clearGeneratedImgs($this->d3getManufacturerImageTypes())
+            && $this->clearGeneratedImgs($this->d3getVendorImageTypes())
+            && $this->clearGeneratedImgs($this->d3getWrappingImageTypes());
     }
 
     /**
@@ -392,7 +411,7 @@ class d3clrtmp extends Base
      */
     public function clearGeneratedImgs($aTypesList)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         /** @var d3filesystem $oFS */
         $oFS = oxNew(d3filesystem::class);
@@ -469,7 +488,7 @@ class d3clrtmp extends Base
      */
     protected function _createTmpHtaccess()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
         $sFileName = $this->getTmpPath() . '.htaccess';
 
         if (false == $this->_getFileSystemHandler()->exists($sFileName)) {
@@ -478,7 +497,7 @@ class d3clrtmp extends Base
                 "\n</FilesMatch>\n\nOptions -Indexes";
             $this->_getFileSystemHandler()->createFile($sFileName, $sContent, true);
         }
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -491,14 +510,14 @@ class d3clrtmp extends Base
      */
     protected function _createSmartyFolder()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
         $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->_sSmartyFolderName);
 
         if (false == $this->_getFileSystemHandler()->exists($sFolder)) {
             $this->_getFileSystemHandler()->create_dir_tree($sFolder);
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -509,7 +528,7 @@ class d3clrtmp extends Base
      */
     public function updateViews()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
         if (false == $this->blUpdateViewCheck ||
             (is_object($this->_d3GetSet()) && false == $this->_d3GetSet()->getValue('blClrTmp_noviewupdate'))
         ) {
@@ -522,7 +541,7 @@ class d3clrtmp extends Base
             }
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return null;
     }
@@ -577,7 +596,7 @@ class d3clrtmp extends Base
 
         foreach ($aTypesList as $sImgType) {
             $aDirs[] = Registry::getConfig()->getPictureDir(true).
-                       Registry::get(UtilsView::class)->getImageDirByType($sImgType, true);
+                       Registry::get(UtilsFile::class)->getImageDirByType($sImgType, true);
         }
 
         return $aDirs;
@@ -629,10 +648,9 @@ class d3clrtmp extends Base
 
     /**
      * @param $sType
-     * @param $sKey
+     * @param string $sKey default argument from array_walk callback
      * @param $sPrefix
      */
-// ToDo: what is Parameter $sKey??
     public function d3fixPicTypeNames(&$sType, $sKey, $sPrefix)
     {
         unset($sKey);

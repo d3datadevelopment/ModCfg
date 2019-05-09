@@ -403,12 +403,6 @@ class d3moditems extends d3_cfg_mod_main
     /**
      * @param $sSelExtension
      * @return bool
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function checkModExist($sSelExtension)
     {
@@ -642,12 +636,6 @@ class d3moditems extends d3_cfg_mod_main
     /**
      * @param $aPath
      * @return bool
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     protected function _getModuleNameByPath($aPath)
     {

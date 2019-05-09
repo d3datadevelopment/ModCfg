@@ -30,7 +30,7 @@ use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\UtilsView;
 
-class d3ShopMaintenance extends d3_cfg_mod_main
+class d3shopmaintenance extends d3_cfg_mod_main
 {
     public $_sThisTemplate = 'd3shopmaintenance.tpl';
     protected $_sMenuSubItemTitle = 'd3tbclclr_mtn';

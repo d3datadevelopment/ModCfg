@@ -32,7 +32,7 @@ class d3cleartmp_frame extends d3_cfg_mod_
     public function render()
     {
         $this->addTplParam('sListClass', d3cleartmp_list::class);
-        $this->addTplParam('sMainClass', d3ClearTmp::class);
+        $this->addTplParam('sMainClass', d3cleartmp::class);
         return parent::render();
     }
 }

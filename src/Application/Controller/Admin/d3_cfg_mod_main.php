@@ -25,13 +25,14 @@ use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
-use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use OxidEsales\Facts\Config\ConfigFile;
 
 class d3_cfg_mod_main extends AdminDetailsController
 {
@@ -60,7 +61,7 @@ class d3_cfg_mod_main extends AdminDetailsController
      */
     public function __construct()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $this->addTplParam('aLanguages', Registry::getLang()->getLanguageArray());
         $this->addTplParam('actlocation', false);
@@ -83,7 +84,7 @@ class d3_cfg_mod_main extends AdminDetailsController
             $this->_blD3ShowLangSwitch = $oListObject->d3IsMultilang();
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -147,7 +148,7 @@ class d3_cfg_mod_main extends AdminDetailsController
      */
     public function render()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sRet = parent::render();
 
@@ -206,7 +207,7 @@ class d3_cfg_mod_main extends AdminDetailsController
 
         $this->fakeBottomMenu();
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $sRet;
     }
@@ -246,10 +247,11 @@ class d3_cfg_mod_main extends AdminDetailsController
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws Exception
      */
     public function save()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (false == $this->_blUseOwnOxid) {
             $this->d3GetSet()->setLanguage($this->_iEditLang);
@@ -298,15 +300,14 @@ class d3_cfg_mod_main extends AdminDetailsController
             $this->setEditObjectId($oProfile->getId());
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return;
     }
 
     /**
      * Saves article parameters in different language.
-     * @throws DatabaseConnectionException
-     * @throws DatabaseException
+     * @throws Exception
      */
     public function saveinnlang()
     {
@@ -338,8 +339,7 @@ class d3_cfg_mod_main extends AdminDetailsController
     }
 
     /**
-     * @throws DatabaseConnectionException
-     * @throws DatabaseException
+     * @throws Exception
      */
     public function d3savecopy()
     {

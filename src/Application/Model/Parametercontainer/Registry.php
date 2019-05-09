@@ -15,9 +15,8 @@
 namespace D3\ModCfg\Application\Model\Parametercontainer;
 
 use D3\ModCfg\Application\Model\Log\d3log;
-use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use Exception;
 use OxidEsales\Eshop\Core\Model\BaseModel;
-use OxidEsales\Eshop\Core\Exception\DatabaseException;
 
 class Registry
 {
@@ -55,8 +54,7 @@ class Registry
 
     /**
      * save and clear objects
-     * @throws DatabaseException
-     * @throws DatabaseConnectionException
+     * @throws Exception
      */
     public function save()
     {

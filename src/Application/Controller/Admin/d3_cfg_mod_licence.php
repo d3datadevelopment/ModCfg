@@ -19,6 +19,7 @@ namespace D3\ModCfg\Application\Controller\Admin;
 
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\Log\d3log;
@@ -30,6 +31,7 @@ use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\d3str;
 use D3\ModCfg\Application\Model\d3feeds;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -76,14 +78,14 @@ class d3_cfg_mod_licence extends AdminDetailsController
      */
     public function render()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sRet = parent::render();
 
         $this->addTplParam('edit', $this->d3GetSet());
         $this->addTplParam('oxid', $this->d3GetSet()->getId());
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $sRet;
     }
@@ -146,10 +148,11 @@ class d3_cfg_mod_licence extends AdminDetailsController
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws Exception
      */
     public function checkUpdate()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $oInstall      = d3install::getInstance();
         $oUpdateServer = $oInstall->getFromUpdateServer();
@@ -193,7 +196,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
             $this->oNewestData = $aUpdateData['newestversion'];
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return false;
     }
@@ -403,6 +406,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
     /**
      * @param $sShopVersion
      * @return mixed
+     * @throws Exception
      */
     public function check4ShopUpdate($sShopVersion)
     {
@@ -501,7 +505,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
         if ($this->sHelpURL === null) {
             $this->sHelpURL = false;
 
-            startProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
             $sUrl = $this->d3GetSet()->getHelpURL();
             /** @var $oFS d3filesystem */
@@ -522,7 +526,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
                 $sUrl = $oFS->trailingslashit($sUrl);
             }
 
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             $this->sHelpURL = $sUrl;
         }
@@ -545,7 +549,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
         if ($this->mBlogContent === null) {
             $this->mBlogContent = false;
 
-            startProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
             $oModCfgSet = d3_cfg_mod::get('d3modcfg_lib');
             if ((isset($oModCfgSet)
@@ -557,7 +561,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
                 $this->mBlogContent = $oFeed->getAdminSupportContent($this->_sBlogFeed);
             }
 
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
         }
 
         return $this->mBlogContent;

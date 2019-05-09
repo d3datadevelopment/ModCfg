@@ -18,12 +18,14 @@ namespace D3\ModCfg\Application\Model\Installcheck;
 
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\d3database;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use Doctrine\DBAL\DBALException;
+use PDO;
 
 class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
 {
@@ -54,7 +56,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
         $sMetaModuleId = $this->_oSet->getMetaModuleId();
 
         if ($this->_blPassed === null) {
-            startProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
             $this->_blPassed = true;
             if ($sMetaModuleId) {
                 /** @var Module $oModule */
@@ -65,7 +67,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
                     $this->_blPassed = $this->_checkAllBlockItemsExist($oModule->getInfo('blocks'), $sMetaModuleId);
                 }
             }
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
         }
 
         return $this->_blPassed;
@@ -114,20 +116,12 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('count(*)')
             ->from('oxtplblocks')
-            ->where('oxmodule = ?')
-            ->andWhere('oxactive = ?')
-            ->andWhere('oxshopid = ?')
+            ->where('oxmodule = '.$oQB->createNamedParameter($sModuleId))
+            ->andWhere('oxactive = '.$oQB->createNamedParameter(1, PDO::PARAM_INT))
+            ->andWhere('oxshopid = '.$oQB->createNamedParameter(Registry::getConfig()->getActiveShop()->getId()))
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        $aParameters = array(
-            $sModuleId,
-            1,
-            Registry::getConfig()->getActiveShop()->getId()
-        );
-
-        return (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect, $aParameters);
+        return (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB->getSQL(), $oQB->getParameters());
     }
 
     /**
@@ -179,19 +173,11 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('oxfile')
             ->from('oxtplblock')
-            ->where('oxmodule = ?')
-            ->andWhere('oxactive = ?')
-            ->andWhere('oxshopid = ?');
+            ->where('oxmodule = '.$oQB->createNamedParameter($sModuleId))
+            ->andWhere('oxactive = '.$oQB->createNamedParameter(1, PDO::PARAM_INT))
+            ->andWhere('oxshopid = '.$oQB->createNamedParameter(Registry::getConfig()->getActiveShop()->getId()));
 
-        $sSelect = $oQB->getSQL();
-
-        $aParameters = array(
-            $sModuleId,
-            1,
-            Registry::getConfig()->getActiveShop()->getId(),
-        );
-
-        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getAll($sSelect, $aParameters);
+        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getAll($oQB->getSQL(), $oQB->getParameters());
     }
 
     /**

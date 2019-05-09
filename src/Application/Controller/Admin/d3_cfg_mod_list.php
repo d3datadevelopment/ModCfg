@@ -193,7 +193,7 @@ class d3_cfg_mod_list extends AdminListController
         $sSql .= ' LIMIT 1';
 
         // con of list items which fits current search conditions
-        $this->_iListSize = DatabaseProvider::getDb()->getOne($sSql, false);
+        $this->_iListSize = DatabaseProvider::getDb()->getOne($sSql);
 
         // set it into session that other frames know about size of DB
         Registry::getSession()->setVariable('iArtCnt', $this->_iListSize);

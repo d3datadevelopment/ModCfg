@@ -65,9 +65,11 @@ class d3logo
             }
         }
 
-        header("Content-type: image/png");
-        echo base64_decode($this->{$sFncName}());
-        exit;
+        if (!defined('OXID_PHP_UNIT')) {
+            header("Content-type: image/png");
+            echo base64_decode($this->{$sFncName}());
+            exit;
+        }
     }
 
     /**

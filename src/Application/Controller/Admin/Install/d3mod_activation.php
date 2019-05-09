@@ -25,6 +25,7 @@ use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\d3str;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -74,6 +75,45 @@ final class d3mod_activation extends d3_cfg_mod_main
         return parent::render();
     }
 
+    /**
+     * @return mixed
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function isLicenseRequired()
+    {
+        $blRet = true;
+
+        try {
+            $blRet = $this->_oModule->isLicenseRequired();
+        } catch (d3_cfg_mod_exception $oEx) {}
+
+        return $blRet;
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @return string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getModTitle(d3_cfg_mod $module)
+    {
+        try {
+            $sModTitle = $module->getModTitle();
+        } catch (d3_cfg_mod_exception $oEx) {
+            $sModTitle = $module->getModBaseTitle();
+        }
+
+        return $sModTitle;
+    }
+
     public function setStep1()
     {
         $this->_sNextStep = 'getActivationData';
@@ -86,6 +126,7 @@ final class d3mod_activation extends d3_cfg_mod_main
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws Exception
      */
     public function setStep2()
     {

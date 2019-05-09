@@ -3,7 +3,9 @@
 namespace D3\ModCfg\Application\Model\Transactionlog;
 
 use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use OxidEsales\Eshop\Core\Database\Adapter\Doctrine\ResultSet;
 use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Model\BaseModel;
 use OxidEsales\Eshop\Core\Model\ListModel;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
@@ -48,6 +50,7 @@ class d3transactionloglist extends ListModel
         $this->clear();
 
         $oDb = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
+        /** @var ResultSet $rs */
         if ($this->_aSqlLimit[0] || $this->_aSqlLimit[1]) {
             $rs = $oDb->selectLimit($sql, $this->_aSqlLimit[1], $this->_aSqlLimit[0], $parameters);
         } else {
@@ -56,6 +59,7 @@ class d3transactionloglist extends ListModel
 
         if ($rs != false && $rs->count() > 0) {
             while (!$rs->EOF) {
+                /** @var BaseModel $oListObject */
                 $oListObject = oxNew($this->_sObjectsInListName, $this->logreader);
 
                 $this->_assignElement($oListObject, $rs->fields);

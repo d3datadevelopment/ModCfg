@@ -153,7 +153,7 @@ h4 {
         <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
         <input type="hidden" name="modid" value="[{$oModule->d3GetModId()}]">
 
-        [{if $oModule->isLicenseRequired() && $oView->getNextStep() == 'getActivationType'}]
+        [{if $oView->isLicenseRequired() && $oView->getNextStep() == 'getActivationType'}]
             <input type="hidden" name="fnc" value="setStep1">
             <h4>[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_TYPE_HEADLINE"}]</h4>
             <table style="border-style: none;" cellspacing="0" cellpadding="0">
@@ -225,7 +225,7 @@ h4 {
             </table>
             [{assign var="blBackStep" value=false}]
             [{assign var="blNextStep" value=true}]
-        [{elseif $oModule->isLicenseRequired() && $oView->getNextStep() == 'getActivationData'}]
+        [{elseif $oView->isLicenseRequired() && $oView->getNextStep() == 'getActivationData'}]
             <input type="hidden" name="fnc" value="setStep2">
             <input type="hidden" name="activationtype" value="[{$oView->getActivationType()}]">
             [{if $oView->getActivationType() == 'boughtoxidmodule' || $oView->getActivationType() == 'usedemo'}]
@@ -238,7 +238,7 @@ h4 {
                             [{oxmultilang ident="D3_CFG_MOD_ACTIVATION_DATA_MODULE"}]
                         </td>
                         <td class="edittext [{$listclass}]">
-                            [{$oModule->d3GetModId()}] ([{$oModule->getModTitle()}])
+                            [{$oModule->d3GetModId()}] ([{$oView->getModTitle($oModule)}])
                         </td>
                         <td class="edittext [{$listclass}]">
                             [{oxinputhelp ident="D3_CFG_MOD_ACTIVATION_DATA_MODULE_DESC"}]
@@ -347,7 +347,7 @@ h4 {
                 [{assign var="blBackStep" value=true}]
                 [{assign var="blNextStep" value=false}]
             [{/if}]
-        [{elseif $oModule->isLicenseRequired() && $oView->getNextStep() == 'submitData'}]
+        [{elseif $oView->isLicenseRequired() && $oView->getNextStep() == 'submitData'}]
             <input type="hidden" name="fnc" value="">
             <input type="hidden" name="activationtype" value="[{$oView->getActivationType()}]">
             [{if !$oView->getSubmitStatus()}]

@@ -73,7 +73,8 @@ class d3cfgitems extends d3_cfg_mod_main
             $this->oFS = oxNew(d3filesystem::class);
             $mTplParam = $this->blSaveRet === false ?
                 Registry::get(Request::class)->getRequestEscapedParameter('newcfg') :
-                $this->oFS->readFile($this->getFileName());
+                file_get_contents($this->getFileName());
+                //$this->oFS->readFile($this->getFileName());
         }
 
         $this->addTplParam('sCfgContent', $mTplParam);

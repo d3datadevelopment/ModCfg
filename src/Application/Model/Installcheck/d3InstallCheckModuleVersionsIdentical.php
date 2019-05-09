@@ -17,6 +17,7 @@
 namespace D3\ModCfg\Application\Model\Installcheck;
 
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Module\ModuleList;
@@ -46,7 +47,7 @@ class d3InstallCheckModuleVersionsIdentical implements d3InstallCheckInterface
     public function hasCheckPassed()
     {
         if ($this->_blPassed === null) {
-            startProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
             if (false == $this->_oSet->getMetaModuleId()) {
                 return true;
             }
@@ -60,7 +61,7 @@ class d3InstallCheckModuleVersionsIdentical implements d3InstallCheckInterface
             $aModuleVersions = $oModuleList->getModuleConfigParametersByKey(ModuleList::MODULE_KEY_VERSIONS);
 
             $this->_blPassed = $this->_compareModuleVersions($aModuleVersions, $oModule);
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
         }
 
         return $this->_blPassed;

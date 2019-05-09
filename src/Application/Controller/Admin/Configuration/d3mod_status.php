@@ -30,6 +30,8 @@ use D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHand
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use Exception;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -54,6 +56,7 @@ class d3mod_status extends d3_cfg_mod_main
     public $selectedModId;
     protected $_blRefreshModList = false;
     protected $_aHiddenModules = array();
+    public $sErrorMessage = false;
 
     /**
      * d3mod_status constructor.
@@ -78,7 +81,7 @@ class d3mod_status extends d3_cfg_mod_main
      */
     public function render()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $this->aModuleSets = d3_cfg_mod::loadAll($this->getModuleType());
 
@@ -87,7 +90,7 @@ class d3mod_status extends d3_cfg_mod_main
 
         $sRet = parent::render();
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $sRet;
     }
@@ -116,16 +119,23 @@ class d3mod_status extends d3_cfg_mod_main
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws Exception
      */
     public function getRemoteModuleData($sModId, $blForceRefresh = false)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $oUpdateServer = d3install::getInstance()->getFromUpdateServer();
-        if (d3_cfg_mod::isAvailable(($sModId)) && d3_cfg_mod::get($sModId)->getLicenseData('modversion')) {
-            $oUpdateServer->setParameter('sLicModVersion', d3_cfg_mod::get($sModId)->getLicenseData('modversion'));
+        $this->sErrorMessage = false;
+
+        try {
+            if (d3_cfg_mod::isAvailable(($sModId)) && d3_cfg_mod::get($sModId)->getLicenseData('modversion')) {
+                $oUpdateServer->setParameter('sLicModVersion', d3_cfg_mod::get($sModId)->getLicenseData('modversion'));
+            }
+            $oUpdateServer->setParameter('sModId', $sModId);
+        } catch (d3_cfg_mod_exception $oEx) {
+            $this->sErrorMessage = $oEx->getMessage();
         }
-        $oUpdateServer->setParameter('sModId', $sModId);
 
         /** @var d3ShopCompatibilityAdapterHandler $oD3CompatibilityAdapterHandler */
         $oD3CompatibilityAdapterHandler = oxNew(d3ShopCompatibilityAdapterHandler::class);
@@ -143,9 +153,11 @@ class d3mod_status extends d3_cfg_mod_main
         if ($blForceRefresh || $this->_blRefreshModList) {
             $oUpdateServer->forceUpdate();
         }
-        $aModData = $oUpdateServer->getRemoteModuleVersion();
+        // failed because of to much requests
+        //$aModData = $oUpdateServer->getRemoteModuleVersion();
+        $aModData = array();
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $aModData;
     }
@@ -162,7 +174,7 @@ class d3mod_status extends d3_cfg_mod_main
      */
     public function getAllRemoteModuleData()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $oUpdateServer = d3install::getInstance()->getFromUpdateServer();
         $oUpdateServer->setParameter('sModType', $this->getModuleType());
@@ -179,7 +191,7 @@ class d3mod_status extends d3_cfg_mod_main
             $aModData = array();
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $aModData;
     }
@@ -266,6 +278,7 @@ class d3mod_status extends d3_cfg_mod_main
     /**
      * @param $sShopVersion
      * @return bool
+     * @throws Exception
      */
     public function check4ShopUpdate($sShopVersion)
     {
@@ -471,7 +484,7 @@ class d3mod_status extends d3_cfg_mod_main
     {
         try {
             $sTplPath = Registry::getConfig()->getTemplatePath($sModName . '_cfg.tpl', $this->isAdmin());
-        } catch (\Exception $oEx) {
+        } catch (Exception $oEx) {
             return false;
         }
 
@@ -655,5 +668,117 @@ class d3mod_status extends d3_cfg_mod_main
                 && $aRemoteModData['availableversion']['version']
                 && $this->version_compare($oModule->getFieldData('oxversion'), $aRemoteModData['availableversion']['version'], $sCompare)
             );
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @return string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getModTitle(d3_cfg_mod $module)
+    {
+        try {
+            $sModTitle = $module->getModTitle();
+        } catch (d3_cfg_mod_exception $oEx) {
+            $sModTitle = $module->getModBaseTitle();
+        }
+
+        return $sModTitle;
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @param $value
+     * @return array|bool|null|string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getLicenseData(d3_cfg_mod $module, $value)
+    {
+        try {
+            $data = $module->getLicenseData($value);
+        } catch (d3_cfg_mod_exception $oEx) {
+            $data = false;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @param $value
+     * @return array|bool|null|string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getFormatedShopEditionList(d3_cfg_mod $module)
+    {
+        try {
+            $data = $module->getFormatedShopEditionList();
+        } catch (d3_cfg_mod_exception $oEx) {
+            $data = null;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @param $value
+     * @return array|bool|null|string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getFormatedShopIdList(d3_cfg_mod $module)
+    {
+        try {
+            $data = $module->getFormatedShopIdList();
+        } catch (d3_cfg_mod_exception $oEx) {
+            $data = null;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param d3_cfg_mod $module
+     * @param $value
+     * @return array|bool|null|string
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function getConfigInfoData(d3_cfg_mod $module)
+    {
+        try {
+            $data = $module->getConfigInfoData();
+        } catch (d3_cfg_mod_exception $oEx) {
+            $data = null;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function getErrorMessage()
+    {
+        return $this->sErrorMessage;
     }
 }

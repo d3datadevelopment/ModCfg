@@ -392,7 +392,7 @@ $aLang = array(
     'D3_SHGENERATOR_CRON_STANDARD'             => 'Linux standard installation',
 
     'D3_SHGENERATOR_CRON_SHGENERATOR'          => 'create shell script for cronjob setup',
-    'D3_SHGENERATOR_CRON_SHGENERATOR_DESC'     => 'Depending on the server, it may be that calls with parameters can not be entered directly in the cron job. You may also need to pass additional parameters for the cron job. Alternatively, you can use a script that contains all the required data. You will find already prepared scripts for the most common providers. If your provider is not listed, use the "Default" entry. Please clarify in case of uncertainty with your provider, if the generated script can be used. Details about the content of the script and its use can be provided by your server provider.',
+    'D3_SHGENERATOR_CRON_SHGENERATOR_DESC'     => 'Depending on the server, it may be that calls with parameters can not be entered directly in the cronjob. You may also need to pass additional parameters for the cron job. Alternatively, you can use a script that contains all the required data. You will find already prepared scripts for the most common providers. If your provider is not listed, use the "Default" entry. Please clarify in case of uncertainty with your provider, if the generated script can be used. Details about the content of the script and its use can be provided by your server provider.',
     'D3_SHGENERATOR_CRON_SHGENERATOR_GENERATE' => 'generate file',
 
     'd3mxtplblocks'                            => "<i class='fab fa-d3 d3fa-color-blue'></i> tpl blocks",

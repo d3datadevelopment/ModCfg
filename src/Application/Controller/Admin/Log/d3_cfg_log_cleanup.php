@@ -34,7 +34,7 @@ class d3_cfg_log_cleanup extends d3_cfg_mod_main
 
     public function delete()
     {
-        // gelöscht wird über List-Klasse
+        // geloescht wird ueber List-Klasse
         return;
     }
 

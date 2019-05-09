@@ -26,6 +26,7 @@ use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Exception;
 use OxidEsales\Eshop\Application\Controller\FrontendController;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\DebugInfo;
 use OxidEsales\Eshop\Core\Exception\CookieException;
 use OxidEsales\Eshop\Core\Exception\RoutingException;
@@ -59,11 +60,11 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
-     * @throws \Exception
+     * @throws Exception
      */
     public function start ($sClass = null, $sFunction = null, $aParams = null, $aViewsChain = null)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (class_exists(d3log::class) && d3log::isCallable()) {
             /** @var $oD3Log d3log */
@@ -88,7 +89,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
             $oClrTmp->clearAllCache();
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         parent::start($sClass, $sFunction, $aParams, $aViewsChain);
 
@@ -149,7 +150,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
         ) {
             try {
                 parent::_process($sClass, $sFunction, $aParams, $aViewsChain);
-            } catch (\Exception $oEx) {
+            } catch (Exception $oEx) {
                 if (d3_cfg_mod::get($this->_sLogSetId)->getValue('blLog_showAllExceptions')) {
                     echo $oEx->getMessage();
                     echo "<pre>";
@@ -313,7 +314,11 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
      */
     protected function handleRoutingException($oEx)
     {
-        $this->_d3WriteExc2Log($oEx);
+        /**
+         * @todo after removal of the BC layer this method will retrow the exception
+         * throw $exception
+         */
+        //$this->_d3WriteExc2Log($oEx);
 
         parent::handleRoutingException($oEx);
     }

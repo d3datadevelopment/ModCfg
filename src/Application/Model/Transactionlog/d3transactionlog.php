@@ -2,12 +2,14 @@
 
 namespace D3\ModCfg\Application\Model\Transactionlog;
 
+use BadMethodCallException;
 use D3\ModCfg\Application\Model\Parametercontainer\Registry;
 use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use Exception;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Model\BaseModel;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
-use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use RuntimeException;
 
 final class d3transactionlog extends BaseModel
 {
@@ -138,12 +140,12 @@ final class d3transactionlog extends BaseModel
 
     /**
      * @return mixed
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     public function getGroup()
     {
         if ($this->getFieldData('d3group') == '') {
-            throw new \RuntimeException('Reference number (group) was not initialized!');
+            throw new RuntimeException('Reference number (group) was not initialized!');
         }
 
         return $this->getFieldData('d3group');
@@ -203,14 +205,12 @@ final class d3transactionlog extends BaseModel
     /**
      * Sets transaction time if not already defined
      * @return mixed
-     * @throws DatabaseConnectionException
-     * @throws DatabaseException
-     * @throws \BadMethodCallException
+     * @throws Exception
      */
     public function save()
     {
         if ($this->exists()) {
-            throw new \BadMethodCallException("This instance was alredy saved! You must create a new instance!");
+            throw new BadMethodCallException("This instance was alredy saved! You must create a new instance!");
         }
 
         $this->invokeFieldDataProviders();
@@ -241,13 +241,13 @@ final class d3transactionlog extends BaseModel
      * @param          $field
      * @param callable $callback
      *
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      * @return d3transactionlog
      */
     public function setFieldDataProvider($field, $callback)
     {
         if (false == is_callable($callback)) {
-            throw new \BadMethodCallException("You did not provide a valid callback!");
+            throw new BadMethodCallException("You did not provide a valid callback!");
         }
 
         $this->fieldDataProividers[$field] = $callback;
@@ -269,6 +269,7 @@ final class d3transactionlog extends BaseModel
      * @param BaseModel $object
      *
      * @return mixed
+     * @throws Exception
      */
     public function referTo(BaseModel $object)
     {
@@ -364,7 +365,7 @@ QUERY;
     private function executeDataProvider($callback, $key)
     {
         if (!is_callable($callback)) {
-            throw new \BadMethodCallException(
+            throw new BadMethodCallException(
                 "You did not provide a data provider for field '$key'! Use \$transactionLog->setFieldDataProvider('$key', callable);"
             );
         }

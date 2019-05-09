@@ -16,10 +16,6 @@
 
 namespace D3\ModCfg\Application\Model\Encoding;
 
-use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
-use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\UtilsView;
-
 class d3encoder
 {
     protected $_sEncodingType;
@@ -88,13 +84,7 @@ class d3encoder
      */
     public function encode($mValue)
     {
-        $mRet = null;
-
-        try {
-            $mRet = call_user_func(array($this, $this->getEncodingMethodName()), $mValue);
-        } catch (d3_cfg_mod_exception $oEx) {
-            Registry::get(UtilsView::class)->addErrorToDisplay($oEx, false);
-        }
+        $mRet = call_user_func(array($this, $this->getEncodingMethodName()), $mValue);
 
         return $mRet;
     }

@@ -28,6 +28,7 @@ use D3\ModCfg\Application\Model\Install\d3install_updatebase;
 use D3\ModCfg\Application\Model\d3filesystem;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminController;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -334,7 +335,7 @@ class d3_mod_update extends AdminController
      */
     public function getRefreshUrl()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (d3install::getInstance()->getUpdateInstaller()->getModuleInstallations()) {
             $aParams = array(
@@ -345,11 +346,11 @@ class d3_mod_update extends AdminController
             );
             $sURL    = Registry::get(d3utils::class)->getAdminClassUrl($aParams);
 
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             return $sURL;
         } else {
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             return $this->getFormerClassUrl();
         }

@@ -37,13 +37,31 @@
   },
   "require": {
     "php": "5.6 - 7.0", "ext-ionCube-Loader": "*",
+    "oxid-esales/oxideshop-metapackage-ce": "~6.0.0 || ~6.1.0",
     "ext-openssl": "*",
     "ext-mbstring": "*",
-    "oxid-esales/oxideshop-metapackage-ce": "~6.0.0 || ~6.1.0"
+    "ext-dom": "*",
+    "ext-openssl": "*",
+    "ext-posix": "*",
+    "ext-json": "*",
+    "ext-zlib": "*",
+    "ext-zip": "*",
+    "ext-curl": "*",
+    "ext-fileinfo": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*",
+    "ext-mysqli": "*",
+    "psr/log": "^1.0.2",
+    "symfony/dependency-injection": "^3.1",
+    "guzzle/http": ">=3.9.2"
   },
   "autoload": {
     "psr-4": {
       "D3\\ModCfg\\": "../../../source/modules/d3/modcfg"
-    }
-  }
+    },
+    "files": [
+        "autoload/functions_modcfg.php"
+    ]
+  },
+  "bin": ["src/bin/d3modules_install"]
 }

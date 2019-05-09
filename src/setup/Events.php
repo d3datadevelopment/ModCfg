@@ -47,7 +47,10 @@ class Events
 
     public static function onDeactivate()
     {
-        if ((bool) Registry::get(Request::class)->getRequestEscapedParameter(self::$_ConfirmParamName) == true) {
+        if (defined('OXID_PHP_UNIT')
+            || (bool) Registry::get(Request::class)->getRequestEscapedParameter(self::$_ConfirmParamName) == true
+            || php_sapi_name() === 'cli'
+        ) {
             return;
         }
 

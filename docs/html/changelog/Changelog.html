@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html class="no-js" lang="de">
+<head>
+    <title>Changelog -  Modul-Connector</title>
+        <meta name="description" content="">
+    <meta name="author" content="D³ Data Development">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="../themes/d3/img/favicon.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/d3/css/theme-blue.min.css' rel='stylesheet' type='text/css'><link href='../themes/d3/css/d3.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="../themes/d3/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+            <span class="Collapsible__trigger__bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html"><i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Suchen..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../changelog/Changelog.html">Changelog</a></li></ul>
+            
+
+
+            <div class="Links">
+                <hr/>
+                <a href="https://www.oxidmodule.com" target="_blank">Shop</a><br />
+                <a href="https://blog.oxidmodule.com" target="_blank">Blog</a><br />
+                <a href="https://faq.oxidmodule.com" target="_blank">FAQ</a><br />
+                <a href="https://docs.oxidmodule.com" target="_blank">Dokumentationen</a><br />
+                <a href="https://support.oxidmodule.com" target="_blank">D³ Support Center</a><br />
+                <a href="https://www.oxidmodule.com/kontakt" target="_blank">Kontakt</a><br />
+                <a href="https://www.oxidmodule.com/impressum" target="_blank">Impressum</a><br />
+                            </div>
+
+            
+                
+                        </div>
+    </aside>
+    <div class="Columns__right Columns__right--full">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../changelog/Changelog.html">Changelog</a></h1>
+                <span class="ModifiedDate">
+                        09.05.2019        </span>
+                    </div>
+
+    <div class="s-content">
+        <h2 id="page_5-2-0-0-2019-05-07">5.2.0.0 (2019-05-07)</h2>
+<h3 id="page_Added">Added</h3>
+<ul>
+<li>integriert Unit-tests für eigene Testabdeckung und als Basis für andere Module</li>
+<li>Dependency Injection Container hinzugefügt</li>
+<li>Wave-Theme zum Theme-Mapping hinzugefügt</li>
+<li>Commandline Modulsetup Task hinzugefügt</li>
+</ul>
+<h3 id="page_Changed">Changed</h3>
+<ul>
+<li>Datenablage optimiert, verhindert Fehlzuweisung in Multimandanten-Installationen</li>
+<li>Lizenzverarbeitung optimiert</li>
+<li>Prepared Statement SQL Generator ergänzt</li>
+<li>Featurebit-Berechnung angepasst</li>
+<li>Klassenkombinationen aufgelöst</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-7-2018-12-14">5.1.1.7 (2018-12-14)</h2>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Installationsprozess verhindert unnötigen Multishoptabellenprüfung in Nicht-Enterprise-Shops</li>
+<li>Dokumentation angepasst</li>
+<li>Systemprüfung entfernt</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-6-2018-11-29">5.1.1.6 (2018-11-29)</h2>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>prepared statement Query-Generator für Doctrine named parameters erweitert</li>
+</ul>
+<h3 id="page_Fixed">Fixed</h3>
+<ul>
+<li>Lizenzdatenspeicherung für Mandantenwechsel innerhalb eines Prozesses angepasst</li>
+<li>korrigiert veraltete metadata-Informationen in passendem Mandanten (anstatt nur im 1.)</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-5-2018-10-23">5.1.1.5 (2018-10-23)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Unterstützung für Feldtyp &quot;set&quot; in mySQL-Datenbanken</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Expired-Info-Mail wird erst nach erfolgreichem Ermitteln des Aktiv-Status verwendet (verursachte in seltenen Fällen eine Endlosschleife)</li>
+<li>Erweiterungsregistrierung des Benutzerrollen-Backends verwendet FQNS</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-4-2018-09-17">5.1.1.4 (2018-09-17)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Query Generator für prepared statements (nur für Debugging)</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>konkrete Klassennamen durch fully qualified namespaces ersetzt</li>
+<li>Pagenavigation Generator aktualisiert</li>
+<li>fängt Ausnahmen in automatischer Installation ab und zeigt deren Meldung an</li>
+<li>CSV-Generator optimiert</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-3-2018-08-30">5.1.1.3 (2018-08-30)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Stylesheets werden aus LESS-Dateien erzeugt</li>
+<li>Zufallsgenerator für Zeichenketten hinzugefügt</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>vollständige Kompatibilität zur OXID Compilation 6.1.0 hergestellt</li>
+<li>Dokumentation zu HTML-Format geändert</li>
+<li>Moduldateiliste kann aus Namespaceklassennamen der Metadata generiert werden</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-2-2018-08-10">5.1.1.2 (2018-08-10)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Migrationsdatei zu Oxid 6.x hinzugefügt (docs/migration_to_OXID_6.x.md)</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Kompatibilität zu Oxid Shop 6.0.3 und der Oxid Compilation 6.1.0 hergestellt</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-1-2018-06-06">5.1.1.1 (2018-06-06)</h2>
+<h3 id="page_Fixed-2">Fixed</h3>
+<ul>
+<li>Einstellungs-Überladung korrigiert - verwendet Einstellungen der Hauptsprache, wenn in aktueller Sprache keine Einstellungen gespeichert wurden</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>kleine Textänderungen in der Installationsroutine</li>
+</ul>
+<hr />
+<h2 id="page_5-1-1-0-2018-05-15">5.1.1.0 (2018-05-15)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Datenbank-Query-Cache-Check hinzugefügt</li>
+<li>sh-Vorlagen-Templates für PHP 7.1 und 7.2 bei Profihost hinzugefügt</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Freigabe für OXID eShop 6.2</li>
+<li>FontAwesome auf Version 5 aktualisiert</li>
+<li>Lizenzformulare im Admin werden erst auf Anforderung geladen</li>
+<li>zusätzliche Admin-Bedienelemente werden nur bei aktiviertem Connector dargestellt</li>
+<li>vendormetadata entfernt</li>
+</ul>
+<h3 id="page_Fixed-2">Fixed</h3>
+<ul>
+<li>Speicherung mehrsprachiger Konfigurationseinstellungen korrigiert (#7476)</li>
+<li>getSqlActiveSnippet verwendet ForceCoreTable-Parameter</li>
+<li>fehlende Templates in Metadata nachgetragen</li>
+</ul>
+<hr />
+<h2 id="page_5-1-0-1-2018-04-26">5.1.0.1 (2018-04-26)</h2>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Klassenname von d3counter korrigiert (#7393)</li>
+</ul>
+<hr />
+<h2 id="page_5-1-0-0-2017-12-18">5.1.0.0 (2017-12-18)</h2>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>composerfähige Installation</li>
+<li>Migrationsqueries (von OXID 4.10 / 5.x)</li>
+<li>Bereinigung der genierten Bilder auch für andere Objekttypen</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>als deprecated markierten Code entfernt</li>
+</ul>
+<hr />
+<h2 id="page_5-0-0-0-2017-11-23">5.0.0.0 (2017-11-23)</h2>
+<p><strong>Minor version upgrade notice: there are some backward-incompatible changes to this release.</strong></p>
+<h3 id="page_Added-2">Added</h3>
+<ul>
+<li>Log-Export auch für modulspezifische Log-Auswertungen möglich</li>
+<li>Template-Block-Verwaltung eingefügt</li>
+<li>Versionsnummern-Konverter für sauberes Handling mit der B2B-Edition integriert</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>Umarbeitung für OXID 6</li>
+</ul>
+<hr />
+<h2 id="page_4-5-0-0">4.5.0.0</h2>
+<ul>
+<li>Icon-Bibliothek Font Awesome auf Version 4.7.0 aktualisiert</li>
+<li>Admin-Url-Generator korrigiert (verhindert seltenes Logout beim Verwenden dieser URLs)</li>
+<li>Filter für Transactionlog eingefügt</li>
+<li>#5718 + #5717: zusätzliche Indizes für d3tranactionlog und zugehörige Tabellen gesetzt</li>
+<li>#5740: Tabellenengines auf InnoDB umgestellt</li>
+<li>#5684: Log-Exporttyp &quot;CSV&quot; entfernt</li>
+<li>ClearTmp-Infobereich umgestellt</li>
+<li>Modul auf ionCube-Verwendung angepasst</li>
+<li>Dashboard zeigt Informationen zu relevanten Expire-Dates der installierten Module</li>
+<li>Testlizenzen werden im Modulnamen entsprechend dargestellt</li>
+<li>cURL folgt Redirect-Angaben</li>
+<li>Lizenz prüft Shop-Edition</li>
+<li>Feature-Bits integriert</li>
+<li>Zeichensatz-Vorbelegung für Update-Dateien eingefügt</li>
+<li>Remotecache optimiert</li>
+<li>Hinweis bei versuchter Deaktivierung des Modul-Connectors eingefügt</li>
+<li>Protokoll von allgemeinen Shop-Exceptions werden nicht dem Connector zugeordnet</li>
+<li>Update- und Lizenzserver werden über https angesprochen</li>
+<li>Modul-Titel in UTF-8-Installationen korrigiert</li>
+<li>SQL-Exporte korrigiert</li>
+<li>#6329: fehlerhafte Datenbankstruktur bei lückenhaften Sprach-IDs korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-4-1-0">4.4.1.0</h2>
+<ul>
+<li>Meldung über unerfüllte Connector-Abhängigkeit kann temporär übergangen werden</li>
+<li>&quot;Lizenzdetails&quot; zeigt auch kompletten Lizenzschlüssel</li>
+<li>automatische Installation: Interaktion mit Backenduser für kundenspezifische Installation (#5549)</li>
+<li>Theme-Mapping auf modulspezifische Variablennamen umgestellt</li>
+<li>Code-Optimierungen, um Notices zu vermeiden</li>
+</ul>
+<hr />
+<h2 id="page_4-4-0-0">4.4.0.0</h2>
+<ul>
+<li>verarbeitet mCrypt-vermeidende Lizenzinformationen</li>
+<li>Theme-Mapping eingefügt</li>
+<li>konfigurierbare Mandantenunabhängigkeit bei relevanten Installationsaufgaben eingefügt</li>
+<li>d3log-Tabellenstruktur optimiert</li>
+<li>Logtyp-Listen werden nach Priorität sortiert</li>
+<li>für Einsatz mit ionCubeLoader (anstelle von Zend Guard) angepasst (#5489)</li>
+<li>veraltete Methodenaufrufe ersetzt</li>
+<li>.htaccess-Änderungen für Apache 2.4 korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-7-0">4.3.7.0</h2>
+<ul>
+<li>Installationsassistent: Funktion zur Änderung der Tabellen-Engine eingefügt</li>
+<li>.htaccess-Änderungen für Apache 2.4 eingefügt</li>
+</ul>
+<hr />
+<h2 id="page_4-3-6-2">4.3.6.2</h2>
+<ul>
+<li>Lizenzablehnungsgründe werden in Log-Tabelle geschrieben</li>
+<li>Hintergrund-Logo in Adminbereichen entfernt</li>
+</ul>
+<hr />
+<h2 id="page_4-3-6-1">4.3.6.1</h2>
+<ul>
+<li>Fehlerbehebung für nicht verfügbares Objekt während Neuinstallation</li>
+</ul>
+<hr />
+<h2 id="page_4-3-6-0">4.3.6.0</h2>
+<ul>
+<li>Methode zur Ermittlung der Parent-Theme-Id eingefügt</li>
+<li>Systembefehle können als klickbare Wartungsaufgaben eingerichtet werden (Ausführbarkeit via PHP vorausgesetzt)</li>
+<li>&quot;TMP leeren&quot; ist als &quot;ausblendbar&quot; konfigurierbar</li>
+<li>Connector-Versions-Prüfung für Module optimiert</li>
+<li>&quot;TMP leeren&quot;-Optik an eShop 4.10.x angepasst</li>
+<li>Downloads berücksichtigen PHP 5.5 und 5.6</li>
+<li>Admin-Layout für optimale Darstellung der Module angepasst (deaktivierbar)</li>
+<li>D3-Logo im Backend wird via SSL geladen, wenn SSL aktiviert</li>
+<li>Menüicons eingefügt</li>
+<li>Log für Lizenzabfrage eingefügt</li>
+<li>Seitentitel korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-5-0">4.3.5.0</h2>
+<ul>
+<li>Kompatibilität für OXID 4.10.x / 5.3.x eingefügt</li>
+<li>nicht funktionierenden Entwicklermodus korrigiert</li>
+<li>Icons auf FontAwesome-Schriftarten umgestellt</li>
+<li>Modulinstallation prüft auf vordefinierte Connectorversion (sofern im Modul angegeben)</li>
+<li>fehlende Templateparameter ergänzt</li>
+</ul>
+<hr />
+<h2 id="page_4-3-4-1">4.3.4.1</h2>
+<ul>
+<li>&quot;verfügbare Module&quot;-Liste überarbeitet</li>
+<li>Laden vom ModCfg-Instanzen bei Mandantenwechsel optimiert</li>
+<li>Bugfix für gelöschte Multishop-Tabellen-Standardeinträge</li>
+<li>vermeidet Initialisierung eines undefinierten List-Objektes in Adminlist</li>
+</ul>
+<hr />
+<h2 id="page_4-3-4-0">4.3.4.0</h2>
+<ul>
+<li>zusätzliche Indizes zu log2transactionlog-Tabelle eingefügt</li>
+<li>vermeidet die Verwendung mehrerer oxconfig-Instanzen</li>
+<li>Shoprevisionsprüfung korrigiert</li>
+<li>Portnummernprüfung in Domaincheck eingefügt (#4875)</li>
+<li>Bugfix für Install/Update von ModCfg-Einträgen in Multishopinstallationen</li>
+<li>Aktualisierung der Metadaten überarbeitet</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-7">4.3.3.7</h2>
+<ul>
+<li>Mandantenwechsel in automatischer Installation für überladene oxconfig-Klasse angepasst</li>
+<li>Prüfen-Funktion in Wartung integriert</li>
+<li>ModCfgExceptions um zusätzliche Debug-Daten ergänzt</li>
+<li>Navigationslinks in PageNavigation um Sprachparameter des Frontends ergänzt</li>
+<li>fehlendes oxtimestamp-Feld nachgetragen</li>
+<li>Multimandanteninstallation über config-Parameter deaktivierbar (nur EE)</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-6">4.3.3.6</h2>
+<ul>
+<li>Beschreibungstext für Installationsschritte eingefügt</li>
+<li>Multishop-Installation optimiert</li>
+<li>Fehler bei Standard-Datenbankfeldwerten = null korrigiert</li>
+<li>unbekannte (unbenutzte) Lizenzoptionen werden ausgeblendet</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-5">4.3.3.5</h2>
+<ul>
+<li>Lizenzprüfung optimiert</li>
+<li>Bugfix für wechselnde Installationsmethode bei Meldungsaktion</li>
+<li>Bugfix für fehlerhaft zusammengestellte SQL-Queries bei primary indexes</li>
+<li>Bugfix für Fehlermeldung bei differierenden Modulversionsnummern im Support-Tab</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-4">4.3.3.4</h2>
+<ul>
+<li>Eingabefeld für Aktivierungsident und Lizenzschlüssel zusammengefasst</li>
+<li>Installationstemplates optimiert</li>
+<li>Auflistung der Updatescripte prüft auf Existenz der Verzeichnisse innerhalb der OXID-Verzeichnisliste</li>
+<li>Bugfix für unvollständige Datenbankabfrage bei individuellen oxartextends-Felder innerhalb der Wartungsaufgaben</li>
+<li>Installationsassistent: Endlosschleife bei &quot;Meldung bestätigen&quot; in bestimmten Konstallationen korrigiert</li>
+<li>Deinstallationsanleitung in Dokumentation aufgenommen</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-3">4.3.3.3</h2>
+<ul>
+<li>Bugfix für falsche Methodendefinition in 4.7/4.8</li>
+<li>Admin-Templates optimiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-2">4.3.3.2</h2>
+<ul>
+<li>Wartungsaufgaben von Nicht-Shop-Standardfeldern bereinigt</li>
+<li>Installationsassistent: Index-Cache-Nutzung bei &quot;Tabelle erstellen&quot; optimiert</li>
+<li>Installationsassistent: Ausführung im Debug-Modus korrigiert</li>
+<li>Installationsassistent: Prüfung auf veraltete Indizes</li>
+<li>Installationsassistent: Metarefresh wird nur für registrierte Module ausgeführt</li>
+<li>Installationsassistent: veraltete Parameter entfernt</li>
+<li>Installationsassistent: temporäre Aktion wird generell zurückgesetzt</li>
+<li>Update-Scriptliste optimiert</li>
+<li>Fehler bei nicht sofort verfügbarer oxmodule-Erweiterung unterbunden</li>
+<li>Installationsassistent: &quot;Meldung bestätigen&quot; korrigiert</li>
+<li>Precheck auf aktuelle Version angepasst</li>
+<li>Endlosschleife bei Updates von alten Connector-Versionen beseitigt</li>
+<li>Exceptionbehandlung für Fehler beim Laden des Konfigurationsobjektes eingefügt</li>
+<li>Notices werden in Scriptdurchlauf vermieden</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-1">4.3.3.1</h2>
+<ul>
+<li>Moduldownloads für automatische Updates an Serveränderungen angepasst</li>
+<li>Fehlerprotokoll für abgebrochene curl-Verbindungen eingefügt</li>
+<li>Precheck angepasst</li>
+</ul>
+<hr />
+<h2 id="page_4-3-3-0">4.3.3.0</h2>
+<ul>
+<li>SH-Generator um neue PHP-Versionen vervollständigt</li>
+<li>Bugfix in Installationsautomatik bei Installation des FileUpload-Moduls</li>
+<li>unnötige Index-Konvertierungen beim Anlegen neuer Tabellen korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-2-2">4.3.2.2</h2>
+<ul>
+<li>verhindert noch nicht verfügbares Update unter PHP 5.5 / PHP 5.6</li>
+</ul>
+<hr />
+<h2 id="page_4-3-2-1">4.3.2.1</h2>
+<ul>
+<li>keine &quot;Ungültige Lizenz&quot;-Ausnahmebehandlung bei inaktiven Modulen in Modulverwaltung (z.B. beim Ersteintrag des Lizenzschlüssels)</li>
+<li>Installationsoption &quot;Indizes prüfen&quot; prüft auf passende Feldliste</li>
+<li>Sprachermittlung aus Datenbankfeldnamen korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-2-0">4.3.2.0</h2>
+<ul>
+<li>Konfigurationsvariante integriert</li>
+<li>Fehlerbehandlung optimiert</li>
+<li>Datenbankabfragen optimiert</li>
+<li>Installationsassistent: Eintragskonvertierung für Multilang-Tabellen angepasst</li>
+<li>Installationsassistent: Update-Queries werden um nicht definierte Felder vervollständigt</li>
+<li>Installationsassistent: Einfüge-Operation versucht nicht, bisherige Datenbankeinträge zu laden</li>
+<li>Installationsassistent: Update-Query vervollständigen Multilang-Tabellen</li>
+<li>Installationsassistent: Suchalgorithmus für Setup-Anweisungsdateien optimiert</li>
+<li>Installationsassistent: case insensitivity in Enum-Feldtypprüfung integriert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-1-1">4.3.1.1</h2>
+<ul>
+<li>Abbruch von Modulinstallation durch fehlerhaft generierte Datenbankabfrage beseitigt</li>
+</ul>
+<hr />
+<h2 id="page_4-3-1-0">4.3.1.0</h2>
+<ul>
+<li>veraltete Moduldateien werden gelöscht</li>
+<li>fehlerhafte Vervollständigung zu aktualisierender Datenbankeinträge korrigiert</li>
+<li>Dateilisten-Cache optimiert</li>
+<li>Prüfung auf nicht genutzte Dateien verwendet &quot;block&quot;-Einträge aus metadata</li>
+<li>konfigurierbare Pagination</li>
+<li>Installationsoption &quot;confirmMessage&quot; optimiert</li>
+</ul>
+<hr />
+<h2 id="page_4-3-0-0">4.3.0.0</h2>
+<ul>
+<li>Verwendung von Multilang- und Multishop-Tabellen (via View-Tabellen) statt interner Anpassung</li>
+<li>Installationsoption: Anzeige unregistrierter Moduldateien</li>
+<li>Installationsoption: DB-Strukturänderungen (Felder / Indizes) können einzeln aktualisiert werden</li>
+<li>Installationsoption: confirmMessage speichert Confirmation</li>
+<li>nicht mehr verwendete Installsteps (Version 1) entfernt</li>
+<li>übersprungene Installationsschritte gelten nur noch für spezifische Modulversion</li>
+<li>Blog Feed Caching integriert</li>
+<li>(optionale) Modulaktivierung in automatische Installation eingefügt</li>
+</ul>
+<hr />
+<h2 id="page_4-2-2-0">4.2.2.0</h2>
+<ul>
+<li>Kompatibilitätshandling für oxmodule::getModuleFullPath eingefügt</li>
+<li>Anpassung der Lesereihenfolge für Remoteaufrufe</li>
+</ul>
+<hr />
+<h2 id="page_4-2-1-0">4.2.1.0</h2>
+<ul>
+<li>erweitertes Caching für Updateinformationen integriert (#3267)</li>
+<li>SH-Generator integriert (#3236)</li>
+<li>Multishop-Registrierung (EE) für automatische Installation integriert (#3248)</li>
+<li>Modulprofile erhalten Multishophandling (ab EE 5.2.0)</li>
+<li>fehlertolerantere Abfrage auf &quot;duplicated tpl blocks&quot;</li>
+</ul>
+<hr />
+<h2 id="page_4-2-0-1">4.2.0.1</h2>
+<ul>
+<li>nicht verwendete Klassen aus metadata entfernt</li>
+<li>Precheck um weitere Anforderungen ergänzt</li>
+<li>Remote module data werden gecached</li>
+<li>Modulupdates werden nur für den aktuellen Mandanten geprüft (nur EE)</li>
+<li>Shopbit-Berechnung nach d3bit verschoben</li>
+</ul>
+<hr />
+<h2 id="page_4-2-0-0">4.2.0.0</h2>
+<ul>
+<li>Umsetzung für OXID 4.9 / 5.2 (abwärts kompatibel bis 4.7 / 5.0)</li>
+</ul>
+<hr />
+<h2 id="page_4-1-0-1">4.1.0.1</h2>
+<ul>
+<li>Bugfix für nicht ausführbares TMP leeren während Connector-Installation integriert</li>
+</ul>
+<hr />
+<h2 id="page_4-1-0-0">4.1.0.0</h2>
+<ul>
+<li>Wartungsfunktionen eingefügt</li>
+<li>Modulprofile können Datentyp wechseln</li>
+<li>Empfänger für Lizenzhinweis-Mails ist anpassbar</li>
+<li>Schnellzugriff für TMP leeren integriert</li>
+<li>Modulauflistungen werden sortiert</li>
+<li>TMP leeren kann vordefinierte Dateien vom Löschen aussparen</li>
+<li>Installationsoption &quot;alte Moduldateien löschen&quot; integriert</li>
+</ul>
+<hr />
+<h2 id="page_4-0-2-0">4.0.2.0</h2>
+<ul>
+<li>fehlende Klassenregistrierung &quot;d3_cfg_log_cleanup&quot; nachgetragen</li>
+<li>Installationsoption &quot;einmalige Hinweismeldung&quot; integriert</li>
+<li>Mehrfachmeldungen bei veralteter Lizenz korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-0-1-0">4.0.1.0</h2>
+<ul>
+<li>Ablösung der manuell gepflegten Anforderungsprüfung zur automatischen Installationsprüfung</li>
+<li>Bugfix für d3log-Exception bei Fehler 404-Seite eingefügt</li>
+</ul>
+<hr />
+<h2 id="page_4-0-0-2">4.0.0.2</h2>
+<ul>
+<li>Cache-Liste downloadbarer Bibliotheken wird bei Update bereinigt</li>
+<li>Update-Assistent wird bei Ausführung des Installationsassistenten unterdrückt</li>
+</ul>
+<hr />
+<h2 id="page_4-0-0-1">4.0.0.1</h2>
+<ul>
+<li>Prüfung auf existierende Parent-Methode korrigiert</li>
+</ul>
+<hr />
+<h2 id="page_4-0-0-0">4.0.0.0</h2>
+<ul>
+<li>4 Basisbibliotheken werden in einer Gesamtbibliothek zusammengefasst</li>
+<li>Prüfung auf existierende Parent-Methoden prüft nun auch in Modul-Erweiterungen (optional)</li>
+</ul>
+<hr />
+<h1 id="page_ModCfg">ModCfg</h1>
+<h2 id="page_3-10-3-0">3.10.3.0</h2>
+<ul>
+<li>Bibliothek-Module werden nicht als &quot;inaktiv&quot; markiert, wenn sich Extensions ändern</li>
+<li>Parameter-Container korrigiert</li>
+</ul>
+<h2 id="page_3-10-2-1">3.10.2.1</h2>
+<ul>
+<li>Metadaten korrigiert</li>
+</ul>
+<h2 id="page_3-10-2-0">3.10.2.0</h2>
+<ul>
+<li>Parameter-Container eingefügt</li>
+<li>Kurzbeschreibungsfeld für Profile gekürzt</li>
+</ul>
+<h2 id="page_3-10-1-0">3.10.1.0</h2>
+<ul>
+<li>interne Strukturänderungen</li>
+</ul>
+<h2 id="page_3-10-0-2">3.10.0.2</h2>
+<ul>
+<li>Modul-Meta-Refresh deaktiviert nicht die betroffenen Module</li>
+<li>Admin-Profilliste filtert nach Gruppen</li>
+<li>Profile um Kurzbeschreibungsfeld ergänzt</li>
+<li>Aktiv-Prüfung für Profile ist Admin-Liste korrigiert</li>
+<li>Methodenreichweite verändert (_d3getFolderTitle() -&gt; public)</li>
+<li>Vermeiden von Notices</li>
+</ul>
+<h2 id="page_3-10-0-1">3.10.0.1</h2>
+<ul>
+<li>Layoutfehler korrigiert</li>
+</ul>
+<h2 id="page_3-10-0-0">3.10.0.0</h2>
+<ul>
+<li>Umstellung auf &quot;automatische Installation&quot;</li>
+<li>Seitennavigation enthält Shop-Parameter (EE)</li>
+</ul>
+<h2 id="page_3-9-0-7">3.9.0.7</h2>
+<ul>
+<li>&quot;lokale Verwendung&quot; der Lizenzschlüssel korrigiert</li>
+<li>Verwendung der Revisionsnummer gegen Versionsnummer getauscht</li>
+</ul>
+<h2 id="page_3-9-0-6">3.9.0.6</h2>
+<ul>
+<li>inkompatibler Templateaufruf bereinigt</li>
+<li>isAvailable-Check korrigiert</li>
+</ul>
+<h2 id="page_3-9-0-5">3.9.0.5</h2>
+<ul>
+<li>Aktivierung korrigiert, wenn Admin unter SSL läuft</li>
+<li>inaktive Listeneinträge werden in Admin gezeigt</li>
+<li>fehlendes pagenavigation-Template eingefügt</li>
+</ul>
+<h2 id="page_3-9-0-4">3.9.0.4</h2>
+<ul>
+<li>Lizenzschlüsselprüfung korrigiert</li>
+</ul>
+<h2 id="page_3-9-0-3">3.9.0.3</h2>
+<ul>
+<li>Verfügbarkeitsprüfung prüft auf korrekte Anzahl der Basis-Bibliothek-Einträge</li>
+<li>Lizenzcache korrigiert</li>
+<li>&quot;Eintrag duplizieren&quot; speichert keine Einstellungen</li>
+</ul>
+<h2 id="page_3-9-0-2">3.9.0.2</h2>
+<ul>
+<li>problematisches &quot;on update current_timestamp&quot; aus Struktur entfernt</li>
+</ul>
+<h2 id="page_3-9-0-1">3.9.0.1</h2>
+<ul>
+<li>Fehler beim Speichern der Log-Einstellungen korrigiert</li>
+</ul>
+<h2 id="page_3-9-0-0">3.9.0.0</h2>
+<ul>
+<li>Modulprofile eingefügt</li>
+</ul>
+<h2 id="page_3-8-0-0">3.8.0.0</h2>
+<ul>
+<li>PHP 5.4 Überprüfung angepasst</li>
+<li>Fehlerbehandlung erweitert</li>
+<li>Erweiterbarkeit verbessert</li>
+</ul>
+<h2 id="page_3-7-0-1">3.7.0.1</h2>
+<ul>
+<li>Feldvererbung korrigiert (Moduleinstellungen waren nicht in Sprache &gt;0 abrufbar</li>
+</ul>
+<h2 id="page_3-7-0-0">3.7.0.0</h2>
+<ul>
+<li>Übersicht über verfügbare (nicht installierte) Module eingefügt</li>
+<li>erweiterte Counter integriert</li>
+</ul>
+<h2 id="page_3-6-0-0">3.6.0.0</h2>
+<ul>
+<li>Enterprise Edition: Rechte&amp;Rollen auch für D3-Module nutzbar</li>
+</ul>
+<h2 id="page_3-5-0-0">3.5.0.0</h2>
+<ul>
+<li>Verwaltung weiterer Keysets integriert (Nutzung der Serials durch andere Partner)</li>
+</ul>
+<h2 id="page_3-3-0-0">3.3.0.0</h2>
+<ul>
+<li>Lizenzaktivierung über D3-Server aktiviert</li>
+</ul>
+<h2 id="page_3-2-0-0">3.2.0.0</h2>
+<ul>
+<li>Template-Includes vereinheitlicht</li>
+</ul>
+<h2 id="page_3-1-0-0">3.1.0.0</h2>
+<ul>
+<li>Aktivierungs-Assistent eingearbeitet</li>
+</ul>
+<h2 id="page_3-0-0-4">3.0.0.4</h2>
+<ul>
+<li>Autoupdate korrigiert</li>
+<li>Smarty-Plugins in Modul-Verzeichnis verschoben</li>
+</ul>
+<h2 id="page_3-0-0-3">3.0.0.3</h2>
+<ul>
+<li>Fehler in der ModCfg-Instanz-Verwaltung behoben</li>
+</ul>
+<h2 id="page_3-0-0-1">3.0.0.1</h2>
+<ul>
+<li>Lizenzprüfung für lokale Installtionen korrigiert</li>
+</ul>
+<hr />
+<h1 id="page_Install">Install</h1>
+<h2 id="page_2-6-1-0">2.6.1.0</h2>
+<ul>
+<li>Fehlermeldung in Installation entfernt</li>
+<li>Ausführung in CLI stoppt Ausführung nicht</li>
+<li>UTF-DB-Inhalte werden vor Update konvertiert</li>
+<li>Installationsassistent prüft auch in &quot;setup&quot;-Verzeichnis auf Install-Scripte</li>
+<li>Behandlung für Erweiterung von ENUM-Feldern eingefügt</li>
+</ul>
+<h2 id="page_2-6-0-1">2.6.0.1</h2>
+<ul>
+<li>verhindert weitere Meta-Refresh-Aktionen</li>
+</ul>
+<h2 id="page_2-6-0-0">2.6.0.0</h2>
+<ul>
+<li>Bibliotheken verwenden &quot;automatische Installation&quot;</li>
+<li>Collation-Cache korrigiert</li>
+<li>Modul-Prüfungen werden auf Versionsnummern anstatt Revisionsnummern durchgeführt</li>
+<li>zeigt Hinweis, wenn Bibliotheken automatisch deaktiviert werden</li>
+<li>DB-Index-Typen korrigiert</li>
+<li>manueller Installationsstart setzt SkipFlag zurück</li>
+</ul>
+<h2 id="page_2-5-0-1">2.5.0.1</h2>
+<ul>
+<li>PRIMARY INDEX Query angepasst</li>
+</ul>
+<h2 id="page_2-5-0-0">2.5.0.0</h2>
+<ul>
+<li>Kollationshandling in automatische Installation eingefügt</li>
+</ul>
+<h2 id="page_2-4-1-0">2.4.1.0</h2>
+<ul>
+<li>RegExp-Generator implementiert</li>
+</ul>
+<h2 id="page_2-4-0-1">2.4.0.1</h2>
+<ul>
+<li>Groß-/Kleinschreibungsabhängiger Feld-Cache eingefügt</li>
+<li>genereller SQL- und CSV-Export eingefügt</li>
+<li>Installation bricht bei fehlenden Methoden ab</li>
+<li>simpleXML erweitert</li>
+<li>Datenverschiebefunktion für automatische Installation eingefügt</li>
+<li>NULL-Handling bei automatischer Installation verbessert</li>
+<li>Admin-Navigation wird nach Installation aktualisiert</li>
+</ul>
+<h2 id="page_2-4-0-0">2.4.0.0</h2>
+<ul>
+<li>weitere Methoden für automatische Installation eingefügt</li>
+<li>PHP 5.4-Überarbeitungen</li>
+</ul>
+<h2 id="page_2-3-0-2">2.3.0.2</h2>
+<ul>
+<li>Verlinkung geändert</li>
+<li>zusätzliche DB-Feld-Eigenschaften implementiert</li>
+</ul>
+<h2 id="page_2-3-0-0">2.3.0.0</h2>
+<ul>
+<li>Performance-Optimierung</li>
+<li>Installation stellt Anzahl der Steps dar</li>
+</ul>
+<h2 id="page_2-2-0-3">2.2.0.3</h2>
+<ul>
+<li>Bug in Rename-Job beseitigt</li>
+</ul>
+<h2 id="page_2-2-0-2">2.2.0.2</h2>
+<ul>
+<li>Performance-Optimierung</li>
+<li>oxconfig-Methoden eingefügt</li>
+</ul>
+<h2 id="page_2-2-0-1">2.2.0.1</h2>
+<ul>
+<li>fehlerhafte Query-Generierung bei Rename-Updates korrigiert</li>
+</ul>
+<h2 id="page_2-2-0-0">2.2.0.0</h2>
+<ul>
+<li>Feature in Updateinstallation: Informationsseite</li>
+</ul>
+<h2 id="page_2-1-0-8">2.1.0.8</h2>
+<ul>
+<li>Kommunikation zum Updateserver sehr langsam: behoben</li>
+</ul>
+<h2 id="page_2-1-0-7">2.1.0.7</h2>
+<ul>
+<li>Löschen- und Entfern-Methoden eingefügt, Cache-Behandlung korrigiert</li>
+</ul>
+<p>...</p>
+<h2 id="page_2-0-0-2">2.0.0.2</h2>
+<ul>
+<li>ModCfg-Instanz-Handler angepaßt</li>
+<li>Demoshopmodus anzeigen lassen, wenn Funktionseinschränkungen aktiv sind</li>
+<li>DB-Index-Installation eingefügt</li>
+<li>Lizenz-Aktivierung eingearbeitet</li>
+</ul>
+<h2 id="page_2-0-0-1">2.0.0.1</h2>
+<ul>
+<li>falsche Weiterleitung bei automatischer Installation korrigiert</li>
+</ul>
+<hr />
+<h1 id="page_Logging">Logging</h1>
+<h2 id="page_2-4-1-0-2">2.4.1.0</h2>
+<ul>
+<li>gruppierte Loglevel definiert</li>
+<li>Infomail liefert aufschlussreichere Daten</li>
+<li>Smarty-Fehler können geloged werden</li>
+<li>leere Logs werden nicht geschrieben</li>
+<li>Log-Textfeld auf Typ &quot;Text&quot; vergrößert</li>
+</ul>
+<h2 id="page_2-4-0-0-2">2.4.0.0</h2>
+<ul>
+<li>verwendet automatische Installation</li>
+</ul>
+<h2 id="page_2-3-0-2-2">2.3.0.2</h2>
+<ul>
+<li>Transactionlog neue Methode hinzugefügt</li>
+</ul>
+<h2 id="page_2-3-0-1">2.3.0.1</h2>
+<ul>
+<li>Error-Info-Mail korrigiert</li>
+<li>Transaction-Log nutzbar integriert</li>
+</ul>
+<h2 id="page_2-3-0-0-2">2.3.0.0</h2>
+<ul>
+<li>Transaction-Log umgearbeitet</li>
+</ul>
+<h2 id="page_2-2-0-0-2">2.2.0.0</h2>
+<ul>
+<li>Transaction-Log integriert</li>
+<li>Log speichert nun Profil-ID</li>
+</ul>
+<h2 id="page_2-1-0-1">2.1.0.1</h2>
+<ul>
+<li>DB-Struktur für bessere Performance verändert</li>
+<li>verwendet zentrale Export-Methoden</li>
+<li>löscht nur Log-Einträge des gewählten Mandanten</li>
+<li>Export ist nach Klassen und Sessions selektierbar</li>
+<li>Exceptions immer anzeigbar (optional)</li>
+<li>Exceptions werden in Log geschrieben</li>
+</ul>
+<h2 id="page_2-1-0-0">2.1.0.0</h2>
+<ul>
+<li>Log-Übersicht kann modulspezifisch in andere Erweiterungen integriert werden</li>
+</ul>
+<h2 id="page_2-0-0-6">2.0.0.6</h2>
+<ul>
+<li>SQL-Export liefert alle Zeilen</li>
+<li>DB Struktur verändert (auto increment index)</li>
+</ul>
+<h2 id="page_2-0-0-5">2.0.0.5</h2>
+<ul>
+<li>Log-Bit-Beschreibung geändert</li>
+<li>oxshopcontrol::start() übergibt komplette Parameterliste</li>
+</ul>
+<h2 id="page_2-0-0-4">2.0.0.4</h2>
+<ul>
+<li>Tabellentyp eingefügt</li>
+<li>Level-Benennung geändert</li>
+</ul>
+<p>...</p>
+<h2 id="page_2-0-0-1-2">2.0.0.1</h2>
+<ul>
+<li>Testmodus implementiert</li>
+<li>DB-Indizes korrigiert</li>
+</ul>
+<hr />
+<h1 id="page_ClearTmp">ClearTmp</h1>
+<h2 id="page_2-1-0-0-2">2.1.0.0</h2>
+<ul>
+<li>verwendet &quot;automatische Installation&quot;</li>
+</ul>
+<h2 id="page_2-0-0-4-2">2.0.0.4</h2>
+<ul>
+<li>Methodendeklaration korrigiert</li>
+<li>Templates angepasst</li>
+</ul>
+<h2 id="page_2-0-0-3">2.0.0.3</h2>
+<ul>
+<li>Methodendeklaration korrigiert</li>
+<li>Frontend-Clear-TMP eingefügt, kann z.B. Views ohne Adminbereich aktualisieren</li>
+</ul>
+<h2 id="page_2-0-0-2-2">2.0.0.2</h2>
+<ul>
+<li>verwendet registrierte Template anstelle von festen Pfadnamen</li>
+</ul>
+<h2 id="page_2-0-0-1-2">2.0.0.1</h2>
+<ul>
+<li>ModCfg-Instanz-Handler aktualisiert</li>
+</ul>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../index.html">Zurück</a></li>            <li class=Pager--next><a href="../installation/Installation.html">Weiter</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JS -->
+<script src="../themes/d3/js/jquery-1.11.3.min.js"></script><script src="../themes/d3/js/highlight.pack.js"></script><script src="../themes/d3/js/daux.js"></script><script src="../themes/d3/js/fontawesome-all.js"></script>
+    <!-- Tipue Search -->
+    <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+    <script>
+        window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+        $(function() {
+            tipuesearch({
+                'base_url': '../'
+            });
+        });
+    </script>
+
+</body>
+</html>
