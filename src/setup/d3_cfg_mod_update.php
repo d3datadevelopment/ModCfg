@@ -53,7 +53,7 @@ class d3_cfg_mod_update extends d3install_updatebase
         array('check' => 'checkModCfgTableExist',
               'do'    => 'addModCfgTable'),
         array('check' => 'checkModCfgTableEngine',
-            'do'    => 'updateModCfgTableEngine'),
+              'do'    => 'updateModCfgTableEngine'),
         array('check' => 'checkModprofileMultiLangTable',
               'do'    => 'registerModprofileMultiLangTable'),
         array('check' => 'checkOxarticlesMultiShopTable',
@@ -100,15 +100,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.1.1.7';
-    public $sModRevision = '5117';
+    public $sModVersion = '5.2.0.0';
+    public $sModRevision = '5200';
     public $sBaseConf =
-        'fHcv2==MGF0RXRYTUlCODB3dXhTcUQzWVBqNFk1SWNybkl3d0cyQzgzL05rL1VXQjdCL0UzbFpqaXgzT
-XpMaG5malJ6Y2VnNkl4TnJ3TlprNG1MamhLQnVkbHRyLzRGdHZEV2FxYlFqMUdGeVV1dm84U0ppTms2Z
-3hPemZDUDY3bGwzMlkrek9ldG9oYzF5MWZsOUFqUnc2ZDBmMm0zdksySzVSTUR4UUdySU1jUnJWZE05W
-mxEUmlYWGVNdDJKT1ZtcU9PdFljR2F4WVpBMmxwN3VQeEVGZ3RJaTRxMlF5bWZla0lhVVlORVYrSFJGb
-lRyaHRrZHdQaVhjMVBIcWVZT2hpM1ZQNVhoT1VLV0gzTlRxWlZlM3daTHFud0dTMzRPd0NNUFBGRURsN
-it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
+        'futv2==SWIyOE5QallhdytaYXc3YjRRalBCTlRCM0h6ZmUwT1VxeXpZMCtrempkQW5mMWJFSkpUNjNPN
+U5JRmpNSmpFU2N5MVFHNWxzQUFsMjVaSWRuSWY5c1loUFZid1J5bUdraDJWRm81dnZmd1ptTjBrR21GR
+U51RjVSanpVK0tDNlVrQTRwUS9uZW5wWW5mZ2pKeHArQndOTDFGU3BHZGJXY1I5aktvcEtFZTZJRS8vN
+DRBQjV6aXZGb1VqZlNoUWdkci9pamJxM3Z1cFJBQW45Zks5MXZ2elh1SmhLOVV3NUtWa24rY3ZMd3NXd
+FM3eWpDbklueTVYQjBEdW1kTG81UWlTRmIvaUw3UWFHYkFtYU83ZlpWOUV6a1RwalVmOHJHMXp1UElXe
+U1rY2dwRWczM2dnNzdDZEFpNE9TdlBSVG0=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -763,6 +763,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * Bugfix for empty multishoptables from rev. 1244 in 4.3.4.0
      * @return bool
      * @throws ConnectionException
+     * @throws \Exception
      */
     public function checkOxarticlesMultiShopTable()
     {
@@ -791,11 +792,13 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws \Exception
      */
     public function resetMultiShopTables()
     {
+        $sCurrentShopId = Registry::getConfig()->getShopId();
+
         if (in_array(oxNew(Facts::class)->getEdition(), array('B2B', 'EE'))) {
-            $sCurrentShopId = Registry::getConfig()->getShopId();
             /** @var Shop $oShop */
             foreach ($this->getShopList() as $oShop) {
                 $this->_changeToShop($oShop->getId());
@@ -882,6 +885,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws \Exception
      */
     public function checkModCfgFields()
     {
@@ -1083,6 +1087,8 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModCfgTableEngine()
     {
@@ -1112,6 +1118,8 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModProfileTableEngine()
     {
@@ -1141,6 +1149,8 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkModCfgVariantTableEngine()
     {
@@ -1231,6 +1241,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws \Exception
      */
     public function updateModCfgItem()
     {
@@ -1343,6 +1354,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @throws \Exception
      */
     public function addModProfileTable()
     {
@@ -1470,9 +1482,8 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
                 tbl2.oxid != tbl1.oxid')
             ->groupBy(1)
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return (bool) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect);
+        return (bool) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB->getSQL());
     }
 
     /**
@@ -1596,6 +1607,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
+     * @throws \ReflectionException
      * @throws d3ParameterNotFoundException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
@@ -1611,6 +1623,7 @@ it4WmZsQStGcVVhU0hXeE9WUGVkaUY5U0U=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
+     * @throws \ReflectionException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */

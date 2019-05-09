@@ -665,6 +665,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkLogTableEngine()
     {
@@ -694,6 +696,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkTALogTableEngine()
     {
@@ -723,6 +727,8 @@ class d3log_update extends d3install_updatebase
 
     /**
      * @return bool true, if table has wrong engine
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function checkO2DLogTableEngine()
     {

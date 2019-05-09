@@ -133,6 +133,7 @@ $aLang = array(
     'D3_CFG_CLRTMP_NOVALIDFSCLASS'         => 'Unable to clear the TMP folder - please update the install library!',
 
     'D3_CFG_CLRTMP_OTHER'                  => 'other maintenance tasks',
+    'D3_CFG_CLRTMP_GENALLIMGS'             => 'remove all generated images',
     'D3_CFG_CLRTMP_GENIMGS'                => 'remove generated product images',
     'D3_CFG_CLRTMP_GENIMGS_SUCC'           => 'The generated product images have been deleted.',
     'D3_CFG_CLRTMP_GENIMGS_DESC'           => 'All generated product images will be deleted. The original product images remain valid for the new generation. If an article image is requested again, it will be regenerated from the source image. Please note that the original images must be available to the shop. Otherwise, the generation of the article images can not take place.',

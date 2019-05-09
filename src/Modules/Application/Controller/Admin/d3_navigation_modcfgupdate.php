@@ -25,6 +25,7 @@ use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Exception\SystemComponentException;
 use OxidEsales\Facts\Facts;
@@ -107,7 +108,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             return array();
         }
 
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $aMessages = array();
 
@@ -118,7 +119,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             );
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $aMessages;
     }
@@ -134,7 +135,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
      */
     protected function _d3ModLicenceCheck()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $aMessages = array();
 
@@ -142,7 +143,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             false == d3_cfg_mod::isCallable() ||
             d3_cfg_mod::get('d3modcfg_lib')->getValue('blModCfg_noAdminHomeInfo') >= 1
         ) {
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
             return $aMessages;
         }
 
@@ -170,7 +171,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             }
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $aMessages;
     }
@@ -183,10 +184,11 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws \Exception
      */
     protected function _d3ModUpdateCheck()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $aMessages = array();
 
@@ -194,7 +196,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             false == d3_cfg_mod::isCallable() ||
             d3_cfg_mod::get('d3modcfg_lib')->getValue('blModCfg_noAdminHomeInfo') >= 1
         ) {
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
             return $aMessages;
         }
 
@@ -260,7 +262,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             }
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $aMessages;
     }
@@ -270,7 +272,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
      */
     protected function _d3getUpdateWizzardUrl()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $aParams = array(
             'cl'         => 'd3_mod_update', // don't use d3_mod_update::class,
@@ -280,7 +282,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
         );
         $sURL    = Registry::get(d3utils::class)->getAdminClassUrl($aParams);
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $sURL;
     }
@@ -295,7 +297,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
      */
     protected function isModuleActive($sModCfgId)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sMetaModuleId = d3_cfg_mod::get('d3modcfg_lib')->getMetaModuleId($sModCfgId);
 
@@ -305,7 +307,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
 
         $blActive = $oModule->isActive();
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blActive;
     }

@@ -48,19 +48,17 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '5.1.1.7',
+    'version'     => '5.2.0.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
     'extend'      => [
-        OxidCore\Module\ModuleInstaller::class  => D3\ModCfg\Modules\Application\Model\d3_oxmoduleinstaller_activecheck::class,
-        OxidAdminController\NavigationController::class  => D3\ModCfg\Modules\Application\Controller\Admin\d3_navigation_modcfgupdate::class,
-        OxidModel\Shop::class => D3\ModCfg\Modules\Application\Model\d3_oxshop_modcfg::class,
-        OxidCore\ShopControl::class  => D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension::class,
-        OxidCore\Theme::class => D3\ModCfg\Modules\Core\d3_oxtheme_modcfg::class,
-        OxidCore\UtilsView::class => D3\ModCfg\Modules\Core\d3_oxutilsview_modcfg::class,
-// ToDo: check, if we can enable this
-        // OxidCore\Email::class => 'd3/modcfg/Modules/Core/d3_oxemail_log',
+        OxidCore\Module\ModuleInstaller::class          => D3\ModCfg\Modules\Application\Model\d3_oxmoduleinstaller_activecheck::class,
+        OxidAdminController\NavigationController::class => D3\ModCfg\Modules\Application\Controller\Admin\d3_navigation_modcfgupdate::class,
+        OxidModel\Shop::class                           => D3\ModCfg\Modules\Application\Model\d3_oxshop_modcfg::class,
+        OxidCore\ShopControl::class                     => D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension::class,
+        OxidCore\Theme::class                           => D3\ModCfg\Modules\Core\d3_oxtheme_modcfg::class,
+        OxidCore\UtilsView::class                       => D3\ModCfg\Modules\Core\d3_oxutilsview_modcfg::class,
         # see at end of file for further dynamic extensions
     ],
     'controllers'   => [
@@ -107,6 +105,11 @@ $aModule = [
         ],
     ],
     'settings'    => [
+        [
+            'group' => 'd3thememapping_global',
+            'name' => 'd3custParentThemeMappedToWave_'.$sModuleId,
+            'type' => 'str',
+        ],
         [
             'group' => 'd3thememapping_global',
             'name' => 'd3custParentThemeMappedToFlow_'.$sModuleId,
@@ -233,7 +236,9 @@ $aModule = [
         'd3/modcfg/Application/Controller/Admin/Maintenance/d3sysitems_list.php',
 
         'd3/modcfg/Application/Model/d3bit.php',
+        'd3/modcfg/Application/Model/d3bitmask.php',
         'd3/modcfg/Application/Model/d3database.php',
+        'd3/modcfg/Application/Model/d3MsdManager.php',
         'd3/modcfg/Application/Model/d3feeds.php',
         'd3/modcfg/Application/Model/d3pagenavigation.php',
         'd3/modcfg/Application/Model/d3tickercontrol.php',
@@ -241,19 +246,27 @@ $aModule = [
         'd3/modcfg/Application/Model/d3utils.php',
         'd3/modcfg/Application/Model/d3selection.php',
         'd3/modcfg/Application/Model/d3filesystem.php',
+        'd3/modcfg/Application/Model/d3protocol.php',
         'd3/modcfg/Application/Model/d3remotecache.php',
         'd3/modcfg/Application/Model/d3module.php',
 
         'd3/modcfg/Application/Model/d3simplexml.php',
         'd3/modcfg/Application/Model/d3str.php',
+        'd3/modcfg/Application/Model/d3RegexpGenerator.php',
         'd3/modcfg/Application/Model/d3stream.php',
         'd3/modcfg/Application/Model/d3webdav.php',
 
-
         'd3/modcfg/Application/Model/Configuration/d3_cfg_mod.php',
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_datastore.php',
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_licencecheck.php',
+        'd3/modcfg/Application/Model/Configuration/d3_license_app.php',
         'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_variant.php',
         'd3/modcfg/Application/Model/Configuration/d3modprofile.php',
         'd3/modcfg/Application/Model/Configuration/d3modprofilelist.php',
+
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicHandlerInterface.php',
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicHandler.php',
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicUtilities.php',
 
         'd3/modcfg/Application/Model/Encoding/d3decoder.php',
         'd3/modcfg/Application/Model/Encoding/d3encoder.php',
@@ -268,7 +281,10 @@ $aModule = [
         'd3/modcfg/Application/Model/Filegenerator/d3filegeneratorcronsh.php',
 
         'd3/modcfg/Application/Model/Install/d3install.php',
+        'd3/modcfg/Application/Model/Install/d3licenceserver.php',
+        'd3/modcfg/Application/Model/Install/d3updateserver.php',
         'd3/modcfg/Application/Model/Install/d3install_updatebase.php',
+        'd3/modcfg/Application/Model/Install/d3debughandler.php',
         'd3/modcfg/Application/Model/Install/d3updateinstaller.php',
 
         'd3/modcfg/Application/Model/Installcheck/d3installcheck.php',
@@ -303,7 +319,10 @@ $aModule = [
         'd3/modcfg/Application/Model/Installwizzard/d3installskipjob.php',
         'd3/modcfg/Application/Model/Installwizzard/d3installfile.php',
 
+        'd3/modcfg/Application/Model/Log/d3LogInterface.php',
+        'd3/modcfg/Application/Model/Log/d3LogLevel.php',
         'd3/modcfg/Application/Model/Log/d3log.php',
+        'd3/modcfg/Application/Model/Log/d3NullLogger.php',
 
         'd3/modcfg/Application/Model/Maintenance/d3maintenanceactions.php',
         'd3/modcfg/Application/Model/Maintenance/d3clrtmp.php',
@@ -340,12 +359,30 @@ $aModule = [
         'd3/modcfg/Modules/Application/Model/d3_oxshop_modcfg.php',
         'd3/modcfg/Modules/Application/Model/d3_oxmoduleinstaller_activecheck.php',
         'd3/modcfg/Modules/Core/d3_oxtheme_modcfg.php',
-        'd3/modcfg/Modules/Core/d3_oxutilsview_modcfg.php'
+        'd3/modcfg/Modules/Core/d3_oxutilsview_modcfg.php',
+
+        'd3/modcfg/Tests/additional.inc.php',
+        'd3/modcfg/Tests/additional_abstract.php',
+        'd3/modcfg/Tests/d3EmptyTestCase.php',
+        'd3/modcfg/Tests/d3modcfg_config.php',
+
+        'd3/modcfg/Tests/unit/d3ModCfgUnitTestCase.php',
+        'd3/modcfg/Tests/unit/d3FixHelper.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3bitmaskTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3bitTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_mod_licensecheckTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_modTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3modprofileTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicHandlerTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicUtilitiesTest.php',
     ],
     'd3SetupClasses'    => [
         ModuleSetup\d3_cfg_mod_update::class,
         ModuleSetup\d3log_update::class,
     ],
+    'd3DICDefinitionFiles'  => [
+        'd3/modcfg/Config/services.yaml',
+    ]
 ];
 
 // EE only

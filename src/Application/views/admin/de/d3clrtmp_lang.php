@@ -134,6 +134,7 @@ $aLang = array(
     'D3_CFG_CLRTMP_NOVALIDFSCLASS'         => 'TMP leeren nicht möglich - bitte aktualisieren Sie die Install-Bibliothek!',
 
     'D3_CFG_CLRTMP_OTHER'                  => 'sonstige Wartungsarbeiten',
+    'D3_CFG_CLRTMP_GENALLIMGS'             => 'alle generierten Bilder entfernen',
     'D3_CFG_CLRTMP_GENIMGS'                => 'generierte Artikelbilder entfernen',
     'D3_CFG_CLRTMP_GENIMGS_SUCC'           => 'Die generierten Artikelbilder wurden gelöscht.',
     'D3_CFG_CLRTMP_GENIMGS_DESC'           => 'Es werden alle generierten Artikelbilder gelöscht. Die originalen Artikelbilder bleiben für die Neugenerierung bestehen. Wird nun ein Artikelbild erneut angefordert, wird dieses aus dem Quellbild neu generiert. Bitte beachten Sie, dass die Originalbilder dem Shop zur Verfügung stehen müssen. Andernfalls kann die Generierung der anzuzeigenden Artikelbilder nicht stattfinden.',

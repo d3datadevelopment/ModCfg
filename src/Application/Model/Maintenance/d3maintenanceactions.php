@@ -128,15 +128,14 @@ class d3maintenanceactions
      */
     public function checkOxArtextendsItems()
     {
-        $oQueryBuilder = d3database::getInstance()->getQueryBuilder();
-        $oQueryBuilder->select('count(*)')
+        $oQB = d3database::getInstance()->getQueryBuilder();
+        $oQB->select('count(*)')
             ->from('oxarticles', 'oa')
             ->leftJoin('oa', 'oxartextends', 'oae', 'oa.oxid = oae.oxid')
             ->where('oae.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQueryBuilder->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -188,17 +187,16 @@ class d3maintenanceactions
      */
     public function checkClearAcc2Art()
     {
-        $oQueryBuilder = d3database::getInstance()->getQueryBuilder();
-        $oQueryBuilder->select('count(*)')
+        $oQB = d3database::getInstance()->getQueryBuilder();
+        $oQB->select('count(*)')
             ->from('oxaccessoire2article', 'd2ds')
             ->leftJoin('d2ds', 'oxarticles', 'art', 'd2ds.oxarticlenid = art.oxid')
             ->leftJoin('d2ds', 'oxarticles', 'acc', 'd2ds.oxobjectid = acc.oxid')
             ->where('art.oxid IS NULL')
             ->orWhere('acc.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQueryBuilder->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -304,9 +302,7 @@ class d3maintenanceactions
             ->where('oar.oxid IS NULL')
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -358,9 +354,7 @@ class d3maintenanceactions
             ->orWhere('oa.oxid IS NULL')
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -413,9 +407,7 @@ class d3maintenanceactions
             ->orWhere('ods.oxid IS NULL')
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -466,9 +458,7 @@ class d3maintenanceactions
             ->where('ou.oxid IS NULL')
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect);
+        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB->getSQL());
     }
 
     /**
@@ -517,19 +507,12 @@ class d3maintenanceactions
             ->leftJoin('o2p', 'oxactions', 'oac', 'o2p.oxactionid = oac.oxid')
             ->leftJoin('o2p', 'oxarticles', 'oar', 'o2p.oxobjectid = oar.oxid')
             ->leftJoin('o2p', 'oxgroups', 'og', 'o2p.oxobjectid = og.oxid')
-            ->where('o2p.oxclass = ? AND oar.oxid IS NULL')
-            ->orWhere('o2p.oxclass = ? AND og.oxid IS NULL')
+            ->where('o2p.oxclass = '.$oQB->createNamedParameter('oxarticle').' AND oar.oxid IS NULL')
+            ->orWhere('o2p.oxclass = '.$oQB->createNamedParameter('oxgroups').' AND og.oxid IS NULL')
             ->orWhere('oac.oxid IS NULL')
             ->setMaxResults(1);
 
-        $sSelect = $oQB->getSQL();
-
-        $aParameters = array(
-            'oxarticle',
-            'oxgroups',
-        );
-
-        return $this->getDb()->getOne($sSelect, $aParameters);
+        return $this->getDb()->getOne($oQB->getSQL(), $oQB->getParameters());
     }
 
     /**
@@ -584,9 +567,8 @@ class d3maintenanceactions
             ->where('art.oxid IS NULL')
             ->orWhere('obj.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -639,9 +621,8 @@ class d3maintenanceactions
             ->where('art.oxid IS NULL')
             ->orWhere('obj.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect);
+        return DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB->getSQL());
     }
 
     /**
@@ -694,9 +675,8 @@ class d3maintenanceactions
             ->where('art.oxid IS NULL')
             ->orWhere('cat.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -741,18 +721,17 @@ class d3maintenanceactions
      */
     public function checkClearObject2Delivery()
     {
-        $oQB = d3database::getInstance()->getQueryBuilder();
-        $oQB->select('count(*)')
+        $oQB1 = d3database::getInstance()->getQueryBuilder();
+        $oQB1->select('count(*)')
             ->from('oxobject2delivery', 'o2d')
             ->leftJoin('o2d', 'oxarticles', 'art', 'o2d.oxobjectid = art.oxid')
             ->leftJoin('o2d', 'oxdelivery', 'del', 'o2d.oxdeliveryid = del.oxid')
             ->where("o2d.oxtype = 'oxarticles'")
             ->andWhere('art.oxid IS NULL OR del.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        $oQB = d3database::getInstance()->getQueryBuilder();
-        $oQB->select('count(*)')
+        $oQB2 = d3database::getInstance()->getQueryBuilder();
+        $oQB2->select('count(*)')
             ->from('oxobject2delivery', 'o2d')
             ->leftJoin('o2d', 'oxcountry', 'cou', 'o2d.oxobjectid = cou.oxid')
             ->leftJoin('o2d', 'oxdelivery', 'del', 'o2d.oxdeliveryid = del.oxid')
@@ -760,10 +739,9 @@ class d3maintenanceactions
             ->where("(o2d.oxtype = 'oxcountry' AND del.oxid IS NULL) OR (o2d.oxtype = 'oxdelset' AND des.oxid IS NULL)")
             ->orWhere('cou.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect2 = $oQB->getSQL();
 
-        return (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect)
-            + (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($sSelect2);
+        return (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB1->getSQL())
+            + (int) DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC)->getOne($oQB2->getSQL());
     }
 
     /**
@@ -825,14 +803,13 @@ class d3maintenanceactions
             ->leftJoin('o2p', 'oxarticles', 'art', 'o2p.oxobjectid = art.oxid')
             ->leftJoin('o2p', 'oxcountry', 'cou', 'o2p.oxobjectid = cou.oxid')
             ->leftJoin('o2p', 'oxcategories', 'cat', 'o2p.oxobjectid = cat.oxid')
-            ->where("o2p.oxtype = 'oxarticles' AND art.oxid IS NULL")
-            ->orWhere("o2p.oxtype = 'oxcountry' AND cou.oxid IS NULL")
-            ->orWhere("o2p.oxtype = 'oxcategories' AND cat.oxid IS NULL")
+            ->where("o2p.oxtype = ".$oQB->createNamedParameter('oxarticles')." AND art.oxid IS NULL")
+            ->orWhere("o2p.oxtype = ".$oQB->createNamedParameter('oxcountry')." AND cou.oxid IS NULL")
+            ->orWhere("o2p.oxtype = ".$oQB->createNamedParameter('oxcategories')." AND cat.oxid IS NULL")
             ->orWhere("dis.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL(), $oQB->getParameters());
     }
 
     /**
@@ -890,9 +867,8 @@ class d3maintenanceactions
             ->where("oxgroups.oxid IS NULL")
             ->orWhere("oxuser.oxid IS NULL AND oxpayments.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -946,9 +922,8 @@ class d3maintenanceactions
             ->where("rcl.oxid IS NULL")
             ->orWhere("art.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -999,13 +974,12 @@ class d3maintenanceactions
             ->leftJoin('o2p', 'oxpayments', 'pay', 'o2p.oxpaymentid = pay.oxid')
             ->leftJoin('o2p', 'oxcountry', 'cou', 'o2p.oxobjectid = cou.oxid')
             ->leftJoin('o2p', 'oxdeliveryset', 'des', 'o2p.oxobjectid = des.oxid')
-            ->where("o2p.oxtype = 'oxcountry' AND cou.oxid IS NULL")
-            ->orWhere("o2p.oxtype = 'oxdelset' && des.oxid IS NULL")
+            ->where("o2p.oxtype = ".$oQB->createNamedParameter('oxcountry')." AND cou.oxid IS NULL")
+            ->orWhere("o2p.oxtype = ".$oQB->createNamedParameter('oxdelset')." && des.oxid IS NULL")
             ->orWhere("pay.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL(), $oQB->getParameters());
     }
 
     /**
@@ -1060,9 +1034,8 @@ class d3maintenanceactions
             ->where("art.oxid IS NULL")
             ->orWhere("sel.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -1113,9 +1086,8 @@ class d3maintenanceactions
             ->leftJoin('o2p', 'oxarticles', 'art', 'o2p.oxartid = art.oxid')
             ->where("art.oxid IS NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -1158,26 +1130,24 @@ class d3maintenanceactions
      */
     public function checkUnassignInactiveCountries()
     {
-        $oQB = d3database::getInstance()->getQueryBuilder();
-        $oQB->select('count(*)')
+        $oQB1 = d3database::getInstance()->getQueryBuilder();
+        $oQB1->select('count(*)')
             ->from('oxcountry', 'oc')
             ->leftJoin('oc', 'oxobject2delivery', 'o2d', 'oc.oxid = o2d.oxobjectid')
             ->where("oc.oxactive != 1")
             ->andWhere("o2d.oxid IS NOT NULL")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        $oQB = d3database::getInstance()->getQueryBuilder();
-        $oQB->select('count(*)')
+        $oQB2 = d3database::getInstance()->getQueryBuilder();
+        $oQB2->select('count(*)')
             ->from('oxcountry', 'oc')
             ->leftJoin('oc', 'oxobject2payment', 'o2p', 'oc.oxid = o2p.oxobjectid')
             ->where("oc.oxactive != 1")
             ->andWhere("o2p.oxid IS NOT NULL")
             ->setMaxResults(1);
-        $sSelect2 = $oQB->getSQL();
 
-        return (int) $this->getDb()->getOne($sSelect)
-            + (int) $this->getDb()->getOne($sSelect2);
+        return (int) $this->getDb()->getOne($oQB1->getSQL())
+            + (int) $this->getDb()->getOne($oQB2->getSQL());
     }
 
     /**
@@ -1311,9 +1281,8 @@ class d3maintenanceactions
             ->from('oxarticles', 'o2p')
             ->where("o2p.oxid = o2p.oxparentid")
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -1363,9 +1332,8 @@ class d3maintenanceactions
             ->where("oav.oxparentid != ''")
             ->andWhere('oap.oxid IS NULL')
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return (int) $this->getDb()->getOne($sSelect);
+        return (int) $this->getDb()->getOne($oQB->getSQL());
     }
 
     /**
@@ -1422,11 +1390,10 @@ class d3maintenanceactions
         $oQB->select('count(*)')
             ->from('oxarticles', 'oav')
             ->leftJoin('oav', 'oxarticles', 'oap', 'oav.oxparentid = oap.oxid')
-            ->where("oap.oxactive = 0")
+            ->where("oap.oxactive = ".$oQB->createNamedParameter(0, \PDO::PARAM_INT))
             ->setMaxResults(1);
-        $sSelect = $oQB->getSQL();
 
-        return $this->getDb()->getOne($sSelect);
+        return $this->getDb()->getOne($oQB->getSQL(),  $oQB->getParameters());
     }
 
     /**

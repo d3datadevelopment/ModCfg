@@ -17,12 +17,14 @@
 
 namespace D3\ModCfg\Application\Model\Log;
 
-use D3\ModCfg\Application\Model\d3bit;
+use D3\ModCfg\Application\Model\d3bitmask;
 use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Parametercontainer\Registry as D3ModCfgRegistry;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
@@ -33,38 +35,41 @@ use OxidEsales\Eshop\Core\ShopControl;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use Doctrine\DBAL\DBALException;
+use Psr\Log\LoggerTrait;
 
-class d3log extends BaseModel
+class d3log extends BaseModel implements d3LogInterface
 {
+    use LoggerTrait;
+
     // single log levels
-    const EMERGENCY = 0; // 1
-    const ALERT = 1; // 2
-    const CRITICAL = 2; // 4
-    const ERROR = 3; // 8
-    const WARNING = 4; // 16
-    const NOTICE = 5; // 32
-    const INFO = 6; // 64
-    const DEBUG = 7; // 128
-    const TEST = 8; // 256
-    const NONE = 12; // 4096
+    const EMERGENCY = d3LogLevel::EMERGENCY; // Int 0, Bit 1
+    const ALERT = d3LogLevel::ALERT; // Int 1, Bit 2
+    const CRITICAL = d3LogLevel::CRITICAL; // Int 2, Bit 4
+    const ERROR = d3LogLevel::ERROR; // Int 3 Bit 8
+    const WARNING = d3LogLevel::WARNING; // Int 4 Bit 16
+    const NOTICE = d3LogLevel::NOTICE; // Int 5 Bit 32
+    const INFO = d3LogLevel::INFO; // Int 6 Bit 64
+    const DEBUG = d3LogLevel::DEBUG; // Int 7 Bit 128
+    const TEST = d3LogLevel::TEST; // Int 8 Bit 256
+    const NONE = d3LogLevel::NONE; // Int 12 Bit 4096
 
     // grouped log levels
-    const ERROR_AND_ABOVE = 15;
-    const WARNING_AND_ABOVE = 31;
-    const NOTICE_AND_ABOVE = 63;
-    const INFO_AND_ABOVE = 127;
-    const ALL = 4095;  // accept 3 additional levels
+    const ERROR_AND_ABOVE = d3LogLevel::ERROR_AND_ABOVE; // Bit 15;
+    const WARNING_AND_ABOVE = d3LogLevel::WARNING_AND_ABOVE; // Bit 31;
+    const NOTICE_AND_ABOVE = d3LogLevel::NOTICE_AND_ABOVE; // Bit 63;
+    const INFO_AND_ABOVE = d3LogLevel::INFO_AND_ABOVE; // Bit 127;
+    const ALL = d3LogLevel::ALL; // Bit 4095  // accept 3 additional levels
 
     public $aLogTypes = array(
-        'EMERGENCY' => d3log::EMERGENCY,
-        'ALERT'     => d3log::ALERT,
-        'CRITICAL'  => d3log::CRITICAL,
-        'ERROR'     => d3log::ERROR,
-        'WARNING'   => d3log::WARNING,
-        'NOTICE'    => d3log::NOTICE,
-        'INFO'      => d3log::INFO,
-        'DEBUG'     => d3log::DEBUG,
-        'TEST'      => d3log::TEST,
+        'EMERGENCY' => d3LogLevel::EMERGENCY,
+        'ALERT'     => d3LogLevel::ALERT,
+        'CRITICAL'  => d3LogLevel::CRITICAL,
+        'ERROR'     => d3LogLevel::ERROR,
+        'WARNING'   => d3LogLevel::WARNING,
+        'NOTICE'    => d3LogLevel::NOTICE,
+        'INFO'      => d3LogLevel::INFO,
+        'DEBUG'     => d3LogLevel::DEBUG,
+        'TEST'      => d3LogLevel::TEST,
     );
 
     public $aLogGroups = array(
@@ -117,7 +122,7 @@ class d3log extends BaseModel
 
     protected static $_sD3CoreTable = 'd3log';
 
-    public $_iLogType = self::EMERGENCY;
+    public $_iLogType = d3LogLevel::EMERGENCY;
 
     private $_sLogSetId = 'd3modcfg_lib';
 
@@ -176,14 +181,14 @@ class d3log extends BaseModel
      */
     public static function get($sModId, $iLogType = false)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (false == self::isCallable()) {
             return false;
         }
 
         if (self::has($sModId)) {
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             return self::$_aRegistry[$sModId];
         } else {
@@ -197,7 +202,7 @@ class d3log extends BaseModel
             $oLog->setLogType($iLogType);
             self::set($sModId, $oLog);
 
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
             return self::$_aRegistry[$sModId];
         }
@@ -248,11 +253,11 @@ class d3log extends BaseModel
      */
     public function __construct()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
         parent::__construct();
 
         $this->init($this->_sCoreTable);
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -308,6 +313,7 @@ class d3log extends BaseModel
     public function setLogType($iLogType1, $iLogType2 = null, $iLogType3 = null)
     {
         $aArgs = func_get_args();
+        $bitmask = oxNew(d3bitmask::class);
 
         unset($iLogType1);
         unset($iLogType2);
@@ -317,7 +323,7 @@ class d3log extends BaseModel
         foreach ($aArgs as $iLogType) {
             // espacially for combined logtypes
             foreach ($this->aLogTypes as $iGenLogType) {
-                if (d3bit::getInstance()->isBitSet($iLogType, $this->getLogBit($iGenLogType))) {
+                if ($bitmask->isBitSet($iLogType, $this->getLogBit($iGenLogType))) {
                     $aLog[$this->getErrorModeName($iGenLogType)] = 1;
                 }
             }
@@ -356,7 +362,7 @@ class d3log extends BaseModel
      * @throws d3_cfg_mod_exception
      */
     public function log(
-        $iLogType = 0,
+        $iLogType = d3LogLevel::EMERGENCY,
         $sClass = __CLASS__,
         $sFnc = __FUNCTION__,
         $iLine = __LINE__,
@@ -364,7 +370,7 @@ class d3log extends BaseModel
         $mText = null,
         $blDie = false
     ) {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sSessID = Registry::getSession()->getId();
         $this->sModID ? $sModID = $this->sModID : $sModID = 'empty';
@@ -396,9 +402,189 @@ class d3log extends BaseModel
 
         $this->_handleDie($mText, $blDie);
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $this;
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function emergency($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::EMERGENCY, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function alert($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::ALERT, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function critical($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::CRITICAL, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function error($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::ERROR, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function warning($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::WARNING, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function notice($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::NOTICE, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function info($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::INFO, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function debug($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::DEBUG, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
+    }
+
+    /**
+     * @param string $sClass
+     * @param string $sFnc
+     * @param int $iLine
+     * @param null $sAction
+     * @param null $mText
+     * @param bool $blDie
+     * @return d3log
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    public function test($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
+    {
+        return $this->log(d3LogLevel::TEST, $sClass, $sFnc, $iLine, $sAction, $mText, $blDie);
     }
 
     /**
@@ -408,7 +594,7 @@ class d3log extends BaseModel
      */
     public function getLogBit($iLogType)
     {
-        return d3bit::getInstance()->getBitByInt($iLogType);
+        return oxNew(d3bitmask::class)->getIntByBitPosition($iLogType);
     }
 
     /**
@@ -433,13 +619,13 @@ class d3log extends BaseModel
      */
     public function getErrorMode($iErrorMode)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $iError   = $this->getLogType();
         $iLogBit  = $this->getLogBit($iErrorMode);
-        $blReturn = d3bit::getInstance()->isBitSet($iError, $iLogBit);
+        $blReturn = oxNew(d3bitmask::class)->isBitSet($iError, $iLogBit);
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
         return $blReturn;
     }
@@ -526,7 +712,7 @@ class d3log extends BaseModel
     {
         $aErrorModes = $this->_resolveArrayByLogTypes($aErrorModes);
 
-        return d3bit::getInstance()->getIntByBitArray($aErrorModes);
+        return oxNew(d3bitmask::class)->getIntByBitMask($aErrorModes);
     }
 
     /**
@@ -557,7 +743,7 @@ class d3log extends BaseModel
      */
     public function addLogType($iType)
     {
-        return d3bit::getInstance()->addBit($this->getLogType(), $this->getLogBit($iType));
+        return oxNew(d3bitmask::class)->addBit($this->getLogType(), $this->getLogBit($iType));
     }
 
     /**
@@ -567,7 +753,7 @@ class d3log extends BaseModel
      */
     public function removeLogType($iType)
     {
-        return d3bit::getInstance()->removeBit($this->getLogType(), $this->getLogBit($iType));
+        return oxNew(d3bitmask::class)->removeBit($this->getLogType(), $this->getLogBit($iType));
     }
 
     /**
@@ -677,7 +863,7 @@ class d3log extends BaseModel
      */
     protected function _checkMailMessageSlot($iSlot)
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         $sAdrFieldName = 'sLog_messageadr'.$iSlot;
         $sErrLevelFieldName = 'sLog_messageerrlevel'.$iSlot;
@@ -689,11 +875,11 @@ class d3log extends BaseModel
                 ($this->getLogSet()->getValue($sTimeStampFieldName) < $this->_getLastReqMailTimeStamp($iSlot))
             )
         ) {
-            stopProfile(__METHOD__);
+            if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
             return true;
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
         return false;
     }
 
@@ -760,7 +946,7 @@ class d3log extends BaseModel
      */
     protected function _sendMailMessage()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
         $oDb = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
 
         foreach ($this->getUsedMailMessageSlots() as $iSlotId) {
@@ -770,10 +956,6 @@ class d3log extends BaseModel
                 if (count($aErrorStatus)) {
                     /** @var $oEMail Email */
                     $oEMail = oxNew(Email::class);
-                    // can't use additional metadata extension, while module will disabled with a new extends item
-                    // changed in d3modcfg_lib in 2014-04-03
-                    // reactivate oxemail module in metadata and change method call
-
                     $this->_sendLogInfoMail(
                         $oEMail,
                         $this->getLogSet()->getValue('sLog_messageadr'.$iSlotId),
@@ -781,21 +963,13 @@ class d3log extends BaseModel
                         $this->_getMailContent($aErrorStatus)
                     );
 
-                    /*
-                    $oEMail->d3SendLogInfoMail(
-                        $this->getLogSet()->getValue('sLog_messageadr1'),
-                        $this->_getMailSubject(),
-                        $this->_getMailContent($aErrorStatus)
-                    );
-                    */
-
                     $this->getLogSet()->setValue('sLog_messagetimestamp'.$iSlotId, time());
                     $this->getLogSet()->save();
                 }
             }
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -1261,32 +1435,32 @@ class d3log extends BaseModel
         switch ((int)$errno) {
             case E_NOTICE:
             case E_USER_NOTICE:
-                $sErrState = d3log::NOTICE;
+                $sErrState = d3LogLevel::NOTICE;
                 break;
             case E_WARNING:
             case E_USER_WARNING:
-                $sErrState = d3log::WARNING;
+                $sErrState = d3LogLevel::WARNING;
                 break;
             case E_ERROR:
             case E_RECOVERABLE_ERROR:
             case E_USER_ERROR:
-                $sErrState = d3log::EMERGENCY;
+                $sErrState = d3LogLevel::EMERGENCY;
                 break;
             case E_STRICT:
-                $sErrState = d3log::WARNING;
+                $sErrState = d3LogLevel::WARNING;
                 break;
             case null:
-                $sErrState = d3log::NONE;
+                $sErrState = d3LogLevel::NONE;
                 break;
             default:
-                $sErrState = d3log::ERROR;
+                $sErrState = d3LogLevel::ERROR;
         }
 
         if (version_compare(PHP_VERSION, '5.3', '>')) {
             switch ((int)$errno) {
                 case E_DEPRECATED:
                 case E_USER_DEPRECATED:
-                    $sErrState = d3log::WARNING;
+                    $sErrState = d3LogLevel::WARNING;
                     break;
             }
         }
@@ -1313,7 +1487,7 @@ class d3log extends BaseModel
     public function d3GetProfiling()
     {
         $view = Registry::getConfig()->getActiveView();
-        /** @var \d3_oxshopcontrol_modcfg_extension|ShopControl $oShopControl */
+        /** @var d3_oxshopcontrol_modcfg_extension|ShopControl $oShopControl */
         $oShopControl = oxNew(ShopControl::class);
         $oShopControl->d3StopMonitoring($view);
     }
@@ -1445,16 +1619,11 @@ class d3log extends BaseModel
             ->setMaxResults(1)
         ;
 
-        $aParams = array();
-
         if ($sModId) {
-            $oQB->where('oxmodid LIKE ?');
-            $aParams[] = '%' . $sModId . '%';
+            $oQB->where('oxmodid LIKE '.$oQB->createNamedParameter('%' . $sModId . '%'));
         }
 
-        $sQuery = $oQB->getSQL();
-
-        return $oDb->getOne($sQuery, $aParams);
+        return $oDb->getOne($oQB->getSQL(), $oQB->getParameters());
     }
 
     public function insert()

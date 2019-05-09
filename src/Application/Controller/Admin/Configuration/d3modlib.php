@@ -38,7 +38,9 @@ if (false == Registry::getConfig()->getConfigParam('blD3IgnoreAutoUpdate') &&
     $oModule->load('d3modcfg_lib');
     /** @var d3module $oD3Module */
     $oD3Module = oxNew(d3module::class, $oModule);
-    $oD3Module->d3RefreshModuleMeta();
+    try {
+        $oD3Module->d3RefreshModuleMeta();
+    } catch (\Exception $oEx) {}
 }
 
 /**

@@ -29,7 +29,7 @@ class d3tplblocks extends d3_cfg_mod_
     public function render()
     {
         $this->addTplParam('sListClass', d3tplblocks_list::class);
-        $this->addTplParam('sMainClass', d3tplblocks_Main::class);
+        $this->addTplParam('sMainClass', d3tplblocks_main::class);
         return parent::render();
     }
 }

@@ -34,7 +34,7 @@ use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\UtilsView;
 
-class d3ClearTmp extends d3_cfg_mod_main
+class d3cleartmp extends d3_cfg_mod_main
 {
     public $_sThisTemplate = 'd3cleartmp.tpl';
     protected $_sMenuSubItemTitle = 'd3mxd3cleartmp';
@@ -47,7 +47,7 @@ class d3ClearTmp extends d3_cfg_mod_main
     public $oClrTmp;
 
     /**
-     * d3ClearTmp constructor.
+     * d3cleartmp constructor.
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -272,7 +272,7 @@ class d3ClearTmp extends d3_cfg_mod_main
         // $oSession = oxRegistry::getSession();
         $aParams = array();
 
-        $aParams['cl']              = 'd3ClearTmp';
+        $aParams['cl']              = 'd3cleartmp';
         $aParams['remoteaccess']    = 'true';
         $aParams['fnc']             = 'clrtmpticker';
         $aParams['iLimitTimeStamp'] =

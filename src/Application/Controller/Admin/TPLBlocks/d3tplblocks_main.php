@@ -22,6 +22,8 @@ use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
+use Exception;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Registry;
@@ -30,7 +32,7 @@ use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Exception\DatabaseException;
 use OxidEsales\Eshop\Core\UtilsView;
 
-class d3tplblocks_Main extends d3_cfg_mod_main
+class d3tplblocks_main extends d3_cfg_mod_main
 {
     protected $_sThisTemplate = 'd3tplblocks_main.tpl';
     protected $_aNonIndexedFields = array('oxartnum');
@@ -106,12 +108,11 @@ class d3tplblocks_Main extends d3_cfg_mod_main
     }
 
     /**
-     * @throws DatabaseConnectionException
-     * @throws DatabaseException
+     * @throws Exception
      */
     public function save()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (method_exists($this, 'getEditObjectId')) {
             $soxId = $this->getEditObjectId();
@@ -144,17 +145,18 @@ class d3tplblocks_Main extends d3_cfg_mod_main
             $this->_sSavedId = $oTplBlock->getId();
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
      * @throws DatabaseConnectionException
      * @throws DatabaseException
      * @throws DBALException
+     * @throws Exception
      */
     public function moveToFirst()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if (method_exists($this, 'getEditObjectId')) {
             $soxId = $this->getEditObjectId();
@@ -181,6 +183,6 @@ class d3tplblocks_Main extends d3_cfg_mod_main
             $this->addTplParam("updatelist", "1");
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 }

@@ -1,7 +1,7 @@
 [{if $oView->getAction() == 'skip' && !$oView->getError()}]
 <script type='text/javascript'>
     [{assign var="sFormerClassUrl" value=$oView->getFormerClassUrl()}]
-    document.location = '[{$sFormerClassUrl|escape:"javascript"}]';
+    document.location = '[{$sFormerClassUrl|oxescape:"javascript"}]';
 </script>
 [{/if}]
 

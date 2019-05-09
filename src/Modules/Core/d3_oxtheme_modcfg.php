@@ -43,7 +43,8 @@ class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
      */
     public function d3GetMappedThemeId($aMetaModuleIds)
     {
-        $aDefaultThemes = array('flow', 'mobile', 'azure');
+        // sorted by age ascending, that newer themes can assigned to older themes
+        $aDefaultThemes = array('mobile', 'azure', 'flow', 'wave');
 
         foreach ($aMetaModuleIds as $sModuleId) {
             foreach ($aDefaultThemes as $sDefaultThemeId) {

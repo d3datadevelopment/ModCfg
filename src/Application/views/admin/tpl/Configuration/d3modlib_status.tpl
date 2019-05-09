@@ -271,7 +271,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                     <label class="[{$updateicon}]" title="[{$icondesc}]"></label>
                                 </td>
                                 <td class="[{$listclass}] [{$formatclass}] clickable" style="background-image: url('[{$oViewConf->getResourceUrl()}]bg/grouping.gif'); background-repeat: no-repeat; background-position: 0 -37px; padding: 5px; padding-left: 15px;" title="[{oxmultilang ident="D3_CFG_LIB_GETDETAILS"}]" onClick="getDetails('[{$sKey}]'); return false;">
-                                    <b>[{$oModule->getModTitle()}]</b> ([{$oModule->getFieldData('oxmodid')}])
+                                    <b>[{$oView->getModTitle($oModule)}]</b> ([{$oModule->getFieldData('oxmodid')}])
                                 </td>
                                 <td class="[{$listclass}] [{$formatclass}] clickable" style="padding: 5px;" title="[{oxmultilang ident="D3_CFG_LIB_GETDETAILS"}]" onClick="getDetails('[{$sKey}]'); return false;">
                                     [{$oModule->getFieldData('oxinstalldate')|date_format:"%d.%m.%Y %H:%M"}]
@@ -344,11 +344,13 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                     </td>
                                 </tr>
                             [{/if}]
-                            <tr id="[{$sKey}]" style="display: [{if $oModule->getErrorMessage()}]table-row[{else}]none[{/if}];">
+                            <tr id="[{$sKey}]" style="display: [{if $oModule->getErrorMessage() || $oView->getErrorMessage()}]table-row[{else}]none[{/if}];">
                                 <td colspan="9" class="[{$listclass}]" style="height: 30px; border: 1px solid #CCC; border-top-style: none; padding: 5px; padding-bottom: 10px;">
-                                    [{if $oModule->getErrorMessage()}]
+                                    [{if $oModule->getErrorMessage() || $oView->getErrorMessage()}]
                                         <div class="extension_error">
                                             [{$oModule->getErrorMessage()}]
+                                            [{if $oModule->getErrorMessage() && $oView->getErrorMessage()}]<br>[{/if}]
+                                            [{$oView->getErrorMessage()}]
                                         </div>
                                     [{/if}]
 
@@ -436,7 +438,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                     [{if $oModule->isLicenseRequired()}]
                                                         <span class="d3modcfg_btn icon d3color-blue" style="margin-left: 20px;">
                                                             [{assign var="licFrameUrl" value=$oView->getLicenceFrameUrl($oModule->d3GetModId())}]
-                                                            <button type="button" onClick="showLicForm('[{$sKey}]', '[{$licFrameUrl|escape:"url"}]'); return false;">
+                                                            <button type="button" onClick="showLicForm('[{$sKey}]', '[{$licFrameUrl|oxescape:"url"}]'); return false;">
                                                                 <i class="fas fa-tag fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_ADDKEY"}]
                                                             </button>
                                                         </span>
@@ -460,22 +462,23 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                             <h4>[{oxmultilang ident="D3_CFG_MOD_LICDETAILS"}]</h4>
                                             [{assign var="itemno" value="2"}]
                                             <dl>
-                                                [{if $oModule->getLicenseData('result')}]
+                                                [{if $oView->getLicenseData($oModule, 'result')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_GENERALVALID"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{assign var="translKey" value="D3_CFG_MOD_STATUS_"|cat:$oModule->getLicenseData('result')|upper}]
+                                                        [{assign var="resultKey" value=$oView->getLicenseData($oModule, 'result')|upper}]
+                                                        [{assign var="translKey" value="D3_CFG_MOD_STATUS_"|cat:$resultKey}]
                                                         [{oxmultilang ident=$translKey}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('domain')}]
+                                                [{if $oView->getLicenseData($oModule, 'domain')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDDOMAIN"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{$oModule->getLicenseData('domain')}]
+                                                        [{$oView->getLicenseData($oModule, 'domain')}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('allow_local')}]
+                                                [{if $oView->getLicenseData($oModule, 'allow_local')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDLOCAL"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
@@ -483,63 +486,63 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                         [{oxinputhelp ident="D3_CFG_MOD_LICDETAILS_VALIDLOCAL_DESC"}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('startdate')}]
+                                                [{if $oView->getLicenseData($oModule, 'startdate')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDFROMDATE"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{$oModule->getLicenseData('startdate')}]
+                                                        [{$oView->getLicenseData($oModule, 'startdate')}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('enddate')}]
+                                                [{if $oView->getLicenseData($oModule, 'enddate')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDTODATE"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
                                                         [{if $oModule->getExpireSpan() > 756864000}]
                                                             [{oxmultilang ident="D3_CFG_MOD_STATUS_NEVER_EXPIRES"}]
                                                         [{else}]
-                                                            [{$oModule->getLicenseData('enddate')}] ([{$oView->getExpireSpanString($oModule)}])
+                                                            [{$oView->getLicenseData($oModule, 'enddate')}] ([{$oView->getExpireSpanString($oModule)}])
                                                         [{/if}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('modid')}]
+                                                [{if $oView->getLicenseData($oModule, 'modid')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDFORMODID"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{$oModule->getLicenseData('modid')}]
+                                                        [{$oView->getLicenseData($oModule, 'modid')}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('modversion')}]
+                                                [{if $oView->getLicenseData($oModule, 'modversion')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDFORMODVERSION"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{$oModule->getLicenseData('modversion')}]
+                                                        [{$oView->getLicenseData($oModule, 'modversion')}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getFormatedShopEditionList()}]
+                                                [{if $oView->getFormatedShopEditionList($oModule)}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
                                                         [{$oModule->getFormatedShopEditionList()}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getFormatedShopIdList()}]
+                                                [{if $oView->getFormatedShopIdList($oModule)}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALIDFORSHOPID"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{$oModule->getFormatedShopIdList()}]
+                                                        [{$oView->getFormatedShopIdList($oModule)}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getLicenseData('isdemo')}]
+                                                [{if $oView->getLicenseData($oModule, 'isdemo')}]
                                                     [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                     <dt class="listitem[{$itemno}]">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_ISTEST"}]</dt>
                                                     <dd class="listitem[{$itemno}]">
-                                                        [{if $oModule->getLicenseData('isdemo')}]
+                                                        [{if $oView->getLicenseData($oModule, 'isdemo')}]
                                                             [{oxmultilang ident="D3_CFG_MOD_LICDETAILS_VALID_YES"}]
                                                         [{/if}]
                                                     </dd>
                                                 [{/if}]
-                                                [{if $oModule->getConfigInfoData()}]
-                                                    [{foreach from=$oModule->getConfigInfoData() key="sLicDataKey" item="mValue"}]
+                                                [{if $oView->getConfigInfoData($oModule)}]
+                                                    [{foreach from=$oView->getConfigInfoData($oModule) key="sLicDataKey" item="mValue"}]
                                                         [{assign var="translation" value=$oModule->getLicenceOptionTranslation($sLicDataKey)}]
                                                         [{if $translation}]
                                                             [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]

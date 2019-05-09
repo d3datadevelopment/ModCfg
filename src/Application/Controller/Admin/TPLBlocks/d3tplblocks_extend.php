@@ -23,6 +23,7 @@ use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use Doctrine\DBAL\DBALException;
+use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Registry;
@@ -139,7 +140,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
      */
     public function clearTplBlocks()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if ($sModuleId = Registry::get(Request::class)->getRequestEscapedParameter('tplblockmodule')) {
             /** @var d3oxtplblocks $oTplBlocks */
@@ -152,7 +153,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -164,7 +165,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
      */
     public function refreshTplBlocks()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if ($sModuleId = Registry::get(Request::class)->getRequestEscapedParameter('tplblockmodule')) {
             /** @var d3oxtplblocks $oTplBlocks */
@@ -177,7 +178,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -187,7 +188,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
      */
     public function deactivateTplBlocks()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if ($sModuleId = Registry::get(Request::class)->getRequestEscapedParameter('tplblockmodule')) {
             /** @var d3oxtplblocks $oTplBlocks */
@@ -200,7 +201,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -210,7 +211,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
      */
     public function activateTplBlocks()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         if ($sModuleId = Registry::get(Request::class)->getRequestEscapedParameter('tplblockmodule')) {
             /** @var d3oxtplblocks $oTplBlocks */
@@ -223,7 +224,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
             Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_NOMODULEMSG'));
         }
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 
     /**
@@ -232,7 +233,7 @@ class d3tplblocks_extend extends d3_cfg_mod_main
      */
     public function clearDuplicates()
     {
-        startProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
         /** @var d3oxtplblocks $oTplBlocks */
         $oTplBlocks = oxNew(d3oxtplblocks::class);
@@ -241,6 +242,6 @@ class d3tplblocks_extend extends d3_cfg_mod_main
         Registry::get(UtilsView::class)->addErrorToDisplay(new StandardException('D3TPLBLOCKS_CLEARDUPLICATES_SUCC'));
         $this->addTplParam("updatelist", "1");
 
-        stopProfile(__METHOD__);
+        if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
     }
 }

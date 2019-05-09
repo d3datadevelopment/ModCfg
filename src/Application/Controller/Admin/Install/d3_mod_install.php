@@ -30,6 +30,7 @@ use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -60,6 +61,7 @@ class d3_mod_install extends d3_cfg_mod_main
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
+     * @throws Exception
      */
     public function init()
     {

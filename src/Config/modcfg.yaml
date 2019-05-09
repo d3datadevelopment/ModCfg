@@ -1,0 +1,148 @@
+# This Software is the property of Data Development and is protected
+# by copyright law - it is NOT Freeware.
+#
+# Any unauthorized use of this software without a valid license
+# is a violation of the license agreement and will be prosecuted by
+# civil and criminal law.
+#
+# http://www.shopmodule.com
+#
+# @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+# @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+# @link      http://www.oxidmodule.com
+
+parameters:
+  d3.modcfg.modcfgid:     'd3modcfg_lib'
+  d3.modcfg.loglevel:     0               # emergency
+
+services:
+  d3.modcfg.modcfg:
+    class:      'D3\ModCfg\Application\Model\Configuration\d3_cfg_mod'
+    factory:
+      - 'D3\ModCfg\Application\Model\Configuration\d3_cfg_mod'
+      - 'get'
+    arguments:
+      - '%d3.modcfg.modcfgid%'
+
+  d3.modcfg.log_oxnew:
+    class:      'D3\ModCfg\Application\Model\Log\d3log'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - D3\ModCfg\Application\Model\Log\d3log
+    calls:
+      - method: setLogType
+        arguments:
+          - '%d3.modcfg.loglevel%'
+      - method: setModId
+        arguments:
+          - '%d3.modcfg.modcfgid%'
+
+  d3.modcfg.log_get:
+    class:      'D3\ModCfg\Application\Model\Log\d3log'
+    factory:
+      - 'D3\ModCfg\Application\Model\Log\d3log'
+      - 'get'
+    arguments:
+      - '%d3.modcfg.modcfgid%'
+      - '%d3.modcfg.loglevel%'
+
+  d3.modcfg.log_modcfg:
+    class:      'D3\ModCfg\Application\Model\Log\d3log'
+    factory:
+      - '@d3.modcfg.modcfg'
+      - d3getLog
+
+  d3.modcfg.log:
+    alias: d3.modcfg.log_modcfg
+
+  D3\ModCfg\Application\Model\Parametercontainer\d3ParameterContainer:
+    class:      'D3\ModCfg\Application\Model\Parametercontainer\d3ParameterContainer'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'D3\ModCfg\Application\Model\Parametercontainer\d3ParameterContainer'
+
+  # d3installdbrecord
+  D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord:
+    class:      D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord
+      - @D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord.arg_updatebase
+    # arg #1 d3install_updatebase
+  D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord.arg_updatebase:
+    synthetic:  true
+    shared:     false
+    public:     false
+
+  D3\ModCfg\Application\Model\d3str:
+    class:      'D3\ModCfg\Application\Model\d3str'
+    factory:    'oxNew'
+    shared:     true
+    arguments:
+      - 'D3\ModCfg\Application\Model\d3str'
+
+  D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler:
+    class:      'D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler'
+    factory:    'oxNew'
+    shared:     true
+    arguments:
+      - 'D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler'
+
+  D3\ModCfg\Application\Model\d3filesystem:
+    class:      'D3\ModCfg\Application\Model\d3filesystem'
+    factory:    'oxNew'
+    shared:     true
+    arguments:
+      - 'D3\ModCfg\Application\Model\d3filesystem'
+
+  D3\ModCfg\Application\Model\Filegenerator\d3filegeneratorcronsh:
+    class:      'D3\ModCfg\Application\Model\Filegenerator\d3filegeneratorcronsh'
+    factory:    'oxNew'
+    shared:     true
+    arguments:
+      - 'D3\ModCfg\Application\Model\Filegenerator\d3filegeneratorcronsh'
+
+  D3\ModCfg\Application\Model\d3utils:
+    class:      'D3\ModCfg\Application\Model\d3utils'
+    factory:
+      - 'D3\ModCfg\Application\Model\d3utils'
+      - 'getInstance'
+    shared:     true
+
+  D3\ModCfg\Application\Model\Log\d3NullLogger:
+    class:      'D3\ModCfg\Application\Model\Log\d3NullLogger'
+    factory:    'oxNew'
+    shared:     true
+    arguments:
+      - 'D3\ModCfg\Application\Model\Log\d3NullLogger'
+
+  D3\ModCfg\Tests\d3EmptyTestCase:
+    class:      'D3\ModCfg\Tests\d3EmptyTestCase'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'D3\ModCfg\Tests\d3EmptyTestCase'
+
+  D3\ModCfg\Application\Model\d3bitmask:
+    class:      'D3\ModCfg\Application\Model\d3bitmask'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'D3\ModCfg\Application\Model\d3bitmask'
+
+  D3\ModCfg\Application\Model\Log\d3log:
+    class:      'D3\ModCfg\Application\Model\Log\d3log'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'D3\ModCfg\Application\Model\Log\d3log'
+
+  D3\ModCfg\Application\Model\Configuration\d3_cfg_mod:
+    class:      'D3\ModCfg\Application\Model\Configuration\d3_cfg_mod'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'D3\ModCfg\Application\Model\Configuration\d3_cfg_mod'

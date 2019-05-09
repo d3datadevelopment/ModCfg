@@ -38,7 +38,7 @@
 
     [{if false == $oModCfg->getValue('blClrTmp_showcleartmpoptions')}]
         <li class="sep">
-            <a href="[{$oViewConf->getSelfLink()}]&cl=d3ClearTmp&amp;" id="clrTmpLink" target="_blank" class="rc" style="float: left;"
+            <a href="[{$oViewConf->getSelfLink()}]&cl=d3cleartmp&amp;" id="clrTmpLink" target="_blank" class="rc" style="float: left;"
                title="[{oxmultilang ident="d3mxd3cleartmp2_desc2"}]">
                 <b>[{oxmultilang ident="d3mxd3cleartmp2"}]</b>
             </a>
