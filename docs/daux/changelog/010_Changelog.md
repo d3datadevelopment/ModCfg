@@ -2,6 +2,13 @@
 title: Changelog
 ---
 
+## 5.2.0.1 (2019-05-13)
+
+### Fixed
+- Exception bei OpenSSL Decrypt-Meldungen verhindert, da dies unerwartetete Abbrüche verursacht
+
+---
+
 ## 5.2.0.0 (2019-05-07)
 
 ### Added
