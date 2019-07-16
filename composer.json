@@ -48,12 +48,13 @@
     "ext-zip": "*",
     "ext-curl": "*",
     "ext-fileinfo": "*",
+    "ext-iconv": "*",
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "ext-mysqli": "*",
     "psr/log": "^1.0.2",
     "symfony/dependency-injection": "^3.1",
-    "guzzle/http": ">=3.9.2"
+    "guzzlehttp/guzzle": "^6.3.3"
   },
   "autoload": {
     "psr-4": {

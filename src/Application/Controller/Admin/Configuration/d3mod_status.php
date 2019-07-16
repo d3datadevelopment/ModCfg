@@ -152,10 +152,10 @@ class d3mod_status extends d3_cfg_mod_main
         $oUpdateServer->setParameter('sShopVersion', $sShopVersion);
         if ($blForceRefresh || $this->_blRefreshModList) {
             $oUpdateServer->forceUpdate();
+            $aModData = $oUpdateServer->getRemoteModuleVersion();
+        } else {
+            $aModData = array();
         }
-        // failed because of to much requests
-        //$aModData = $oUpdateServer->getRemoteModuleVersion();
-        $aModData = array();
 
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
@@ -189,6 +189,10 @@ class d3mod_status extends d3_cfg_mod_main
 
         if (false == count($aModData)) {
             $aModData = array();
+        } else {
+            foreach ($aModData as $sIdent => $aModInfo) {
+                $aModData[$sIdent]['modtitle'] = iconv("UTF-8", "ISO-8859-15", $aModInfo['modtitle']);
+            }
         }
 
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
@@ -687,7 +691,10 @@ class d3mod_status extends d3_cfg_mod_main
             $sModTitle = $module->getModBaseTitle();
         }
 
-        return $sModTitle;
+        // can not use utf8_decode, because it contains encoded and unencoded chars
+        $aSpecialChars = array( 'Ã¼'=>'ü', 'Ã¤'=>'ä', 'Ã¶'=>'ö', 'Ã–'=>'Ö', 'ÃŸ'=>'ß', 'Ã '=>'à', 'Ã¡'=>'á', 'Ã¢'=>'â', 'Ã£'=>'ã', 'Ã¹'=>'ù', 'Ãº'=>'ú', 'Ã»'=>'û', 'Ã™'=>'Ù', 'Ãš'=>'Ú', 'Ã›'=>'Û', 'Ãœ'=>'Ü', 'Ã²'=>'ò', 'Ã³'=>'ó', 'Ã´'=>'ô', 'Ã¨'=>'è', 'Ã©'=>'é', 'Ãª'=>'ê', 'Ã«'=>'ë', 'Ã€'=>'À', 'Ã'=>'Á', 'Ã‚'=>'Â', 'Ãƒ'=>'Ã', 'Ã„'=>'Ä', 'Ã…'=>'Å', 'Ã‡'=>'Ç', 'Ãˆ'=>'È', 'Ã‰'=>'É', 'ÃŠ'=>'Ê', 'Ã‹'=>'Ë', 'ÃŒ'=>'Ì', 'Ã'=>'Í', 'ÃŽ'=>'Î', 'Ã'=>'Ï', 'Ã‘'=>'Ñ', 'Ã’'=>'Ò', 'Ã“'=>'Ó', 'Ã”'=>'Ô', 'Ã•'=>'Õ', 'Ã˜'=>'Ø', 'Ã¥'=>'å', 'Ã¦'=>'æ', 'Ã§'=>'ç', 'Ã¬'=>'ì', 'Ã­'=>'í', 'Ã®'=>'î', 'Ã¯'=>'ï', 'Ã°'=>'ð', 'Ã±'=>'ñ', 'Ãµ'=>'õ', 'Ã¸'=>'ø', 'Ã½'=>'ý', 'Ã¿'=>'ÿ', 'â‚¬'=>'€' );
+
+        return str_replace(array_keys($aSpecialChars), $aSpecialChars, $sModTitle);
     }
 
     /**

@@ -2,6 +2,21 @@
 title: Changelog
 ---
 
+## 5.2.0.2 (2019-07-16)
+
+### Added
+- UnitTests eingefügt
+
+### Changed
+- veraltetete Bibliothek (guzzle/http) ersetzt
+
+### Fixed
+- Anzeige verfügbarer Modulversionen im Admin korrigiert
+- fehlenden Tabellenindex (Datenbank) für unique oxmapid-Felder eingefügt
+- Datenbankabfrage für multilangbeschränkte modprofile-Objekte korrigiert
+
+---
+
 ## 5.2.0.1 (2019-05-13)
 
 ### Fixed
