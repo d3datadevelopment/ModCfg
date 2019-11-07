@@ -16,7 +16,7 @@
 
 $sModId = 'd3modcfg_lib';
 
-$sD3Help_mappedTo = '<p>Our modules are prepared for the default themes of the OXID eShop. You don\'t need to enter anything here, if your used shop theme is (or extends) a default OXID theme. Is it a completely individual Theme, please enter the parent theme id to the OXID default theme that is closest to it.</p><p>Read further informations in our <a href="http://faq.oxidmodule.com/Modulinstallation/Modulanpassungen/Template-Bloecke-dem-eigenen-Theme-zuordnen.html" target="FAQ">FAQ</a>.</p>';
+$sD3Help_mappedTo = '<p>Our modules are prepared for the default themes of the OXID eShop. You don\'t need to enter anything here, if your used shop theme is (or extends) a default OXID theme. Is it a completely individual Theme, please enter the parent theme id to the OXID default theme that is closest to it.</p><p>Read further informations in our <a href="https://faq.d3data.de/allgemein/template-bloecke-dem-eigenen-theme-zuordnen/" target="FAQ">FAQ</a>.</p>';
 
 $aLang = array(
     'charset'                                 => 'UTF-8',

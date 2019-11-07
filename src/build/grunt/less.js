@@ -21,7 +21,7 @@ module.exports = {
             compress: true
         },
         files: {
-            "../out/admin/src/d3_mod_cfg.min.css": "sources/less/styles_admin.less"
+            "../out/admin/src/d3_mod_cfg.min.css": "origin/less/styles_admin.less"
         }
     },
     
@@ -32,7 +32,7 @@ module.exports = {
             compress: true
         },
         files: {
-            "../out/admin/src/d3_mod_cfg.min.css": "sources/less/styles_admin.less"
+            "../out/admin/src/d3_mod_cfg.min.css": "origin/less/styles_admin.less"
         }
     },
     
@@ -43,7 +43,7 @@ module.exports = {
             compress: false
         },
         files: {
-            "../out/admin/src/d3_mod_cfg.css": "sources/less/styles_admin.less"
+            "../out/admin/src/d3_mod_cfg.css": "origin/less/styles_admin.less"
         }
     }
 

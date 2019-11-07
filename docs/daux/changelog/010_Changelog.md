@@ -2,6 +2,23 @@
 title: Changelog
 ---
 
+## 5.2.1.0 (2019-11-07)
+
+### Added
+- Support für MariaDB 10.2.x eingefügt
+
+### Changed
+- Quellen für die Assetgenerierung eingefügt
+- HelpCenter-Links angepasst
+- Dokumentation angepasst
+
+### Fixed
+- passend registrierte Moduldateien werden nicht mehr als überzählig gemeldet
+- Abbrüche bei Command Line Aufrufen entfernt
+- fehlerhaften Datenbanktabellennamen in der Installationprüfung korrigiert
+
+---
+
 ## 5.2.0.2 (2019-07-16)
 
 ### Added

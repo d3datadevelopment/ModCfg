@@ -34,7 +34,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
     protected $_sNotPassedCheckML = 'D3_CFG_MOD_INSTALLCHECKBLOCKITEMSNOK';
     protected $_sCheckDescML = 'D3_CFG_MOD_INSTALLCHECKBLOCKITEMS_DESC';
     protected $_oSet;
-    protected $_blPassed;
+    protected $_blPassed = null;
     protected $_aDetails;
     protected $_blForceError = false;
 
@@ -50,6 +50,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
      * @return bool
      * @throws DBALException
      * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function hasCheckPassed()
     {
@@ -77,6 +78,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
      * @return string
      * @throws DBALException
      * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
      */
     public function getCheckMessageMultilangItem()
     {
@@ -172,7 +174,7 @@ class d3InstallCheckBlockItemsAreActive implements d3InstallCheckInterface
     {
         $oQB = d3database::getInstance()->getQueryBuilder();
         $oQB->select('oxfile')
-            ->from('oxtplblock')
+            ->from('oxtplblocks')
             ->where('oxmodule = '.$oQB->createNamedParameter($sModuleId))
             ->andWhere('oxactive = '.$oQB->createNamedParameter(1, PDO::PARAM_INT))
             ->andWhere('oxshopid = '.$oQB->createNamedParameter(Registry::getConfig()->getActiveShop()->getId()));

@@ -58,6 +58,7 @@ $status = (object)[
     'noException' => false
 ];
 
+/** @var d3updateinstaller $updateInstaller */
 $updateInstaller = oxNew(d3updateinstaller::class);
 register_shutdown_function('D3\ModCfg\handleExit', $status, $updateInstaller);
 

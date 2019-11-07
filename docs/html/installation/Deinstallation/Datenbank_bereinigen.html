@@ -72,7 +72,7 @@
     <div class="Page__header">
         <h1><a href="../../installation/Deinstallation/Modulerweiterungen_deaktivieren_und_entfernen.html">Deinstallation</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../installation/Deinstallation/Datenbank_bereinigen.html">Datenbank bereinigen</a></h1>
                 <span class="ModifiedDate">
-                        16.07.2019        </span>
+                        07.11.2019        </span>
                     </div>
 
     <div class="s-content">
@@ -101,7 +101,35 @@
 </li>
 </ul>
 <p>*) <code>_setX</code> ist eine Tabellenliste, die mit <code>_set1</code> beginnen und shopabhängig auch Tabellen mit höheren Nummerierungen enthalten kann (z.B. <code>_set2</code>, <code>_set3</code>, …).</p>
+<p>Für die direkte Bearbeitung in der Datenbank können Sie diese Abfragen verwenden:</p>
+<pre><code>```mysql
+DROP TABLE IF EXISTS `d3log`;
+DROP TABLE IF EXISTS `d3modprofile`;
+DROP TABLE IF EXISTS `d3modprofile2shop`;
+DROP TABLE IF EXISTS `d3modprofile_set1`;
+DROP TABLE IF EXISTS `d3modprofile_set2`;
+DROP TABLE IF EXISTS `d3modprofile_set3`;
+DROP TABLE IF EXISTS `d3_cfg_mod`;
+DROP TABLE IF EXISTS `d3_cfg_mod_set1`;
+DROP TABLE IF EXISTS `d3_cfg_mod_set2`;
+DROP TABLE IF EXISTS `d3_cfg_mod_set3`;
+DROP TABLE IF EXISTS `d3_cfg_mod_variant`;
+DROP TABLE IF EXISTS `d3_cfg_mod_variant_set1`;
+DROP TABLE IF EXISTS `d3_cfg_mod_variant_set2`;
+DROP TABLE IF EXISTS `d3_cfg_mod_variant_set3`;
+DROP TABLE IF EXISTS `d3transactionlog`;
+DROP TABLE IF EXISTS `d3_d3log_oxobject2d3transactionlog`;
+DROP TABLE IF EXISTS `d3cache`;
+```
+</code></pre>
 <p>Zu einigen dieser Tabellen wurden die Config-Einträge <code>aMultiLangTables</code> (bei Enterprise Edition auch <code>aMultiShopTables</code>) um entsprechende Einträge ergänzt). Bereinigen Sie diese ebenfalls.</p>
+<p>Diese Bearbeitung lässt sich nicht direkt in der Datenbank ausführen. Die Abfrage zur Ermittlung der Einträge und zur Änderung können Sie aus diesen Beispielen individuell erstellen:</p>
+<pre><code>```mysql
+# select oxvartype,  DECODE( oxvarvalue, 'fq45QS09_fqyx09239QQ') as oxvarvalue from oxconfig where oxshopid = '1' and oxmodule = '' and oxvarname = 'aMultiShopTables';
+
+# update `oxconfig` set `oxvarvalue` = encode(&quot;INHALT&quot;,'fq45QS09_fqyx09239QQ') where `oxshopid`= 1 and `oxvarname` = 'aMultiShopTables';
+```
+</code></pre>
     </div>
 
         <nav>
