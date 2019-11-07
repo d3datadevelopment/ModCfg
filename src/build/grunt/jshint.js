@@ -11,7 +11,7 @@ module.exports = {
     },
     module: {
         src: [
-            "sources/js/*.js"
+            "origin/js/*.js"
         ]
     }
 

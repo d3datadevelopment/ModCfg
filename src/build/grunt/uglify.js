@@ -12,7 +12,7 @@ module.exports = {
             {
                 expand: true,
                 src:    "*.js",
-                cwd:    "sources/js/",
+                cwd:    "origin/js/",
                 dest:   "../out/admin/src/js/",
                 ext:    ".min.js",
                 extDot: "last"

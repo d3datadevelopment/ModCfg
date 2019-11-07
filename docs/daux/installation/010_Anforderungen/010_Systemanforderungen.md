@@ -10,6 +10,8 @@ title: Systemanforderungen
     * OXID eShop Community Edition (CE), Professional Edition (PE) oder Enterprise Edition (EE) in Compilation Version 
         * 6.0.x
         * 6.1.x
+* Themes
+    * Dieses Modul arbeitet unabhängig von Frontendtemplates und hat daher keine speziellen Anforderungen.
 * Installation via [Composer](https://getcomposer.org)
 * PHP-Bibliothek "OpenSSL"
 * PHP-Bibliothek "mbString"

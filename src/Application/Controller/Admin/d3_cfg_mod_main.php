@@ -152,7 +152,7 @@ class d3_cfg_mod_main extends AdminDetailsController
 
         $sRet = parent::render();
 
-        $soxId = Registry::get(Request::class)->getRequestEscapedParameter("oxid");
+        $soxId = $this->getEditObjectId();
 
         if (false == $this->d3GetSet()->getFieldData('oxvalue') && d3log::isCallable()) {
             $this->d3getLog()->Log(

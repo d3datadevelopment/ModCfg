@@ -136,7 +136,7 @@ $aLang = array(
     'D3_CFG_MOD_SUPPORT_3'                     => 'Fax: 03721-265234',
     'D3_CFG_MOD_SUPPORT_4'                     => 'E-Mail:',
     'D3_CFG_MOD_SUPPORT_MAIL'                  => 'support@shopmodule.com',
-    'D3_CFG_MOD_SUPPORT_5'                     => 'Die häufigsten Fragen zu diesem und anderen Modulen haben wir in unserer Online-FAQ zusammengestellt. Diese finden Sie unter <a href="http://faq.oxidmodule.de" target="_blank" alt="Modul-FAQ">http://faq.oxidmodule.de</a>.',
+    'D3_CFG_MOD_SUPPORT_5'                     => 'Die häufigsten Fragen zu diesem und anderen Modulen haben wir in unserer Online-FAQ zusammengestellt. Diese finden Sie unter <a href="https://faq.d3data.de" target="_blank" alt="Modul-FAQ">http://faq.oxidmodule.de</a>.',
     'D3_CFG_MOD_SUPPORT_6'                     => 'Unsere FAQ wird ständig erweitert. Gern nehmen wir auch von Ihnen gewünschte Antworten mit auf. Schreiben Sie uns!',
 
     'D3_CFG_MOD_DEV'                           => 'Anbieterkennzeichnung',
