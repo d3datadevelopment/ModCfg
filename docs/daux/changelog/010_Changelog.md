@@ -2,6 +2,20 @@
 title: Changelog
 ---
 
+## 5.2.2.0 (2020-03-25)
+
+### Added
+- CLI-Aufruf, um TMP-Ordner gezielt zu leeren
+
+### Changed
+- Anforderungen von oxideshop-metapackage zu oxideshop-ce für Projekte ohne Metapackage geändert
+- Standardsortierung für Log-Eintraäge im Admin angepasst
+
+### Fixed
+- typografische Anführungszeichen in der Dokumentation ersetzt
+
+---
+
 ## 5.2.1.0 (2019-11-07)
 
 ### Added

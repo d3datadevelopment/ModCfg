@@ -37,7 +37,7 @@
   },
   "require": {
     "php": "7.1 - 7.2", "ext-ionCube-Loader": "*",
-    "oxid-esales/oxideshop-metapackage-ce": "~6.0.0 || ~6.1.0",
+    "oxid-esales/oxideshop-ce": "6.0 - 6.3",
     "ext-openssl": "*",
     "ext-mbstring": "*",
     "ext-dom": "*",
@@ -54,7 +54,8 @@
     "ext-mysqli": "*",
     "psr/log": "^1.0.2",
     "symfony/dependency-injection": "^3.1",
-    "guzzlehttp/guzzle": "^6.3.3"
+    "guzzlehttp/guzzle": "^6.3.3",
+    "splitbrain/php-cli": "^1.1"
   },
   "autoload": {
     "psr-4": {
@@ -64,5 +65,8 @@
         "autoload/functions_modcfg.php"
     ]
   },
-  "bin": ["src/bin/d3modules_install"]
+  "bin": [
+    "src/bin/d3modules_install",
+    "src/bin/d3cleartmp"
+  ]
 }

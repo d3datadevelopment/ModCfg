@@ -4,7 +4,7 @@ title: beiliegende Bibliotheken
 
 ## Font Awesome
 
-Dem Modul liegt eine veränderte Kopie der "Font Awesome by Dave Gandy –
+Dem Modul liegt eine veränderte Kopie der "Font Awesome by Dave Gandy -
 [http://fontawesome.io](http://fontawesome.io)" Icon-Bibliothek (zugrunde liegende Version: 5.0.6) bei. Diese steht mit
 dem Abrufdatum 30.01.2018 unter den folgenden Lizenzen zur Verwendung bereit (Quelle:
 [https://fontawesome.com/license](https://fontawesome.com/license) zzgl. Anpassung auf individuelle Pfade):

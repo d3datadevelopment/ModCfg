@@ -29,7 +29,6 @@ class d3tplblocks_list extends d3_cfg_mod_list
     protected $_sListClass = d3oxtplblocks::class;
     protected $_blEmployMultilanguage;
     protected $_sDefSortField = 'oxmodule';
-    protected $_sDefSortOrder = 'asc';
     protected $_blShowListItems = true;
 
     /**
