@@ -1,0 +1,135 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg;
+
+use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use OxidEsales\Eshop\Core\Module\Module;
+use splitbrain\phpcli\CLI;
+use splitbrain\phpcli\Options;
+
+// @codeCoverageIgnoreStart
+
+$bootstrapFileName = getenv('ESHOP_BOOTSTRAP_PATH');
+if (!empty($bootstrapFileName)) {
+    $bootstrapFileName = realpath(trim(getenv('ESHOP_BOOTSTRAP_PATH')));
+} else {
+    $count = 0;
+    $bootstrapFileName = '../../../../../source/bootstrap.php';
+    $currentDirectory = __DIR__ . '/';
+    while ($count < 5) {
+        $count++;
+        if (file_exists($currentDirectory . $bootstrapFileName)) {
+            $bootstrapFileName = $currentDirectory . $bootstrapFileName;
+            break;
+        }
+        $bootstrapFileName = '../' . $bootstrapFileName;
+    }
+}
+
+if (!(file_exists($bootstrapFileName) && !is_dir($bootstrapFileName))) {
+    $items = [
+        "Unable to find eShop bootstrap.php file.",
+        "You can override the path by using ESHOP_BOOTSTRAP_PATH environment variable.",
+        "\n"
+    ];
+
+    $message = implode(" ", $items);
+
+    die($message);
+}
+
+require_once($bootstrapFileName);
+
+
+class d3cleartmp extends CLI
+{
+    // register options and arguments
+    protected function setup(Options $options)
+    {
+        $options->setHelp('delete objects from temporary folder');
+        $options->registerOption('version', 'print version', 'v');
+        $options->registerOption('silent', 'prevents output from being displayed', 's');
+        $options->registerArgument('type', 'possible types are: all, templates, database, language, menu, classpath, structure, tagcloud, seo, module', false);
+    }
+
+    /**
+     * @param Options $options
+     */
+    protected function main(Options $options)
+    {
+        $args = $options->getArgs();
+
+        if ($options->getOpt('version')) {
+            $oModule = oxNew(Module::class);
+            $oModule->load('d3modcfg_lib');
+            $this->info($oModule->getModuleData()['version']);
+        } elseif (count($args)) {
+            try {
+                switch (strtolower($args[0])) {
+                    case 'all':
+                        $sTypeMethod = 'clearAllCache';
+                        break;
+                    case 'templates':
+                        $sTypeMethod = 'clearFrontendCache';
+                        break;
+                    case 'database':
+                        $sTypeMethod = 'clearDataBaseStructCache';
+                        break;
+                    case 'language':
+                        $sTypeMethod = 'clearLangCache';
+                        break;
+                    case 'menu':
+                        $sTypeMethod = 'clearMenuCache';
+                        break;
+                    case 'classpath':
+                        $sTypeMethod = 'clearClassPathCache';
+                        break;
+                    case 'structure':
+                        $sTypeMethod = 'clearStructureCache';
+                        break;
+                    case 'tagcloud':
+                        $sTypeMethod = 'clearTagcloudCache';
+                        break;
+                    case 'seo':
+                        $sTypeMethod = 'clearSeoCache';
+                        break;
+                    case 'module':
+                        $sTypeMethod = 'clearModuleCache';
+                        break;
+                    default:
+                        $this->error('no valid type defined');
+                }
+
+                if ($sTypeMethod) {
+                    $controller = oxNew( d3clrtmp::class);
+                    call_user_func_array(array($controller, $sMethodName));
+                }
+            } catch (\Exception $oEx) {
+                ob_end_flush();
+                $this->error($oEx->getMessage());
+            }
+
+        } else {
+            echo $options->help();
+        }
+    }
+}
+
+$cli = new d3cleartmp();
+$cli->run();
