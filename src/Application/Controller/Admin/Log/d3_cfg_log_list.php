@@ -31,7 +31,7 @@ class d3_cfg_log_list extends d3_cfg_mod_list
 
     protected $_sDefSortField = 'oxcounter';
 
-    protected $_sDefSortOrder = 'desc';
+    protected $_blDesc = true;
 
     protected $_sThisTemplate = 'd3_cfg_log_list.tpl';
 

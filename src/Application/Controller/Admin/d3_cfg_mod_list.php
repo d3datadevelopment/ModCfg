@@ -44,7 +44,6 @@ class d3_cfg_mod_list extends AdminListController
     protected $_blShowListItems = false;
     protected $_sListClass = d3modprofile::class;
     protected $_sDefSortField = 'oxsort';
-    protected $_sDefSortOrder = 'asc';
     protected $_blDesc = false;
 
     /**
