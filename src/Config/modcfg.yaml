@@ -70,7 +70,7 @@ services:
     shared:     false
     arguments:
       - D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord
-      - @D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord.arg_updatebase
+      - '@D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord.arg_updatebase'
     # arg #1 d3install_updatebase
   D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord.arg_updatebase:
     synthetic:  true

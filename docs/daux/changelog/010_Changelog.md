@@ -2,6 +2,13 @@
 title: Changelog
 ---
 
+## 5.3.0.0 (2020-03-31)
+
+### Added
+- Kompatibilität zu OXID 6.2 hergestellt
+
+---
+
 ## 5.2.2.0 (2020-03-25)
 
 ### Added

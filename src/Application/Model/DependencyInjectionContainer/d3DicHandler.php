@@ -15,10 +15,12 @@
 
 namespace D3\ModCfg\Application\Model\DependencyInjectionContainer;
 
+use D3\ModCfg\Application\Model\Modulemetadata\d3moduleconfiguration;
 use d3CacheContainer;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Module\ModuleList;
 use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Facts\Config\ConfigFile;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -162,10 +164,18 @@ class d3DicHandler implements d3DicHandlerInterface
 
         /** @var ModuleList $oModuleList */
         $oModuleList = oxNew(ModuleList::class);
-        foreach (array_keys($oModuleList->getActiveModuleInfo()) as $sModuleId) {
-            $oModule = oxNew(Module::class);
-            $oModule->load($sModuleId);
-            $aDICDefintionFiles = $oModule->getInfo($sMetaDataIdent);
+        $aActiveModuleIdList = array_keys($oModuleList->getActiveModuleInfo());
+
+        if (Registry::get(Request::class)->getRequestEscapedParameter('cl') === 'module_main'
+            && ($sCurrentModuleId = Registry::get(Request::class)->getRequestEscapedParameter('oxid'))
+            && false === in_array($sCurrentModuleId, $aActiveModuleIdList)
+        ) {
+            $aActiveModuleIdList[] = $sCurrentModuleId;
+        }
+
+        foreach ($aActiveModuleIdList as $sModuleId) {
+            $oModuleConfiguration = oxNew(d3moduleconfiguration::class);
+            $aDICDefintionFiles = $oModuleConfiguration->getInfo($sMetaDataIdent, $sModuleId);
             if (isset($aDICDefintionFiles) && is_array($aDICDefintionFiles)) {
                 $aDICDefintionFileList = array_merge($aDICDefintionFileList, $aDICDefintionFiles);
             }
