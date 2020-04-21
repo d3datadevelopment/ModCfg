@@ -2,6 +2,22 @@
 title: Changelog
 ---
 
+## 5.3.1.0 (2020-04-21)
+
+### Added
+- Instanz des DIC-Handlers kann entfernt werden
+- ContainerMockCreator hinzugefügt
+
+### Changed
+- d3metadata wird vom Kompilieren ausgenommen
+- Hinzufügen und Entfernen zusätzlicher Logtypes übernimmt die Änderung automatisch in die aktuelle Loginstanz
+- ModprofileList verwendet Parameter von Prepared Statements
+
+### Fixed
+- Modprofile View-Tabellenname wird bei Nicht-Multilangfeldern subshopabhängig vergeben
+
+---
+
 ## 5.3.0.0 (2020-03-31)
 
 ### Added
