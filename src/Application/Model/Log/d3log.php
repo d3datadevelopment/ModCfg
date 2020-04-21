@@ -743,7 +743,9 @@ class d3log extends BaseModel implements d3LogInterface
      */
     public function addLogType($iType)
     {
-        return oxNew(d3bitmask::class)->addBit($this->getLogType(), $this->getLogBit($iType));
+        $this->setLogType(oxNew(d3bitmask::class)->addBit($this->getLogType(), $this->getLogBit($iType)));
+
+        return $this->getLogType();
     }
 
     /**
@@ -753,7 +755,9 @@ class d3log extends BaseModel implements d3LogInterface
      */
     public function removeLogType($iType)
     {
-        return oxNew(d3bitmask::class)->removeBit($this->getLogType(), $this->getLogBit($iType));
+        $this->setLogType(oxNew(d3bitmask::class)->removeBit($this->getLogType(), $this->getLogBit($iType)));
+
+        return $this->getLogType();
     }
 
     /**

@@ -1,62 +1,229 @@
-<?php //006ef
-// This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 5.3.0.0 PHP71 (01.04.2020) @author  Daniel Seifert support@shopmodule.com @copyright (C) 2020, D3 Data Development @see http://www.shopmodule.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
-?>
-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
-RW==
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+use D3\ModCfg\setup as ModuleSetup;
+
+$aModule = [
+    'd3FileRegister'    => [
+        'd3/modcfg/metadata.php',
+        'd3/modcfg/d3metadata.php',
+        'd3/modcfg/IntelliSenseHelper.php',
+        'd3/modcfg/Core/Smarty/Plugin/block.d3modcfgcheck.php',
+        'd3/modcfg/Core/Smarty/Plugin/function.d3getobject.php',
+        'd3/modcfg/public/d3logo.php',
+        'd3/modcfg/Application/translations/de/d3modcfg_lang.php',
+        'd3/modcfg/Application/translations/en/d3modcfg_lang.php',
+        'd3/modcfg/Application/views/admin/de/d3clrtmp_lang.php',
+        'd3/modcfg/Application/views/admin/de/d3log_lang.php',
+        'd3/modcfg/Application/views/admin/de/d3modcfg_lang.php',
+        'd3/modcfg/Application/views/admin/de/d3modinstall_lang.php',
+        'd3/modcfg/Application/views/admin/de/module_options.php',
+        'd3/modcfg/Application/views/admin/en/d3clrtmp_lang.php',
+        'd3/modcfg/Application/views/admin/en/d3log_lang.php',
+        'd3/modcfg/Application/views/admin/en/d3modcfg_lang.php',
+        'd3/modcfg/Application/views/admin/en/d3modinstall_lang.php',
+        'd3/modcfg/Application/views/admin/en/module_options.php',
+        'd3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights.php', // in PE + CE it's not registered
+        'd3/modcfg/Modules/Core/d3_oxemail_log.php',
+        'd3/modcfg/public/d3modcfg_maintenance.php',
+
+        'd3/modcfg/Application/Controller/Admin/d3_cfg_mod_.php',
+        'd3/modcfg/Application/Controller/Admin/d3_cfg_mod_licence.php',
+        'd3/modcfg/Application/Controller/Admin/d3_cfg_mod_list.php',
+        'd3/modcfg/Application/Controller/Admin/d3_cfg_mod_main.php',
+
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3mod_status.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modext.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modext_list.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modext_status.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modext_new.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modlib.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modlib_list.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modlib_status.php',
+        'd3/modcfg/Application/Controller/Admin/Configuration/d3modlib_support.php',
+
+        'd3/modcfg/Application/Controller/Admin/Install/d3_mod_install.php',
+        'd3/modcfg/Application/Controller/Admin/Install/d3_mod_update.php',
+        'd3/modcfg/Application/Controller/Admin/Install/d3mod_activation.php',
+
+        'd3/modcfg/Application/Controller/Admin/Log/d3_cfg_log.php',
+        'd3/modcfg/Application/Controller/Admin/Log/d3_cfg_log_cleanup.php',
+        'd3/modcfg/Application/Controller/Admin/Log/d3_cfg_log_list.php',
+        'd3/modcfg/Application/Controller/Admin/Log/d3_cfg_log_main.php',
+
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3cfgitems.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3cleartmp.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3cleartmp_frame.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3cleartmp_list.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3maintenance.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3moditems.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3shopmaintenance.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3sysitems.php',
+        'd3/modcfg/Application/Controller/Admin/Maintenance/d3sysitems_list.php',
+
+        'd3/modcfg/Application/Model/d3bit.php',
+        'd3/modcfg/Application/Model/d3bitmask.php',
+        'd3/modcfg/Application/Model/d3database.php',
+        'd3/modcfg/Application/Model/d3MsdManager.php',
+        'd3/modcfg/Application/Model/d3feeds.php',
+        'd3/modcfg/Application/Model/d3pagenavigation.php',
+        'd3/modcfg/Application/Model/d3tickercontrol.php',
+        'd3/modcfg/Application/Model/d3counter.php',
+        'd3/modcfg/Application/Model/d3utils.php',
+        'd3/modcfg/Application/Model/d3selection.php',
+        'd3/modcfg/Application/Model/d3filesystem.php',
+        'd3/modcfg/Application/Model/d3protocol.php',
+        'd3/modcfg/Application/Model/d3remotecache.php',
+        'd3/modcfg/Application/Model/d3module.php',
+
+        'd3/modcfg/Application/Model/d3simplexml.php',
+        'd3/modcfg/Application/Model/d3str.php',
+        'd3/modcfg/Application/Model/d3RegexpGenerator.php',
+        'd3/modcfg/Application/Model/d3stream.php',
+        'd3/modcfg/Application/Model/d3webdav.php',
+
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod.php',
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_datastore.php',
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_licencecheck.php',
+        'd3/modcfg/Application/Model/Configuration/d3_license_app.php',
+        'd3/modcfg/Application/Model/Configuration/d3_cfg_mod_variant.php',
+        'd3/modcfg/Application/Model/Configuration/d3modprofile.php',
+        'd3/modcfg/Application/Model/Configuration/d3modprofilelist.php',
+
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicHandlerInterface.php',
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicHandler.php',
+        'd3/modcfg/Application/Model/DependencyInjectionContainer/d3DicUtilities.php',
+
+        'd3/modcfg/Application/Model/Encoding/d3decoder.php',
+        'd3/modcfg/Application/Model/Encoding/d3encoder.php',
+
+        'd3/modcfg/Application/Model/Exception/d3_cfg_mod_exception.php',
+        'd3/modcfg/Application/Model/Exception/d3modprofile_exception.php',
+        'd3/modcfg/Application/Model/Exception/d3log_exception.php',
+        'd3/modcfg/Application/Model/Exception/d3ParameterNotFoundException.php',
+        'd3/modcfg/Application/Model/Exception/d3ShopCompatibilityAdapterException.php',
+
+        'd3/modcfg/Application/Model/Filegenerator/d3filegenerator.php',
+        'd3/modcfg/Application/Model/Filegenerator/d3filegeneratorcronsh.php',
+
+        'd3/modcfg/Application/Model/Install/d3install.php',
+        'd3/modcfg/Application/Model/Install/d3licenceserver.php',
+        'd3/modcfg/Application/Model/Install/d3updateserver.php',
+        'd3/modcfg/Application/Model/Install/d3install_updatebase.php',
+        'd3/modcfg/Application/Model/Install/d3debughandler.php',
+        'd3/modcfg/Application/Model/Install/d3updateinstaller.php',
+
+        'd3/modcfg/Application/Model/Installcheck/d3installcheck.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckInterface.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckModuleVersionsIdentical.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckExtendItemsAreActive.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckClassItemsAreAvailable.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckTemplateItemsAreAvailable.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckBlockItemsAreActive.php',
+        'd3/modcfg/Application/Model/Installcheck/d3InstallCheckHasNoInstallItem.php',
+
+        'd3/modcfg/Application/Model/Installwizzard/d3installaction.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdatahandler.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installcleandbstructurelist.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3install2shoprelation.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbtable.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbtablemultilang.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbtablemultishop.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbfield.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbfieldmultilang.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbfieldcollation.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbindizes.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbrecord.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbrecordmultilang.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installconfirmmessage.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installupdatefile.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installdbcommon.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installoxconfig.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installmodule.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installmodcfg.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installskipupdate.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installskipjob.php',
+        'd3/modcfg/Application/Model/Installwizzard/d3installfile.php',
+
+        'd3/modcfg/Application/Model/Log/d3LogInterface.php',
+        'd3/modcfg/Application/Model/Log/d3LogLevel.php',
+        'd3/modcfg/Application/Model/Log/d3log.php',
+        'd3/modcfg/Application/Model/Log/d3NullLogger.php',
+
+        'd3/modcfg/Application/Model/Maintenance/d3maintenanceactions.php',
+        'd3/modcfg/Application/Model/Maintenance/d3clrtmp.php',
+
+        'd3/modcfg/Application/Model/Modulemetadata/d3moduleconfiguration.php',
+
+        'd3/modcfg/Application/Model/Parametercontainer/d3ParameterContainer.php',
+        'd3/modcfg/Application/Model/Parametercontainer/d3CacheHandler.php',
+        'd3/modcfg/Application/Model/Parametercontainer/d3ParameterContainerInterface.php',
+        'd3/modcfg/Application/Model/Parametercontainer/Registry.php',
+
+        'd3/modcfg/Application/Model/Shopcompatibility/d3ShopCompatibilityAdapterHandler.php',
+        'd3/modcfg/Application/Model/Shopcompatibility/d3ShopCompatibilityAdapterInterface.php',
+        'd3/modcfg/Application/Model/Shopcompatibility/d3ShopCompatibility60Adapter.php',
+        'd3/modcfg/Application/Model/Shopcompatibility/d3shopversionconverter.php',
+
+        'd3/modcfg/Application/Model/Transactionlog/d3transactionlog.php',
+        'd3/modcfg/Application/Model/Transactionlog/d3transactionloglist.php',
+        'd3/modcfg/Application/Model/Transactionlog/Reader/AbstractReader.php',
+        'd3/modcfg/Application/Model/Transactionlog/object2d3transactionlog.php',
+
+        'd3/modcfg/setup/Events.php',
+        'd3/modcfg/setup/d3_cfg_mod_update.php',
+        'd3/modcfg/setup/d3_cfg_mod_cleaning.php',
+        'd3/modcfg/setup/d3log_update.php',
+
+        'd3/modcfg/Application/Model/d3oxtplblocks.php',
+
+        'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks.php',
+        'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_list.php',
+        'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_extend.php',
+        'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_main.php',
+
+        'd3/modcfg/Modules/Application/Controller/d3_oxshopcontrol_modcfg_extension.php',
+        'd3/modcfg/Modules/Application/Controller/Admin/d3_navigation_modcfgupdate.php',
+        'd3/modcfg/Modules/Application/Model/d3_oxshop_modcfg.php',
+        'd3/modcfg/Modules/Application/Model/d3_oxmoduleinstaller_activecheck.php',
+        'd3/modcfg/Modules/Core/d3_oxtheme_modcfg.php',
+        'd3/modcfg/Modules/Core/d3_oxutilsview_modcfg.php',
+
+        'd3/modcfg/Tests/additional.inc.php',
+        'd3/modcfg/Tests/additional_abstract.php',
+        'd3/modcfg/Tests/d3EmptyTestCase.php',
+        'd3/modcfg/Tests/d3modcfg_config.php',
+
+        'd3/modcfg/Tests/unit/d3ModCfgUnitTestCase.php',
+        'd3/modcfg/Tests/unit/d3FixHelper.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3bitmaskTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3bitTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3filesystemTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_mod_licensecheckTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_modTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/Configuration/d3modprofileTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicHandlerTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicUtilitiesTest.php',
+    ],
+    'd3SetupClasses'    => [
+        ModuleSetup\d3_cfg_mod_update::class,
+        ModuleSetup\d3log_update::class,
+    ],
+    'd3DICDefinitionFiles'  => [
+        'd3/modcfg/Config/services.yaml',
+    ]
+];

@@ -17,7 +17,6 @@ namespace D3\ModCfg\Application\Model\DependencyInjectionContainer;
 
 use D3\ModCfg\Application\Model\Modulemetadata\d3moduleconfiguration;
 use d3CacheContainer;
-use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Module\ModuleList;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
@@ -62,6 +61,11 @@ class d3DicHandler implements d3DicHandlerInterface
         return self::$_instance;
     }
 
+    public static function removeInstance()
+    {
+        self::$_instance = null;
+    }
+
     /**
      * @return mixed
      */
@@ -90,10 +94,13 @@ class d3DicHandler implements d3DicHandlerInterface
      */
     public function d3GetFileLoader($container)
     {
-        return oxNew(YamlFileLoader::class,
+        /** @var YamlFileLoader $fileLoader */
+        $fileLoader = oxNew(YamlFileLoader::class,
             $container,
             oxNew(FileLocator::class, $this->d3GetConfig()->getModulesDir())
         );
+
+        return $fileLoader;
     }
 
     /**
