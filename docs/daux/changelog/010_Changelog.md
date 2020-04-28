@@ -2,6 +2,14 @@
 title: Changelog
 ---
 
+## 5.3.1.1 (2020-04-28)
+
+### Fixed
+- Korrektur der install2shop-Beziehung, wenn Shopid gegen Shopbit geprüft wird
+- Ungequotete Datenbankwerte ergänzt, Syntax für "ALTER TABLE ADD" und "ALTER TABLE CHANGE" geändert
+
+---
+
 ## 5.3.1.0 (2020-04-21)
 
 ### Added
