@@ -215,13 +215,15 @@ final class d3mod_activation extends d3_cfg_mod_main
     {
         $oD3Str = oxNew(d3str::class);
         $aUrl = parse_url(strtolower(Registry::getConfig()->getConfigParam('sShopURL')));
+
         if ($oD3Str->isIPNum($aUrl['host'])) {
             $sRegDomain = $aUrl['host'];
         } else {
-            $sPattern = '@'.preg_quote('.'.$oD3Str->getTLD($aUrl['host'])).'$@';
-            $sCustDomain = preg_replace($sPattern, '', $aUrl['host']);
+            $tld = $oD3Str->getTLD($aUrl['host']);
+            $sPattern = '@'.preg_quote('.'.$tld).'$@';
+            $sCustDomain = $tld ? preg_replace($sPattern, '', $aUrl['host']) : $aUrl['host'];
             $aCustDomain = array_slice(explode('.', $sCustDomain), -1, 1);
-            $sRegDomain = $aCustDomain[0].'.'.$oD3Str->getTLD($aUrl['host']);
+            $sRegDomain = $aCustDomain[0]. ( $oD3Str->getTLD($aUrl['host']) ? '.'.$tld : '');
         }
 
         return $sRegDomain;

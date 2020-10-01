@@ -42,14 +42,33 @@ class Events
      */
     public static function onActivate()
     {
+        /** @var Request $request */
+        $request = Registry::get(Request::class);
+
+        if (
+            (
+                $request->getRequestEscapedParameter('cl') === 'module_config'
+                && $request->getRequestEscapedParameter('fnc') === 'save'
+            )
+        ) {
+            return;
+        }
+
         d3install::checkUpdateStart();
     }
 
     public static function onDeactivate()
     {
+        /** @var Request $request */
+        $request = Registry::get(Request::class);
+
         if (defined('OXID_PHP_UNIT')
-            || (bool) Registry::get(Request::class)->getRequestEscapedParameter(self::$_ConfirmParamName) == true
+            || (bool) $request->getRequestEscapedParameter(self::$_ConfirmParamName) == true
             || php_sapi_name() === 'cli'
+            || (
+                $request->getRequestEscapedParameter('cl') === 'module_config'
+                && $request->getRequestEscapedParameter('fnc') === 'save'
+            )
         ) {
             return;
         }

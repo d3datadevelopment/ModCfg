@@ -2,6 +2,37 @@
 title: Changelog
 ---
 
+## 5.3.3.0 (2020-10-01)
+
+### Added
+- .env-Dateien können im Adminbereich eingesehen und verändert werden
+
+### Changed
+- Aktivierungsevents werden nicht mehr beim Speichern von Moduleinstellungen ausgeführt
+  - Preventivmaßnahmen verhinderten das Speichern
+- URL zur Modulaktivierung wird nun auch bei Subdomains von localhost passend ermittelt
+
+### Fixed
+- generierte Admin-URL korrigiert
+  - im Fall von mandantenabhängigen URLs wurden Adressen erstellt, die ein Logout zur Folge hatten
+
+---
+
+## 5.3.2.0 (2020-09-11)
+
+### Added
+- Überladungsmöglichkeit für Testscripte erweitert
+
+### Changed
+- Ermittlung des Source-Verzeichnisses erfolgt aus Konstanten und Klassen des OXID-Shops
+- Logo wird von externer skalierbarer Ressource geladen
+
+### Fixed
+- Querygenerierung in Installationsprozessen korrigiert
+- falsche UTF-8-Konvertierung im Loader der shopzuzuordnenden Objekte entfernt
+
+---
+
 ## 5.3.1.1 (2020-04-28)
 
 ### Fixed
