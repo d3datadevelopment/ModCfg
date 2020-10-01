@@ -52,6 +52,10 @@ class d3cfgitems extends d3_cfg_mod_main
         'functions'  => array(
             'sFileName'        => 'modules/functions.php',
             'blWriteProtected' => false,
+        ),
+        'env'  => array(
+            'sFileName'        => '../.env',
+            'blWriteProtected' => false,
         )
     );
     public $blSaveRet;

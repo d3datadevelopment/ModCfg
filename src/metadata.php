@@ -26,15 +26,15 @@ use D3\ModCfg\Application\Controller\Admin\TPLBlocks as ModuleAdminTplController
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.0';
+$sMetadataVersion = '2.1';
 
 $sModuleId = 'd3modcfg_lib';
-$sCurrClass = is_array($_REQUEST) && isset($_REQUEST['cl']) ? $_REQUEST['cl'] : '';
 
 $aModule = [
     'id'          => $sModuleId,
-    'title'       => "<img src=\"../modules/d3/modcfg/public/d3logo.php?cl={$sCurrClass}" .
-        '" alt="D&sup3;" title="D&sup3; Data Development"> Modul-Connector',
+    'title'       => 
+        '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> '.
+        ' Modul-Connector',
     'description' => [
         'de' => 'enth&auml;lt:<ul><li>Modulkonfiguration</li>'.
                 '<li>Installationsassistent</li>'.
@@ -47,7 +47,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '5.3.1.1',
+    'version'     => '5.3.3.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
