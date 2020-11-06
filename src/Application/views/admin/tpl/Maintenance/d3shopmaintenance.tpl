@@ -24,8 +24,9 @@
 <script type="text/javascript">
     function sendForm(sFncName)
     {
+        let oForm;
         document.getElementById('mask').className='on';
-        document.getElementById('popup').className='on';
+        document.getElementById('popup2').className='d3loader-2 on';
         oForm = document.getElementById('delform');
         oForm.fnc.value = sFncName;
         oForm.submit();
@@ -38,7 +39,7 @@
         white-space: normal;
     }
 
-    #popup {
+    #popup2 {
         display: none;
     }
 
@@ -80,7 +81,7 @@
     }
 </style>
 
-<form name="delform" id="delform" action="[{$oViewConf->getSelfLink()}]" method="post" onsubmit="document.getElementById('mask').className='on';document.getElementById('popup').className='on'; return;">
+<form name="delform" id="delform" action="[{$oViewConf->getSelfLink()}]" method="post" onsubmit="document.getElementById('mask').className='on';document.getElementById('popup2').className='d3loader-2 on'; return;">
     [{$oViewConf->getHiddenSid()}]
     <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
     <input type="hidden" name="fnc" value="clearTmp">
@@ -92,19 +93,19 @@
         </button>
     </span>
 
-    <table cellspacing="0" cellpadding="0" border="0" style="width: 98%; margin-top: 15px;">
+    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 100%; margin-top: 15px">
         <tr>
-            <td valign="top" class="edittext" width="50%">
+            <td style="vertical-align: top; width: 50%" class="edittext">
                 [{block name="d3cleartmp_form"}]
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGN"}] [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGN_DESC"}]</legend>
-                        <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" class="innerTbl">
                             [{assign var="blShowItem" value=false}]
                             [{if $aCheckResults.ClearAcc2Art}]
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignacc2art">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNACC2ART"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNACC2ART_DESC"}]
                                 </td>
                                 <td>
@@ -121,7 +122,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignact2art">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNACT2ART"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNACT2ART_DESC"}]
                                 </td>
                                 <td>
@@ -138,7 +139,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignartextends">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNARTEXTENDS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNARTEXTENDS_DESC"}]
                                 </td>
                                 <td>
@@ -155,7 +156,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassigncat2attrib">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNCAT2ATTRIB"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNCAT2ATTRIB_DESC"}]
                                 </td>
                                 <td>
@@ -172,7 +173,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassigndel2delset">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNDEL2DELSET"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNDEL2DELSET_DESC"}]
                                 </td>
                                 <td>
@@ -189,7 +190,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignnewssubscribed">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNNEWSSUBSCRIBED"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNNEWSSUBSCRIBED_DESC"}]
                                 </td>
                                 <td>
@@ -206,7 +207,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2action">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2ACTION"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2ACTION_DESC"}]
                                 </td>
                                 <td>
@@ -223,7 +224,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2art">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2ART"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2ART_DESC"}]
                                 </td>
                                 <td>
@@ -240,7 +241,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2attrib">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2ATTRIB"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2ATTRIB_DESC"}]
                                 </td>
                                 <td>
@@ -257,7 +258,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2cat">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2CAT"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2CAT_DESC"}]
                                 </td>
                                 <td>
@@ -274,7 +275,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixoldoxdeliveryassignments">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2DEL"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2DEL_DESC"}]
                                 </td>
                                 <td>
@@ -291,7 +292,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2disc">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2DISC"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2DISC_DESC"}]
                                 </td>
                                 <td>
@@ -308,7 +309,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2group">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2GROUP"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2GROUP_DESC"}]
                                 </td>
                                 <td>
@@ -325,7 +326,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2list">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2LIST"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2LIST_DESC"}]
                                 </td>
                                 <td>
@@ -342,7 +343,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2payment">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2PAYMENT"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2PAYMENT_DESC"}]
                                 </td>
                                 <td>
@@ -359,7 +360,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignobj2sellist">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNOBJ2SELLIST"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNOBJ2SELLIST_DESC"}]
                                 </td>
                                 <td>
@@ -376,7 +377,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixassignprice2art">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNPRICE2ART"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNPRICE2ART_DESC"}]
                                 </td>
                                 <td>
@@ -391,17 +392,17 @@
                     </fieldset>
                 [{/block}]
             </td>
-            <td valign="top" class="edittext" align="left">
+            <td style="vertical-align: top; text-align: left;" class="edittext">
                 [{block name="d3cleartmp_info"}]
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_INACTIVE"}]</legend>
-                        <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" class="innerTbl">
                             [{assign var="blShowItem" value=false}]
                             [{if $aCheckResults.UnassignInactiveCountries}]
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="unassigninactivecountries">[{oxmultilang ident="D3_CFG_CLRTMP_UNASSIGNINACTIVECOUNTRIES"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_UNASSIGNINACTIVECOUNTRIES_DESC"}]
                                 </td>
                                 <td>
@@ -418,7 +419,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="inactivecategories">[{oxmultilang ident="D3_CFG_CLRTMP_DEACTIVATEEMPTYCATEGORIES"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_DEACTIVATEEMPTYCATEGORIES_DESC"}]
                                 </td>
                                 <td>
@@ -433,13 +434,13 @@
                     </fieldset>
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_MISSING"}]</legend>
-                        <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" class="innerTbl">
                             [{assign var="blShowItem" value=false}]
                             [{if $aCheckResults.OxArtextendsItems}]
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixoxartextends">[{oxmultilang ident="D3_CFG_CLRTMP_OXARTICLECONSIST"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_OXARTICLECONSIST_DESC"}]
                                 </td>
                                 <td>
@@ -454,13 +455,13 @@
                     </fieldset>
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_VARIANTS"}]</legend>
-                        <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" class="innerTbl">
                             [{assign var="blShowItem" value=false}]
                             [{if $aCheckResults.VariantParentAsVar}]
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixvariantparentisvar">[{oxmultilang ident="D3_CFG_CLRTMP_VARIANTPARENTISVAR"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_VARIANTPARENTISVAR_DESC"}]
                                 </td>
                                 <td>
@@ -477,7 +478,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixvariantswithoutparent">[{oxmultilang ident="D3_CFG_CLRTMP_ASSIGNVARIANTWOPARENT"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_ASSIGNVARIANTWOPARENT_DESC"}]
                                 </td>
                                 <td>
@@ -494,7 +495,7 @@
                                 [{assign var="blShowItem" value=true}]
                             [{/if}]
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="fixvariantactive">[{oxmultilang ident="D3_CFG_CLRTMP_VARIANTACTIVE"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_VARIANTACTIVE_DESC"}]
                                 </td>
                                 <td>
@@ -509,9 +510,9 @@
                     </fieldset>
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_OTHER"}]</legend>
-                        <table cellspacing="0" cellpadding="0" border="0" class="innerTbl">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" class="innerTbl">
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="cleargeneratedarticlepictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENIMGS_DESC"}]
                                 </td>
                                 <td>
@@ -523,7 +524,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="cleargeneratedcategorypictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENCATIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENCATIMGS_DESC"}]
                                 </td>
                                 <td>
@@ -535,7 +536,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="cleargeneratedmanufacturerpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENMNFIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENMNFIMGS_DESC"}]
                                 </td>
                                 <td>
@@ -547,7 +548,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="cleargeneratedvendorpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENVNDIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENVNDIMGS_DESC"}]
                                 </td>
                                 <td>
@@ -559,7 +560,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" class="edittext">
+                                <td style="vertical-align: top" class="edittext">
                                     <label for="cleargeneratedwrappingpictures">[{oxmultilang ident="D3_CFG_CLRTMP_GENWRPIMGS"}]</label> [{oxinputhelp ident="D3_CFG_CLRTMP_GENWRPIMGS_DESC"}]
                                 </td>
                                 <td>
@@ -585,6 +586,12 @@
 </form>
 
 <div id="mask" class=""></div>
-<div id="popup" class=""><i class="fas fa-spinner fa-4x fa-pulse fa-pull-left"></i><span>[{oxmultilang ident="D3_CFG_PLEASEWAIT"}]</span></div>
+<div id="popup2" class="d3loader-2">
+    <div class="d3loader-spinner">
+        <div class="d3loader-circle-1"></div>
+        <div class="d3loader-circle-2"></div>
+        <div class="d3loader-circle-3"></div>
+    </div>
+</div>
 
 [{include file="d3_cfg_mod_inc.tpl"}]

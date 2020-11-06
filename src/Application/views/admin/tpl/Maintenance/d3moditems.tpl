@@ -20,7 +20,7 @@
 <script type="text/javascript">
 <!--
 
-var oLastDropDownElem;
+let oLastDropDownElem;
 
 function dropDownHandler(oElement)
 {
@@ -109,7 +109,7 @@ function submitDropDown(oElement, sText)
         <hr>
         <fieldset style="height: 60%;">
             <legend>[{oxmultilang ident="D3_CFG_MODITEM_PREV"}]</legend>
-            <table id="modpreview" cellspacing="0" cellpadding="0">
+            <table id="modpreview" style="padding: 0; border-collapse: collapse; border-spacing: 0">
             [{foreach from=$aModPreview key="sClassKey" item="aClassExtension"}]
                 <tr>
                     [{strip}]
@@ -120,7 +120,7 @@ function submitDropDown(oElement, sText)
                             [{assign var="cssDisabled" value=""}]
                         [{/if}]
                         <div class="mod [{if !$oView->checkActive($sClassKey)}]deactive[{/if}] [{if $oView->checkClassExist($sClassKey|replace:'#':'')}]succ[{else}]error[{/if}]">
-                            <div name="dropdown" style="display: none;">
+                            <div style="display: none;">
                                 <form action="[{$oViewConf->getSelfLink()}]" method="post" style="">
                                     [{$oViewConf->getHiddenSid()}]
                                     <input type="hidden" name="actClass" value="[{$sClassKey}]">
@@ -132,7 +132,7 @@ function submitDropDown(oElement, sText)
                                     </select>
                                 </form>
                             </div>
-                            <div name="desc" style="display: block; cursor: pointer;" onclick="dropDownHandler(this.parentNode); return false;">
+                            <div class="desc" style="display: block; cursor: pointer;" onclick="dropDownHandler(this.parentNode); return false;">
                                 [{$sClassKey}]
                             </div>
                         </div>
@@ -147,7 +147,7 @@ function submitDropDown(oElement, sText)
                                 [{assign var="cssDisabled" value=""}]
                             [{/if}]
                             <div class="mod [{$cssDisabled}] [{if $oView->isNewModule($sClassKey, $sExtension)}]new[{if $oView->hasFurtherPossibleProblems($sClassKey, $sExtension)}] problem[{/if}][{/if}] [{if $oView->checkModExist($sExtension)}]succ[{else}]error[{/if}]">
-                                <div name="dropdown" style="display: none;">
+                                <div class="dropdown" style="display: none;">
                                     <form action="[{$oViewConf->getSelfLink()}]" method="post" style="">
                                         [{$oViewConf->getHiddenSid()}]
                                         <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
@@ -170,7 +170,7 @@ function submitDropDown(oElement, sText)
                                         </select>
                                     </form>
                                 </div>
-                                <div name="desc" style="display: block;" onclick="dropDownHandler(this.parentNode); return false;">
+                                <div class="desc" style="display: block;" onclick="dropDownHandler(this.parentNode); return false;">
                                     [{if !$smarty.foreach.classExt.first}]&[{/if}]
                                     [{$sExtension}]
                                 </div>

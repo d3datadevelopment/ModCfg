@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -234,4 +234,19 @@ $aLang = array(
     'D3_CFG_MNT_CHECKALL'                  => 'check all items',
     'D3_CFG_MNT_SUBMIT'                    => 'operate action',
     'D3_CFG_MNT_SUCCESS'                   => 'Maintenance were operated.',
+
+    'D3_CFG_CLRTMP_CLI_COMMON_RUNFROMCLI'  => 'This script has to be run from the command line',
+    'D3_CFG_CLRTMP_CLI_COMMON_NOVALIDTYPE' => 'no valid type defined',
+    'D3_CFG_CLRTMP_CLI_HELP'               => 'delete objects from temporary folder',
+    'D3_CFG_CLRTMP_CLI_OPTION_VERSION'     => 'print version',
+    'D3_CFG_CLRTMP_CLI_OPTION_QUIET'       => 'prevents output from being displayed',
+    'D3_CFG_CLRTMP_CLI_OPTION_LANG'        => 'optional - language of the output messages, possible values are: "%1$s"',
+    'D3_CFG_CLRTMP_CLI_OPTION_HELP'        => 'Display this help screen and exit immeadiately.',
+    'D3_CFG_CLRTMP_CLI_OPTION_NOCOLORS'    => 'Do not use any colors in output. Useful when piping output to other tools or files.',
+    'D3_CFG_CLRTMP_CLI_OPTION_LOGLEVELS'   => 'Minimum level of messages to display. Default is "info". Valid levels are: "%1$s".',
+    'D3_CFG_CLRTMP_CLI_COMMAND'            => 'This tool accepts a command as first parameter as outlined below:',
+    'D3_CFG_CLRTMP_CLI_COMMAND_RUN'        => 'Execution of the deletion order',
+    'D3_CFG_CLRTMP_CLI_ARGUMENT_TYPE'      => 'Types of objects to be deleted, possible values are "%1$s"',
+    'D3_CFG_CLRTMP_CLI_ARGUMENT_ENCLOSER'  => '", "',
+    'D3_CFG_CLRTMP_CLI_FINISHED_SUCCFESSFULLY' => 'script successfully finished',
 );

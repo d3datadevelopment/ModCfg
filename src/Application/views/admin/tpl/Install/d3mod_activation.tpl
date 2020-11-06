@@ -10,7 +10,7 @@ function getDetails(sElemId, sDisplayType)
 {
     if (!sDisplayType) sDisplayType = 'table-row';
 
-    oElem = document.getElementById(sElemId);
+    let oElem = document.getElementById(sElemId);
     if (oElem.style.display === sDisplayType)
         oElem.style.display = 'none';
     else
@@ -27,21 +27,13 @@ function getUpdateStatus()
 <style type="text/css">
 <!--
 body {
-[{if $oView->getBgColor()}]
-    background-color: [{$oView->getBgColor()}];
-[{else}]
-    background-color: #FAFAFA;
-[{/if}]
+    background-color: [{if $oView->getBgColor()}][{$oView->getBgColor()}][{else}]#FAFAFA[{/if}];
     margin: 0;
 }
 div.box {
     border: 0 none transparent;
-    height: 92%;
-    [{if $oView->getBgColor()}]
-        background: none [{$oView->getBgColor()}] !important;
-    [{else}]
-        background: none #FAFAFA !important;
-    [{/if}]
+    height: 253px;
+    background: none [{if $oView->getBgColor()}][{$oView->getBgColor()}]#FAFAFA[{/if}] !important;
 }
 div.actions {
     display: none;
@@ -156,7 +148,7 @@ h4 {
         [{if $oView->isLicenseRequired() && $oView->getNextStep() == 'getActivationType'}]
             <input type="hidden" name="fnc" value="setStep1">
             <h4>[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_TYPE_HEADLINE"}]</h4>
-            <table style="border-style: none;" cellspacing="0" cellpadding="0">
+            <table style="border-style: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                 [{assign var="listclass" value="listitem2"}]
                 <tr>
                     <td class="edittext [{$listclass}]">
@@ -170,7 +162,22 @@ h4 {
                     </td>
                 </tr>
 
-                [{assign var="listclass" value="listitem"}]
+                [{if $oModule->hasActIdent()}]
+                    [{assign var="listclass" value="listitem"}]
+                    <tr>
+                        <td class="edittext [{$listclass}]">
+                            <input id="requestagain" value="requestagain" type="radio" name="activationtype">
+                        </td>
+                        <td class="edittext [{$listclass}]">
+                            <label for="requestagain">[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_TYPE_REQUESTAGAIN"}]</label>
+                        </td>
+                        <td class="edittext [{$listclass}]">
+                            [{*oxinputhelp ident="D3_CFG_MOD_ACTIVATION_TYPE_REQUESTAGAIN_DESC"*}]
+                        </td>
+                    </tr>
+                [{/if}]
+
+                [{assign var="listclass" value="listitem2"}]
                 <tr>
                     <td class="edittext [{$listclass}]">
                         <input id="boughtforeign" value="boughtforeign" type="radio" name="activationtype">
@@ -184,7 +191,7 @@ h4 {
                 </tr>
 
 
-                [{assign var="listclass" value="listitem2"}]
+                [{assign var="listclass" value="listitem"}]
                 <tr>
                     <td class="edittext [{$listclass}]">
                         <input id="usedemo" value="usedemo" type="radio" name="activationtype">
@@ -197,7 +204,7 @@ h4 {
                     </td>
                 </tr>
 
-                [{assign var="listclass" value="listitem"}]
+                [{assign var="listclass" value="listitem2"}]
                 <tr>
                     <td class="edittext [{$listclass}]">
                         <input id="wantbuy" value="wantbuy" type="radio" name="activationtype">
@@ -210,7 +217,7 @@ h4 {
                     </td>
                 </tr>
 
-                [{assign var="listclass" value="listitem2"}]
+                [{assign var="listclass" value="listitem"}]
                 <tr>
                     <td class="edittext [{$listclass}]">
                         <input id="notlisted" value="notlisted" type="radio" name="activationtype">
@@ -228,10 +235,10 @@ h4 {
         [{elseif $oView->isLicenseRequired() && $oView->getNextStep() == 'getActivationData'}]
             <input type="hidden" name="fnc" value="setStep2">
             <input type="hidden" name="activationtype" value="[{$oView->getActivationType()}]">
-            [{if $oView->getActivationType() == 'boughtoxidmodule' || $oView->getActivationType() == 'usedemo'}]
+            [{if $oView->getActivationType() == 'boughtoxidmodule' || $oView->getActivationType() == 'requestagain' || $oView->getActivationType() == 'usedemo'}]
                 [{assign var="oShop" value=$oView->getSubmitLicenceShop()}]
                 <h4>[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_DATA_HEADLINE"}]</h4>
-                <table style="border-style: none;" cellspacing="0" cellpadding="0">
+                <table style="border-style: none; padding: 0; border-spacing: 0; border-collapse: collapse;">
                     [{assign var="listclass" value="listitem2"}]
                     <tr>
                         <td class="edittext [{$listclass}]">
@@ -370,7 +377,7 @@ h4 {
         [{/if}]
 
         [{if $blBackStep}]
-            <span class="d3modcfg_btn icon d3color-blue" style="margin: 10px 0 0 0; margin-right: 23px;">
+            <span class="d3modcfg_btn icon d3color-blue" style="margin: 10px 23px 0 0">
                 <button type="button" onclick="aElems = document.getElementsByName('activationtype'); aElems[0].value = ''; aFElems = document.getElementsByName('fnc'); aFElems[0].value = ''; document.getElementById('activationform').submit();">
                     <i class="fas fa-reply fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_SUBMIT_BACK"}]
                 </button>

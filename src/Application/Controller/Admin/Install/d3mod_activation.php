@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -138,7 +138,11 @@ final class d3mod_activation extends d3_cfg_mod_main
             && strlen($sKey) > 32
         ) {
             $this->_saveSerial($sKey);
+            $this->_saveActIdent('');
         } else {
+            if ($this->getActivationType() == 'requestagain') {
+                $sKey = $this->_oModule->getActIdent();
+            }
             /** @var d3shopversionconverter $oShopVersionConverter */
             $oShopVersionConverter = oxNew(d3shopversionconverter::class);
             $oLicServer = d3install::getInstance()->getFromLicenceServer();
@@ -153,7 +157,10 @@ final class d3mod_activation extends d3_cfg_mod_main
 
             if ($this->getActivationType() == 'usedemo') {
                 $aLicData = $oLicServer->getDemoLicence();
-            } elseif ($this->getActivationType() == 'boughtoxidmodule') {
+            } elseif (
+                $this->getActivationType() == 'boughtoxidmodule' ||
+                $this->getActivationType() == 'requestagain'
+            ) {
                 $oLicServer->setParameter('sActIdent', $sKey);
                 $aLicData = $oLicServer->getModuleLicence();
             }
@@ -165,6 +172,7 @@ final class d3mod_activation extends d3_cfg_mod_main
 
             if ($this->_blSubmitStatus === '0' && $this->_sModSerial) {
                 $this->_oModule->setSerial($this->_sModSerial);
+                $this->_saveActIdent($sKey);
                 $this->_oModule->save();
             }
 
@@ -189,6 +197,26 @@ final class d3mod_activation extends d3_cfg_mod_main
             d3_cfg_mod::get($sModId)->setSerial($sLicKey);
             d3_cfg_mod::get($sModId)->save();
             $this->_sNextStep = 'saveSerialSuccess';
+        }
+    }
+
+    /**
+     * @param $sActIdent
+     *
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    protected function _saveActIdent($sActIdent)
+    {
+        $sModId  = Registry::get(Request::class)->getRequestEscapedParameter('modid');
+
+        if ($sActIdent) {
+            d3_cfg_mod::get($sModId)->setActIdent($sActIdent);
+            d3_cfg_mod::get($sModId)->save();
         }
     }
 
@@ -310,19 +338,16 @@ final class d3mod_activation extends d3_cfg_mod_main
         switch ($this->getActivationType())
         {
             case "boughtoxidmodule":
+            case "requestagain":
                 $sTranslIdent = "D3_CFG_MOD_ACTIVATION_SUBMIT_ACTNOW";
                 break;
             case "boughtforeign":
+            case "wantbuy":
+            case "notlisted":
                 $sTranslIdent = "D3_CFG_MOD_ACTIVATION_SUBMIT_BACK";
                 break;
             case "usedemo":
                 $sTranslIdent = "D3_CFG_MOD_ACTIVATION_SUBMIT_SETDEMO";
-                break;
-            case "wantbuy":
-                $sTranslIdent = "D3_CFG_MOD_ACTIVATION_SUBMIT_BACK";
-                break;
-            case "notlisted":
-                $sTranslIdent = "D3_CFG_MOD_ACTIVATION_SUBMIT_BACK";
                 break;
         }
 

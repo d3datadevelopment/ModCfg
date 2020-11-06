@@ -7,7 +7,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -27,7 +27,6 @@ use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\DatabaseProvider;
-use OxidEsales\Eshop\Core\TableViewNameGenerator;
 
 class d3maintenance extends d3_cfg_mod_main
 {
@@ -62,11 +61,8 @@ class d3maintenance extends d3_cfg_mod_main
         $aRemoveFields = array('aDisabledModules', 'aModulePaths', 'aModuleTemplates', 'aModuleVersions',
             'aModuleEvents', 'aModules', 'aModuleFiles');
 
-        /** @var TableViewNameGenerator $oViewNameGenerator */
-        $oViewNameGenerator = oxNew(TableViewNameGenerator::class);
-
         $oQueryBuilder = d3database::getInstance()->getQueryBuilder();
-        $oQueryBuilder->delete($oViewNameGenerator->getViewName('oxconfig'))
+        $oQueryBuilder->delete('oxconfig')
             ->where("oxvarnamme IN ('".implode($aRemoveFields, "','")."'")
             ->andWhere('oxshopid = '.$oQueryBuilder->createNamedParameter(Registry::getConfig()->getActiveShop()->getId()));
 

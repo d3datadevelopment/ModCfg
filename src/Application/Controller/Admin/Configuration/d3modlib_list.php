@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -21,5 +21,15 @@ use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_list;
 
 class d3modlib_list extends d3_cfg_mod_list
 {
-    protected $_blD3ShowLangSwitch = false;
+    /**
+     * @return string
+     */
+    public function render()
+    {
+        $sRet = parent::render();
+
+        $this->addTplParam('blShowLangSwitch', false);
+
+        return $sRet;
+    }
 }

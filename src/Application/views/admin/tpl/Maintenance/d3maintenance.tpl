@@ -3,7 +3,7 @@
 <script type="text/javascript">
     <!--
     function _groupExp(el) {
-        var _cur = el.parentNode;
+        let _cur = el.parentNode;
 
         if (_cur.className === "exp") _cur.className = "";
         else _cur.className = "exp";
@@ -33,9 +33,9 @@
     <input type="hidden" name="oxid" value="[{$oxid}]">
     <input type="hidden" name="voxid" value="[{$oxid}]">
 
-    <table border="0" width="98%">
+    <table style="border: none; width: 98%">
         <tr>
-            <td valign="top" class="edittext">
+            <td style="vertical-align: top" class="edittext">
                 <div class="groupExp">
                     <div class="">
                         <a class="rc" onclick="_groupExp(this); return false;" href="#">

@@ -5,17 +5,17 @@
         .d3pagenavigation .prevPage, .d3pagenavigation .nextPage {padding-left:0.5em; padding-right:0.2em;}
         .d3pagenavigation .disabled {color: #787878;}
     </style>
-    <table cellspacing="0" cellpadding="0" class="d3pagenavigation">
+    <table style="padding: 0; border-spacing: 0; border-collapse: collapse" class="d3pagenavigation">
         <tr>
-            <td id="nav.site" class="pagenavigation" align="left">
+            <td id="nav.site" class="pagenavigation" style="text-align: left">
                 [{if $d3pagenavi->d3GetPageNaviConfig('blShowPageDropDown')}]
                     <form name="pageForm" id="pageForm" action="[{$oViewConf->getSelfLink()}]" method="post">
                         [{$oViewConf->getHiddenSid()}]
                         [{foreach from=$d3pagenavi->getAddParams() item="value" key="name"}]
                             <input type="hidden" name="[{$name}]" value="[{$value}]">
                         [{/foreach}]
-                        [{oxmultilang ident="NAVIGATION_PAGE"}]
-                        <select name="page" onchange="this.parentNode.submit();">
+                        <label for="page">[{oxmultilang ident="NAVIGATION_PAGE"}]</label>
+                        <select id="page" name="page" onchange="this.parentNode.submit();">
                             [{section name=site start=$d3pagenavi->getFirstPage()  loop=$d3pagenavi->getLastPage()+1 step=1}]
                                 <option value="[{$smarty.section.site.index}]" [{if $smarty.section.site.index == $d3pagenavi->getCurrentPage()}]selected="selected"[{/if}]>[{$smarty.section.site.index}]</option>
                             [{/section}]
@@ -24,7 +24,7 @@
                 [{/if}]
         	</td>
             [{if $d3pagenavi->d3GetPageNaviConfig('blShowPageList')}]
-                <td class="pagenavigation" align="center">
+                <td class="pagenavigation" style="text-align: center">
                     [{if $d3pagenavi->hasLeft()}]
                         <a id="nav.page.[{$d3pagenavi->getFirstPage()}]" class="pagenavigation" href="[{$d3pagenavi->getFirstPageLink()}]">[{$d3pagenavi->getFirstPage()}]</a>
                         [{if $d3pagenavi->getCurrentPage() > $d3pagenavi->getViewRange()-$d3pagenavi->getFirstPage()}]
@@ -42,7 +42,7 @@
                     [{/if}]
                 </td>
             [{/if}]
-            <td class="pagenavigation" align="right">
+            <td class="pagenavigation" style="text-align: right">
                 [{if $d3pagenavi->d3GetPageNaviConfig('blShowDirectionLinks')}]
                     [{if $d3pagenavi->getPrevPageLink()}]
                         <a id="nav.first" class="prevPage" href="[{$d3pagenavi->getFirstPageLink()}]">[{$d3pagenavi->getFirstPageTitle()}]</a>

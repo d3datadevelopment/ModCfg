@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -134,9 +134,9 @@ $aLang = array(
     'D3_CFG_MOD_SUPPORT_1'                     => 'If you have questions or suggestions, we are at your disposal with the following contact options:',
     'D3_CFG_MOD_SUPPORT_2'                     => 'Phone: +49 (0)3721 268090',
     'D3_CFG_MOD_SUPPORT_3'                     => 'Fax: +49 (0)3721 265234',
-    'D3_CFG_MOD_SUPPORT_4'                     => 'E-Mail:',
+    'D3_CFG_MOD_SUPPORT_4'                     => 'E-Mail: ',
     'D3_CFG_MOD_SUPPORT_MAIL'                  => 'support@shopmodule.com',
-    'D3_CFG_MOD_SUPPORT_5'                     => 'The most common questions about this and other modules have been compiled in our online FAQ. These can be found at <a href="https://faq.d3data.de" target="_blank" alt="Modul-FAQ"> http://faq.oxidmodule.de </a>.',
+    'D3_CFG_MOD_SUPPORT_5'                     => 'The most common questions about this and other modules have been compiled in our online FAQ. These can be found at <a href="https://faq.d3data.de" target="_blank" title="Modul-FAQ"> https://faq.d3data.de </a>.',
     'D3_CFG_MOD_SUPPORT_6'                     => 'Our FAQ is constantly expanding. Gladly we take also from you desired answers on. Write us!',
 
     'D3_CFG_MOD_DEV'                           => 'Disclaimer',
@@ -146,9 +146,9 @@ $aLang = array(
     'D3_CFG_MOD_DEV_ADR3'                      => 'Stollberger Straße 23',
     'D3_CFG_MOD_DEV_ADR4'                      => '09380 Thalheim / Erzgeb.',
     'D3_CFG_MOD_DEV_ADR5'                      => 'Germany',
-    'D3_CFG_MOD_DEV_WEBLINK'                   => 'Homepage: <a href="http://www.shopmodule.com/" target="_blank" alt="D³ Data Development">http://www.shopmodule.com</a>',
-    'D3_CFG_MOD_DEV_MAILLINK'                  => 'E-Mail:<a href="mailto:info@shopmodule.com" alt="info@shopmodule.com">info@shopmodule.com</a>',
-    'D3_CFG_MOD_DEV_MODULELINK'                => 'An overview of all our modules can be found at <a href="http://www.oxidmodule.de/" target="_blank" alt="D³ Data Development"><strong>http://www.oxidmodule.de</strong></a>',
+    'D3_CFG_MOD_DEV_WEBLINK'                   => 'Homepage: <a href="https://www.d3data.de/" target="_blank" alt="D³ Data Development">https://www.d3data.de</a>',
+    'D3_CFG_MOD_DEV_MAILLINK'                  => 'E-Mail: <a href="mailto:info@shopmodule.com" alt="info@shopmodule.com">info@shopmodule.com</a>',
+    'D3_CFG_MOD_DEV_MODULELINK'                => 'An overview of all our modules can be found at <a href="http://www.oxidmodule.com/" target="_blank" title="D³ Data Development"><strong>http://www.oxidmodule.com</strong></a>',
 
     'D3_CFG_MOD_CHANGEKEY'                     => 'change license key',
     'D3_CFG_MOD_ADDKEY'                        => 'activate license',
@@ -169,6 +169,7 @@ $aLang = array(
     'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPID'     => 'shop id:',
     'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION'=> 'shop edition:',
     'D3_CFG_MOD_LICDETAILS_ISTEST'             => 'trial version:',
+    'D3_CFG_MOD_LICDETAILS_ACTIDENT'           => 'activation ID:',
     'D3_CFG_MOD_LICDETAILS_LICKEY'             => 'license key:',
     'D3_CFG_MOD_LICDETAILS_TESTLICENSE'        => '(trial license)',
 
@@ -281,6 +282,7 @@ $aLang = array(
 
     'D3_CFG_MOD_ACTIVATION_TYPE_HEADLINE'      => 'This wizard guides you through module activation. Please choose:',
     'D3_CFG_MOD_ACTIVATION_TYPE_OXIDMODULE'    => 'You have a license key or activation identifier',
+    'D3_CFG_MOD_ACTIVATION_TYPE_REQUESTAGAIN'  => 'You want to request the license key again',
     'D3_CFG_MOD_ACTIVATION_TYPE_FOREIGN'       => 'You have already purchased the module from another vendor (for example, OXID Exchange)',
     'D3_CFG_MOD_ACTIVATION_TYPE_FOREIGN_DESC'  => 'For all module purchases that have not been made through the Oxidmodule shop, it is necessary that we register your purchase. Only then is activation possible.',
     'D3_CFG_MOD_ACTIVATION_TYPE_DEMO'          => 'You would like to use the module free of charge as a trial version',

@@ -6,7 +6,7 @@
     UpdateList('[{$oxid}]');
     [{/if}]
 
-sOldElemId = false;
+let sOldElemId = false;
 
 function getDetails(sElemId, sDisplayType, blCollapseOld)
 {
@@ -20,7 +20,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
         sOldElemId = sElemId;
     }
 
-    oElem = document.getElementById(sElemId);
+    let oElem = document.getElementById(sElemId);
     if (oElem.style.display === sDisplayType) {
         oElem.style.display = 'none';
     } else {
@@ -30,10 +30,10 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
 
     function showLicForm(sElemId, URI)
     {
-        var sFormElemId = sElemId + '__licform';
-        var oElem = document.getElementById(sFormElemId);
+        let sFormElemId = sElemId + '__licform';
+        let oElem = document.getElementById(sFormElemId);
 
-        var sDisplayType = 'block';
+        let sDisplayType = 'block';
         getDetails(sFormElemId, sDisplayType, true);
         if (oElem.style.display === sDisplayType) {
             document.getElementById(sElemId + '__licensefrm').src = decodeURIComponent(URI);
@@ -157,9 +157,8 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
 
     .licframe {
         width: 99%;
-        height: 210px;
+        height: 293px;
         border: 0 none transparent;
-        background: url("[{$oViewConf->getModuleUrl('d3modcfg_lib','out/admin/src/bg/d3_loader_width.gif')}]") no-repeat center;
     }
 
     -->
@@ -181,7 +180,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
 
 [{if $sInstallModId}]
     [{oxmultilang ident="D3_CFG_MOD_VERSION_INSTALLSTATUS"}]
-    <iframe scrolling="no" frameborder="0" src="[{$oView->getInstallModiFrameLink()}]" width="100%" height="95%" name="d3_mod_install">
+    <iframe src="[{$oView->getInstallModiFrameLink()}]" style="width: 100%; height: 95%; border: none; overflow: hidden" name="d3_mod_install">
     </iframe>
     <style type="text/css">
         div.box{background-image: none !important;}
@@ -193,9 +192,9 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
             [{oxmultilang ident=$sErrorMLMsg}]
         </div>
     [{/if}]
-    <table border="0" width="98%">
+    <table style="border: none; width: 98%">
         <tr>
-            <td valign="top" class="edittext">
+            <td style="vertical-align: top" class="edittext">
                 [{assign var="aRemoteMods" value=$oView->getRemoteMods()}]
                 [{assign var="sDownloadField" value=$oView->getPhpVersionDownloadField()}]
                 <fieldset>
@@ -204,15 +203,13 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                     </legend>
                     <table style="width: 100%;">
                         <colgroup>
-                            <col width="35">
-                            <col width="40">
+                            <col style="width: 35px">
+                            <col style="width: 40px">
                             <col>
                             <col>
                             <col>
                             <col>
-                            <col width="40">
-                            <col width="40">
-                            <col width="40">
+                            <col style="width: 40px">
                         </colgroup>
                         <tr>
                             <th>[{oxmultilang ident="D3_CFG_LIB_STATUS"}]</th>
@@ -226,8 +223,6 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                             <th>[{oxmultilang ident="D3_CFG_LIB_INSTALLED"}]</th>
                             <th>[{oxmultilang ident="D3_CFG_LIB_AVAILABLE"}]</th>
                             <th>[{oxmultilang ident="D3_CFG_LIB_INFO"}]</th>
-                            <th>[{oxmultilang ident="D3_CFG_LIB_INSTALLATION"}]</th>
-                            <th>[{oxmultilang ident="D3_CFG_LIB_DOWNLOADIT"}]</th>
                         </tr>
 
                         [{assign var="blWhite" value=""}]
@@ -301,41 +296,10 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                         <label class="fas fa-info-circle d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_CFG_LIB_INFO"}]"></label>
                                     [{/if}]
                                 </td>
-                                <td class="[{$listclass}] [{$formatclass}]" style="height: 24px; text-align: center;">
-                                    [{if isset($aRemoteModData.availableversion) && $aRemoteModData.availableversion.autoupdate && $aRemoteModData.availableversion.$sDownloadField}]
-                                        <form name="autoupdate" id="autoupdate" action="[{$oViewConf->getSelfLink()}]" method="post">
-                                            [{$oViewConf->getHiddenSid()}]
-                                            <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-                                            <input type="hidden" name="oxid" value="[{$oxid}]">
-                                            <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
-                                            <input type="hidden" name="fnc" value="installMod">
-                                            <input type="hidden" name="modid" value="[{$aRemoteModData.availableversion.modid}]">
-
-                                            [{if !$oModule->getFieldData('oxversion')}]
-                                                <button class="fas fa-plus-square d3fa-17x d3fa-color-blue" style="cursor: pointer;" title="[{oxmultilang ident="D3_MOD_LIB_INSTALL"}]">
-                                            [{elseif $oView->version_compare($oModule->getFieldData('oxversion'), $aRemoteModData.availableversion.version, '<')}]
-                                                <button class="fas fa-sync d3fa-17x d3fa-color-blue" style="cursor: pointer;" title="[{oxmultilang ident="D3_MOD_LIB_REFRESH"}]">
-                                            [{else}]
-                                                <button class="fas fa-sync d3fa-17x d3fa-color-blue" style="cursor: pointer;" title="[{oxmultilang ident="D3_MOD_LIB_OVERWRITE"}]">
-                                            [{/if}]
-                                        </form>
-                                    [{else}]
-                                        <label class="fas fa-sync d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_MOD_LIB_NOINSTALL"}]"></label>
-                                    [{/if}]
-                                </td>
-                                <td class="[{$listclass}] [{$formatclass}]" style="height: 24px; text-align: center;">
-                                    [{if isset($aRemoteModData.availableversion) && $aRemoteModData.availableversion.$sDownloadField}]
-                                        [{assign var="clparam" value="cl="|cat:$oViewConf->getActiveClassName()}]
-                                        [{assign var="sDLLink" value=$oViewConf->getSelfLink()|oxaddparams:$clparam|oxaddparams:"fnc=filedownload"}]
-                                        <a class="fas fa-download d3fa-17x d3fa-color-blue" href="[{$sDLLink}]&amp;modid=[{$aRemoteModData.availableversion.modid}]" title="[{oxmultilang ident="D3_MOD_LIB_DOWNLOAD"}]"></a>
-                                    [{else}]
-                                        <label class="fas fa-download d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_MOD_LIB_NODOWNLOAD"}]"></label>
-                                    [{/if}]
-                                </td>
                             </tr>
                             [{if (isset($aRemoteModData.newestversion) && $aRemoteModData.newestversion.note) || (isset($aRemoteModData.availableversion) && $aRemoteModData.availableversion.note)}]
                                 <tr>
-                                    <td colspan="9" class="[{$listclass}] [{$formatclass}]" style="padding: 5px; text-align: center;">
+                                    <td colspan="7" class="[{$listclass}] [{$formatclass}]" style="padding: 5px; text-align: center;">
                                         [{if isset($aRemoteModData.newestversion) && $aRemoteModData.newestversion.note}]
                                             [{$aRemoteModData.newestversion.note}]
                                         [{elseif $aRemoteModData.availableversion.note}]
@@ -345,7 +309,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                 </tr>
                             [{/if}]
                             <tr id="[{$sKey}]" style="display: [{if $oModule->getErrorMessage() || $oView->getErrorMessage()}]table-row[{else}]none[{/if}];">
-                                <td colspan="9" class="[{$listclass}]" style="height: 30px; border: 1px solid #CCC; border-top-style: none; padding: 5px; padding-bottom: 10px;">
+                                <td colspan="7" class="[{$listclass}]" style="height: 30px; border: 1px solid #CCC; border-top-style: none; padding: 5px; padding-bottom: 10px;">
                                     [{if $oModule->getErrorMessage() || $oView->getErrorMessage()}]
                                         <div class="extension_error">
                                             [{$oModule->getErrorMessage()}]
@@ -363,7 +327,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                         <table style="width: 100%">
                                             <tr>
                                                 <td style="width:50%; border-right: 1px solid #999; vertical-align: top;">
-                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <table style="width: 100%; border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                                                         <tr>
                                                             <td class="edittext ext_edittext">
                                                                 <label for="[{$oModule->getId()}]_active">[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULEACTIVE"}]</label>
@@ -388,7 +352,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                 </td>
                                                 <td style="width:50%;">
                                                     [{if isset($aRemoteModData.newestversion) || isset($aRemoteModData.availableversion)}]
-                                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <table style="width: 100%; border: none; padding: 0; border-spacing: 0; border-collapse: collapse" >
                                                             [{if $aRemoteModData.availableversion.version}]
                                                                 <tr>
                                                                     <td>
@@ -555,6 +519,11 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                         [{/if}]
                                                     [{/foreach}]
                                                 [{/if}]
+                                                [{if $oModule->getFieldData('oxactident')}]
+                                                    [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
+                                                    <dt class="listitem[{$itemno}]"><label for="actident">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_ACTIDENT"}]</label></dt>
+                                                    <dd class="listitem[{$itemno}]">[{$oModule->getFieldData('oxactident')}]</dd>
+                                                [{/if}]
                                                 [{if $itemno == 2}][{assign var="itemno" value=""}][{else}][{assign var="itemno" value="2"}][{/if}]
                                                 <dt class="listitem[{$itemno}]"><label for="licencekey">[{oxmultilang ident="D3_CFG_MOD_LICDETAILS_LICKEY"}]</label></dt>
                                                 <dd class="listitem[{$itemno}]">
@@ -571,7 +540,16 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                     [{if $oModule->isLicenseRequired()}]
                                         <div id="[{$sKey}]__licform" style="display: none; padding-left: 10px;">
                                             <hr>
-                                            <iframe id="[{$sKey}]__licensefrm" class="licframe" src="" frameborder="0"></iframe>
+                                            <div class="licframe" style="display: flex; justify-content: center; align-items: center; position: relative">
+                                                <div class="d3loader-2 small" style="position: absolute">
+                                                    <div class="d3loader-spinner">
+                                                        <div class="d3loader-circle-1"></div>
+                                                        <div class="d3loader-circle-2"></div>
+                                                        <div class="d3loader-circle-3"></div>
+                                                    </div>
+                                                </div>
+                                                <iframe id="[{$sKey}]__licensefrm" class="licframe" src="" style="border: none; position: absolute"></iframe>
+                                            </div>
                                         </div>
                                         <div class="clear"></div>
                                     [{/if}]
@@ -633,8 +611,8 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                             [{elseif $aRemoteModData.availableversion.version}]
                                                 [{$aRemoteModData.availableversion.version}]
                                             [{elseif $aRemoteModData.formerversion.version}]
-                                                <nobr>[{oxmultilang ident="D3_CFG_LIB_FORMERVERSION"}] [{$aRemoteModData.formerversion.version}]</nobr><br>
-                                                <nobr>[{oxmultilang ident="D3_CFG_LIB_USEABLETO"}] [{$aRemoteModData.formerversion.toshop}]</nobr>
+                                                <span style="white-space: nowrap">[{oxmultilang ident="D3_CFG_LIB_FORMERVERSION"}] [{$aRemoteModData.formerversion.version}]</span><br>
+                                                <span style="white-space: nowrap">[{oxmultilang ident="D3_CFG_LIB_USEABLETO"}] [{$aRemoteModData.formerversion.toshop}]</span>
                                             [{else}]
                                                 [{oxmultilang ident="D3_CFG_LIB_VERSIONUNKNOWN"}]
                                             [{/if}]
@@ -654,30 +632,6 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                 </a>
                                             [{else}]
                                                 <label class="fas fa-info-circle d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_CFG_LIB_INFO"}]"></label>
-                                            [{/if}]
-                                        </td>
-                                        <td class="[{$listclass}] [{$formatclass}]" style="height: 24px; text-align: center;">
-                                            [{if $aRemoteModData.availableversion.autoupdate && $aRemoteModData.availableversion.$sDownloadField}]
-                                                <form name="installmod" id="installmod" action="[{$oViewConf->getSelfLink()}]" method="post">
-                                                    [{$oViewConf->getHiddenSid()}]
-                                                    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-                                                    <input type="hidden" name="oxid" value="[{$oxid}]">
-                                                    <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
-                                                    <input type="hidden" name="fnc" value="installMod">
-                                                    <input type="hidden" name="modid" value="[{$aRemoteModData.availableversion.modid}]">
-                                                    <button class="fas fa-plus-square d3fa-17x d3fa-color-blue" type="submit" title="[{oxmultilang ident="D3_MOD_LIB_INSTALL"}]">
-                                                </form>
-                                            [{else}]
-                                                <label class="fas fa-sync d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_MOD_LIB_NOINSTALL"}]"></label>
-                                            [{/if}]
-                                        </td>
-                                        <td class="[{$listclass}] [{$formatclass}]" style="height: 24px; text-align: center;">
-                                            [{if $aRemoteModData.availableversion.$sDownloadField}]
-                                                [{assign var="clparam" value="cl="|cat:$oViewConf->getActiveClassName()}]
-                                                [{assign var="sDLLink" value=$oViewConf->getSelfLink()|oxaddparams:$clparam|oxaddparams:"fnc=filedownload"}]
-                                                <a class="fas fa-download d3fa-17x d3fa-color-blue" href="[{$sDLLink}]&amp;modid=[{$aRemoteModData.availableversion.modid}]" title="[{oxmultilang ident="D3_MOD_LIB_DOWNLOAD"}]"></a>
-                                            [{else}]
-                                                <label class="fas fa-download d3fa-17x d3fa-color-disabled" title="[{oxmultilang ident="D3_MOD_LIB_NODOWNLOAD"}]"></label>
                                             [{/if}]
                                         </td>
                                     </tr>

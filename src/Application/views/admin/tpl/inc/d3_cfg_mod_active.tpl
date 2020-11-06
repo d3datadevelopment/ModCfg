@@ -7,7 +7,7 @@
 <table style="width: 100%">
     <tr>
         <td style="width:50%; border-right: 1px solid #999;">
-            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <table style="border-spacing: 0; padding: 0; border: none; width: 100%">
                 <tr>
                     <td class="edittext ext_edittext">
                         <label for="module_active">[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULEACTIVE"}]</label>
@@ -47,14 +47,14 @@
         <td>
             [{assign var="blD3HasLog" value=$oView->checkD3Log()}]
             [{assign var="oLogSet" value=$oView->getLogSet()}]
-            <table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+            <table style="border-spacing: 0; border-collapse: collapse; padding: 0; border: none; width: 100%;">
                 <tr>
                     <td class="edittext ext_edittext" style="width: 50%;">
                         [{if $blD3HasLog}]
                             <label for="loglevelelement">[{oxmultilang ident="D3_CFG_MOD_GENERAL_MODULELOGGING"}]</label>
                         [{/if}]
                     </td>
-                    <td class="edittext ext_edittext" align="left">
+                    <td class="edittext ext_edittext" style="text-align: left">
                     [{if $blD3HasLog}]
                         [{include file="d3loglevel_form.tpl" oLogSet=$oLogSet oModule=false}]
                     [{/if}]
@@ -64,7 +64,7 @@
                     <td class="edittext ext_edittext" style="width: 50%;">
                         &nbsp;
                     </td>
-                    <td class="edittext ext_edittext" align="left">
+                    <td class="edittext ext_edittext" style="text-align: left">
                         &nbsp;
                     </td>
                 </tr>

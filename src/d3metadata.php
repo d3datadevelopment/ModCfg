@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -89,6 +89,7 @@ $aModule = [
         'd3/modcfg/Application/Model/d3protocol.php',
         'd3/modcfg/Application/Model/d3remotecache.php',
         'd3/modcfg/Application/Model/d3module.php',
+        'd3/modcfg/Application/Model/d3thememapping.php',
 
         'd3/modcfg/Application/Model/d3simplexml.php',
         'd3/modcfg/Application/Model/d3str.php',
@@ -195,6 +196,7 @@ $aModule = [
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_list.php',
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_extend.php',
         'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_main.php',
+        'd3/modcfg/Application/Controller/Admin/TPLBlocks/d3tplblocks_base.php',
 
         'd3/modcfg/Modules/Application/Controller/d3_oxshopcontrol_modcfg_extension.php',
         'd3/modcfg/Modules/Application/Controller/Admin/d3_navigation_modcfgupdate.php',

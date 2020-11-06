@@ -19,7 +19,7 @@
 <script type="text/javascript">
 <!--
 
-var oLastDropDownElem;
+let oLastDropDownElem;
 
 function dropDownHandler(oElement)
 {
@@ -64,20 +64,20 @@ function submitDropDown(oElement, sText)
 </form>
 
 <fieldset style="padding: 5px; margin-bottom: 10px; height: 91%; width: 99%; float: left; background-color: white;">
-    <legend>
-        <form action="[{$oViewConf->getSelfLink()}]" id="fileSelectForm" method="post">
-            [{$oViewConf->getHiddenSid()}]
-            <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-            <input type="hidden" name="actshop" value="[{$shop->id}]">
-            <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
+    <form action="[{$oViewConf->getSelfLink()}]" id="fileSelectForm" method="post">
+        [{$oViewConf->getHiddenSid()}]
+        <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
+        <input type="hidden" name="actshop" value="[{$shop->id}]">
+        <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
+        <legend>
             <select name="sFileSelect" size="1" onchange="document.getElementById('fileSelectForm').submit();">
                 [{foreach from=$oView->getEditableFiles() key="sKey" item="aFile"}]
                     <option [{if $sFileSelect == $sKey}] selected[{/if}] value="[{$sKey}]">[{$oView->getFileName($sKey)}]</option>
                 [{/foreach}]
             </select>
             [{if $oView->isWriteable()}][{oxmultilang ident="D3_CFG_CFGITEM_EDITABLE"}][{/if}][{if !$oView->getWritePermission()}][{oxmultilang ident="D3_CFG_CFGITEM_WRITEPROTECTED"}][{else}]<span style="color:darkred;"> [{oxmultilang ident="D3_CFG_CFGITEM_NOTWRITEPROTECTED"}]</span>[{/if}]
-        </form>
-    </legend>
+        </legend>
+    </form>
     <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="height: 97%;" [{if !$oView->isWriteable()}]onSubmit="return confirm('[{oxmultilang ident="D3_CFG_CFGITEM_EDITABLE_QUESTION"}]');"[{else}]onSubmit="return confirm('[{oxmultilang ident="D3_CFG_CFGITEM_SAVE_QUESTION"}]');"[{/if}]>
         [{$oViewConf->getHiddenSid()}]
         <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">

@@ -172,7 +172,7 @@
     }
 }
 
-#mask, #popup {
+#mask, #popup, #popup2 {
     display:                none;
     visibility:             hidden;
 }
@@ -190,7 +190,8 @@
     background-color:       @d3_color_white;
 }
 
-#popup.on {
+#popup.on,
+#popup2.on {
     z-index:                2000;
     width:                  auto;
     visibility:             visible;
@@ -211,6 +212,17 @@
     span {
         font-weight:            bold;
         line-height:            4;
+    }
+}
+
+#popup2.on {
+    border:                 none;
+    background-color:       transparent;
+    height:                 10rem;
+    top:                    40%;
+
+    &.small {
+        height:                 5rem;
     }
 }
 

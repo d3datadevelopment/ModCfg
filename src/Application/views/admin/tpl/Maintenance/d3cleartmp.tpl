@@ -62,7 +62,7 @@
         font-weight: bold;
     }
 
-    #popup {
+    #popup2 {
         display: none;
     }
 
@@ -72,9 +72,9 @@
     }
 </style>
 
-<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<table style="width: 98%; border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
     <tr>
-        <td valign="top" class="edittext" width="50%">
+        <td style="vertical-align: top; width: 50%;" class="edittext">
             [{block name="d3cleartmp_syscommand1"}]
                 [{if $oCfg->getValue('sClrTmp_systemaction1command')}]
                     <span class="d3modcfg_btn icon d3color-green commandBtn">
@@ -104,7 +104,7 @@
             <div class="clear"></div>
 
             [{block name="d3cleartmp_form"}]
-                <form name="delform" id="delform" action="[{$oViewConf->getSelfLink()}]" method="post" onsubmit="[{if !$oView->hasTicker()}]document.getElementById('mask').className='on';document.getElementById('popup').className='on';[{/if}] return;">
+                <form name="delform" id="delform" action="[{$oViewConf->getSelfLink()}]" method="post" onsubmit="[{if !$oView->hasTicker()}]document.getElementById('mask').className='on';document.getElementById('popup2').className='d3loader-2 on';[{/if}] return;">
                     [{$oViewConf->getHiddenSid()}]
                     <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
                     [{if $oView->hasTicker()}]
@@ -113,11 +113,11 @@
                         <input type="hidden" name="fnc" value="clearTmp">
                     [{/if}]
 
-                    <table cellspacing="0" cellpadding="0" border="0">
+                    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                         [{block name="d3cleartmp_all"}]
                             [{if false == $oCfg->getValue('blClrTmp_showcleartmpoptions')}]
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top;">
                                         <label for="clearall">[{oxmultilang ident="D3_CFG_CLRTMP_ALL"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -137,7 +137,7 @@
                         [{block name="d3cleartmp_separated"}]
                             [{if false == $oCfg->getValue('blClrTmp_showcleartmpoptions')}]
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearfrontend">[{oxmultilang ident="D3_CFG_CLRTMP_TPL"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -147,7 +147,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="cleardbcache">[{oxmultilang ident="D3_CFG_CLRTMP_DB"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -157,7 +157,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearlangcache">[{oxmultilang ident="D3_CFG_CLRTMP_LANG"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -167,7 +167,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearmenucache">[{oxmultilang ident="D3_CFG_CLRTMP_MENU"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -177,7 +177,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearclasspathcache">[{oxmultilang ident="D3_CFG_CLRTMP_CLASSPATH"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -187,7 +187,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearstructurecache">[{oxmultilang ident="D3_CFG_CLRTMP_STRUCTURE"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -197,7 +197,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="cleartagcloudcache">[{oxmultilang ident="D3_CFG_CLRTMP_TAGCLOUD"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -207,7 +207,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearseocache">[{oxmultilang ident="D3_CFG_CLRTMP_SEO"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -217,7 +217,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="edittext" valign="top">
+                                    <td class="edittext" style="vertical-align: top">
                                         <label for="clearmodulecache">[{oxmultilang ident="D3_CFG_CLRTMP_MODULE"}]</label>
                                     </td>
                                     <td class="edittext">
@@ -232,7 +232,7 @@
                             [{if false == $oCfg->getValue('blClrTmp_showcleartmpoptions')}]
                                 [{if $oView->getUserDefinedAction(1)}]
                                     <tr>
-                                        <td class="edittext" valign="top">
+                                        <td class="edittext" style="vertical-align: top">
                                             <label for="clearuser1cache">[{$oView->getUserDefinedAction(1)}]</label>
                                         </td>
                                         <td class="edittext">
@@ -243,7 +243,7 @@
                                 [{/if}]
                                 [{if $oView->getUserDefinedAction(2)}]
                                     <tr>
-                                        <td class="edittext" valign="top">
+                                        <td class="edittext" style="vertical-align: top">
                                             <label for="clearuser2cache">[{$oView->getUserDefinedAction(2)}]</label>
                                         </td>
                                         <td class="edittext">
@@ -257,7 +257,7 @@
 
                         [{block name="d3cleartmp_views"}]
                             <tr>
-                                <td class="edittext" valign="top">
+                                <td class="edittext" style="vertical-align: top">
                                     <label for="clearviewcache">[{oxmultilang ident="D3_CFG_CLRTMP_VIEWS"}]</label>
                                 </td>
                                 <td class="edittext">
@@ -287,13 +287,13 @@
                 </form>
             [{/block}]
         </td>
-        <td valign="top" class="edittext" align="left">
+        <td style="vertical-align: top; text-align: left" class="edittext">
             [{block name="d3cleartmp_info"}]
                 [{if false == $oCfg->getValue('blClrTmp_showcleartmpoptions')}]
                     <fieldset>
                         <legend>[{oxmultilang ident="D3_CFG_CLRTMP_STAT"}]</legend>
 
-                        <table cellspacing="0" cellpadding="0" border="0" id="statistik">
+                        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse" id="statistik">
                             [{block name="d3cleartmp_infoitems"}]
                                 <tr>
                                     <td class="bold">[{oxmultilang ident="D3_CFG_CLRTMP_PATH"}]</td>
@@ -400,6 +400,12 @@
 </table>
 
 <div id="mask" class=""></div>
-<div id="popup" class=""><i class="fas fa-spinner fa-4x fa-pulse fa-pull-left"></i><span>[{oxmultilang ident="D3_CFG_CLRTMP_MSG1"}] [{oxmultilang ident="D3_CFG_PLEASEWAIT"}]</span></div>
+<div id="popup2" class="d3loader-2">
+    <div class="d3loader-spinner">
+        <div class="d3loader-circle-1"></div>
+        <div class="d3loader-circle-2"></div>
+        <div class="d3loader-circle-3"></div>
+    </div>
+</div>
 
 [{include file="d3_cfg_mod_inc.tpl"}]
