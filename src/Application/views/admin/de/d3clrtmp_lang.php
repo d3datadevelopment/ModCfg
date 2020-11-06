@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -235,4 +235,19 @@ $aLang = array(
     'D3_CFG_MNT_CHECKALL'                  => 'alle Einträge prüfen',
     'D3_CFG_MNT_SUBMIT'                    => 'Aktion durchführen',
     'D3_CFG_MNT_SUCCESS'                   => 'Die Wartung wurde durchgeführt.',
+
+    'D3_CFG_CLRTMP_CLI_COMMON_RUNFROMCLI'  => 'Dieses Script muss von der Befehlszeile aus ausgeführt werden.',
+    'D3_CFG_CLRTMP_CLI_COMMON_NOVALIDTYPE' => 'Kein gültiger Typ definiert.',
+    'D3_CFG_CLRTMP_CLI_HELP'               => 'Löscht Objekte aus dem TMP-Ordner.',
+    'D3_CFG_CLRTMP_CLI_OPTION_VERSION'     => 'zeigt Version',
+    'D3_CFG_CLRTMP_CLI_OPTION_QUIET'       => 'verhindert die Anzeige der Ausgabe',
+    'D3_CFG_CLRTMP_CLI_OPTION_LANG'        => 'optional - Sprache der ausgegebenen Meldungen, mögliche Werte sind: "%1$s"',
+    'D3_CFG_CLRTMP_CLI_OPTION_HELP'        => 'Diesen Hilfetext anzeigen und den Aufruf verlassen.',
+    'D3_CFG_CLRTMP_CLI_OPTION_NOCOLORS'    => 'Verwendet keine Farben in der Ausgabe. Nützlich bei der Weitergabe der Ausgabe an andere Tools oder Dateien.',
+    'D3_CFG_CLRTMP_CLI_OPTION_LOGLEVELS'   => 'Kleinstes Level der anzuzeigenden Meldungen. Standard ist "info". Gültige Stufen sind: "%1$s".',
+    'D3_CFG_CLRTMP_CLI_COMMAND'            => 'Dieses Tool akzeptiert einen Befehl als ersten Parameter, wie unten beschrieben:',
+    'D3_CFG_CLRTMP_CLI_COMMAND_RUN'        => 'Ausführen des Löschauftrages',
+    'D3_CFG_CLRTMP_CLI_ARGUMENT_TYPE'      => 'Typen der zu löschenden Objekte, mögliche Werte sind: "%1$s"',
+    'D3_CFG_CLRTMP_CLI_ARGUMENT_ENCLOSER'  => '", "',
+    'D3_CFG_CLRTMP_CLI_FINISHED_SUCCFESSFULLY' => 'Das Script wurde erfolgreich beendet.',
 );

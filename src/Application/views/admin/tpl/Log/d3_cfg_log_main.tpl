@@ -8,7 +8,7 @@
 
     function ChangeFormat()
     {
-        var oOPField = document.getElementById("codeformat");
+        let oOPField = document.getElementById("codeformat");
         if (oOPField.className === 'code')
             oOPField.className = 'codepre';
         else
@@ -44,10 +44,10 @@
 </form>
 
 [{if $edit->getId()}]
-    <table cellspacing="0" cellpadding="0" border="0" style="width:98%;">
+    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 98%">
         <tr>
-            <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td class="edittext" style="vertical-align: top; padding-top:10px;padding-left:10px;">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     <tr>
                         <td class="edittext">
                             [{oxmultilang ident="D3_CFG_LOG_MODULE"}]&nbsp;
@@ -121,8 +121,8 @@
             </td>
 
 <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left" style="width: 65%; height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td class="edittext" style="vertical-align: top; text-align: left; width: 65%; height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     [{if $edit->getFieldData('oxaction')}]
                         <tr>
                             <td class="edittext">
@@ -177,10 +177,10 @@
             <input type="hidden" name="[{$key}]" value="[{$formparam}]">
         [{/foreach}]
 
-        <table cellspacing="0" cellpadding="0" border="0" style="width:50%;">
+        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 50%">
             <tr>
-                <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
-                    <table cellspacing="0" cellpadding="0" border="0">
+                <td class="edittext" style="vertical-align: top; padding-top:10px;padding-left:10px;">
+                    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                         <tr>
                             <td class="edittext">
                                 [{oxmultilang ident="D3_CFG_EXPORT_EXP1"}]&nbsp;
@@ -263,7 +263,7 @@
                 </td>
 
                 <!-- Anfang rechte Seite -->
-                <td valign="top" class="edittext" align="left" style="height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
+                <td class="edittext" style="vertical-align: top; text-align: left; height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
 
                 </td>
                 <!-- Ende rechte Seite -->

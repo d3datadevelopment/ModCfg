@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development, Thomas Dartsch
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -23,6 +23,7 @@ use OxidEsales\Eshop\Core\Config;
 class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
 {
     /**
+     * @deprecated use d3thememapping::d3GetParentThemeId()
      * @return string
      */
     public function d3GetParentThemeId()
@@ -38,6 +39,7 @@ class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
     }
 
     /**
+     * @deprecated use d3thememapping::d3GetMappedThemeId()
      * @param $aMetaModuleIds
      * @return string
      */
@@ -61,6 +63,7 @@ class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
     }
 
     /**
+     * @deprecated use d3thememapping::d3getThemeMapping()
      * @param $sDefaultTheme
      * @param $sModuleId
      * @return string
@@ -76,6 +79,7 @@ class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
     }
 
     /**
+     * @deprecated use d3thememapping::d3IsThemeIdMappedTo()
      * @param $sParentThemeId
      * @param $aMetaModuleIds
      * @return bool

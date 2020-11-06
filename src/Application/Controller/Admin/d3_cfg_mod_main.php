@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -33,6 +33,7 @@ use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Facts\Config\ConfigFile;
+use stdClass;
 
 class d3_cfg_mod_main extends AdminDetailsController
 {
@@ -155,7 +156,7 @@ class d3_cfg_mod_main extends AdminDetailsController
         $soxId = $this->getEditObjectId();
 
         if (false == $this->d3GetSet()->getFieldData('oxvalue') && d3log::isCallable()) {
-            $this->d3getLog()->Log(
+            $this->d3getLog()->log(
                 d3log::INFO,
                 __CLASS__,
                 __FUNCTION__,
@@ -193,7 +194,7 @@ class d3_cfg_mod_main extends AdminDetailsController
                 }
 
                 foreach ($oOtherLang as $id => $language) {
-                    $oLang= new \stdClass();
+                    $oLang= new stdClass();
                     $oLang->sLangDesc = $language;
                     $oLang->selected = ($id == $this->_iEditLang);
                     $this->_aViewData["otherlang"][$id] =  clone $oLang;
@@ -301,8 +302,6 @@ class d3_cfg_mod_main extends AdminDetailsController
         }
 
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
-
-        return;
     }
 
     /**
@@ -476,7 +475,7 @@ class d3_cfg_mod_main extends AdminDetailsController
         $oFS = oxNew(d3filesystem::class);
 
         if ($this->_sHelpLinkMLAdd) {
-            $sUrl .= $oFS->unprefixedslashit(Registry::getLang()->TranslateString($this->_sHelpLinkMLAdd));
+            $sUrl .= $oFS->unprefixedslashit(Registry::getLang()->translateString($this->_sHelpLinkMLAdd));
         }
 
         $aFileName = $oFS->splitFilename($sUrl);
@@ -563,7 +562,7 @@ class d3_cfg_mod_main extends AdminDetailsController
 
     public function fakeBottomMenu()
     {
-        $myAdminNavig = new \stdClass;
+        $myAdminNavig = new stdClass;
         $myAdminNavig->ordermanager_new = 1;
         $this->addTplParam('bottom_buttons', $myAdminNavig);
     }

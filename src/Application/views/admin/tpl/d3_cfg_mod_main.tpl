@@ -7,7 +7,7 @@
 [{/if}]
 function UpdateList( sID)
 {
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.oxid.value=sID;
     oSearch.fnc.value='';
     oSearch.submit();
@@ -15,12 +15,12 @@ function UpdateList( sID)
 
 function EditThis( sID)
 {
-    var oTransfer = document.getElementById("transfer");
+    let oTransfer = document.getElementById("transfer");
     oTransfer.oxid.value=sID;
     oTransfer.cl.value='[{$oViewConf->getActiveClassName()}]';
     oTransfer.submit();
 
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.actedit.value = 0;
     oSearch.oxid.value=sID;
     oSearch.submit();
@@ -28,7 +28,7 @@ function EditThis( sID)
 
 function ChangeLstrt()
 {
-    var oSearch = document.getElementById("search");
+    let oSearch = document.getElementById("search");
     if (document.search !== null && document.search.lstrt !== null)
         oSearch.lstrt.value=0;
 }
@@ -50,17 +50,17 @@ function ChangeLstrt()
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-<table cellspacing="0" cellpadding="0" border="0" style="width:98%;">
-    <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="padding: 0;margin: 0;height:0;">
-        [{$oViewConf->getHiddenSid()}]
-        <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-        <input type="hidden" name="fnc" value="">
-        <input type="hidden" name="oxid" value="[{$oxid}]">
-        <input type="hidden" name="voxid" value="[{$oxid}]">
-        <input type="hidden" name="editval[[{$edit->d3GetFieldLongName('oxid')}]]" value="[{$oxid}]">
+<form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" style="padding: 0;margin: 0;height:0;">
+    [{$oViewConf->getHiddenSid()}]
+    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
+    <input type="hidden" name="fnc" value="">
+    <input type="hidden" name="oxid" value="[{$oxid}]">
+    <input type="hidden" name="voxid" value="[{$oxid}]">
+    <input type="hidden" name="editval[[{$edit->d3GetFieldLongName('oxid')}]]" value="[{$oxid}]">
+    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 98%">
         <tr>
-            <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td class="edittext" style="vertical-align: top; padding-top:10px;padding-left:10px;">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     <tr>
                         <td class="edittext">
                             <label for="MainActive">[{oxmultilang ident="D3_MODPROFILE_MAIN_ACTIVE"}]</label>
@@ -96,8 +96,8 @@ function ChangeLstrt()
                 </table>
             </td>
 <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left" style="height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td class="edittext" style="text-align: left; vertical-align: top; height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     <tr>
                         <td class="edittext">
                             <label for="MainSort">[{oxmultilang ident="D3_MODPROFILE_MAIN_SORT"}]</label>&nbsp;
@@ -133,7 +133,7 @@ function ChangeLstrt()
             </td>
 <!-- Ende rechte Seite -->
         </tr>
-    </form>
-</table>
+    </table>
+</form>
 
 [{include file="d3_cfg_mod_inc.tpl"}]

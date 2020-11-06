@@ -21,19 +21,19 @@
 
     <h3>[{oxmultilang ident="D3MODCFG_LIB_TRANSL"}]</h3>
 
-    <table border="0" id="d3modcfg_lib_cfg">
+    <table style="border: none" id="d3modcfg_lib_cfg">
         <tr>
-            <td valign="top" class="edittext">
+            <td style="vertical-align: top" class="edittext">
 
                 [{assign var="blD3HasLog" value=$oView->checkD3Log()}]
-                <table cellspacing="0" cellpadding="0" border="0">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     <tr>
                         <td class="edittext ext_edittext">
-                            [{oxmultilang ident="D3_CFG_MODCFG_CFG_HIDEADMINHOMEINFO"}]
+                            <label for="blModCfg_noAdminHomeInfo">[{oxmultilang ident="D3_CFG_MODCFG_CFG_HIDEADMINHOMEINFO"}]</label>
                         </td>
-                        <td class="edittext ext_edittext" align="left">
+                        <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blModCfg_noAdminHomeInfo]" value="0">
-                            <input type="checkbox" name="value[blModCfg_noAdminHomeInfo]" value="1" [{if $value->d3_cfg_mod__blModCfg_noAdminHomeInfo}] checked[{/if}]>
+                            <input id="blModCfg_noAdminHomeInfo" type="checkbox" name="value[blModCfg_noAdminHomeInfo]" value="1" [{if $value->d3_cfg_mod__blModCfg_noAdminHomeInfo}] checked[{/if}]>
                         </td>
                     </tr>
                     <tr>

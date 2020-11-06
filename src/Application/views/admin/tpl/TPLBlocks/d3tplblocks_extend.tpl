@@ -36,17 +36,21 @@
     <input type="hidden" name="oxid" value="[{$oxid}]">
     <input type="hidden" name="editval[oxtplblocks__oxid]" value="[{$oxid}]">
 
-    <table cellspacing="0" cellpadding="0" border="0" width="98%">
-        <colgroup><col width="30%"><col width="5%"><col width="65%"></colgroup>
+    <table style="border: none; width: 98%; padding: 0; border-spacing: 0; border-collapse: collapse">
+        <colgroup>
+            <col style="width: 30%">
+            <col style="width: 5%">
+            <col style="width: 65%">
+        </colgroup>
         <tr>
-            <td valign="top" class="edittext" width="50%">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td style="vertical-align: top; width: 50%" class="edittext">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
 
                     [{block name="admin_d3tplblocks_extend_form"}]
 
                         [{if $oView->hasTplBlocks()}]
                             <tr>
-                                <td class="edittext" valign="top" rowspan="4" style="padding: 10px 20px 10px 0; vertical-align: middle;">
+                                <td class="edittext" rowspan="4" style="padding: 10px 20px 10px 0; vertical-align: middle;">
                                     <label for="cleartplblockslist">[{oxmultilang ident="D3TPLBLOCKS_MODULE"}]</label>
                                     <select name="tplblockmodule" size="1" id="cleartplblockslist">
                                         <option value="">[{oxmultilang ident="D3TPLBLOCKS_CHOOSEMODULE"}]</option>
@@ -102,8 +106,8 @@
             </td>
             <td>&nbsp;</td>
             <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td style="text-align: left; vertical-align: top" class="edittext">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     [{block name="admin_d3tplblocks_extend_editor"}]
                         [{if $oView->hasTplBlocks()}]
                             <tr>

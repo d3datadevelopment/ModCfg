@@ -8,7 +8,7 @@
 
 function UpdateList( sID)
 {
-    var oSearch = parent.list.document.getElementById("search");
+    let oSearch = parent.list.document.getElementById("search");
     oSearch.oxid.value=sID;
     oSearch.fnc.value='';
     oSearch.submit();
@@ -16,6 +16,7 @@ function UpdateList( sID)
 
 function transferFields()
 {
+    let oSearch;
     oSearch = top.basefrm.list.document.getElementById('search');
     oSearch.delete_oxfromtime.value = document.getElementById('myedit').delete_oxfromtime.value;
     oSearch.delete_oxtotime.value = document.getElementById('myedit').delete_oxtotime.value;
@@ -53,10 +54,10 @@ function transferFields()
         <input type="hidden" name="[{$key}]" value="[{$formparam}]">
     [{/foreach}]
 
-    <table cellspacing="0" cellpadding="0" border="0" style="width:98%;">
+    <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width:98%;">
         <tr>
-            <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td class="edittext" style="vertical-align: top; padding-top:10px;padding-left:10px;">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     <tr>
                         <td class="edittext">
                             [{oxmultilang ident="D3_CFG_CLEAN_DEL1"}]&nbsp;
@@ -122,7 +123,7 @@ function transferFields()
             </td>
 
     <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left" style="height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
+            <td class="edittext" style="text-align: left; vertical-align: top; height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
 
             </td>
     <!-- Ende rechte Seite -->

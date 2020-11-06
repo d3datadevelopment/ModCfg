@@ -7,7 +7,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -26,15 +26,17 @@ use D3\ModCfg\Application\Controller\Admin\TPLBlocks as ModuleAdminTplController
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.1';
+$sMetadataVersion = '2.0';
 
 $sModuleId = 'd3modcfg_lib';
+$sLogo = '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> ';
 
 $aModule = [
     'id'          => $sModuleId,
-    'title'       => 
-        '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> '.
-        ' Modul-Connector',
+    'title'       => [
+        'de'    => $sLogo . 'Modul-Connector',
+        'en'    => $sLogo . 'Module Connector'
+    ],
     'description' => [
         'de' => 'enth&auml;lt:<ul><li>Modulkonfiguration</li>'.
                 '<li>Installationsassistent</li>'.
@@ -47,7 +49,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '5.3.3.0',
+    'version'     => '5.3.4.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',

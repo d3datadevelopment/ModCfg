@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -112,9 +112,9 @@ $aLang = array(
     'D3_INSTALL_PROTOKOLLITEM_CLT'                     => 'clear TMP folder',
     'D3_INSTALL_PROTOKOLLITEM_CNE'                     => 'Curl request isn\'t executable',
     'D3_INSTALL_PROTOKOLLITEM_DNC'                     => 'directory couldn\'t created: %s',
-    'D3_INSTALL_PROTOKOLLITEM_DNC_E'                   => 'Could not create dir <b>%s</b>, please create it manually.<br>For further informations see <a href="http://faq.oxidmodule.de/">http://faq.oxidmodule.de/</a>',
+    'D3_INSTALL_PROTOKOLLITEM_DNC_E'                   => 'Could not create dir <b>%s</b>, please create it manually.<br>For further informations see <a href="https://faq.d3data.de/">https://faq.d3data.de/</a>',
     'D3_INSTALL_PROTOKOLLITEM_DND'                     => 'directory couldn\'t deleted: %s',
-    'D3_INSTALL_PROTOKOLLITEM_DNM_E'                   => 'Unable to set write permissions for <b>%s</b>, please configure it manually.<br>For further informations see <a href="http://faq.oxidmodule.de/">http://faq.oxidmodule.de/</a>',
+    'D3_INSTALL_PROTOKOLLITEM_DNM_E'                   => 'Unable to set write permissions for <b>%s</b>, please configure it manually.<br>For further informations see <a href="https://faq.d3data.de/">https://faq.d3data.de/</a>',
     'D3_INSTALL_PROTOKOLLITEM_DNO'                     => 'unable to read directory: %s',
     'D3_INSTALL_PROTOKOLLITEM_FCF'                     => 'unable to copy element: %s',
     'D3_INSTALL_PROTOKOLLITEM_FCG'                     => 'Group assignment can not be changed: %s',

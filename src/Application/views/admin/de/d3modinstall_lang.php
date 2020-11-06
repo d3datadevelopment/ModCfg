@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -112,9 +112,9 @@ $aLang = array(
     'D3_INSTALL_PROTOKOLLITEM_CLT'                     => 'TMP-Ordner geleert',
     'D3_INSTALL_PROTOKOLLITEM_CNE'                     => 'cURL-Anfrage ist nicht ausführbar',
     'D3_INSTALL_PROTOKOLLITEM_DNC'                     => 'Verzeichnis kann nicht erstellt werden: %s',
-    'D3_INSTALL_PROTOKOLLITEM_DNC_E'                   => 'Kann folgendes Verzeichnis nicht erstellen: <b>%s</b>, bitte legen Sie dies selbst an. Möglicherweise hat das Script, die Gruppe oder der Besitzer nicht genug Rechte. Dies kann zu weiteren Fehlern führen.<br>Weitere Informationen dazu erhalten Sie unter <a href="http://faq.oxidmodule.de/">http://faq.oxidmodule.de/</a>',
+    'D3_INSTALL_PROTOKOLLITEM_DNC_E'                   => 'Kann folgendes Verzeichnis nicht erstellen: <b>%s</b>, bitte legen Sie dies selbst an. Möglicherweise hat das Script, die Gruppe oder der Besitzer nicht genug Rechte. Dies kann zu weiteren Fehlern führen.<br>Weitere Informationen dazu erhalten Sie unter <a href="https://faq.d3data.de/">https://faq.d3data.de/</a>',
     'D3_INSTALL_PROTOKOLLITEM_DND'                     => 'Verzeichnis kann nicht gelöscht werden: %s',
-    'D3_INSTALL_PROTOKOLLITEM_DNM_E'                   => 'Kann Schreibrechte für folgendes Verzeichnis nicht setzen: <b>%s</b>, stellen Sie dies bitte selbst ein. Möglicherweise hat das Script, die Gruppe oder der Besitzer nicht genug Rechte. Dies kann zu weiteren Fehlern führen.<br>Weitere Informationen dazu erhalten Sie unter <a href="http://faq.oxidmodule.de/">http://faq.oxidmodule.de/</a>',
+    'D3_INSTALL_PROTOKOLLITEM_DNM_E'                   => 'Kann Schreibrechte für folgendes Verzeichnis nicht setzen: <b>%s</b>, stellen Sie dies bitte selbst ein. Möglicherweise hat das Script, die Gruppe oder der Besitzer nicht genug Rechte. Dies kann zu weiteren Fehlern führen.<br>Weitere Informationen dazu erhalten Sie unter <a href="https://faq.d3data.de/">https://faq.d3data.de/</a>',
     'D3_INSTALL_PROTOKOLLITEM_DNO'                     => 'Verzeichnis kann nicht gelesen werden: %s',
     'D3_INSTALL_PROTOKOLLITEM_FCF'                     => 'Element kann nicht kopiert werden: %s',
     'D3_INSTALL_PROTOKOLLITEM_FCG'                     => 'Gruppenzuordnung kann nicht geändert werden: %s',

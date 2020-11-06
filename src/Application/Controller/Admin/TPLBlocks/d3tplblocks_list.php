@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -20,7 +20,7 @@ namespace D3\ModCfg\Application\Controller\Admin\TPLBlocks;
 use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_list;
 use D3\ModCfg\Application\Model\d3oxtplblocks;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
-
+use OxidEsales\Eshop\Core\Registry;
 
 class d3tplblocks_list extends d3_cfg_mod_list
 {
@@ -32,7 +32,7 @@ class d3tplblocks_list extends d3_cfg_mod_list
     protected $_blShowListItems = true;
 
     /**
-     * @return null|string
+     * @return string
      */
     public function render()
     {
@@ -45,6 +45,17 @@ class d3tplblocks_list extends d3_cfg_mod_list
     }
 
     /**
+     * @return d3oxtplblocks
+     */
+    public function d3getListItemObject()
+    {
+        /** @var d3oxtplblocks $listObject */
+        $listObject = parent::d3getListItemObject();
+
+        return $listObject;
+    }
+
+    /**
      * @param array $aWhere
      * @param string $sqlFull
      * @return mixed|string
@@ -52,11 +63,17 @@ class d3tplblocks_list extends d3_cfg_mod_list
      */
     protected function _prepareWhereQuery($aWhere, $sqlFull)
     {
+        $aWhere = array_merge(
+            $aWhere,
+            [$this->d3getListItemObject()->getViewName(true).'.oxshopid' => Registry::getConfig()->getShopId()]
+        );
+
         $query = parent::_prepareWhereQuery($aWhere, $sqlFull);
 
         $sSearch = '';
         $oProfiles = $this->d3getListItemObject();
         $sSqlActiveSnippet = $oProfiles->getSqlActiveSnippet();
+
         if ($sSqlActiveSnippet) {
             $sSearch .= " AND (".$sSqlActiveSnippet.") ";
         }

@@ -8,7 +8,7 @@
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
@@ -27,6 +27,7 @@ use D3\ModCfg\Application\Model\Installwizzard\d3installdbtable;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use Exception;
 use OxidEsales\Facts\Facts;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\ShopVersion;
@@ -38,6 +39,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\ConnectionException;
 use Doctrine\DBAL\DBALException;
+use ReflectionException;
 
 class d3_cfg_mod_update extends d3install_updatebase
 {
@@ -100,15 +102,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '5.3.3.0';
-    public $sModRevision = '5330';
+    public $sModVersion = '5.3.4.0';
+    public $sModRevision = '5340';
     public $sBaseConf =
-        'nhUv2==dkVVckNDeHFOZmVMYkFucG5GbUVLc1ZtWTIxRHo3MENVUVptanRJM0F6V1o3TjkvZklFT0l1T
-G91bEp2Uk82T1gvQndPM3F4SzR4dWZlK0xIeW8zOC9rMXYwZnA1SUxDWEIyRE11KytIU3YrcFVHbmN5N
-1BwTFVQaXZzMnQwZUFXU2lkTFEvVFp6QTRiY2hRVG8vMURUNTd0cGJrOXg3TEZ5WVlzNThhSnVYUTNwU
-TkrZUVVZDRGMllMc1dibzI0R3hDVjVxSVlPVkUwMUgraUFhSkJsQ3h4OHVMeEZqTkZpSlhNZ2FmeWpnZ
-HBldXF4MmFsSVQ3TDU5Qk9KdzJVQk8rYlphc2NzQW4rdmJQd3BzbEpIN05uSHcwM2lSekVBRUlIVTh5d
-FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
+        'A5ev2==Z05obGI0K0xNeUd0WHBOZ01BNm9nMUNENGNlUC82Qlg5UlNCVzlVQ2Y5dHhpQTI1MTVNaFkwN
+WVKS05ia3Q2U0txUlhpSzZaS3pwdFlUeTlIaWFnZjNWQTROY3pPNmlyWU1yb28xOWdSMzVJTkNOU0o1N
+Gdoa2MzSDZsa1FjRCtmTkdQdHBKeFVRS0R3amtlVW5CcjRmZ0VDdHNRNXJUQkdya0FSNGcxQ01tZHkxZ
+FUvRmVKR1hTcWxGcXhaZVJqQWxia3htTVJtT1YwMVpSZVVwZytISkVoYzQwOHhucjdFUXNGN1RFbW9GT
+kRKaExObmxnemZHVnlKanZqOWh5V1JmclUrU0E0WkNCaHZON0kwaGVIWVJ2dzdlMUJKNHVraHIvZTRHQ
+VY5bVQ1YjhoUk42akFGeHA1VUVJdnB2dHg=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -180,6 +182,16 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
             'blNull'      => false,
             'sDefault'    => false,
             'sComment'    => 'module base configuration settings',
+            'sExtra'      => '',
+            'blMultilang' => false,
+        ),
+        'OXACTIDENT'       => array(
+            'sTableName'  => 'd3_cfg_mod',
+            'sFieldName'  => 'OXACTIDENT',
+            'sType'       => 'CHAR(32)',
+            'blNull'      => false,
+            'sDefault'    => '',
+            'sComment'    => 'module activation ident',
             'sExtra'      => '',
             'blMultilang' => false,
         ),
@@ -763,7 +775,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * Bugfix for empty multishoptables from rev. 1244 in 4.3.4.0
      * @return bool
      * @throws ConnectionException
-     * @throws \Exception
+     * @throws Exception
      */
     public function checkOxarticlesMultiShopTable()
     {
@@ -777,7 +789,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
                 if (false == in_array('oxarticles', Registry::getConfig()->getConfigParam('aMultiShopTables'))) {
                     $blRet = true;
                     break;
-                };
+                }
             }
             $this->_changeToShop($sCurrentShopId);
         }
@@ -792,7 +804,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
-     * @throws \Exception
+     * @throws Exception
      */
     public function resetMultiShopTables()
     {
@@ -885,25 +897,11 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
-     * @throws \Exception
+     * @throws Exception
      */
     public function checkModCfgFields()
     {
-        /** @var d3ShopCompatibilityAdapterHandler $oCompatibilityAdapter */
-        $oCompatibilityAdapter = oxNew(d3ShopCompatibilityAdapterHandler::class);
-        /** @var d3shopversionconverter $oShopVersionConverter */
-        $oShopVersionConverter = oxNew(d3shopversionconverter::class);
-        $sVersion = $oCompatibilityAdapter->getWOBetaShopVersion(
-            $oShopVersionConverter->fixVersionToDefaultEdition(ShopVersion::getVersion())
-        );
-
-        if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition())) == 'EE'
-            && version_compare($sVersion, '5.2.0', '>=')
-        ) {
-            unset($this->aFields['PROF_OXSHOPINCL']);
-            unset($this->aFields['PROF_OXSHOPEXCL']);
-        }
-
+        $this->fixFieldsToDefaultEdition();
         return $this->checkFields();
     }
 
@@ -1074,15 +1072,13 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
     public function addModCfgTable()
     {
         $this->setInitialExecMethod(__METHOD__);
-        $blRet  = $this->_addTable2(
+        return $this->_addTable2(
             'd3_cfg_mod',
             $this->aFields,
             $this->aIndizes,
             'module configuration',
             'InnoDB'
         );
-
-        return $blRet;
     }
 
     /**
@@ -1112,8 +1108,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
     {
         /** @var d3installdbtable $oDbTable */
         $oDbTable = oxNew(d3installdbtable::class, $this);
-        $blRet = $oDbTable->changeTableEngine('d3_cfg_mod', 'InnoDB');
-        return $blRet;
+        return $oDbTable->changeTableEngine('d3_cfg_mod', 'InnoDB');
     }
 
     /**
@@ -1143,8 +1138,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
     {
         /** @var d3installdbtable $oDbTable */
         $oDbTable = oxNew(d3installdbtable::class, $this);
-        $blRet = $oDbTable->changeTableEngine('d3modprofile', 'InnoDB');
-        return $blRet;
+        return $oDbTable->changeTableEngine('d3modprofile', 'InnoDB');
     }
 
     /**
@@ -1174,8 +1168,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
     {
         /** @var d3installdbtable $oDbTable */
         $oDbTable = oxNew(d3installdbtable::class, $this);
-        $blRet = $oDbTable->changeTableEngine('d3_cfg_mod_variant', 'InnoDB');
-        return $blRet;
+        return $oDbTable->changeTableEngine('d3_cfg_mod_variant', 'InnoDB');
     }
 
     /**
@@ -1227,8 +1220,8 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
 
             $blRet = $oDbRecord->checkTableRecordNotExist('d3_cfg_mod', $aWhere);
 
-            if ($blRet) {
-                return $blRet;
+            if ($blRet == true) {
+                return true;
             }
         }
 
@@ -1241,7 +1234,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
-     * @throws \Exception
+     * @throws Exception
      */
     public function updateModCfgItem()
     {
@@ -1354,7 +1347,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
-     * @throws \Exception
+     * @throws Exception
      */
     public function addModProfileTable()
     {
@@ -1363,21 +1356,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
         if ($this->checkModProfileTableExist()) {
             $this->setInitialExecMethod(__METHOD__);
 
-            /** @var d3ShopCompatibilityAdapterHandler $oD3CompatibilityAdapterHandler */
-            $oD3CompatibilityAdapterHandler = oxNew(d3ShopCompatibilityAdapterHandler::class);
-            /** @var d3shopversionconverter $oShopVersionConverter */
-            $oShopVersionConverter = oxNew(d3shopversionconverter::class);
-            $sShopVersion = $oD3CompatibilityAdapterHandler->getWOBetaShopVersion(
-                $oShopVersionConverter->fixVersionToDefaultEdition(ShopVersion::getVersion())
-            );
-
-            if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition())) == 'EE'
-                && version_compare($sShopVersion, '5.2.0', '>=')
-            ) {
-                unset($this->aFields['PROF_OXSHOPINCL']);
-                unset($this->aFields['PROF_OXSHOPEXCL']);
-            }
-
+            $this->fixFieldsToDefaultEdition();
             $blRet  = $this->_addTable2(
                 'd3modprofile',
                 $this->aFields,
@@ -1477,6 +1456,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
             ->innerJoin('tbl1', 'oxtplblocks', 'tbl2', 'tbl2.oxshopid = tbl1.oxshopid AND 
                 tbl2.oxtemplate = tbl1.oxtemplate AND
                 tbl2.oxblockname = tbl1.oxblockname AND
+                tbl2.oxtheme = tbl1.oxtheme AND
                 tbl2.oxfile = tbl1.oxfile AND
                 tbl2.oxmodule = tbl1.oxmodule AND
                 tbl2.oxid != tbl1.oxid')
@@ -1506,11 +1486,10 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
             "SHOW INDEX FROM oxtplblocks WHERE Column_name = 'D3DELETEID'"
         )) == 0) {
             $sMessage .= "
-            ALTER TABLE oxtplblocks
-                DROP PRIMARY KEY;
-
-            ALTER TABLE oxtplblocks ADD `D3DELETEID` INT NOT NULL AUTO_INCREMENT ,
-            ADD PRIMARY KEY (`D3DELETEID`);
+            ALTER TABLE oxtplblocks 
+                ADD `D3DELETEID` INT NOT NULL AUTO_INCREMENT ,
+                DROP PRIMARY KEY,
+                ADD PRIMARY KEY (`D3DELETEID`);
             ";
         }
 
@@ -1519,6 +1498,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
             FROM `oxtplblocks` tbl1
             INNER JOIN `oxtplblocks` tbl2 ON
                 tbl2.oxshopid = tbl1.oxshopid AND
+                tbl2.oxtheme = tbl1.oxtheme AND
                 tbl2.oxtemplate = tbl1.oxtemplate AND
                 tbl2.oxblockname = tbl1.oxblockname AND
                 tbl2.oxfile = tbl1.oxfile AND
@@ -1528,22 +1508,13 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
                 tbl1.D3DELETEID > tbl2.D3DELETEID;
 
             ALTER TABLE `oxtplblocks`
-                DROP `D3DELETEID`;
-
-            ALTER TABLE `oxtplblocks`
+                DROP COLUMN `D3DELETEID`,
+                DROP PRIMARY KEY,
                 ADD PRIMARY KEY (`OXID`);
         ";
 
-        // switch to "manualyinstall", we require a confirm form
-        $sPrevAction = $this->setTemporaryAction('manualyinstall');
-
-        if (false == $this->hasExecute() || $sPrevAction == 'autoinstall') {
-            $this->setActionLog('MSG', $sMessage, $this->getInitialExecMethod(__METHOD__));
-            $this->setUpdateBreak(true);
-        } else {
-            // switch back to user selected action
-            $this->resetTemporaryAction();
-        }
+        $blRet                  = $this->sqlExecute($sMessage);
+        $this->setActionLog('SQL', $sMessage, __METHOD__);
 
         return $blRet;
     }
@@ -1607,7 +1578,7 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws d3ParameterNotFoundException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
@@ -1623,12 +1594,33 @@ FpaMFdrZi9ZbThSN0VVY1BxUHhka0F4RkE=';
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      * @throws StandardException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
     public function showUnregisteredFiles()
     {
         return $this->_showUnregisteredFiles($this->sModKey, array('blocks', 'd3FileRegister'));
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function fixFieldsToDefaultEdition()
+    {
+        /** @var d3ShopCompatibilityAdapterHandler $oCompatibilityAdapter */
+        $oCompatibilityAdapter = oxNew(d3ShopCompatibilityAdapterHandler::class);
+        /** @var d3shopversionconverter $oShopVersionConverter */
+        $oShopVersionConverter = oxNew(d3shopversionconverter::class);
+        $sVersion = $oCompatibilityAdapter->getWOBetaShopVersion(
+            $oShopVersionConverter->fixVersionToDefaultEdition(ShopVersion::getVersion())
+        );
+
+        if (strtoupper($oShopVersionConverter->fixEditionToDefaultEdition(oxNew(Facts::class)->getEdition())) == 'EE'
+            && version_compare($sVersion, '5.2.0', '>=')
+        ) {
+            unset($this->aFields['PROF_OXSHOPINCL']);
+            unset($this->aFields['PROF_OXSHOPEXCL']);
+        }
     }
 }

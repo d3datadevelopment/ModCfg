@@ -11,30 +11,31 @@
     <!--
     function EditThis( sID)
     {
-        var oTransfer = parent.edit.document.getElementById("transfer");
+        let oTransfer = parent.edit.document.getElementById("transfer");
         oTransfer.oxid.value=sID;
         oTransfer.cl.value='[{if $actlocation}][{$actlocation|oxescape:"javascript"}][{else}][{$default_edit|oxescape:"javascript"}][{/if}]';
 
         //forcing edit frame to reload after submit
         top.forceReloadingEditFrame();
 
-        var oSearch = document.getElementById("search");
+        let oSearch = document.getElementById("search");
         oSearch.oxid.value=sID;
         oSearch.submit();
     }
 
     function DeleteThis( sID)
     {
+        let blCheck;
         blCheck = confirm("[{oxmultilang ident="GENERAL_YOUWANTTODELETE"}]");
         if( blCheck === true)
         {
-            var oSearch = document.getElementById("search");
+            let oSearch = document.getElementById("search");
             oSearch.oxid.value=sID;
             oSearch.fnc.value='deleteentry';
             oSearch.actedit.value=0;
             oSearch.submit();
 
-            var oTransfer = parent.edit.document.getElementById("transfer");
+            let oTransfer = parent.edit.document.getElementById("transfer");
             oTransfer.oxid.value='-1';
             oTransfer.cl.value='[{$default_edit|oxescape:"javascript"}]';
 
@@ -45,11 +46,11 @@
 
     function ChangeEditBar( sLocation, sPos)
     {
-        var oSearch = document.getElementById("search");
+        let oSearch = document.getElementById("search");
         oSearch.actedit.value=sPos;
         oSearch.submit();
 
-        var oTransfer = parent.edit.document.getElementById("transfer");
+        let oTransfer = parent.edit.document.getElementById("transfer");
         oTransfer.cl.value=sLocation;
 
         //forcing edit frame to reload after submit
@@ -58,12 +59,12 @@
 
     function ChangeLanguage()
     {
-        var oSearch = document.getElementById("search");
+        let oSearch = document.getElementById("search");
         oSearch.language.value=oSearch.changelang.value;
         oSearch.editlanguage.value=oSearch.changelang.value;
         oSearch.submit();
 
-        var oTransfer = parent.edit.document.getElementById("transfer");
+        let oTransfer = parent.edit.document.getElementById("transfer");
         oTransfer.innerHTML += '<input type="hidden" name="language" value="'+oSearch.changelang.value+'">';
         oTransfer.innerHTML += '<input type="hidden" name="editlanguage" value="'+oSearch.changelang.value+'">';
 
@@ -90,22 +91,22 @@
         <form name="search" id="search" action="[{$oViewConf->getSelfLink()}]" method="post">
             [{include file="_formparams.tpl" cl=$oViewConf->getActiveClassName() lstrt=$lstrt actedit=$actedit oxid=$oxid fnc="" language=$actlang editlanguage=$actlang}]
 
-            <table cellspacing="0" cellpadding="0" border="0" style="width:100%;">
+            <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 100%">
                 <colgroup>
                     [{block name="admin_d3modprofile_list_colgroup"}]
-                        <col width="3%">
-                        <col width="15%">
-                        <col width="47%">
-                        <col width="20%">
-                        <col width="15%">
+                        <col style="width: 3%">
+                        <col style="width: 15%">
+                        <col style="width: 47%">
+                        <col style="width: 20%">
+                        <col style="width: 15%">
                     [{/block}]
                 </colgroup>
                 <tr class="listitem">
                     [{block name="admin_d3modprofile_list_filter"}]
-                        <td height="20" valign="middle" class="listfilter first" nowrap>
+                        <td style="height: 20px; vertical-align: middle" class="listfilter first" nowrap>
                             <div class="r1"><div class="b1">&nbsp;</div></div>
                         </td>
-                        <td height="20" valign="middle" class="listfilter" nowrap>
+                        <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                             <div class="r1">
                                 <div class="b1">
                                     <input class="listedit" type="text" size="10" maxlength="128" name="where[[{$listTable}]][oxsort]" value="[{$where.$listTable.oxsort}]"
@@ -113,7 +114,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td valign="top" class="listfilter" nowrap>
+                        <td style="vertical-align: top" class="listfilter" nowrap>
                             <div class="r1">
                                 <div class="b1">
                                     <input class="listedit" type="text" size="25" maxlength="128" name="where[[{$listTable}]][oxtitle]" value="[{$where.$listTable.oxtitle}]"
@@ -121,7 +122,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td height="20" valign="middle" colspan="2" class="listfilter" nowrap>
+                        <td style="height: 20px; vertical-align: middle" colspan="2" class="listfilter" nowrap>
                             <div class="r1">
                                 <div class="b1">
                                     <div class="find">
@@ -189,26 +190,26 @@
                             [{if $listitem->getId() == $oxid}]
                                 [{assign var="listclass" value="listitem4"}]
                             [{/if}]
-                            <td valign="top" class="[{$listclass}] [{$formatclass}] [{if $listitem->getFieldData('oxactive') == 1}] active[{/if}]" height="15">
+                            <td style="vertical-align: top; height: 15px" class="[{$listclass}] [{$formatclass}] [{if $listitem->getFieldData('oxactive') == 1}] active[{/if}]">
                                 <div class="listitemfloating">
                                     &nbsp;
                                 </div>
                             </td>
-                            <td valign="top" class="[{$listclass}] [{$formatclass}] " height="15">
+                            <td style="vertical-align: top; height: 15px" class="[{$listclass}] [{$formatclass}] ">
                                 <div class="listitemfloating">&nbsp;
                                     <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
                                         [{$listitem->getFieldData('oxsort')}]
                                     </a>
                                 </div>
                             </td>
-                            <td valign="top" class="[{$listclass}] [{$formatclass}] " height="15">
+                            <td style="vertical-align: top; height: 15px" class="[{$listclass}] [{$formatclass}] ">
                                 <div class="listitemfloating">&nbsp;
                                     <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
                                         [{$listitem->getFieldData('oxtitle')|truncate:200:"..":false}]
                                     </a>
                                 </div>
                             </td>
-                            <td valign="top" class="[{$listclass}] [{$formatclass}] " height="15">
+                            <td style="vertical-align: top; height: 15px" class="[{$listclass}] [{$formatclass}] ">
                                 <div class="listitemfloating">&nbsp;
                                     <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
                                         [{if $listitem->getFieldData('oxfolder')}][{oxmultilang ident=$listitem->getFieldData('oxfolder')}][{/if}]
@@ -238,8 +239,8 @@
         [{include file="_formparams.tpl" cl=$oViewConf->getActiveClassName() lstrt=$lstrt actedit=$actedit oxid=$oxid fnc="" language=$actlang editlanguage=$actlang}]
 
         [{if $blShowLangSwitch}]
-            [{oxmultilang ident="D3_CFG_MOD_LIST_SETTLANG"}]
-            <select name="changelang" class="editinput" onChange="top.oxid.admin.changeLanguage();">
+            <label for="changelang">[{oxmultilang ident="D3_CFG_MOD_LIST_SETTLANG"}]</label>
+            <select id="changelang" name="changelang" class="editinput" onChange="top.oxid.admin.changeLanguage();">
                 [{foreach from=$languages item="lang"}]
                     <option value="[{$lang->id}]" [{if $lang->selected}]SELECTED[{/if}]>[{$lang->name}]</option>
                 [{/foreach}]

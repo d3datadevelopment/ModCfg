@@ -8,7 +8,7 @@
 
     function _groupExp(el)
     {
-        var _cur = el.parentNode;
+        let _cur = el.parentNode;
 
         if (_cur.className === "exp") _cur.className = "";
         else _cur.className = "exp";
@@ -100,9 +100,9 @@
 
 [{assign var="sDownloadField" value=$oView->getPhpVersionDownloadField()}]
 
-<table border="0" width="100%">
+<table style="border: none; width: 100%">
     <tr>
-        <td valign="top">
+        <td style="vertical-align: top">
 
             [{if $edit->getErrorMessage()}]
                 <div class="extension_error">
@@ -297,7 +297,7 @@
                             [{oxmultilang ident="D3_CFG_MOD_SUPPORT_1"}]<br>
                             <br>
                             [{oxmultilang ident="D3_CFG_MOD_SUPPORT_2"}]<br>
-                            [{oxmultilang ident="D3_CFG_MOD_SUPPORT_3"}]<br>
+                            [{*[{oxmultilang ident="D3_CFG_MOD_SUPPORT_3"}]<br>*}]
                             [{oxmultilang ident="D3_CFG_MOD_SUPPORT_4"}]
                             <a href="mailto:[{oxmultilang ident="D3_CFG_MOD_SUPPORT_MAIL"}]">
                                 [{oxmultilang ident="D3_CFG_MOD_SUPPORT_MAIL"}]
@@ -466,7 +466,7 @@
                         </a>
                         <dl>
                             <dt>
-                                <iframe src="[{$oView->getLicenceFrameUrl($edit->d3getModId())}]" style="width: 99%; height: 270px; border: 0 none transparent;" framborder="0"></iframe>
+                                <iframe src="[{$oView->getLicenceFrameUrl($edit->d3getModId())}]" style="width: 99%; height: 293px; border: none;"></iframe>
                             </dt>
                             <dd class="spacer"></dd>
                         </dl>

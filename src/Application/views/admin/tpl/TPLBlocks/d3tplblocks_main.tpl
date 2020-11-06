@@ -19,15 +19,19 @@
     <input type="hidden" name="oxid" value="[{$oxid}]">
     <input type="hidden" name="editval[oxtplblocks__oxid]" value="[{$oxid}]">
 
-    <table cellspacing="0" cellpadding="0" border="0" width="98%">
-        <colgroup><col width="30%"><col width="5%"><col width="65%"></colgroup>
+    <table style="padding: 0; border: none; width: 98%; border-spacing: 0; border-collapse: collapse">
+        <colgroup>
+            <col style="width: 30%">
+            <col style="width: 5%">
+            <col style="width: 65%">
+        </colgroup>
         <tr>
-            <td valign="top" class="edittext" width="50%">
-                <table cellspacing="0" cellpadding="0" border="0">
+            <td style="width: 50%; vertical-align: top" class="edittext">
+                <table style="padding: 0; border: none; border-spacing: 0; border-collapse: collapse">
 
                     [{block name="admin_d3tplblocks_main_form"}]
                         <tr>
-                            <td class="edittext" width="70">
+                            <td style="width: 70px;" class="edittext">
                                 <label for="oxtplblocks__oxactive">[{oxmultilang ident="GENERAL_ACTIVE"}]</label>
                             </td>
                             <td class="edittext">
@@ -103,7 +107,7 @@
             </td>
             <td>&nbsp;</td>
             <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left">
+            <td style="vertical-align: top; text-align: left" class="edittext">
                 [{block name="admin_d3tplblocks_main_editor"}]
                 [{/block}]
             </td>

@@ -4,12 +4,159 @@
  * Any unauthorized use of this software without a valid license
  * is a violation of the license agreement and will be prosecuted by
  * civil and criminal law.
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
  * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
  * @link      http://www.oxidmodule.com
  */
+.d3loader-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.d3loader-1 .d3loader-circle {
+  width: 5rem;
+  height: 5rem;
+  border: solid 0.5rem #f9f9f9;
+  border-radius: 50%;
+  border-right: solid 0.7rem #006ab4;
+  -webkit-animation: spinner-loader-1 2s infinite;
+          animation: spinner-loader-1 2s infinite;
+}
+@-webkit-keyframes spinner-loader-1 {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spinner-loader-1 {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.d3loader-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.d3loader-2 .d3loader-spinner {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+}
+.d3loader-2 .d3loader-spinner .d3loader-circle-1,
+.d3loader-2 .d3loader-spinner .d3loader-circle-2,
+.d3loader-2 .d3loader-spinner .d3loader-circle-3 {
+  position: absolute;
+  border-radius: 50%;
+  border: transparent 0.3rem solid;
+  border-right: #006ab4 0.3rem solid;
+}
+.d3loader-2 .d3loader-spinner .d3loader-circle-1 {
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 9rem;
+  height: 9rem;
+  -webkit-animation: spinner-loader-2 1.5s infinite;
+          animation: spinner-loader-2 1.5s infinite;
+}
+.d3loader-2 .d3loader-spinner .d3loader-circle-2 {
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 7rem;
+  height: 7rem;
+  border-right-color: #c02124;
+  -webkit-animation: spinner-loader-2 1.5s 200ms infinite;
+          animation: spinner-loader-2 1.5s 200ms infinite;
+}
+.d3loader-2 .d3loader-spinner .d3loader-circle-3 {
+  top: 2.5rem;
+  left: 2.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-right-color: darkorange;
+  -webkit-animation: spinner-loader-2 1.5s 350ms infinite;
+          animation: spinner-loader-2 1.5s 350ms infinite;
+}
+.d3loader-2.small .d3loader-spinner {
+  width: 5rem;
+  height: 5rem;
+}
+.d3loader-2.small .d3loader-spinner .d3loader-circle-1 {
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-right-width: 0.2rem;
+}
+.d3loader-2.small .d3loader-spinner .d3loader-circle-2 {
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-right-width: 0.2rem;
+}
+.d3loader-2.small .d3loader-spinner .d3loader-circle-3 {
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-right-width: 0.2rem;
+}
+@-webkit-keyframes spinner-loader-2 {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spinner-loader-2 {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .d3modcfg_btn {
   background: #028fe8;
   display: block;
@@ -274,7 +421,8 @@
   font-size: 1.7em;
 }
 #mask,
-#popup {
+#popup,
+#popup2 {
   display: none;
   visibility: hidden;
 }
@@ -290,7 +438,8 @@
   display: block;
   background-color: #FFFFFF;
 }
-#popup.on {
+#popup.on,
+#popup2.on {
   z-index: 2000;
   width: auto;
   visibility: visible;
@@ -306,9 +455,19 @@
   background-color: #FFFFFF;
   border-radius: 10px;
 }
-#popup.on span {
+#popup.on span,
+#popup2.on span {
   font-weight: bold;
   line-height: 4;
+}
+#popup2.on {
+  border: none;
+  background-color: transparent;
+  height: 10rem;
+  top: 40%;
+}
+#popup2.on.small {
+  height: 5rem;
 }
 .extension_error,
 .extension_warning,

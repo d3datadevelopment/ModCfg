@@ -115,15 +115,10 @@
 
 <script type="text/javascript">
     <!--
-    var oldElem;
-    [{if $oView->hasDemoShopMode()}]
-        var oldElemId = 'option_check';
-    [{else}]
-        var oldElemId = 'option_auto';
-    [{/if}]
+    let oldElemId = '[{if $oView->hasDemoShopMode()}]option_check[{else}]option_auto[{/if}]';
 
     function _groupExp(el) {
-        var _cur = el.parentNode;
+        let _cur = el.parentNode;
 
         if (_cur.className === "exp") _cur.className = "";
           else _cur.className = "exp";
@@ -131,11 +126,13 @@
 
     function changeElemColor(elem)
     {
-        if (!oldElem && oldElemId)
-            oldElem = document.getElementById(oldElemId);
+        if (!oldElem && oldElemId) {
+            let oldElem = document.getElementById(oldElemId);
+        }
 
-        if (oldElem)
+        if (oldElem) {
             oldElem.className = 'installoption';
+        }
 
         elem.className = 'installoption checked';
         oldElem = elem;
@@ -144,7 +141,7 @@
     function showDescText(linkid)
     {
         //textid = linkid.replace('_desclink', '_desctext');
-        var iHeight = '160px';
+        let iHeight = '160px';
         document.getElementById('auto_desclink').style.display = 'none';
         document.getElementById('auto_desctext').style.display = 'block';
         document.getElementById('option_auto').style.height = iHeight;
@@ -168,7 +165,7 @@
     function showProcessing()
     {
         document.getElementById('mask').className = 'on';
-        document.getElementById('popup').className = 'on';
+        document.getElementById('popup2').className = 'd3loader-2 on';
     }
     -->
 </script>
@@ -182,9 +179,12 @@
 </form>
 
 <div id="mask" class="[{if $oView->getAction() == 'autoinstall' && $oView->requireUpdate()}]on[{/if}]"></div>
-<div id="popup" class="[{if $oView->getAction() == 'autoinstall' && $oView->requireUpdate()}]on[{/if}]">
-    <i class="fas fa-spinner fa-4x fa-pulse fa-pull-left"></i>
-    <span>[{oxmultilang ident="D3_CFG_PLEASEWAIT"}]</span>
+<div id="popup2" class="d3loader-2 [{if $oView->getAction() == 'autoinstall' && $oView->requireUpdate()}]on[{/if}]">
+    <div class="d3loader-spinner">
+        <div class="d3loader-circle-1"></div>
+        <div class="d3loader-circle-2"></div>
+        <div class="d3loader-circle-3"></div>
+    </div>
 </div>
 
 <h2>[{oxmultilang ident="D3_CFG_MOD_UPDATE_TITLE"}]</h2>

@@ -21,61 +21,61 @@
     <input type="hidden" name="modid" value="[{$oView->getSelectedModId()}]">
     <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
 
-    <table border="0" id="d3log_lib_cfg">
+    <table style="border: none" id="d3log_lib_cfg">
         <tr>
-            <td valign="top" class="edittext">
+            <td style="vertical-align: top" class="edittext">
 
                 [{assign var="blD3HasLog" value=$oView->checkD3Log()}]
-                <table cellspacing="0" cellpadding="0" border="0">
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
                     [{if $blD3HasLog}]
                         <tr>
                             <td class="edittext ext_edittext">
-                                [{oxmultilang ident="D3_LOG_CFG_USEEXTLOG"}]
+                                <label for="blLog_useExtendedLogging">[{oxmultilang ident="D3_LOG_CFG_USEEXTLOG"}]</label>
                             </td>
-                            <td class="edittext ext_edittext" align="left">
+                            <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_useExtendedLogging]" value="0">
-                                <input type="checkbox" name="value[blLog_useExtendedLogging]" value="1" [{if $edit->getValue('blLog_useExtendedLogging')}] checked[{/if}]>
+                                <input id="blLog_useExtendedLogging" type="checkbox" name="value[blLog_useExtendedLogging]" value="1" [{if $edit->getValue('blLog_useExtendedLogging')}] checked[{/if}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_EXTENDED_LOGGING_HELP"}]
                             </td>
                         </tr>
                         <tr>
                             <td class="edittext ext_edittext">
-                                [{oxmultilang ident="D3_LOG_CFG_ENABLE_ERR_REPORT"}]
+                                <label for="blLog_enableErrorReporting">[{oxmultilang ident="D3_LOG_CFG_ENABLE_ERR_REPORT"}]</label>
                             </td>
-                            <td class="edittext ext_edittext" align="left">
+                            <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_enableErrorReporting]" value="0">
-                                <input type="checkbox" name="value[blLog_enableErrorReporting]" value="1" [{if $edit->getValue('blLog_enableErrorReporting')}] checked[{/if}]>
+                                <input id="blLog_enableErrorReporting" type="checkbox" name="value[blLog_enableErrorReporting]" value="1" [{if $edit->getValue('blLog_enableErrorReporting')}] checked[{/if}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_ENABLE_ERR_REPORT_HELP"}]
                             </td>
                         </tr>
                         <tr>
                             <td class="edittext ext_edittext">
-                                [{oxmultilang ident="D3_LOG_CFG_ENABLE_EXC_REPORT"}]
+                                <label for="blLog_enableExceptionReporting">[{oxmultilang ident="D3_LOG_CFG_ENABLE_EXC_REPORT"}]</label>
                             </td>
-                            <td class="edittext ext_edittext" align="left">
+                            <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_enableExceptionReporting]" value="0">
-                                <input type="checkbox" name="value[blLog_enableExceptionReporting]" value="1" [{if $edit->getValue('blLog_enableExceptionReporting')}] checked[{/if}]>
+                                <input id="blLog_enableExceptionReporting" type="checkbox" name="value[blLog_enableExceptionReporting]" value="1" [{if $edit->getValue('blLog_enableExceptionReporting')}] checked[{/if}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_ENABLE_EXC_REPORT_HELP"}]
                             </td>
                         </tr>
                     [{/if}]
                     <tr>
                         <td class="edittext ext_edittext">
-                            [{oxmultilang ident="D3_LOG_CFG_ENABLE_ADMINPROFILING"}]
+                            <label for="blLog_enableAdminProfiling">[{oxmultilang ident="D3_LOG_CFG_ENABLE_ADMINPROFILING"}]</label>
                         </td>
-                        <td class="edittext ext_edittext" align="left">
+                        <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blLog_enableAdminProfiling]" value="0">
-                            <input type="checkbox" name="value[blLog_enableAdminProfiling]" value="1" [{if $edit->getValue('blLog_enableAdminProfiling')}] checked[{/if}]>
+                            <input id="blLog_enableAdminProfiling" type="checkbox" name="value[blLog_enableAdminProfiling]" value="1" [{if $edit->getValue('blLog_enableAdminProfiling')}] checked[{/if}]>
                                    [{oxinputhelp ident="D3_LOG_CFG_ENABLE_ADMINPROFILING_HELP"}]
                         </td>
                     </tr>
                     <tr>
                         <td class="edittext ext_edittext">
-                            [{oxmultilang ident="D3_LOG_CFG_SHOWALLEXCEPTIONS"}]
+                            <label for="blLog_showAllExceptions">[{oxmultilang ident="D3_LOG_CFG_SHOWALLEXCEPTIONS"}]</label>
                         </td>
-                        <td class="edittext ext_edittext" align="left">
+                        <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blLog_showAllExceptions]" value="0">
-                            <input type="checkbox" name="value[blLog_showAllExceptions]" value="1" [{if $edit->getValue('blLog_showAllExceptions')}] checked[{/if}]>
+                            <input id="blLog_showAllExceptions" type="checkbox" name="value[blLog_showAllExceptions]" value="1" [{if $edit->getValue('blLog_showAllExceptions')}] checked[{/if}]>
                                    [{oxinputhelp ident="D3_LOG_CFG_SHOWALLEXCEPTIONS_HELP"}]
                         </td>
                     </tr>
@@ -89,11 +89,13 @@
                                         <tr>
                                             <td>[{$iMailMessageId}].</td>
                                             [{assign var="sFieldName" value="sLog_messageadr"|cat:$iMailMessageId}]
-                                            <td>[{oxmultilang ident="D3_LOG_CFG_MAILADDRESS"}]: <input type="text" size="20" maxlength="80" name="value[[{$sFieldName}]]" value="[{$edit->getValue($sFieldName)}]"></td>
+                                            <td>[{oxmultilang ident="D3_LOG_CFG_MAILADDRESS"}]:
+                                                <input type="text" size="20" maxlength="80" name="value[[{$sFieldName}]]" value="[{$edit->getValue($sFieldName)}]">
+                                            </td>
                                             <td>
-                                                [{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL"}]:
+                                                <label for="[{$sFieldName}]">[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL"}]:</label>
                                                 [{assign var="sFieldName" value="sLog_messageerrlevel"|cat:$iMailMessageId}]
-                                                <select class="edittext" name="value[[{$sFieldName}]]">
+                                                <select id="[{$sFieldName}]" class="edittext" name="value[[{$sFieldName}]]">
                                                     <option style="background-color: silver;" value="" [{if $edit->getValue($sFieldName) == ''}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_NOERR"}]</option>
                                                     <option style="background-color: darkred; color: white;" value="emergency" [{if $edit->getValue($sFieldName) == 'emergency'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_EMERGENCY"}]</option>
                                                     <option style="background-color: #C00; color: white;" value="alert" [{if $edit->getValue($sFieldName) == 'alert'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_ALERT"}]</option>
@@ -106,7 +108,8 @@
                                             <td>
                                                 [{oxmultilang ident="D3_LOG_CFG_INTERVAL"}]:
                                                 [{assign var="sFieldName" value="sLog_messageinterval"|cat:$iMailMessageId}]
-                                                [{oxmultilang ident="D3_LOG_CFG_INTERVALMAX"}] <input type="text" size="3" maxlength="4" value="[{if $edit->getValue($sFieldName)}][{$edit->getValue($sFieldName)}][{else}]1[{/if}]" name="value[[{$sFieldName}]]">
+                                                [{oxmultilang ident="D3_LOG_CFG_INTERVALMAX"}]
+                                                <input type="text" size="3" maxlength="4" value="[{if $edit->getValue($sFieldName)}][{$edit->getValue($sFieldName)}][{else}]1[{/if}]" name="value[[{$sFieldName}]]">
                                                 [{assign var="sFieldName" value="sLog_messageintervaltype"|cat:$iMailMessageId}]
                                                 <select class="edittext" name="value[[{$sFieldName}]]">
                                                     <option value="day" [{if $edit->getValue($sFieldName) == 'day'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_DAYS"}]</option>
