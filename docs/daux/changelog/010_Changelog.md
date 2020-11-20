@@ -2,6 +2,19 @@
 title: Changelog
 ---
 
+## 5.3.4.1 (2020-11-20)
+
+### Added
+- Exceptions aus Setup werden mitgelogged
+
+### Changed
+- fehlende Übersetzungsbausteine ergänzt
+
+### Fixed
+- fehlerhaften Tabellenefeld-umbenennen-Abfrage korrigiert
+
+---
+
 ## 5.3.4.0 (2020-11-06)
 
 ### Added
@@ -10,9 +23,10 @@ title: Changelog
 - Erweiterungen der Themeklasse zu d3thememapping verschoben, um als internal markierte Klasse nicht verändern zu müssen
 
 ### Changed
-- Aktion zum entfernen doppelt registrierter TPL Blöcke optimiert
+- Aktion zum Entfernen doppelt registrierter TPL Blöcke optimiert
 - Adminbereich für Templateblöcke zeigt nur Einträge des aktuellen Mandanten
 - Templates um veraltete Contents bereinigt
+- Layout des Aktivierungsassistenten optimiert
 
 ### Fixed
 - fehlerhaft angebotene Sprachschalter im Adminbereich entfernt
