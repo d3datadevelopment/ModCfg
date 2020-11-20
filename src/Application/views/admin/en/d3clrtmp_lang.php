@@ -38,6 +38,7 @@ $aLang = array(
     'D3TPLBLOCKS_NOBLOCKS'                 => 'The functions are not available because no template blocks are defined.',
     'D3TPLBLOCKS_MODULE'                   => 'for this module ...',
     'D3TPLBLOCKS_CHOOSEMODULE'             => 'please select module',
+    'D3TPLBLOCKS_NOMODULEMSG'              => 'Please select the module to be updated.',
     'D3TPLBLOCKS_REMBLOCKS'                => '... remove all template block entries',
     'D3TPLBLOCKS_REMBLOCKS_DESC'           => 'This function deletes all block entries of the selected module from the database. To re-add the entries, it is necessary to reactivate the corresponding module.',
     'D3TPLBLOCKS_REMBLOCKS_SUCC'           => 'The selected template block entries have been deleted.',
