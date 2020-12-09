@@ -2,6 +2,16 @@
 title: Changelog
 ---
 
+## 5.3.5.0 (2020-12-09)
+
+### Added
+- installierbar in OXID 6.2.3
+
+### Fixed
+- Fehler bei Generierung von Datenbanktabellennamen behoben
+
+---
+
 ## 5.3.4.1 (2020-11-20)
 
 ### Added
@@ -11,7 +21,7 @@ title: Changelog
 - fehlende Übersetzungsbausteine ergänzt
 
 ### Fixed
-- fehlerhaften Tabellenefeld-umbenennen-Abfrage korrigiert
+- fehlerhafte Tabellenfeld-umbenennen-Abfrage korrigiert
 
 ---
 

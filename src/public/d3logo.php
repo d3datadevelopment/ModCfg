@@ -21,6 +21,7 @@ $oImageLogo = new d3logo;
 $oImageLogo->getLogo();
 
 /**
+ * @deprecated use ressource from d3data.de instead
  * Class d3logo
  */
 class d3logo
