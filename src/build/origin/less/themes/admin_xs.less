@@ -146,6 +146,9 @@
     &.d3fa-color-orange {
         color:                  @d3_color_orange;
     }
+    &.d3fa-color-unzer {
+        color:                  @d3_color_unzer;
+    }
     &.d3fa-17x {
         font-size:              1.7em;
     }
@@ -166,6 +169,9 @@
     }
     &.fa-d3color-orange {
         &:extend(.svg-inline--fa.d3fa-color-orange);
+    }
+    &.fa-d3color-unzer {
+        &:extend(.svg-inline--fa.d3fa-color-unzer);
     }
     &.fa-17x {
         &:extend(.svg-inline--fa.d3fa-17x);
@@ -188,6 +194,7 @@
     height:                 100%;
     display:                block;
     background-color:       @d3_color_white;
+    cursor:                 wait;
 }
 
 #popup.on,
@@ -208,6 +215,7 @@
     -webkit-border-radius:  10px;
     -moz-border-radius:     10px;
     border-radius:          10px;
+    cursor:                 wait;
 
     span {
         font-weight:            bold;
@@ -282,6 +290,10 @@ button.fa {
 
 .fa-d3:before {
     content:                "\f2e1";
+}
+
+.fa-d3unzer:before {
+    content:                "\f2e2";
 }
 
 html#nav ul li > a.rc b {

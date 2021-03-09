@@ -1,9 +1,9 @@
 {
     "title": "<i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector",
-    "moduleversion": "5.3.5.0",
+    "moduleversion": "5.3.6.0",
     "titledesc": "für den Oxid eShop",
     "author": "D³ Data Development",
-    "moduledate": "09.12.2020",
+    "moduledate": "08.03.2021",
     "editors": "",
     "tagline": "",
     "image": "",
@@ -64,6 +64,7 @@
         "modulename"    : "<i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector",
         "menutitle"     : "<i class='fab fa-d3 d3fa-color-blue'></i> Modul-Connector",
         "modulefolder"  : "modcfg",
+        "metadataident" : "d3modcfg_lib",
         "composerident" : "d3/modcfg"
     },
     "versionselector": false,

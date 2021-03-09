@@ -90,6 +90,7 @@ $aModule = [
         'd3/modcfg/Application/Model/d3remotecache.php',
         'd3/modcfg/Application/Model/d3module.php',
         'd3/modcfg/Application/Model/d3thememapping.php',
+        'd3/modcfg/Application/Model/d3cliutils.php',
 
         'd3/modcfg/Application/Model/d3simplexml.php',
         'd3/modcfg/Application/Model/d3str.php',
@@ -116,6 +117,7 @@ $aModule = [
         'd3/modcfg/Application/Model/Exception/d3modprofile_exception.php',
         'd3/modcfg/Application/Model/Exception/d3log_exception.php',
         'd3/modcfg/Application/Model/Exception/d3ParameterNotFoundException.php',
+        'd3/modcfg/Application/Model/Exception/d3PreventExitException.php',
         'd3/modcfg/Application/Model/Exception/d3ShopCompatibilityAdapterException.php',
 
         'd3/modcfg/Application/Model/Filegenerator/d3filegenerator.php',
@@ -215,11 +217,14 @@ $aModule = [
         'd3/modcfg/Tests/unit/Application/Model/d3bitmaskTest.php',
         'd3/modcfg/Tests/unit/Application/Model/d3bitTest.php',
         'd3/modcfg/Tests/unit/Application/Model/d3filesystemTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3UtilsTest.php',
         'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_mod_licensecheckTest.php',
         'd3/modcfg/Tests/unit/Application/Model/Configuration/d3_cfg_modTest.php',
         'd3/modcfg/Tests/unit/Application/Model/Configuration/d3modprofileTest.php',
         'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicHandlerTest.php',
         'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicUtilitiesTest.php',
+
+        'd3/modcfg/Tests/unit/Modules/Core/d3_oxutilsview_modcfgTest.php',
     ],
     'd3SetupClasses'    => [
         ModuleSetup\d3_cfg_mod_update::class,

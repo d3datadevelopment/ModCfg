@@ -11,23 +11,14 @@
  * @link      http://www.oxidmodule.com
  */
 .d3loader-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .d3loader-1 .d3loader-circle {
   width: 5rem;
@@ -58,19 +49,19 @@
             transform: rotate(360deg);
   }
 }
+/*
+<h1>Spinner</h1>
+<div class="d3loader-1">
+    <div class="d3loader-circle"></div>
+</div>
+ */
 .d3loader-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   position: relative;
 }
 .d3loader-2 .d3loader-spinner {
@@ -108,7 +99,7 @@
   left: 2.5rem;
   width: 5rem;
   height: 5rem;
-  border-right-color: darkorange;
+  border-right-color: #ff3600;
   -webkit-animation: spinner-loader-2 1.5s 350ms infinite;
           animation: spinner-loader-2 1.5s 350ms infinite;
 }
@@ -157,6 +148,15 @@
             transform: rotate(360deg);
   }
 }
+/*
+<div class="d3loader-2 small">
+    <div class="d3loader-spinner">
+        <div class="d3loader-circle-1"></div>
+        <div class="d3loader-circle-2"></div>
+        <div class="d3loader-circle-3"></div>
+    </div>
+</div>
+ */
 .d3modcfg_btn {
   background: #028fe8;
   display: block;
@@ -416,6 +416,10 @@
 .fa.fa-d3color-orange {
   color: #ff9703;
 }
+.svg-inline--fa.d3fa-color-unzer,
+.fa.fa-d3color-unzer {
+  color: #fc1154;
+}
 .svg-inline--fa.d3fa-17x,
 .fa.fa-17x {
   font-size: 1.7em;
@@ -437,6 +441,7 @@
   height: 100%;
   display: block;
   background-color: #FFFFFF;
+  cursor: wait;
 }
 #popup.on,
 #popup2.on {
@@ -454,6 +459,7 @@
   border: 2px solid #028fe8;
   background-color: #FFFFFF;
   border-radius: 10px;
+  cursor: wait;
 }
 #popup.on span,
 #popup2.on span {
@@ -519,6 +525,9 @@ button.fa {
 }
 .fa-d3:before {
   content: "\f2e1";
+}
+.fa-d3unzer:before {
+  content: "\f2e2";
 }
 html#nav ul li > a.rc b {
   padding-right: 0 !important;

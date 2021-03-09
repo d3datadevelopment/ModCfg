@@ -2,6 +2,35 @@
 title: Changelog
 ---
 
+## 5.3.6.0 (2021-03-08)
+
+### Added
+- Wartungsbefehl in CLI eingefügt, mögliche Tasks:
+  - d3log-Tabelle bereinigen
+  - d3log-Status ausgeben
+- Installationsprozess zeigt Warte-Cursor während der Bearbeitung
+- Loglevel ergänzt
+- Unzer-Logo ergänzt
+- Tests ergänzt
+- sh-Pattern für Profihost-Server mit PHP 7.3 und 7.4 ergänzt
+- Methoden zur Konvertierung ungültiger Dateinamen eingefügt
+- CLI Utils eingefügt
+
+### Changed
+- prepared statement builder behandelt sprintf Parameter passend
+- Testbasis für Module angepasst, deren ModulId von der ModCfgId abgeleitet werden kann
+- FAQ-Links aktualisiert
+- d3LogInterface ergänzt
+- Deaktivierung von ModCfg-Einträgen wird während Tests nicht ausgeführt
+- Dokumentation aktualisiert
+
+### Fixed
+- Installationsprozess in CLI generiert Datenbank-Views neu
+- Artikelfeldtabellennamengenerierung für Sprache 0 korrigiert
+- DIC-Definition für MultiLanguageModel-Klasse korrigiert
+
+---
+
 ## 5.3.5.0 (2020-12-09)
 
 ### Added

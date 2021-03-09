@@ -49,7 +49,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '5.3.5.0',
+    'version'     => '5.3.6.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
@@ -173,6 +173,8 @@ $aModule = [
         'd3shpattern_cron_profihost70.tpl'  => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_profihost70.tpl',
         'd3shpattern_cron_profihost71.tpl'  => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_profihost71.tpl',
         'd3shpattern_cron_profihost72.tpl'  => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_profihost72.tpl',
+        'd3shpattern_cron_profihost73.tpl'  => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_profihost73.tpl',
+        'd3shpattern_cron_profihost74.tpl'  => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_profihost74.tpl',
         'd3shpattern_cron_standard.tpl'     => 'd3/modcfg/Application/views/admin/tpl/modcfg-pattern/d3shpattern_cron_standard.tpl',
     ],
     'events'      => [

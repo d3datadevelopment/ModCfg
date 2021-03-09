@@ -57,6 +57,9 @@
     "guzzlehttp/guzzle": "^6.3.3",
     "splitbrain/php-cli": "^1.1"
   },
+  "require-dev": {
+    "mikey179/vfsstream": "^1.6.8"
+  },
   "autoload": {
     "psr-4": {
       "D3\\ModCfg\\": "../../../source/modules/d3/modcfg"
@@ -67,6 +70,7 @@
   },
   "bin": [
     "src/bin/d3modules_install",
-    "src/bin/d3cleartmp"
+    "src/bin/d3cleartmp",
+    "src/bin/d3maintenance"
   ]
 }
