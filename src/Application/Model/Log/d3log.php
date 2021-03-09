@@ -53,7 +53,7 @@ class d3log extends BaseModel implements d3LogInterface
     const TEST = d3LogLevel::TEST; // Int 8 Bit 256
     const NONE = d3LogLevel::NONE; // Int 12 Bit 4096
 
-    // grouped log levels
+    // ranged log levels
     const ERROR_AND_ABOVE = d3LogLevel::ERROR_AND_ABOVE; // Bit 15;
     const WARNING_AND_ABOVE = d3LogLevel::WARNING_AND_ABOVE; // Bit 31;
     const NOTICE_AND_ABOVE = d3LogLevel::NOTICE_AND_ABOVE; // Bit 63;
@@ -334,6 +334,25 @@ class d3log extends BaseModel implements d3LogInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @param int $range
+     *
+     * @return array
+     */
+    public function getLogTypeListByRange($range = d3LogLevel::ALL)
+    {
+        $bitmask = oxNew(d3bitmask::class);
+
+        $types = [];
+        foreach ($this->aLogTypes as $iGenLogType) {
+            if ($bitmask->isBitSet($range, $this->getLogBit($iGenLogType))) {
+                $types[] = $this->getErrorModeName($iGenLogType);
+            }
+        }
+
+        return $types;
     }
 
     /**
@@ -638,7 +657,7 @@ class d3log extends BaseModel implements d3LogInterface
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
      */
-    public function getLogStatus($sStatus, $oSet)
+    public function getLogStatus($sStatus, $oSet = false)
     {
         unset($oSet);
 

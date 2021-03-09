@@ -43,6 +43,13 @@ interface d3LogInterface
     public function setLogType($iLogType1, $iLogType2 = null, $iLogType3 = null);
 
     /**
+     * @param $sStatus
+     * @param false $oSet
+     * @return false
+     */
+    public function getLogStatus($sStatus, $oSet = false);
+
+    /**
      * @param int $iLogType
      * @param string $sClass
      * @param string $sFnc

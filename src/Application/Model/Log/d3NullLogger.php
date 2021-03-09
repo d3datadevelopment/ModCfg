@@ -56,6 +56,18 @@ class d3NullLogger implements d3LogInterface
     }
 
     /**
+     * @param $sStatus
+     * @param false $oSet
+     * @return false
+     */
+    public function getLogStatus($sStatus, $oSet = false)
+    {
+        unset($sStatus);
+        unset($oSet);
+        return false;
+    }
+
+    /**
      * @param int $iLogType
      * @param string $sClass
      * @param string $sFnc

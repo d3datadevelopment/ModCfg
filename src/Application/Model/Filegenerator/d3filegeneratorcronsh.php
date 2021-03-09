@@ -31,6 +31,8 @@ class d3filegeneratorcronsh extends d3filegenerator
         'profihost_php70'       => 'd3shpattern_cron_profihost70.tpl',
         'profihost_php71'       => 'd3shpattern_cron_profihost71.tpl',
         'profihost_php72'       => 'd3shpattern_cron_profihost72.tpl',
+        'profihost_php73'       => 'd3shpattern_cron_profihost73.tpl',
+        'profihost_php74'       => 'd3shpattern_cron_profihost74.tpl',
         'hetzner_php56_cgi'     => 'd3shpattern_cron_hetzner56cgi.tpl',
         'hetzner_php70_cgi'     => 'd3shpattern_cron_hetzner70cgi.tpl',
         'hetzner_php56_cli'     => 'd3shpattern_cron_hetzner56cli.tpl',
