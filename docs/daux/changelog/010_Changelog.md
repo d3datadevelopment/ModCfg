@@ -2,6 +2,18 @@
 title: Changelog
 ---
 
+## 5.3.7.0 (2021-04-26)
+
+### Added
+- installierbar in OXID 6.2.4
+- Tests ergänzt
+
+### Changed
+- FontAwesome auf Version 5.15.3 aktualisiert
+- fehlende Dateiregistrierungen nachgetragen
+
+---
+
 ## 5.3.6.0 (2021-03-08)
 
 ### Added
