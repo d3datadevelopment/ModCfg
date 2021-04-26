@@ -39,14 +39,14 @@ class d3DicHandlerTest extends d3ModCfgUnitTestCase
     /**
      * setup basic requirements
      */
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
 
         $this->_oModel = oxNew(d3DicHandler::class);
     }
 
-    public function tearDown()
+    public function tearDown() : void
     {
         parent::tearDown();
 
@@ -78,7 +78,7 @@ class d3DicHandlerTest extends d3ModCfgUnitTestCase
     {
         $sPath = $this->callMethod($this->_oModel, 'd3GetCacheFilePath');
 
-        $this->assertInternalType('string', $sPath);
+        $this->assertIsString($sPath);
         $this->assertTrue((bool) strlen($sPath));
         $this->assertStringEndsWith('.php', $sPath);
     }
@@ -292,7 +292,7 @@ class d3DicHandlerTest extends d3ModCfgUnitTestCase
     {
         $aFileList = $this->callMethod($this->_oModel, 'getDefinitionFiles', array('d3DICDefinitionFiles'));
 
-        $this->assertInternalType('array', $aFileList);
+        $this->assertIsArray($aFileList);
         $this->assertTrue(count($aFileList) > 0);
         $this->assertContains('d3/modcfg/Config/services.yaml', $aFileList);
     }

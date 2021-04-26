@@ -43,14 +43,14 @@ class d3DicUtilitiesTest extends d3ModCfgUnitTestCase
     /**
      * setup basic requirements
      */
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
 
         $this->_oModel = oxNew(d3DicUtilities::class);
     }
 
-    public function tearDown()
+    public function tearDown() : void
     {
         parent::tearDown();
 

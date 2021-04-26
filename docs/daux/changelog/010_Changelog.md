@@ -2,6 +2,14 @@
 title: Changelog
 ---
 
+## 6.0.0.0 (2021-04-26)
+
+### Added
+- installierbar in OXID 6.3.0
+- Tests aktualisiert
+
+---
+
 ## 5.3.7.0 (2021-04-26)
 
 ### Added
