@@ -225,6 +225,9 @@ $aModule = [
         'd3/modcfg/Tests/unit/Application/Model/DependencyInjectionContainer/d3DicUtilitiesTest.php',
 
         'd3/modcfg/Tests/unit/Modules/Core/d3_oxutilsview_modcfgTest.php',
+        'd3/modcfg/Tests/unit/Modules/Core/d3_oxtheme_modcfgTest.php',
+        'd3/modcfg/Tests/unit/Modules/Application/Model/d3_oxshop_modcfgTest.php',
+        'd3/modcfg/Tests/unit/Application/Model/d3ThemeMappingTest.php'
     ],
     'd3SetupClasses'    => [
         ModuleSetup\d3_cfg_mod_update::class,

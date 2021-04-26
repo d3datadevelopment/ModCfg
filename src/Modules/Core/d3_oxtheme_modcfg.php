@@ -71,9 +71,12 @@ class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
     public function d3getThemeMapping($sDefaultTheme, $sModuleId)
     {
         $sConfVar = 'd3custParentThemeMappedTo'.ucfirst($sDefaultTheme).'_'.$sModuleId;
+        /** @var Config $config */
+        $config = d3GetModCfgDIC()->get('d3ox.modcfg.'.Config::class);
+
         return trim(
             strtolower(
-                Registry::getConfig()->getShopConfVar($sConfVar, null, Config::OXMODULE_MODULE_PREFIX.$sModuleId)
+                $config->getShopConfVar($sConfVar, null, Config::OXMODULE_MODULE_PREFIX.$sModuleId)
             )
         );
     }
