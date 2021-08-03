@@ -47,7 +47,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
     -->
 </script>
 
-<style type="text/css">
+<style>
     <!--
     fieldset{
         border: 1px inset black;
@@ -182,7 +182,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
     [{oxmultilang ident="D3_CFG_MOD_VERSION_INSTALLSTATUS"}]
     <iframe src="[{$oView->getInstallModiFrameLink()}]" style="width: 100%; height: 95%; border: none; overflow: hidden" name="d3_mod_install">
     </iframe>
-    <style type="text/css">
+    <style>
         div.box{background-image: none !important;}
     </style>
 

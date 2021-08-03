@@ -3,6 +3,7 @@
 namespace D3\ModCfg\Application\Model\Transactionlog;
 
 use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
+use InvalidArgumentException;
 use OxidEsales\Eshop\Core\Database\Adapter\Doctrine\ResultSet;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Model\BaseModel;
@@ -28,7 +29,7 @@ class d3transactionloglist extends ListModel
     public function __construct($transactionlog)
     {
         if (!($transactionlog instanceof d3transactionlog)) {
-            throw new \InvalidArgumentException('You have not provided a d3transactionlog instance');
+            throw new InvalidArgumentException('You have not provided a d3transactionlog instance');
         }
 
         parent::__construct();

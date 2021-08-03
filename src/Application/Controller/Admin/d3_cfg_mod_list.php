@@ -20,6 +20,8 @@ namespace D3\ModCfg\Application\Controller\Admin;
 use D3\ModCfg\Application\Model\Configuration\d3modprofile;
 use D3\ModCfg\Application\Model\d3database;
 use Doctrine\DBAL\DBALException;
+use DOMAttr;
+use DOMElement;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminListController;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Model\ListModel;
@@ -126,9 +128,9 @@ class d3_cfg_mod_list extends AdminListController
      */
     public function d3FixNamespaceNavigation()
     {
-        /** @var \DOMElement $oNavi */
+        /** @var DOMElement $oNavi */
         foreach ($this->getViewDataElement('editnavi') as $oNavi) {
-            /** @var \DOMAttr $oAttribute */
+            /** @var DOMAttr $oAttribute */
             foreach ($oNavi->attributes as $oAttribute) {
                 if (strtolower($oAttribute->name) == 'cl'
                     && strstr($oAttribute->nodeValue, '\\')

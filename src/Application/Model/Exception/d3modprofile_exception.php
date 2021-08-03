@@ -14,6 +14,7 @@
 
 namespace D3\ModCfg\Application\Model\Exception;
 
+use Exception;
 use \OxidEsales\Eshop\Core\Exception\StandardException;
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -52,7 +53,7 @@ class d3modprofile_exception extends StandardException
                 $logger = Registry::getLogger();
                 $logger->error($sLogMsg);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         }
     }
 

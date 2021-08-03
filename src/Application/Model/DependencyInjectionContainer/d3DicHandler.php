@@ -17,6 +17,7 @@ namespace D3\ModCfg\Application\Model\DependencyInjectionContainer;
 
 use D3\ModCfg\Application\Model\Modulemetadata\d3moduleconfiguration;
 use d3CacheContainer;
+use Exception;
 use OxidEsales\Eshop\Core\Module\ModuleList;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
@@ -50,7 +51,7 @@ class d3DicHandler implements d3DicHandlerInterface
 
         if (in_array(strtolower($functionName), array_map('strtolower', self::$circularReferenceMethodNames)))
         {
-            throw oxNew(\Exception::class, 'method '.$functionName." can't use DIC due the danger of circular reference");
+            throw oxNew(Exception::class, 'method '.$functionName." can't use DIC due the danger of circular reference");
         }
 
         if (null == self::$_instance) {

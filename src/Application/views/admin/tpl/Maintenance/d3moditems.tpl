@@ -1,20 +1,46 @@
 [{include file="headitem.tpl" title="d3mxsysitems"|oxmultilangassign}]
 
-<style type="text/css">
-    #modpreview p {margin: 0 0 0 100px; text-indent: -100px;}
+<style>
+    #modpreview p {
+        margin: 0 0 0 100px; text-indent: -100px;
+    }
 
-    table#modpreview {display: block; height: 100%; overflow: auto;}
-    #modpreview td {padding: 0 2px;}
-    #modpreview .mod {margin-left: 5px;}
-    #modpreview .mod.deactive {color: silver;}
-    #modpreview .mod.new, .mod.new {border: 1px solid darkgrey; padding: 0 3px;}
-    #modpreview .mod.new.problem, .mod.new.problem {border: 1px solid red; padding: 0 3px;}
-    #modpreview .mod .mod {cursor: pointer;}
-    #modpreview .mod.succ, .mod.succ{ color: darkgreen; float: left;}
-    #modpreview .mod.deactive .mod.succ, #modpreview .mod.deactive.succ, .mod.deactive.succ{ color: #bcddb6; float: left;}
-    #modpreview .mod.error, .mod.error{ color: darkred; float: left;}
-    #modpreview .mod.deactive .mod.error, #modpreview .mod.deactive.error{ color: #ddb6b6; float: left;}
-    #modpreview .mod option.desc {background: #E2E2E2; text-align: center;}
+    table#modpreview {
+        display: block; height: 100%; overflow: auto;
+    }
+    #modpreview td {
+        padding: 0 2px;
+    }
+    #modpreview .mod {
+        margin-left: 5px;
+    }
+    #modpreview .mod.deactive {
+        color: silver;
+    }
+    #modpreview .mod.new, .mod.new {
+        border: 1px solid darkgrey; padding: 0 3px;
+    }
+    #modpreview .mod.new.problem, .mod.new.problem {
+        border: 1px solid red; padding: 0 3px;
+    }
+    #modpreview .mod .mod {
+        cursor: pointer;
+    }
+    #modpreview .mod.succ, .mod.succ{
+        color: darkgreen; float: left;
+    }
+    #modpreview .mod.deactive .mod.succ, #modpreview .mod.deactive.succ, .mod.deactive.succ{
+        color: #bcddb6; float: left;
+    }
+    #modpreview .mod.error, .mod.error{
+        color: darkred; float: left;
+    }
+    #modpreview .mod.deactive .mod.error, #modpreview .mod.deactive.error{
+        color: #ddb6b6; float: left;
+    }
+    #modpreview .mod option.desc {
+        background: #E2E2E2; text-align: center;
+    }
 </style>
 
 <script type="text/javascript">

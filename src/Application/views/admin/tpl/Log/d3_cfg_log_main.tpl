@@ -18,12 +18,22 @@
 //-->
 </script>
 
-<style type="text/css">
-    td.edittext { height: 25px;}
-    td.edittext table {width: 100%;}
-    .code, .codepre {background-color:#EEEEEE; border:1px inset #999999; margin:10px auto; width:100%; white-space: normal;}
-    .codepre {white-space: pre;}
-    .code div, .codepre div {font-family: Courier, monospace; max-height:145px; overflow:auto; padding:5px;}
+<style>
+    td.edittext {
+        height: 25px;
+    }
+    td.edittext table {
+        width: 100%
+    }
+    .code, .codepre {
+        background-color:#EEEEEE; border:1px inset #999999; margin:10px auto; width:100%; white-space: normal
+    }
+    .codepre {
+        white-space: pre
+    }
+    .code div, .codepre div {
+        font-family: Courier, monospace; max-height:145px; overflow:auto; padding:5px;
+    }
 </style>
 
 [{if $readonly}]

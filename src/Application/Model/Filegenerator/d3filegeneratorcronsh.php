@@ -18,6 +18,7 @@ namespace D3\ModCfg\Application\Model\Filegenerator;
 
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
+use Smarty;
 
 class d3filegeneratorcronsh extends d3filegenerator
 {
@@ -60,7 +61,7 @@ class d3filegeneratorcronsh extends d3filegenerator
     }
 
     /**
-     * @return \Smarty
+     * @return Smarty
      * @throws StandardException
      * @throws d3ShopCompatibilityAdapterException
      */

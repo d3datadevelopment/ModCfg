@@ -76,7 +76,7 @@
     -->
 </script>
 
-<style type="text/css">
+<style>
     <!--
     .d3notallowed,
     .d3notallowed a {

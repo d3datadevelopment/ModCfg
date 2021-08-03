@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
     #d3clrtmp_lib_cfg {
         width: 98%;
     }

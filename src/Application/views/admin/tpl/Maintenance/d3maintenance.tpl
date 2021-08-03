@@ -11,7 +11,7 @@
     -->
 </script>
 
-<style type="text/css">
+<style>
     .groupExp dl dt {
         font-weight:  normal;
         width:        55%;

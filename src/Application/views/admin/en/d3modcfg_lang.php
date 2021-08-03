@@ -128,7 +128,7 @@ $aLang = array(
     'D3_CFG_MOD_VERSION_STARTCHECK'            => 'Check for newer release',
     'D3_CFG_MOD_VERSION_NONEWVERSION'          => 'There are no newer version for your shop available.',
     'D3_CFG_MOD_VERSION_INSTALLSTATUS'         => 'Installation progress',
-    'D3_CFG_MOD_VERSION_AVAILLIST'             => 'Further availability informations of ouf modules in different shop versions can you see in our <a href="http://www.oxidmodule.com/Modulverfuegbarkeiten/" target="modverf">overview</a>.',
+    'D3_CFG_MOD_VERSION_AVAILLIST'             => 'Further availability informations of ouf modules in different shop versions can you see in our <a href="https://www.oxidmodule.com/Modulverfuegbarkeiten/" target="modverf">overview</a>.',
 
     'D3_CFG_MOD_SUPPORT'                       => 'Support',
     'D3_CFG_MOD_SUPPORT_1'                     => 'If you have questions or suggestions, we are at your disposal with the following contact options:',
@@ -148,7 +148,7 @@ $aLang = array(
     'D3_CFG_MOD_DEV_ADR5'                      => 'Germany',
     'D3_CFG_MOD_DEV_WEBLINK'                   => 'Homepage: <a href="https://www.d3data.de/" target="_blank" alt="D³ Data Development">https://www.d3data.de</a>',
     'D3_CFG_MOD_DEV_MAILLINK'                  => 'E-Mail: <a href="mailto:info@shopmodule.com" alt="info@shopmodule.com">info@shopmodule.com</a>',
-    'D3_CFG_MOD_DEV_MODULELINK'                => 'An overview of all our modules can be found at <a href="http://www.oxidmodule.com/" target="_blank" title="D³ Data Development"><strong>http://www.oxidmodule.com</strong></a>',
+    'D3_CFG_MOD_DEV_MODULELINK'                => 'An overview of all our modules can be found at <a href="https://www.oxidmodule.com/" target="_blank" title="D³ Data Development"><strong>https://www.oxidmodule.com</strong></a>',
 
     'D3_CFG_MOD_CHANGEKEY'                     => 'change license key',
     'D3_CFG_MOD_ADDKEY'                        => 'activate license',
@@ -265,9 +265,9 @@ $aLang = array(
     'D3_CFG_MSG_NONEWITEM'                     => 'No new module entries available for saving',
 
     'D3_MOD_LIB_METADATA_AUTHOR'               => 'D³ Data Development',
-    'D3_MOD_LIB_METADATA_LOGO'                 => '<img src="../modules/d3/modcfg/public/d3logo.php" alt="D³" title="D³ Data Development">',
+    'D3_MOD_LIB_METADATA_LOGO'                 => '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" title="D³ Data Development">',
     'D3_MOD_LIB_METADATA_SUPPORTMAIL'          => 'support@shopmodule.com',
-    'D3_MOD_LIB_METADATA_INFOURL'              => 'http://www.oxidmodule.com/',
+    'D3_MOD_LIB_METADATA_INFOURL'              => 'https://www.oxidmodule.com/',
 
     'D3_CFG_MOD_EXC_MODCFGNOTCALLABLE'         => 'module configuration is unavailable, because of (uncheckable) database table',
     'D3_CFG_MOD_EXC_NOMODCFGITEM'              => 'no modcfg item for this id available [<a href="https://faq.d3data.de/module/modul-connector/fehlermeldung-keine-modulkonfiguration-fuer-diese-id-vorhanden/" target="faq">more info</a>]',

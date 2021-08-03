@@ -37,11 +37,10 @@
   },
   "require": {
     "php": "7.3 - 8.0", "ext-ionCube-Loader": "*",
-    "oxid-esales/oxideshop-ce": "6.8 - 6.8",
+    "oxid-esales/oxideshop-ce": "6.8 - 6.9",
     "ext-openssl": "*",
     "ext-mbstring": "*",
     "ext-dom": "*",
-    "ext-openssl": "*",
     "ext-posix": "*",
     "ext-json": "*",
     "ext-zlib": "*",

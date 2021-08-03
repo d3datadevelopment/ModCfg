@@ -24,7 +24,7 @@ function getUpdateStatus()
 -->
 </script>
 
-<style type="text/css">
+<style>
 <!--
 body {
     background-color: [{if $oView->getBgColor()}][{$oView->getBgColor()}][{else}]#FAFAFA[{/if}];
@@ -117,10 +117,12 @@ td.listitem2 .image {
 
 .box td.listitem.itemdisabled,
 .box td.listitem2.itemdisabled {
-    color: #888;
+    color: #888
 }
 
-dl {border-top: none;}
+dl {
+    border-top: none
+}
 
 dl dt {
     float: left;
@@ -340,7 +342,7 @@ h4 {
                 <input type="hidden" name="fnc" value="">
                 <h4>[{oxmultilang ident="D3_CFG_MOD_ACTIVATION_BUY_HEADLINE"}]</h4>
                 [{oxmultilang ident="D3_CFG_MOD_ACTIVATION_BUY_DESC_1"}]
-                http://www.oxidmodule.com/index.php?cl=search&searchparam=[{$oModule->d3GetModId()}]
+                https://www.oxidmodule.com/index.php?cl=search&searchparam=[{$oModule->d3GetModId()}]
                 [{oxmultilang ident="D3_CFG_MOD_ACTIVATION_BUY_DESC_2"}]
                 <div class="clear"></div>
                 [{assign var="blBackStep" value=true}]

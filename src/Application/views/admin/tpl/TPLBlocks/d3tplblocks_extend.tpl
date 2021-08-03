@@ -6,7 +6,7 @@
     [{assign var="readonly" value=""}]
 [{/if}]
 
-<style type="text/css">
+<style>
     .d3modcfg_btn.icon button {
         min-width: 300px;
     }

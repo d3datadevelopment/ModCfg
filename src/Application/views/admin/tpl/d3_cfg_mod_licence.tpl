@@ -17,7 +17,7 @@
     -->
 </script>
 
-<style type="text/css">
+<style>
     <!--
     fieldset {
         border:           1px inset black;

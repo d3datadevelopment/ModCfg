@@ -53,7 +53,7 @@
 [{assign var="oCfg" value=$oView->d3GetSet()}]
 [{assign var="blDevMode" value=$oCfg->getValue('blClrTmp_notmpuse')}]
 
-<style type="text/css">
+<style>
     table#statistik td {
         padding: 4px;
     }

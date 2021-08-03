@@ -7,7 +7,7 @@
     [{assign var="readonly" value=""}]
 [{/if}]
 
-<style type="text/css">
+<style>
     .tabs .disabled .b1 a {
         color: #787878;
     }

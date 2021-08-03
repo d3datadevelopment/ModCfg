@@ -7,7 +7,7 @@
 
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign}]
 
-<style type="text/css">
+<style>
     <!--
     ul li {
         list-style-type: disc;
@@ -116,6 +116,7 @@
 <script type="text/javascript">
     <!--
     let oldElemId = '[{if $oView->hasDemoShopMode()}]option_check[{else}]option_auto[{/if}]';
+    let oldElem;
 
     function _groupExp(el) {
         let _cur = el.parentNode;
@@ -127,7 +128,7 @@
     function changeElemColor(elem)
     {
         if (!oldElem && oldElemId) {
-            let oldElem = document.getElementById(oldElemId);
+            oldElem = document.getElementById(oldElemId);
         }
 
         if (oldElem) {

@@ -38,6 +38,7 @@ use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Request;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Exception\DatabaseException;
+use stdClass;
 
 class d3_cfg_mod_licence extends AdminDetailsController
 {
@@ -237,7 +238,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
      */
     public function setInfoMail()
     {
-        $this->_oInfoMail = new \stdClass;
+        $this->_oInfoMail = new stdClass;
         $oInfoMailXML     = false;
         $iError           = false;
 
@@ -463,17 +464,17 @@ class d3_cfg_mod_licence extends AdminDetailsController
                     /** @var $oFS d3filesystem */
                     $oFS = oxNew(d3filesystem::class);
                     $oFS->startDirectDownload($this->getNewestModuleData($this->getPhpVersionDownloadField(true)));
-                } elseif ($this->getNewestModuleData($this->getPhpVersionDownloadField(false)) && $this->getInstallClass()) {
+                } elseif ($this->getNewestModuleData($this->getPhpVersionDownloadField()) && $this->getInstallClass()) {
                     /** @var $oFS d3filesystem */
                     $oFS = oxNew(d3filesystem::class);
-                    $oFS->startDirectDownload($this->getNewestModuleData($this->getPhpVersionDownloadField(false)));
+                    $oFS->startDirectDownload($this->getNewestModuleData($this->getPhpVersionDownloadField()));
                 }
             } elseif ($this->getUpdateData($this->getPhpVersionDownloadField(true)) && $this->getInstallClass()) {
                 $oFS = oxNew(d3filesystem::class);
                 $oFS->startDirectDownload($this->getUpdateData($this->getPhpVersionDownloadField(true)));
-            } elseif ($this->getUpdateData($this->getPhpVersionDownloadField(false)) && $this->getInstallClass()) {
+            } elseif ($this->getUpdateData($this->getPhpVersionDownloadField()) && $this->getInstallClass()) {
                 $oFS = oxNew(d3filesystem::class);
-                $oFS->startDirectDownload($this->getUpdateData($this->getPhpVersionDownloadField(false)));
+                $oFS->startDirectDownload($this->getUpdateData($this->getPhpVersionDownloadField()));
             }
         }
     }

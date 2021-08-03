@@ -24,6 +24,7 @@ use D3\ModCfg\Application\Model\Parametercontainer\Registry as D3ModCfgRegistry;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension;
+use Exception;
 use OxidEsales\Eshop\Core\ConfigFile;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -1372,7 +1373,8 @@ class d3log extends BaseModel implements d3LogInterface
                     // E_USER_ERROR will catched twice, no additional handling needed
                     set_error_handler(array($this, 'd3logError'), E_ALL ^ E_USER_ERROR);
                 }
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
+                unset($e);
                 return;
             }
         }

@@ -87,13 +87,8 @@ class d3log_exception extends StandardException
      */
     public function debugOut()
     {
-        if (method_exists(Registry::class, 'getLogger')) {
-            $logger = Registry::getLogger();
-            $logger->error($this);
-        } else {
-            // backward compatible for OXID < 6.1
-            parent::debugOut();
-        }
+        $logger = Registry::getLogger();
+        $logger->error($this);
 
         $this->oD3Log->log(
             $this->iErrorLevel,

@@ -25,6 +25,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use Doctrine\DBAL\DBALException;
 use OxidEsales\Eshop\Core\UtilsView;
+use PDO;
 
 class d3maintenanceactions
 {
@@ -1390,7 +1391,7 @@ class d3maintenanceactions
         $oQB->select('count(*)')
             ->from('oxarticles', 'oav')
             ->leftJoin('oav', 'oxarticles', 'oap', 'oav.oxparentid = oap.oxid')
-            ->where("oap.oxactive = ".$oQB->createNamedParameter(0, \PDO::PARAM_INT))
+            ->where("oap.oxactive = ".$oQB->createNamedParameter(0, PDO::PARAM_INT))
             ->setMaxResults(1);
 
         return $this->getDb()->getOne($oQB->getSQL(),  $oQB->getParameters());

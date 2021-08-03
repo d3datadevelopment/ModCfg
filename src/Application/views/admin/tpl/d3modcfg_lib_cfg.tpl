@@ -1,5 +1,7 @@
-<style type="text/css">
-    div.box h3 {margin: 30px 0 10px 14px;}
+<style>
+    div.box h3 {
+        margin: 30px 0 10px 14px;
+    }
     #d3modcfg_lib_cfg {
         width: 98%;
     }

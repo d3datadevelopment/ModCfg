@@ -1,9 +1,17 @@
 [{if $d3pagenavi}]
-    <style type="text/css">
-        .d3pagenavigation {width: 100%; border-style: none;}
-        .d3pagenavigation td {width: 33%; height: 22px;}
-        .d3pagenavigation .prevPage, .d3pagenavigation .nextPage {padding-left:0.5em; padding-right:0.2em;}
-        .d3pagenavigation .disabled {color: #787878;}
+    <style>
+        .d3pagenavigation {
+            width: 100%; border-style: none;
+        }
+        .d3pagenavigation td {
+            width: 33%; height: 22px;
+        }
+        .d3pagenavigation .prevPage, .d3pagenavigation .nextPage {
+            padding-left:0.5em; padding-right:0.2em;
+        }
+        .d3pagenavigation .disabled {
+            color: #787878;
+        }
     </style>
     <table style="padding: 0; border-spacing: 0; border-collapse: collapse" class="d3pagenavigation">
         <tr>

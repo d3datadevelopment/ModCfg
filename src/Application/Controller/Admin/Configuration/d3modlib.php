@@ -23,6 +23,7 @@ use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Install\d3install;
 use D3\ModCfg\setup\d3_cfg_mod_cleaning;
 use Doctrine\DBAL\DBALException;
+use Exception;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
@@ -40,7 +41,7 @@ if (false == Registry::getConfig()->getConfigParam('blD3IgnoreAutoUpdate') &&
     $oD3Module = oxNew(d3module::class, $oModule);
     try {
         $oD3Module->d3RefreshModuleMeta();
-    } catch (\Exception $oEx) {}
+    } catch (Exception $oEx) {}
 }
 
 /**
