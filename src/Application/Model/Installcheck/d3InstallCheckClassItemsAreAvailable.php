@@ -55,7 +55,7 @@ class d3InstallCheckClassItemsAreAvailable implements d3InstallCheckInterface
                 $oModuleList = oxNew(ModuleList::class);
                 $aAllModuleFiles = $oModuleList->getModuleConfigParametersByKey(ModuleList::MODULE_KEY_FILES);
 
-                if (is_array($oModule->getInfo('files'))) {
+                if (is_array($oModule->getInfo('files')) && is_array($aAllModuleFiles[$this->_oSet->getMetaModuleId()])) {
                     $this->_blPassed = $this->_checkAllModuleClassesExist(
                         $oModule->getInfo('files'),
                         $aAllModuleFiles[$this->_oSet->getMetaModuleId()]

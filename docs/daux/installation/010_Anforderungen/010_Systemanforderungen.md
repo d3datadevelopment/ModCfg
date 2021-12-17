@@ -16,6 +16,7 @@ title: Systemanforderungen
 * Shopversionen
     * OXID eShop in Compilation Version 
         * 6.3.x
+        * 6.4.x
 * Themes
     * Dieses Modul arbeitet unabhängig von Frontendtemplates und hat daher keine speziellen Anforderungen.
 * Installation via [Composer](https://getcomposer.org)

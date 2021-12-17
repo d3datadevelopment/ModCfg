@@ -49,7 +49,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '6.0.1.0',
+    'version'     => '6.0.2.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
@@ -99,8 +99,13 @@ $aModule = [
         'd3_mod_install'            => ModuleAdminInstallController\d3_mod_install::class,
     ],
     'blocks'      => [
-        [
+        'OXID 6.3'  => [
             'template'  => 'header.tpl',
+            'block'     => 'admin_header_links',
+            'file'      => 'Application/views/blocks/admin/admin_header_links.tpl',
+        ],
+        'OXID 6.4'  => [
+            'template'  => 'include/header_links.tpl',
             'block'     => 'admin_header_links',
             'file'      => 'Application/views/blocks/admin/admin_header_links.tpl',
         ],

@@ -2,6 +2,23 @@
 title: Changelog
 ---
 
+## 6.0.2.0 (2021-12-17)
+
+### Added
+- make installable in OXID 6.4
+
+### Changed
+- prevent admin error, while empty modulelist file register for health check
+- make CLI check compatible to PHP internal server
+- don't break update in CLI
+- CLI use translations from defined language and from admin area
+- write CLI outputs to STD pipes instead of outputting to display
+
+### Fixed
+- syntax error in maintenance query
+
+---
+
 ## 6.0.1.0 (2021-08-03)
 
 ### Added

@@ -64,7 +64,7 @@ class Events
 
         if (defined('OXID_PHP_UNIT')
             || (bool) $request->getRequestEscapedParameter(self::$_ConfirmParamName) == true
-            || php_sapi_name() === 'cli'
+            || substr(php_sapi_name(), 0, 3) === 'cli'
             || (
                 $request->getRequestEscapedParameter('cl') === 'module_config'
                 && $request->getRequestEscapedParameter('fnc') === 'save'

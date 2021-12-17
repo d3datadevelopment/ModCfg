@@ -19,6 +19,8 @@
 namespace D3\ModCfg;
 
 use D3\ModCfg\Application\Model\Install\d3updateinstaller;
+use Exception;
+use OxidEsales\Eshop\Core\Registry;
 
 $bootstrapFileName = getenv('ESHOP_BOOTSTRAP_PATH');
 if (!empty($bootstrapFileName)) {
@@ -46,10 +48,15 @@ if (!(file_exists($bootstrapFileName) && !is_dir($bootstrapFileName))) {
 
     $message = implode(" ", $items);
 
-    die($message);
+    fwrite(STDERR, $message);
+    exit(1);
 }
 
-require_once($bootstrapFileName);
+if (false === defined('OXID_PHP_UNIT')) {
+    require_once($bootstrapFileName);
+
+    define('OX_IS_ADMIN', true);
+}
 
 ini_set('error_reporting', E_ERROR);
 
@@ -58,34 +65,51 @@ $status = (object)[
     'noException' => false
 ];
 
+// set language
+$language = Registry::getLang();
+$options = getopt('l:', ["lang:"]);
+$searchedValue = $options ? getopt('l:', ["lang:"])['lang'] : $language->getLanguageAbbr($language->getBaseLanguage());
+
+Registry::getLang()->setTplLanguage(
+    current(
+        array_filter(
+            Registry::getLang()->getLanguageArray(),
+            function ($e) use (&$searchedValue) {
+                return $e->abbr == $searchedValue;
+            }
+        )
+    )->id
+);
+
 /** @var d3updateinstaller $updateInstaller */
 $updateInstaller = oxNew(d3updateinstaller::class);
 register_shutdown_function('D3\ModCfg\handleExit', $status, $updateInstaller);
 
 try {
     $status->noSuccess = $updateInstaller->startModuleInstallation(false, true);
-} catch (\Exception $oEx) {}
+    $status->noException = true;
+} catch (Exception $oEx) {
+    fwrite(STDERR, $oEx->getMessage().PHP_EOL);
+}
 
-function handleExit($status, \D3\ModCfg\Application\Model\Install\d3updateinstaller $updateinstaller) {
+function handleExit($status, d3updateinstaller $updateinstaller) {
     if (($status->noSuccess) || (!$status->noException)) {
-        print("There was an error while set up modules.");
+        fwrite(STDERR, "There was an error while set up modules.".PHP_EOL);
     }
 
     if (!$status->noException) {
-        print(" Please look at `EXCEPTION_LOG.txt` for more details.".PHP_EOL);
+        fwrite(STDERR, "Please look at `EXCEPTION_LOG.txt` for more details.".PHP_EOL);
     }
 
     if (($status->noException) && ($status->noSuccess)) {
-        print(" Please check the state of module installation.".PHP_EOL);
+        fwrite(STDERR, "Please check the state of module installation.".PHP_EOL);
     }
 
     if ($status->noSuccess) {
-        print($updateinstaller->getErrorMessage().PHP_EOL);
+        fwrite(STDERR, $updateinstaller->getErrorMessage().PHP_EOL);
     }
 }
 
-$status->noException = true;
-
-if (!$status->noSuccess) {
-    exit(2);
+if ($status->noSuccess || !$status->noException) {
+    exit(1);
 }
