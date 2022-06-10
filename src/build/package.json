@@ -1,0 +1,19 @@
+{
+  "name": "d3modcfg_lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "keywords": [],
+  "author": "D3 Data Development (Inh. Thomas Dartsch)",
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-cli": "^1.3.2",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^5.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "less-plugin-autoprefix": "^1.5.1",
+    "load-grunt-config": "^1.0.2",
+    "time-grunt": "^1.1.1"
+  }
+}

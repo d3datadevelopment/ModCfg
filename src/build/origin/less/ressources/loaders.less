@@ -1,0 +1,129 @@
+.d3loader-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .d3loader-circle {
+    width: 5rem;
+    height: 5rem;
+    border: solid 0.5rem #f9f9f9;
+    border-radius: 50%;
+    border-right: solid 0.7rem #006ab4;
+    animation: spinner-loader-1 2s infinite;
+  }
+}
+
+@keyframes spinner-loader-1 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+<h1>Spinner</h1>
+<div class="d3loader-1">
+    <div class="d3loader-circle"></div>
+</div>
+ */
+
+.d3loader-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .d3loader-spinner {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+
+    .d3loader-circle-1,
+    .d3loader-circle-2,
+    .d3loader-circle-3 {
+      position: absolute;
+      border-radius: 50%;
+      border: transparent 0.3rem solid;
+      border-right: @d3_shopcolor_ee 0.3rem solid;
+    }
+
+    .d3loader-circle-1 {
+      top: 0.5rem;
+      left: 0.5rem;
+      width: 9rem;
+      height: 9rem;
+      animation: spinner-loader-2 1.5s infinite;
+    }
+
+    .d3loader-circle-2 {
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 7rem;
+      height: 7rem;
+      border-right-color: @d3_shopcolor_pe;
+      animation: spinner-loader-2 1.5s 200ms infinite;
+    }
+
+    .d3loader-circle-3 {
+      top: 2.5rem;
+      left: 2.5rem;
+      width: 5rem;
+      height: 5rem;
+      border-right-color: @d3_shopcolor_ce;
+      animation: spinner-loader-2 1.5s 350ms infinite;
+    }
+  }
+
+  &.small {
+    .d3loader-spinner {
+      width: 5rem;
+      height: 5rem;
+
+      .d3loader-circle-1 {
+        top: 0.25rem;
+        left: 0.25rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-right-width: 0.2rem;
+      }
+
+      .d3loader-circle-2 {
+        top: 0.75rem;
+        left: 0.75rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-right-width: 0.2rem;
+      }
+
+      .d3loader-circle-3 {
+        top: 1.25rem;
+        left: 1.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-right-width: 0.2rem;
+      }
+    }
+  }
+}
+
+@keyframes spinner-loader-2 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+<div class="d3loader-2 small">
+    <div class="d3loader-spinner">
+        <div class="d3loader-circle-1"></div>
+        <div class="d3loader-circle-2"></div>
+        <div class="d3loader-circle-3"></div>
+    </div>
+</div>
+ */

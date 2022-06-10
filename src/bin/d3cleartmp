@@ -1,0 +1,336 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * https://www.d3data.de
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\bin;
+
+use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
+use Exception;
+use OxidEsales\Eshop\Core\Config;
+use OxidEsales\Eshop\Core\Module\Module;
+use OxidEsales\Eshop\Core\Registry;
+use RuntimeException;
+use splitbrain\phpcli\CLI;
+use splitbrain\phpcli\Options;
+
+// @codeCoverageIgnoreStart
+
+$bootstrapFileName = getenv('ESHOP_BOOTSTRAP_PATH');
+if (!empty($bootstrapFileName)) {
+    $bootstrapFileName = realpath(trim(getenv('ESHOP_BOOTSTRAP_PATH')));
+} else {
+    $count = 0;
+    $bootstrapFileName = '../../../../../source/bootstrap.php';
+    $currentDirectory = __DIR__ . '/';
+    while ($count < 5) {
+        $count++;
+        if (file_exists($currentDirectory . $bootstrapFileName)) {
+            $bootstrapFileName = $currentDirectory . $bootstrapFileName;
+            break;
+        }
+        $bootstrapFileName = '../' . $bootstrapFileName;
+    }
+}
+
+if (!(file_exists($bootstrapFileName) && !is_dir($bootstrapFileName))) {
+    $items = [
+        "Unable to find eShop bootstrap.php file.",
+        "You can override the path by using ESHOP_BOOTSTRAP_PATH environment variable.",
+        "\n"
+    ];
+
+    $message = implode(" ", $items);
+
+    die($message);
+}
+
+if (false === defined('OXID_PHP_UNIT')) {
+    require_once($bootstrapFileName);
+
+    define('OX_IS_ADMIN', true);
+}
+
+if (false == function_exists('isAdmin')) {
+    /**
+     * @return bool
+     */
+    function isAdmin()
+    {
+        if (defined('OX_IS_ADMIN')) {
+            return OX_IS_ADMIN;
+        }
+
+        return true;
+    }
+}
+
+// set language
+$searchedValue = getopt(null, ["lang:"])['lang'];
+Registry::getLang()->setTplLanguage(
+    current(
+        array_filter(
+            Registry::getLang()->getLanguageArray(),
+            function ($e) use (&$searchedValue) {
+                return $e->abbr == $searchedValue;
+            }
+        )
+    )->id
+);
+// @codeCoverageIgnoreEnd
+
+class d3cleartmp extends CLI
+{
+    const OPTION_VERSION = 'version';
+    const OPTION_QUIET = 'quiet';
+    const OPTION_LANG = 'lang';
+
+    const COMMAND_RUN = 'run';
+
+    const ARGUMENT_TYPE = 'type';
+
+    const TYPE_ALL = 'all';
+    const TYPE_TEMPLATES = 'templates';
+    const TYPE_DATABASE = 'database';
+    const TYPE_LANGUAGE = 'language';
+    const TYPE_MENU = 'menu';
+    const TYPE_CLASSPATH = 'classpath';
+    const TYPE_STRUCTURE = 'structure';
+    const TYPE_TAGCLOUD = 'tagcloud';
+    const TYPE_MODULE = 'module';
+    const TYPE_SEO = 'seo';
+
+    const LOGLEVEL_TYPE_DEBUG = 'debug';
+    const LOGLEVEL_TYPE_INFO = 'info';
+    const LOGLEVEL_TYPE_NOTICE = 'notice';
+    const LOGLEVEL_TYPE_SUCCESS = 'success';
+    const LOGLEVEL_TYPE_WARNING = 'warning';
+    const LOGLEVEL_TYPE_ERROR = 'error';
+    const LOGLEVEL_TYPE_CRITICAL = 'critical';
+    const LOGLEVEL_TYPE_ALERT = 'alert';
+    const LOGLEVEL_TYPE_EMERGENCY = 'emergency';
+
+    public function __construct()
+    {
+        // there are argv setting in CLI mode only
+        if ($this->isCLI()) {
+            parent::__construct();
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCLI()
+    {
+        return 'cli' == php_sapi_name();
+    }
+
+    /**
+     * @param Options $options
+     */
+    protected function setup(Options $options)
+    {
+        $lang = Registry::getLang();
+
+        $sLangList = implode(
+            $lang->translateString('D3_CFG_CLRTMP_CLI_ARGUMENT_ENCLOSER'),
+            array_map(
+                function ($e) {
+                    return $e->abbr;
+                },
+                Registry::getLang()->getLanguageArray()
+            )
+        );
+
+        $aTypeList = implode(
+            $lang->translateString('D3_CFG_CLRTMP_CLI_ARGUMENT_ENCLOSER'),
+            [self::TYPE_ALL, self::TYPE_TEMPLATES, self::TYPE_DATABASE,
+             self::TYPE_LANGUAGE, self::TYPE_MENU, self::TYPE_CLASSPATH,
+             self::TYPE_STRUCTURE, self::TYPE_TAGCLOUD, self::TYPE_MODULE, self::TYPE_SEO]
+        );
+
+        $options->setHelp($lang->translateString('D3_CFG_CLRTMP_CLI_HELP'));
+        $options->registerOption(self::OPTION_VERSION, $lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_VERSION'), 'v');
+        $options->registerOption(self::OPTION_QUIET, $lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_QUIET'), 'q');
+        $options->registerOption(self::OPTION_LANG, sprintf($lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_LANG'), $sLangList), null, 'language');
+
+        $options->registerCommand(self::COMMAND_RUN, $lang->translateString('D3_CFG_CLRTMP_CLI_COMMAND_RUN'));
+
+        $options->registerArgument(self::ARGUMENT_TYPE, sprintf($lang->translateString('D3_CFG_CLRTMP_CLI_ARGUMENT_TYPE'), $aTypeList), false);
+    }
+
+    /**
+     * retranslate default messages
+     */
+    protected function parseOptions()
+    {
+        $lang = Registry::getLang();
+
+        parent::parseOptions();
+
+        $aLogLevelList = implode(
+            $lang->translateString('D3_CFG_CLRTMP_CLI_ARGUMENT_ENCLOSER'),
+            [
+                self::LOGLEVEL_TYPE_DEBUG, self::LOGLEVEL_TYPE_INFO, self::LOGLEVEL_TYPE_NOTICE,
+                self::LOGLEVEL_TYPE_SUCCESS, self::LOGLEVEL_TYPE_WARNING, self::LOGLEVEL_TYPE_ERROR,
+                self::LOGLEVEL_TYPE_CRITICAL, self::LOGLEVEL_TYPE_ALERT, self::LOGLEVEL_TYPE_EMERGENCY
+            ]
+        );
+
+        $this->options->registerOption('help', $lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_HELP'), 'h');
+        $this->options->registerOption('no-colors', $lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_NOCOLORS'));
+        $this->options->registerOption('loglevel', sprintf($lang->translateString('D3_CFG_CLRTMP_CLI_OPTION_LOGLEVELS'), $aLogLevelList), null, 'level');
+    }
+
+    /**
+     * @param Options $options
+     */
+    protected function main(Options $options)
+    {
+        if ($options->getOpt(self::OPTION_VERSION)) {
+            $oModule = oxNew(Module::class);
+            $oModule->load('d3modcfg_lib');
+            $this->info($oModule->getModuleData()['version']);
+
+            return;
+        }
+
+        if ( $options->getOpt( self::OPTION_QUIET ) ) {
+            Registry::getSession()->setVariable( 'd3cfgmodcli_quiet', true );
+        }
+
+        $arguments = $options->getArgs();
+
+        $aTranslation               = [];
+        $aTranslation['clrtmptype'] = isset( $arguments[0] ) ? $arguments[0] : '';
+
+        $_GET = array_merge( $_GET, $aTranslation );
+
+        try {
+            switch ( $options->getCmd() ) {
+                case self::COMMAND_RUN:
+                    /** @var $controller d3clrtmp */
+                    $controller = oxNew( d3clrtmp::class);
+                    call_user_func_array( [$controller, $this->getTypeMethod($aTranslation['clrtmptype'])], [] );
+                    if ( !$options->getOpt( self::OPTION_QUIET ) ) {
+                        $this->success(
+                            Registry::getLang()->translateString('D3_CFG_CLRTMP_CLI_FINISHED_SUCCFESSFULLY')
+                        );
+                    }
+                    break;
+                default:
+                    echo $this->translateFixedStrings( $options->help() );
+            }
+        } catch ( Exception $oEx ) {
+            if (!$options->getOpt(self::OPTION_QUIET)) {
+                $this->error( $oEx->getMessage() );
+            }
+        } finally {
+            /** @var Config $config */
+            $config = Registry::getConfig();
+            // @codeCoverageIgnoreStart
+            if (false === defined('OXID_PHP_UNIT')) {
+                $config->pageClose();
+            }
+            // @codeCoverageIgnoreEnd
+        }
+    }
+
+    /**
+     * @param $type
+     *
+     * @return string
+     */
+    protected function getTypeMethod($type)
+    {
+        switch (strtolower($type)) {
+            case self::TYPE_ALL:
+                return 'clearAllCache';
+            case self::TYPE_TEMPLATES:
+                return 'clearFrontendCache';
+            case self::TYPE_DATABASE:
+                return 'clearDataBaseStructCache';
+            case self::TYPE_LANGUAGE:
+                return 'clearLangCache';
+            case self::TYPE_MENU:
+                return 'clearMenuCache';
+            case self::TYPE_CLASSPATH:
+                return 'clearClassPathCache';
+            case self::TYPE_STRUCTURE:
+                return 'clearStructureCache';
+            case self::TYPE_TAGCLOUD:
+                return 'clearTagcloudCache';
+            case self::TYPE_SEO:
+                return 'clearSeoCache';
+            case self::TYPE_MODULE:
+                return 'clearModuleCache';
+            default:
+                throw oxNew( RuntimeException::class, Registry::getLang()->translateString('D3_CFG_CLRTMP_CLI_COMMON_NOVALIDTYPE'));
+        }
+    }
+
+    /**
+     * prevent code exit while coverage check
+     * @codeCoverageIgnore
+     */
+    public function run()
+    {
+        if (false === defined('OXID_PHP_UNIT')) {
+            parent::run();
+        } else {
+            if (false === $this->isCLI()) {
+                throw new RuntimeException(Registry::getLang()->translateString('D3_CFG_CLRTMP_CLI_COMMON_RUNFROMCLI'));
+            }
+
+            $this->setup($this->options);
+            $this->registerDefaultOptions();
+            $this->parseOptions();
+            $this->handleDefaultOptions();
+            $this->setupLogging();
+            $this->checkArgments();
+            $this->execute();
+        }
+    }
+
+    /**
+     * @param $text
+     * @return string
+     */
+    public function translateFixedStrings($text)
+    {
+        $search = [
+            'This tool accepts a command as first parameter as outlined below:'
+        ];
+
+        $replace = [
+            Registry::getLang()->translateString('D3_CFG_CLRTMP_CLI_COMMAND')
+        ];
+
+        return str_replace($search, $replace, $text);
+    }
+}
+
+// @codeCoverageIgnoreStart
+$cli = new d3cleartmp();
+if (false === defined('OXID_PHP_UNIT')) {
+    try {
+        $cli->run();
+    } catch ( Exception $e) {
+        $cli->error($e->getMessage());
+    }
+}
+// @codeCoverageIgnoreEnd

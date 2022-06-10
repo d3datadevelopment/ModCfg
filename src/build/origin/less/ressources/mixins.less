@@ -1,0 +1,39 @@
+.colored-icon-button(@color, @lightColor, @inactiveColor) {
+  background:     @color;
+  input,
+  button {
+    background:   @color;
+  }
+
+  &:hover,
+  &:hover input,
+  &:hover button {
+    background:   @lightColor;
+  }
+
+  &_inactive,
+  &_inactive input,
+  &_inactive button {
+    background:   @inactiveColor;
+  }
+
+  &_inactive:hover,
+  &_inactive:hover input,
+  &_inactive:hover button,
+  &_inactive:active,
+  &_inactive:active input,
+  &_inactive:active button {
+    margin:                 0 auto 2px auto;
+    box-shadow:             none;
+  }
+}
+
+.d3lighten(@color) {
+  @lightColor: lighten(@color, 14%);
+}
+
+.d3desaturate(@color) {
+  @boolLight: boolean(lightness(@color) > 55%);
+  @lightenvalue: if(@boolLight, 15%, 30%);
+  @desatColor: lighten(desaturate(@color, 100%), @lightenvalue);
+}

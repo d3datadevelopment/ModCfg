@@ -1,0 +1,53 @@
+# This Software is the property of Data Development and is protected
+# by copyright law - it is NOT Freeware.
+#
+# Any unauthorized use of this software without a valid license
+# is a violation of the license agreement and will be prosecuted by
+# civil and criminal law.
+#
+# https://www.d3data.de
+#
+# @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+# @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+# @link      http://www.oxidmodule.com
+
+services:
+  # article
+  d3ox.modcfg.OxidEsales\Eshop\Application\Model\Article:
+    class:      'OxidEsales\Eshop\Application\Model\Article'
+    factory:    'oxNew'
+    shared:     false
+    arguments:
+      - 'OxidEsales\Eshop\Application\Model\Article'
+
+  # config
+  d3ox.modcfg.OxidEsales\Eshop\Core\Config:
+    class:      'OxidEsales\Eshop\Core\Config'
+    factory:
+      - 'OxidEsales\Eshop\Core\Registry'
+      - 'getConfig'
+    shared:     true
+
+  # language
+  d3ox.modcfg.OxidEsales\Eshop\Core\Language:
+    class: 'OxidEsales\Eshop\Core\Language'
+    factory:
+      - 'OxidEsales\Eshop\Core\Registry'
+      - 'getLang'
+    shared: true
+
+  # MultiLanguageModel
+  d3ox.modcfg.OxidEsales\Eshop\Core\Model\MultiLanguageModel:
+    class: 'OxidEsales\Eshop\Core\Model\MultiLanguageModel'
+    factory: 'oxNew'
+    shared: false
+    arguments:
+      - 'OxidEsales\Eshop\Core\Model\MultiLanguageModel'
+
+  # session
+  d3ox.modcfg.OxidEsales\Eshop\Core\Session:
+    class:      'OxidEsales\Eshop\Core\Session'
+    factory:
+      - 'OxidEsales\Eshop\Core\Registry'
+      - 'getSession'
+    shared:     true
