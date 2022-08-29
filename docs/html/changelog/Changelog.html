@@ -72,16 +72,45 @@
     <div class="Page__header">
         <h1><a href="../changelog/Changelog.html">Changelog</a></h1>
                 <span class="ModifiedDate">
-                        17.12.2021        </span>
+                        29.08.2022        </span>
                     </div>
 
     <div class="s-content">
-        <h2 id="page_6-0-2-0-2021-12-17">6.0.2.0 (2021-12-17)</h2>
+        <h2 id="page_6-1-0-0-2022-08-29">6.1.0.0 (2022-08-29)</h2>
 <h3 id="page_Added">Added</h3>
+<ul>
+<li>installiertbar in OXID 6.5 (CE 6.12)</li>
+<li>Caches für Thememapping und Modulkonfiguration eingefügt</li>
+</ul>
+<h3 id="page_Changed">Changed</h3>
+<ul>
+<li>duplizierte Modulprofile erhalten neues Erstellungsdatum</li>
+<li>Syntax bei Querybuilder generierten Abfragen ergänzt</li>
+<li>undefinierte Aktivierungsfehler ergänzt</li>
+<li>protokolliert keine Shutdownfehler, wenn diese keine Informationen enthalten</li>
+<li>Dokumentation ergänzt</li>
+<li>DIContainer wird nun kompiliert ausgeliefert</li>
+<li>DIC-Cache wird für jeden Shopmandanten separat angelegt</li>
+<li>Tests ergänzt</li>
+<li>veraltete Methodenaufrufe aufgelöst</li>
+</ul>
+<h3 id="page_Fixed">Fixed</h3>
+<ul>
+<li>verhindert Fehler beim Schreiben von Ausnamen ins Log, wenn noch keine Connectorkonfiguration angelegt wurde</li>
+<li>sichert SQL-Ausführung weiter ab</li>
+<li>zeigt ModCfg-Module in der Modulliste auch, wenn diese der erste Eintrag sind</li>
+</ul>
+<h3 id="page_Removed">Removed</h3>
+<ul>
+<li>abgekündigte Thememappingfunktionen in erweiterter Theme-Klasse, verwende statt dessen die Methoden in der d3thememapping-Klasse</li>
+</ul>
+<hr />
+<h2 id="page_6-0-2-0-2021-12-17">6.0.2.0 (2021-12-17)</h2>
+<h3 id="page_Added-2">Added</h3>
 <ul>
 <li>make installable in OXID 6.4</li>
 </ul>
-<h3 id="page_Changed">Changed</h3>
+<h3 id="page_Changed-2">Changed</h3>
 <ul>
 <li>prevent admin error, while empty modulelist file register for health check</li>
 <li>make CLI check compatible to PHP internal server</li>
@@ -89,7 +118,7 @@
 <li>CLI use translations from defined language and from admin area</li>
 <li>write CLI outputs to STD pipes instead of outputting to display</li>
 </ul>
-<h3 id="page_Fixed">Fixed</h3>
+<h3 id="page_Fixed-2">Fixed</h3>
 <ul>
 <li>syntax error in maintenance query</li>
 </ul>

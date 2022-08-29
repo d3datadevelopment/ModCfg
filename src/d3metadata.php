@@ -119,6 +119,7 @@ $aModule = [
         'd3/modcfg/Application/Model/Exception/d3ParameterNotFoundException.php',
         'd3/modcfg/Application/Model/Exception/d3PreventExitException.php',
         'd3/modcfg/Application/Model/Exception/d3ShopCompatibilityAdapterException.php',
+        'd3/modcfg/Application/Model/Exception/wrongModIdException.php',
 
         'd3/modcfg/Application/Model/Filegenerator/d3filegenerator.php',
         'd3/modcfg/Application/Model/Filegenerator/d3filegeneratorcronsh.php',

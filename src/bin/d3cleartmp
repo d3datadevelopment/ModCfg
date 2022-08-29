@@ -301,7 +301,7 @@ class d3cleartmp extends CLI
             $this->parseOptions();
             $this->handleDefaultOptions();
             $this->setupLogging();
-            $this->checkArgments();
+            $this->checkArguments();
             $this->execute();
         }
     }

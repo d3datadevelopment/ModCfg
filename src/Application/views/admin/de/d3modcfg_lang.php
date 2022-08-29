@@ -328,6 +328,8 @@ $aLang = array(
     'D3_CFG_MOD_ACTIVATION_ERRNOORDER'         => 'Zu Ihrem Aktivierungsident konnte keine passende Bestellung oder kein passendes Modul gefunden werden. Aktivieren Sie das Modul bitte ausschließlich mit dem dazugehörigen Ident.',
     'D3_CFG_MOD_ACTIVATION_ERRWRONGEDITION'    => 'Das erworbene Modul kann unter dieser Shopedition nicht aktiviert und betrieben werden. Kontaktieren Sie uns bitte.',
     'D3_CFG_MOD_ACTIVATION_ERRDIFFERENTSHOPS'  => 'Für das Modul erhielten Sie mehrere Aktivierungsidents. Diese sind zum Beispiel für verschiedene Mandanten nötig. Einer dieser Idents wurde schon in einer anderen Shopinstallation aktiviert. Möchten Sie dieses Modul in unterschiedlichen Shops einsetzen, kontaktieren Sie uns bitte.',
+    'D3_CFG_MOD_ACTIVATION_ERRNEWERMAJORVERSION'  => 'In Ihrer Bestellung erhielten Sie mehrere Aktivierungsidents. Diese sind zum Beispiel für verschiedene Mandanten nötig. Mit einem dieser Idents wurde eine ältere Modulversion aktiviert (abweichende Hauptversion). Möchten Sie mit einem Ident dieser Bestellung eine neuere Modulversion aktivieren, kontaktieren Sie uns bitte.',
+    'D3_CFG_MOD_ACTIVATION_ERR'                => 'Beim Aktivieren ist ein allgemeiner Fehler aufgetreten. Kontaktieren Sie uns bitte.',
     'D3_CFG_MOD_ACTIVATION_SAVESERIALSUCC'     => 'Der Lizenzschlüssel wurde erfolgreich eingetragen. Wir wünschen Ihnen mit dem Modul viel Erfolg.',
 
     'D3_CFG_MOD_NOTACTIVE'                     => 'Das Modul ist nicht aktiv. Prüfen Sie die Einstellungen in der Modulverwaltung.',

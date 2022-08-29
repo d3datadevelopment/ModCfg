@@ -237,7 +237,8 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
             }
             foreach ($oException->getTrace() as $aItem) {
                 if ($aItem['file']) {
-                    $sFile = 'file: '.end(array_values(explode('/', $aItem['file'])));
+                    $filePath = array_values(explode('/', $aItem['file']));
+                    $sFile = 'file: '.end($filePath);
                     return array(
                         'class' => $sFile,
                         'line'  => $aItem['line'] ? $aItem['line'] : 0,

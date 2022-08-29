@@ -102,15 +102,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '6.0.2.0';
-    public $sModRevision = '6020';
+    public $sModVersion = '6.1.0.0';
+    public $sModRevision = '6100';
     public $sBaseConf =
-        'b4ov2==dGwyR3pjd2xSbmkzYlZ5TnkyL2NlVlJvV1gzT3gwYmNENEV0eEo2QzFPb3UxUkd1NHd5REVaY
-2JLclVmSDd0K1ovUzdqTnBTUEdlTldRbm5Tcld5TnhRNjN3TlFRd0dzejNxc2NBQ1lCMFM5Q3o0NlJpT
-zFlYjU1ZHdFa2pYbUVxN0t1MjF0VU42ckUrUkxqbmxXUGQwdkhIR3czVDJpSzMvR1Y1MTlHbHI3Uzg5V
-XBOVFZ6TEFUMmJhS0Y3aTJxN2twdm9lSGVjZGFlWUJEeEZWTlBLVnVyT1AyejhsL0hoU1pJZEhMRHRSN
-1pCR2FKUXE4QTVwejhaSUpBQ0VtWjlZNmZMM2tQMmNFRkdWc1I4T0Z5amY3SlpJOGYyaEM0MzNwZDNPR
-GF5U3NEMlpRZkl0bUN3V2Y0UmpndHlTTjc=';
+        '99Hv2==azJtaEQ2UzZHSlNzTWtaZlZCQmhtMzRsR3RJYzdTeVhQTDNiM2JzazIzelBObkFnMW0zUENvO
+VBYbVhBRTJSbEZ5dlJWN3ZGY0hUeHlxZlNwNFdxcG8wYnNURkdBV1NDZWx2MW5namp0d2dqZFFadHVzb
+StaVlhFaHA2aVpmNHIzOUU2SzY4TnlwWnlKWVEvUG5IcWlwdWpOcklqa2RPeWtLd3U5MGFMVkpWdmZuK
+3dWK1gwakl4THQ3eG5kWDZNY1ZUMW5YOExJbzBpYjFmRGhFWWdZTUFVUitBYUQycTgvU3RDR21Ma3hIQ
+240OGg3YUdmLzc0MmdGRFlMak5YS0hoUSs3bFlOWW5BaTRZa0thUzVHYWxrUlQ0K0RkY2tkbEFwYVBle
+DJFL2lCR2pGU3U4VjMzWFNsUThZdlEvd08=';
     public $sRequirements = '';
     public $sBaseValue = '';
 

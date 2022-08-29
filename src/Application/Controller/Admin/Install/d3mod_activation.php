@@ -323,6 +323,9 @@ final class d3mod_activation extends d3_cfg_mod_main
             case '6':
                 $sIdent .= "DIFFERENTSHOPS";
                 break;
+            case '7':
+                $sIdent .= "NEWERMAJORVERSION";
+                break;
         }
 
         return Registry::getLang()->translateString($sIdent);

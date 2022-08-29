@@ -15,9 +15,15 @@
  * @link      http://www.oxidmodule.com
  */
 
-namespace D3\ModCfg\Modules\Core;
+namespace D3\ModCfg\Application\Model\Exception;
 
-class d3_oxtheme_modcfg extends d3_oxtheme_modcfg_parent
+use OxidEsales\Eshop\Core\Exception\StandardException;
+
+class wrongModIdException extends StandardException
 {
-    /** leave blank */
+    public function __construct($sModId = "not set", $iCode = 0, \Exception $previous = null)
+    {
+        $sMessage = 'wrong or unknown module ID: '.$sModId;
+        parent::__construct($sMessage, $iCode, $previous);
+    }
 }
