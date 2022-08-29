@@ -1,29 +1,53 @@
 <?php
 
+namespace {
+    use Symfony\Component\DependencyInjection\Container;
+
+    class d3CacheContainer extends Container
+    {
+        public function __construct()
+        {
+            parent::__construct();
+        }
+    }
+}
+
 namespace D3\ModCfg\Modules\Application\Controller
 {
-	class d3_oxshopcontrol_modcfg_extension_parent extends \OxidEsales\Eshop\Core\ShopControl {}
+    use OxidEsales\Eshop\Core\ShopControl;
+
+    class d3_oxshopcontrol_modcfg_extension_parent extends ShopControl {}
 }
 
 namespace D3\ModCfg\Modules\Application\Model
 {
-	class d3_oxmoduleinstaller_activecheck_parent extends \OxidEsales\Eshop\Core\Module\ModuleInstaller {}
+    use OxidEsales\Eshop\Application\Model\Shop;
+    use OxidEsales\Eshop\Core\Module\ModuleInstaller;
 
-	class d3_oxshop_modcfg_parent extends \OxidEsales\Eshop\Application\Model\Shop {}
+    class d3_oxmoduleinstaller_activecheck_parent extends ModuleInstaller {}
+
+	class d3_oxshop_modcfg_parent extends Shop {}
 }
 
 namespace D3\ModCfg\Modules\Application\Controller\Admin
 {
-	class d3_roles_bemain_rolesrights_parent extends \OxidEsales\Eshop\Application\Controller\Admin\RolesBackendMain {}
+    use OxidEsales\Eshop\Application\Controller\Admin\NavigationController;
+    use OxidEsales\Eshop\Application\Controller\Admin\RolesBackendMain;
 
-	class d3_navigation_modcfgupdate_parent extends \OxidEsales\Eshop\Application\Controller\Admin\NavigationController {}
+    class d3_roles_bemain_rolesrights_parent extends RolesBackendMain {}
+
+	class d3_navigation_modcfgupdate_parent extends NavigationController {}
 }
 
 namespace D3\ModCfg\Modules\Core
 {
-	class d3_oxemail_log_parent extends \OxidEsales\Eshop\Core\Email {}
+    use OxidEsales\Eshop\Core\Email;
+    use OxidEsales\Eshop\Core\Theme;
+    use OxidEsales\Eshop\Core\UtilsView;
 
-	class d3_oxtheme_modcfg_parent extends \OxidEsales\Eshop\Core\Theme {}
+    class d3_oxemail_log_parent extends Email {}
 
-	class d3_oxutilsview_modcfg_parent extends \OxidEsales\Eshop\Core\UtilsView {}
+	class d3_oxtheme_modcfg_parent extends Theme {}
+
+	class d3_oxutilsview_modcfg_parent extends UtilsView {}
 }

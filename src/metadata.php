@@ -26,7 +26,7 @@ use D3\ModCfg\Application\Controller\Admin\TPLBlocks as ModuleAdminTplController
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.0';
+$sMetadataVersion = '2.1';
 
 $sModuleId = 'd3modcfg_lib';
 $sLogo = '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> ';
@@ -49,7 +49,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '6.0.2.0',
+    'version'     => '6.1.0.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',

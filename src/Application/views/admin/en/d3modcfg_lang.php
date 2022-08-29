@@ -327,6 +327,8 @@ $aLang = array(
     'D3_CFG_MOD_ACTIVATION_ERRNOORDER'         => 'No suitable order or module could be found for your activation ID. Activate the module only with the corresponding Ident.',
     'D3_CFG_MOD_ACTIVATION_ERRWRONGEDITION'    => 'The purchased module can not be activated and operated under this shop edition. Please contact us.',
     'D3_CFG_MOD_ACTIVATION_ERRDIFFERENTSHOPS'  => 'You received several Activation Ident for the module. These are necessary for different subshops, for example. One of these idents has already been activated in another shop installation. If you would like to use this module in different shops, please contact us.',
+    'D3_CFG_MOD_ACTIVATION_ERRNEWERMAJORVERSION'  => 'In your order you received several activation idents. These are necessary for different clients, for example. An older module version was activated with one of these IDs (different main version). If you would like to activate a newer module version with an ident of this order, please contact us.',
+    'D3_CFG_MOD_ACTIVATION_ERR'                => 'A general error occurred during activation. Please contact us.',
     'D3_CFG_MOD_ACTIVATION_SAVESERIALSUCC'     => 'The license key was successfully entered. We wish you a lot of success with the module.',
 
     'D3_CFG_MOD_NOTACTIVE'                     => 'The module is not active. Check the settings in the module management.',

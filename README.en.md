@@ -1,20 +1,22 @@
 [![deutsche Version](https://logos.oxidmodule.com/de2_xs.svg)](README.md)
 [![english version](https://logos.oxidmodule.com/en2_xs.svg)](README.en.md)
 
-# D³ Modul Connector für OXID eShop
+# D³ Module Connector for OXID eShop
 
-Basisbibliothek für D3 Module
+Base library for D3 modules
 
-Die Anforderungen des Moduls, Installations- und Konfigurationshinweise, Changelog und weitere Informationen entnehmen Sie bitte der Dokumentation [online](https://docs.oxidmodule.com/Modul_Connector/) und im docs-Verzeichnis dieses Paketes. 
+Please refer to the documentation [online](https://docs.oxidmodule.com/Modul_Connector/) and the docs directory of this package for the requirements of this plugin, installation and configuration instructions, changelog and further informations.
 
-## Lizenz
-(Stand: 15.01.2012)
+## License
+(status: 2012-01-15)
 
-Die Copyright- und Lizenzinformationen entnehmen Sie bitte der [LICENSE](LICENSE.md)-Datei, die mit diesem Quellcode verteilt wurde.
+For full copyright and licensing information, please see the [LICENSE](LICENSE.md) file distributed with this source code.
 
-## weitere Lizenzen und Nutzungsbedingungen
+## Further licences and terms of use
 
 ### Font Awesome
+
+The module comes with a modified copy of the "Font Awesome by Dave Gandy - http://fontawesome.io" icon library (underlying version: 5.0.6). This is available for use with the call date 2018-01-30 under the following licences (source: https://fontawesome.com/license plus adaptation to individual paths):
 
 Dem Modul liegt eine veränderte Kopie der "Font Awesome by Dave Gandy - http://fontawesome.io" Icon-Bibliothek (zugrunde liegende Version: 5.0.6) bei. Diese steht mit dem Abrufdatum 30.01.2018 unter den folgenden Lizenzen zur Verwendung bereit (Quelle: https://fontawesome.com/license zzgl. Anpassung auf individuelle Pfade):
 

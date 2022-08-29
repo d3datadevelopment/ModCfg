@@ -12,6 +12,10 @@
 # @link      http://www.oxidmodule.com
 
 services:
+  _defaults:
+    autowire: true
+    public: true
+
   # article
   d3ox.modcfg.OxidEsales\Eshop\Application\Model\Article:
     class:      'OxidEsales\Eshop\Application\Model\Article'

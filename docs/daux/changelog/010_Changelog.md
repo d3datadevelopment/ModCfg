@@ -2,6 +2,32 @@
 title: Changelog
 ---
 
+## 6.1.0.0 (2022-08-29)
+### Added
+- installiertbar in OXID 6.5 (CE 6.12)
+- Caches für Thememapping und Modulkonfiguration eingefügt
+
+### Changed
+- duplizierte Modulprofile erhalten neues Erstellungsdatum
+- Syntax bei Querybuilder generierten Abfragen ergänzt
+- undefinierte Aktivierungsfehler ergänzt
+- protokolliert keine Shutdownfehler, wenn diese keine Informationen enthalten
+- Dokumentation ergänzt
+- DIContainer wird nun kompiliert ausgeliefert
+- DIC-Cache wird für jeden Shopmandanten separat angelegt
+- Tests ergänzt
+- veraltete Methodenaufrufe aufgelöst
+
+### Fixed
+- verhindert Fehler beim Schreiben von Ausnamen ins Log, wenn noch keine Connectorkonfiguration angelegt wurde
+- sichert SQL-Ausführung weiter ab
+- zeigt ModCfg-Module in der Modulliste auch, wenn diese der erste Eintrag sind
+
+### Removed
+- abgekündigte Thememappingfunktionen in erweiterter Theme-Klasse, verwende statt dessen die Methoden in der d3thememapping-Klasse
+
+---
+
 ## 6.0.2.0 (2021-12-17)
 
 ### Added

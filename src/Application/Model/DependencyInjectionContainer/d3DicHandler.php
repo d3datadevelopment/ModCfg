@@ -62,6 +62,27 @@ class d3DicHandler implements d3DicHandlerInterface
         return self::$_instance;
     }
 
+    /**
+     * get instance
+     * @return   ContainerBuilder
+     */
+    public static function getUncompiledInstance()
+    {
+        $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        $caller = $trace[1];
+        $functionName = $caller['function'];
+
+        if (in_array(strtolower($functionName), array_map('strtolower', self::$circularReferenceMethodNames)))
+        {
+            throw oxNew(Exception::class, 'method '.$functionName." can't use DIC due the danger of circular reference");
+        }
+
+        $oDicHandler = oxNew(d3DicHandler::class);
+        self::$_instance = $oDicHandler->buildContainer(false);
+
+        return self::$_instance;
+    }
+
     public static function removeInstance()
     {
         self::$_instance = null;
@@ -77,7 +98,7 @@ class d3DicHandler implements d3DicHandlerInterface
 
     public function d3GetCacheFilePath()
     {
-        return $this->d3GetConfig()->getConfigParam('sCompileDir').'/d3DicContainer.php';
+        return $this->d3GetConfig()->getConfigParam('sCompileDir').'/d3DicContainer_'.Registry::getConfig()->getShopId().'.php';
     }
 
     /**
@@ -120,9 +141,10 @@ class d3DicHandler implements d3DicHandlerInterface
     }
 
     /**
+     * @param bool $compileAndDump
      * @return ContainerBuilder
      */
-    public function buildContainer()
+    public function buildContainer(bool $compileAndDump = true)
     {
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile(__METHOD__);
 
@@ -138,9 +160,13 @@ class d3DicHandler implements d3DicHandlerInterface
             $container = $this->getContainerBuilder();
             $this->loadFiles($container);
 
-            if (false == defined('OXID_PHP_UNIT')) {
-                $dumper = new PhpDumper($container);
-                file_put_contents($this->d3GetCacheFilePath(), $dumper->dump(array('class' => 'd3CacheContainer')));
+            if ($compileAndDump) {
+                $container->compile();
+
+                if (false == defined('OXID_PHP_UNIT')) {
+                    $dumper = new PhpDumper($container);
+                    file_put_contents($this->d3GetCacheFilePath(), $dumper->dump(array('class' => 'd3CacheContainer')));
+                }
             }
         }
 

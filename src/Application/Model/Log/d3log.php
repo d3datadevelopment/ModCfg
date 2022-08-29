@@ -1392,7 +1392,9 @@ class d3log extends BaseModel implements d3LogInterface
     public function d3logShutDown()
     {
         $aError = error_get_last();
-        $this->d3logError($aError['type'], $aError['message'], $aError['file'], $aError['line']);
+        if (is_array($aError) && isset($aError['message'])) {
+            $this->d3logError($aError['type'], $aError['message'], $aError['file'], $aError['line']);
+        }
     }
 
     /**
