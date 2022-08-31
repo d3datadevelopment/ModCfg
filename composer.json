@@ -36,12 +36,12 @@
     }
   },
   "require": {
-    "php": "7.1 - 7.4", "ext-ionCube-Loader": "*",
+    "php": "7.1 - 7.4",
+    "ext-ionCube-Loader": "*",
     "oxid-esales/oxideshop-ce": "6.0 - 6.7",
     "ext-openssl": "*",
     "ext-mbstring": "*",
     "ext-dom": "*",
-    "ext-openssl": "*",
     "ext-posix": "*",
     "ext-json": "*",
     "ext-zlib": "*",
@@ -54,8 +54,8 @@
     "ext-mysqli": "*",
     "psr/log": "^1.0.2",
     "symfony/dependency-injection": "^3.1",
-    "guzzlehttp/guzzle": "^6.3.3",
-    "splitbrain/php-cli": "^1.1"
+    "guzzlehttp/guzzle": "^6.3.3 || ^7.4.5",
+    "splitbrain/php-cli": "^1.2.0"
   },
   "require-dev": {
     "mikey179/vfsstream": "^1.6.8"
