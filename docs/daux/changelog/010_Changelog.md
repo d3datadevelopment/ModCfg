@@ -2,6 +2,20 @@
 title: Changelog
 ---
 
+## 5.3.8.0 (2022-08-31)
+### Added
+- Lizenzinformationen via Mail enthalten einen Hinweis auf den betroffenen Shop
+
+### Changed
+- duplizierte Modulprofile erhalten aktuelles Erstellungsdatum
+- fängt Exceptions, welche durch fehlerhaften Metadatenangaben geworfen werden
+- Abhängigkeit "Guzzle" auf Version 7.4 erhöht
+
+### Fixed
+- fehlerhaftes Feld in Maintenance-Query korrigert
+
+---
+
 ## 5.3.7.0 (2021-04-26)
 
 ### Added
