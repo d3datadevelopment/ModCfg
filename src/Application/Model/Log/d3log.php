@@ -374,12 +374,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param bool $blDie
      *
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function log(
         $iLogType = d3LogLevel::EMERGENCY,
@@ -392,35 +386,43 @@ class d3log extends BaseModel implements d3LogInterface
     ) {
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) startProfile( __METHOD__);
 
-        $sSessID = Registry::getSession()->getId();
-        $this->sModID ? $sModID = $this->sModID : $sModID = 'empty';
-        $mText = is_string($mText) ? $mText : print_r($mText, true);
-        //$this->sModID definiert den Namen des Moduls, das geloggt werden soll -> tabellenfeld oxmodid
-        // Beide Objektwerte sollten immer nach der Objekterstellung nach 'oxNew' gesetzt werden
+        try {
+            $sSessID = Registry::getSession()->getId();
+            $this->sModID ? $sModID = $this->sModID : $sModID = 'empty';
+            $mText = is_string( $mText ) ? $mText : print_r( $mText, true );
+            //$this->sModID definiert den Namen des Moduls, das geloggt werden soll -> tabellenfeld oxmodid
+            // Beide Objektwerte sollten immer nach der Objekterstellung nach 'oxNew' gesetzt werden
 
-        if ($this->getErrorMode($iLogType)) {
-            $this->setId();
-            $aContent = array(
-                'oxshopid'    => Registry::getConfig()->getShopId(),
-                'oxsessid'    => $sSessID,
-                'oxlogtype'   => strtolower($this->getErrorModeName($iLogType)),
-                'oxtime'      => date('Y-m-d H:i:s'),
-                'oxmodid'     => $sModID,
-                'oxprofileid' => $this->d3getProfileId() ? $this->d3getProfileId() : 'none',
-                'oxclass'     => $sClass,
-                'oxfnc'       => $sFnc,
-                'oxline'      => $iLine,
-                'oxaction'    => $sAction,
-                'oxtext'      => $mText,
-            );
+            if ( $this->getErrorMode( $iLogType ) ) {
+                $this->setId();
+                $aContent = array(
+                    'oxshopid'    => Registry::getConfig()->getShopId(),
+                    'oxsessid'    => $sSessID,
+                    'oxlogtype'   => strtolower( $this->getErrorModeName( $iLogType ) ),
+                    'oxtime'      => date( 'Y-m-d H:i:s' ),
+                    'oxmodid'     => $sModID,
+                    'oxprofileid' => $this->d3getProfileId() ? $this->d3getProfileId() : 'none',
+                    'oxclass'     => $sClass,
+                    'oxfnc'       => $sFnc,
+                    'oxline'      => $iLine,
+                    'oxaction'    => $sAction,
+                    'oxtext'      => $mText,
+                );
 
-            $this->assign($aContent);
-            $this->_insert();
-            $this->_handleMailMessage();
-            D3ModCfgRegistry::getInstance()->add($this);
+                $this->assign( $aContent );
+                $this->_insert();
+                $this->_handleMailMessage();
+                D3ModCfgRegistry::getInstance()->add( $this );
+            }
+        } catch (DBALException|DatabaseConnectionException|DatabaseErrorException|d3ShopCompatibilityAdapterException|d3_cfg_mod_exception $e) {
+            Registry::getLogger()->error($e->getMessage(), [$e]);
         }
 
-        $this->_handleDie($mText, $blDie);
+        try {
+            $this->_handleDie( $mText, $blDie );
+        } catch (StandardException $e) {
+            Registry::getLogger()->error($e->getMessage(), [$e]);
+        }
 
         if ((bool) Registry::get( ConfigFile::class)->getVar( 'iDebug')) stopProfile( __METHOD__);
 
@@ -435,12 +437,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function emergency($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -455,12 +451,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function alert($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -475,12 +465,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function critical($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -495,12 +479,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function error($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -515,12 +493,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function warning($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -535,12 +507,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function notice($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -550,17 +516,12 @@ class d3log extends BaseModel implements d3LogInterface
     /**
      * @param string $sClass
      * @param string $sFnc
-     * @param int $iLine
-     * @param null $sAction
-     * @param null $mText
-     * @param bool $blDie
+     * @param int    $iLine
+     * @param null   $sAction
+     * @param null   $mText
+     * @param bool   $blDie
+     *
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function info($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -575,12 +536,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function debug($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -595,12 +550,6 @@ class d3log extends BaseModel implements d3LogInterface
      * @param null $mText
      * @param bool $blDie
      * @return d3log
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
      */
     public function test($sClass = __CLASS__, $sFnc = __FUNCTION__, $iLine = __LINE__, $sAction = null, $mText = null, $blDie = false)
     {
@@ -661,6 +610,11 @@ class d3log extends BaseModel implements d3LogInterface
     public function getLogStatus($sStatus, $oSet = false)
     {
         unset($oSet);
+
+        if (is_int($sStatus)) {
+            $flipped = array_flip($this->aLogTypes);
+            $sStatus = $flipped[$sStatus];
+        }
 
         if ($this->getLogSet()->getValue('blLog_useExtendedLogging')) {
             return $this->_getLogStatusExtended($sStatus);
