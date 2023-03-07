@@ -12,6 +12,13 @@ namespace {
     }
 }
 
+namespace D3\ModCfg\Modules {
+
+    use D3\DIContainerHandler\definitionFileContainer;
+
+    class ModCfgServices_parent extends definitionFileContainer {}
+}
+
 namespace D3\ModCfg\Modules\Application\Controller
 {
     use OxidEsales\Eshop\Core\ShopControl;

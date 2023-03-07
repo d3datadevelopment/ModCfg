@@ -14,6 +14,8 @@
  * @link      http://www.oxidmodule.com
  */
 
+use D3\DIContainerHandler\definitionFileContainer;
+use D3\ModCfg\Modules\ModCfgServices;
 use OxidEsales\Eshop\Core as OxidCore;
 use OxidEsales\Eshop\Application\Controller\Admin as OxidAdminController;
 use OxidEsales\Eshop\Application\Model as OxidModel;
@@ -49,11 +51,12 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'out/pictures/picture.png',
-    'version'     => '6.1.1.0',
+    'version'     => '6.1.2.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
     'extend'      => [
+        definitionFileContainer::class                  => ModCfgServices::class,
         OxidCore\Module\ModuleInstaller::class          => D3\ModCfg\Modules\Application\Model\d3_oxmoduleinstaller_activecheck::class,
         OxidAdminController\NavigationController::class => D3\ModCfg\Modules\Application\Controller\Admin\d3_navigation_modcfgupdate::class,
         OxidModel\Shop::class                           => D3\ModCfg\Modules\Application\Model\d3_oxshop_modcfg::class,

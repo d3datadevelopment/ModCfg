@@ -2,9 +2,20 @@
 title: Changelog
 ---
 
+## 6.1.2.0 (2023-03-03)
+### Added
+- installierbar in OXID 6.5.2 (CE 6.14)
+- DI-Container wird aus separatem Paket bezogen und ist nicht mehr Teil des Connectors
+
+## 6.1.1.0 (2022-12-20)
+### Added
+- installierbar in OXID 6.5.1 (CE 6.13)
+- Logstatus kann auch mit Ganzzahlen (z.B. aus Konstanten) definiert werden
+- fängt alle Exceptions, die während des Loggings auftreten
+
 ## 6.1.0.0 (2022-08-29)
 ### Added
-- installiertbar in OXID 6.5 (CE 6.12)
+- installierbar in OXID 6.5 (CE 6.12)
 - Caches für Thememapping und Modulkonfiguration eingefügt
 
 ### Changed
