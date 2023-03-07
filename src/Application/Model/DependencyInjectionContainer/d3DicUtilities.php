@@ -15,6 +15,9 @@
 
 namespace D3\ModCfg\Application\Model\DependencyInjectionContainer;
 
+use D3\DIContainerHandler\d3DicUtilities as externalDicUtilities;
+
+/** @deprecated use D3\DIContainerHandler\d3DicUtilities */
 class d3DicUtilities
 {
     /**
@@ -24,10 +27,7 @@ class d3DicUtilities
      */
     public static function getServiceId($classNameSpace, $additional = false)
     {
-        return strtolower(
-            ($additional ? $additional.'.' : '').
-            $classNameSpace
-        );
+        return externalDicUtilities::getServiceId( $classNameSpace, $additional);
     }
 
     /**
@@ -37,10 +37,6 @@ class d3DicUtilities
      */
     public static function getArgumentId($classNamespace, $argumentName)
     {
-        return strtolower(
-            $classNamespace.
-            '.args.' .
-            $argumentName
-        );
+        return externalDicUtilities::getArgumentId($classNamespace, $argumentName);
     }
 }

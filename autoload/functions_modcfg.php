@@ -17,6 +17,7 @@
 
 /**
  * @return   \Symfony\Component\DependencyInjection\ContainerBuilder
+ * @deprecated use d3GetOxidDIC instead
  */
 function d3GetModCfgDIC()
 {
