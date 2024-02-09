@@ -1,0 +1,17 @@
+{% set oxidContent %}{% apply spaceless %}
+    {% include "navigation.html.twig" %}
+{% endapply %}{% endset %}
+
+{% set moduleContent %}{% apply spaceless %}
+    {{ style({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/d3_mod_cfg.min.css') }) }}
+    {{ style() }}
+
+    {{ script({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fontawesome-all.min.js'), dynamic: __oxid_include_dynamic }) }}
+    {{ script({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fa-v4-shims.min.js'), dynamic: __oxid_include_dynamic }) }}
+    {{ script({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/d3decodeentities.js'), dynamic: __oxid_include_dynamic }) }}
+    {{ script({ dynamic: __oxid_include_dynamic }) }}
+
+    </head>
+{% endapply %}{% endset %}
+
+{{ oxidContent|replace({'</head>': moduleContent})|raw }}

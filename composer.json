@@ -1,0 +1,84 @@
+{
+  "name": "d3/modcfg",
+  "description": "D3 Module Connector",
+  "type": "oxideshop-module",
+  "keywords": [
+    "oxid",
+    "modules",
+    "eShop",
+    "d3",
+    "connector",
+    "configuration",
+    "license"
+  ],
+  "authors": [
+    {
+        "name": "D3 Data Development (Inh. Thomas Dartsch)",
+        "email": "info@shopmodule.com",
+        "homepage": "https://www.d3data.de",
+        "role": "Owner"
+    }
+  ],
+  "support": {
+    "email": "support@shopmodule.com"
+  },
+  "homepage": "https://www.oxidmodule.com/",
+  "license": [
+    "OFL-1.1",
+    "MIT",
+    "CC-BY-3.0",
+    "proprietary"
+  ],
+  "require": {
+    "php": "^8.0",
+    "ext-sourceguardian": "^14",
+    "oxid-esales/oxideshop-ce": "7.0 - 7.0",
+    "d3/oxid-dic-handler": "^2.0",
+    "d3/oxid-twig-extensions": "^1.0",
+    "ext-openssl": "*",
+    "ext-mbstring": "*",
+    "ext-dom": "*",
+    "ext-posix": "*",
+    "ext-json": "*",
+    "ext-zlib": "*",
+    "ext-zip": "*",
+    "ext-curl": "*",
+    "ext-fileinfo": "*",
+    "ext-iconv": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*",
+    "ext-mysqli": "*",
+    "psr/log": "^1.0.2",
+    "guzzlehttp/guzzle": "^6.3.3 || ^7.0",
+    "splitbrain/php-cli": "^1.2.0",
+    "beberlei/assert": "^3.3.0"
+  },
+  "require-dev": {
+    "d3/testingtools": "^1.0",
+    "mikey179/vfsstream": "^1.6.8",
+    "friendsofphp/php-cs-fixer": "~3.13.0",
+    "phpstan/phpstan": "^1.10",
+    "boxblinkracer/phpunuhi": "^1.12",
+    "rector/rector": "^0.18.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "D3\\ModCfg\\": "",
+      "D3\\ModCfg\\publicDir\\": "./assets"
+    }
+  },
+  "bin": [
+    "bin/d3modules_install",
+    "bin/d3cleartmp",
+    "bin/d3maintenance"
+  ],
+  "scripts": {
+    "phpstan": "./vendor/bin/phpstan analyse -c./vendor/d3/modcfg/phpstan.neon",
+    "php-cs-fixer_audit": "./vendor/bin/php-cs-fixer list-files --config=./vendor/d3/modcfg/.php-cs-fixer.php",
+    "php-cs-fixer_fix": "./vendor/bin/php-cs-fixer fix --config=./vendor/d3/modcfg/.php-cs-fixer.php",
+    "phpunit": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --bootstrap=source/bootstrap.php --config=vendor/d3/modcfg/Tests/",
+    "phpunit-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --bootstrap=source/bootstrap.php --config=vendor/d3/modcfg/Tests/ --coverage-html=vendor/d3/modcfg/Tests/result/coverage",
+    "rector": "./vendor/bin/rector process --dry-run --config ./vendor/d3/modcfg/rector.php",
+    "phpunuhi": "./vendor/bin/phpunuhi --configuration=vendor/d3/modcfg/phpunuhi.xml validate"
+  }
+}

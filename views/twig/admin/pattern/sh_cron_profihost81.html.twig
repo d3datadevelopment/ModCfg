@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/local/php8.1/bin/php {{ sScriptPath }} {% for sParameter in aParameters %}{{ sParameter }} {% endfor %}
+
+{# https://wissen.profihost.com/wissen/artikel/wie-lauten-die-pfade-zu-perl-php-und-python-auf-dem-server/ #}

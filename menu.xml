@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxextensions">
+            <SUBMENU id="d3mxtplblocks" cl="d3tplblocks" list="d3tplblocks_list">
+                <TAB id="d3mxtplblocks_main" cl="d3tplblocks_main" />
+                <TAB id="d3mxtplblocks_extend" cl="d3tplblocks_extend" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+    <OXMENU id="d3mxd3modules">
+        <MAINMENU id="d3mxcfg">
+            <SUBMENU id="d3mxextensions" cl="d3modext" list="d3modext_list">
+                <TAB id="d3tbclext_status" cl="d3modext_status" disableForDemoShop="1" />
+                <TAB id="d3tbclext_new" cl="d3modext_new" disableForDemoShop="1" />
+                <TAB id="d3tbclext_installation" cl="d3_mod_update" disableForDemoShop="1" />
+                <TAB id="d3tbcllib_support" cl="d3modlib_support" />
+            </SUBMENU>
+            <SUBMENU id="d3mxlibs" cl="d3modlib" list="d3modlib_list">
+                <TAB id="d3tbcllib_status" cl="d3modlib_status" disableForDemoShop="1" />
+                <TAB id="d3tbcllib_support" cl="d3modlib_support" />
+            </SUBMENU>
+            <SUBMENU id="d3mxsysitems" cl="d3sysitems" list="d3sysitems_list" disableForDemoShop="1">
+                <TAB id="d3tbclcfgitems" cl="d3cfgitems" disableForDemoShop="1" />
+                <TAB_DISABLED id="d3tbclmaintenance" cl="d3maintenance" disableForDemoShop="1" />
+            </SUBMENU>
+            
+            <SUBMENU id="d3mxlog" cl="d3_cfg_log" list="d3_cfg_log_list">
+                <TAB id="d3tbcllog_main" cl="d3_cfg_log_main" />
+                <TAB id="d3tbcllog_cleanup" cl="d3_cfg_log_cleanup" />
+            </SUBMENU>
+            
+            <SUBMENU id="d3mxd3cleartmp" cl="d3cleartmp_frame" list="d3cleartmp_list">
+                <TAB id="d3tbclclr_main" cl="d3cleartmp" />
+                <TAB id="d3tbclclr_mtn" cl="d3shopmaintenance" />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>

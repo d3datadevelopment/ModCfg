@@ -1,0 +1,7 @@
+{% extends "headitem.html.twig" %}
+
+{% block admin_headitem_incjs %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/d3decodeentities.js') }}"></script>
+{% endblock %}

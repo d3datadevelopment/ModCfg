@@ -1,0 +1,290 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "list"} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% set where = oView.getListFilter() %}
+
+<style>
+    .tabs .disabled .b1 a {
+        color: #787878;
+    }
+</style>
+
+<script type="text/javascript">
+<!--
+function EditThis( sID)
+{
+    let oTransfer = parent.edit.document.getElementById("transfer");
+    oTransfer.oxid.value=sID;
+    oTransfer.cl.value='{% if actlocation %}{{ actlocation|escape("js") }}{% else %}{{ default_edit|escape("js") }}{% endif %}';
+
+    //forcing edit frame to reload after submit
+    top.forceReloadingEditFrame();
+
+    let oSearch = document.getElementById("search");
+    oSearch.oxid.value=sID;
+    oSearch.submit();
+}
+
+function ChangeEditBar( sLocation, sPos)
+{
+    let oSearch = document.getElementById("search");
+    oSearch.actedit.value=sPos;
+    oSearch.submit();
+
+    let oTransfer = parent.edit.document.getElementById("transfer");
+    oTransfer.cl.value=sLocation;
+
+    //forcing edit frame to reload after submit
+    top.forceReloadingEditFrame();
+}
+{# 
+function ChangeLanguage()
+{
+ let oSearch = document.getElementById("search");
+ oSearch.language.value=oSearch.changelang.value;
+ oSearch.editlanguage.value=oSearch.changelang.value;
+ oSearch.submit();
+
+ let oTransfer = parent.edit.document.getElementById("transfer");
+ oTransfer.innerHTML += '<input type="hidden" name="language" value="'+oSearch.changelang.value+'">';
+ oTransfer.innerHTML += '<input type="hidden" name="editlanguage" value="'+oSearch.changelang.value+'">';
+
+ //forcing edit frame to reload after submit
+ top.forceReloadingEditFrame();
+}
+ #}
+
+window.onLoad = top.reloadEditFrame();
+
+//-->
+</script>
+
+<div id="liste">
+
+    <form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {% include "_formparams.html.twig" with {cl: oViewConf.getActiveClassName()|raw, lstrt: lstrt, actedit: actedit, oxid: oxid, fnc: "", language: actlang, editlanguage: actlang} %}
+        <input type="hidden" name="delete_oxfromtime" value="">
+        <input type="hidden" name="delete_oxtotime" value="">
+        <input type="hidden" name="delete_oxmodid" value="">
+        <input type="hidden" name="delete_oxtype" value="">
+        {% for key, formparam in oView.d3getAdditionalFormParams() %}
+            <input type="hidden" name="{{ key }}" value="{{ formparam }}">
+        {% endfor %}
+
+        <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 100%">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr class="listitem">
+                <td style="height: 20px; vertical-align: middle" class="listfilter first" nowrap>
+                    <div class="r1"><div class="b1">
+                            <select class="listedit" name="where[{{ listTable }}][oxlogtype]">
+                            <option value="">--</option>
+                            {% for item in oView.getLogTypeList() %}
+                                <option value="{{ item }}"
+                                        {% if where.d3log.oxlogtype == item %}selected{% endif %}
+                                >{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                    </div></div>
+                </td>
+                <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
+                    <div class="r1"><div class="b1">
+                        <input class="listedit" type="text" size="20" maxlength="128"
+                                name="where[{{ listTable }}][oxtime]" value="{{ where.d3log.oxtime }}"
+                        {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                    </div></div>
+                </td>
+                <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
+                    <div class="r1"><div class="b1">
+                        <input class="listedit" type="text" size="8" maxlength="128"
+                                name="where[{{ listTable }}][oxcounter]" value="{{ where.d3log.oxcounter }}"
+                       {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                    </div></div>
+                </td>
+                <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
+                    <div class="r1"><div class="b1">
+                            <select class="listedit" name="where[{{ listTable }}][oxmodid]">
+                            <option value="">--</option>
+                            {% for item in oView.getModIdList() %}
+                                <option value="{{ item }}"
+                                        {% if where.d3log.oxmodid == item %}selected{% endif %}
+                                >{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                    </div></div>
+                </td>
+                <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
+                    <div class="r1"><div class="b1">
+                        <input class="listedit" type="text" size="20" maxlength="128"
+                                name="where[{{ listTable }}][oxclass]" value="{{ where.d3log.oxclass }}"
+                        {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                    </div></div>
+                </td>
+                <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
+                    <div class="r1"><div class="b1">
+                        <input class="listedit" type="text" size="20" maxlength="128"
+                                name="where[{{ listTable }}][oxsessid]" value="{{ where.d3log.oxsessid }}"
+                        {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                    </div></div>
+                </td>
+                <td style="vertical-align: top" class="listfilter" colspan="2" nowrap>
+                    <div class="r1"><div class="b1">
+                        <div class="find">
+                            <input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}" onClick="document.search.lstrt.value=0;">
+                        </div>
+                        <select name="pwrsearchfld" class="editinput"
+                                onChange="document.search.lstrt.value=0;top.oxid.admin.setSorting( document.search, 'd3log', this.value, 'asc');document.forms.search.submit();">
+                            {% for field, desc in pwrsearchfields %}
+                                {% set ident = "D3_CFG_FIELDTITLE_" ~ desc %}
+                                {% set ident = ident|upper %}
+                                <option value="{{ desc }}" {% if pwrsearchfld == desc|upper %}SELECTED{% endif %}>{{ translate({ noerror: true, alternative: desc, ident: ident }) }}</option>
+                            {% endfor %}
+                        </select>
+                        <input class="listedit" type="text" size="25" maxlength="128"
+                                name="where[{{ listTable }}][{{ pwrsearchfld|lower }}]" value="{{ pwrsearchinput }}"
+                        {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                    </div></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="listheader first" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxlogtype', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_LOGTYPE" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxtime', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_TIME" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxcounter', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_COUNTER" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxmodid', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_MODULE" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxclass', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_CLASS" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15">&nbsp;
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxsessid', 'asc');document.search.submit();" class="listheader">
+                        {{ translate({ ident: "D3_CFG_LOG_SESSID" }) }}
+                    </a>
+                </td>
+                <td class="listheader" height="15" colspan="2">
+                    <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', '{{ pwrsearchfld|lower }}', 'asc');document.search.submit();" class="listheader">
+                        {% set ident = "D3_CFG_FIELDTITLE_" ~ pwrsearchfld %}
+                        {% set ident = ident|upper %}
+                        {{ translate({ ident: ident }) }}
+                    </a>
+                </td>
+            </tr>
+
+            {% set blWhite = "" %}
+            {% set _cnt = 0 %}
+            {% for listitem in mylist %}
+                {% set _cnt = _cnt+1 %}
+                <tr id="row.{{ _cnt }}">
+
+                    {% if listitem.blacklist == 1 %}
+                        {% set listclass = "listitem3" %}
+                    {% else %}
+                        {% set listclass = "listitem" ~ blWhite %}
+                    {% endif %}
+                    {% if listitem.getId() == oxid %}
+                        {% set listclass = "listitem4" %}
+                    {% endif %}
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxlogtype') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxtime') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxcounter') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxmodid') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxclass') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
+                        <div class="listitemfloating">&nbsp;
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.getFieldData('oxsessid') }}
+                            </a>
+                        </div>
+                    </td>
+                    <td class="{{ listclass }}" style="vertical-align: top">
+                        <div class="listitemfloating">
+                            <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
+                                {{ listitem.pwrsearchval|truncate(50, "..", false)  }}
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% if blWhite == "2" %}
+                    {% set blWhite = "" %}
+                {% else %}
+                    {% set blWhite = "2" %}
+                {% endif %}
+            {% endfor %}
+
+            {% include "pagenavisnippet.html.twig" with {colspan: "7"} %}
+        </table>
+    </form>
+</div>
+
+{% include "pagetabsnippet.html.twig" with {noOXIDCheck: "true"} %}
+
+<script type="text/javascript">
+    if (parent.parent) {
+        parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+        parent.parent.sMenuItem    = "{{ "d3mxlog"|translate|striptags }}";
+        parent.parent.sMenuSubItem = "{{ "d3mxlog_main"|translate|striptags }}";
+        parent.parent.sWorkArea    = "{{ _act }}";
+        parent.parent.setTitle();
+    }
+</script>
+
+</body>
+</html>

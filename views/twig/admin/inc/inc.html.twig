@@ -1,0 +1,36 @@
+{% if oView.getUserMessages() %}
+    <script type="text/javascript">
+        {% apply spaceless %}
+            alert("
+                {% for sMessage in oView.getUserMessages() %}
+                    - {{ sMessage }}\n
+                {% endfor %}
+            ");
+        {% endapply %}
+    </script>
+{% endif %}
+
+{{ style({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/d3_mod_cfg.min.css') }) }}
+{{ style() }}
+
+{{ script({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fontawesome-all.min.js'), dynamic: __oxid_include_dynamic }) }}
+{{ script({ include: oViewConf.getModuleUrl('d3modcfg_lib', 'out/admin/src/js/fa-v4-shims.min.js'), dynamic: __oxid_include_dynamic }) }}
+{{ script({ dynamic: __oxid_include_dynamic }) }}
+
+{% if false == isset(blHideLinkBar) or false == blHideLinkBar %}
+    {% include "@d3modcfg_lib/admin/inc/bottom.html.twig" %}
+{% endif %}
+
+{% if method_exists(oView, 'd3GetMenuItemTitle') and (oView.d3GetMenuItemTitle()) %}
+    {% set rawMenuItemTitle = oView.d3GetMenuItemTitle() %}
+    {% set rawMenuSubItemTitle = oView.d3GetMenuSubItemTitle() %}
+    <script type="text/javascript">
+        if (parent.parent) {
+            parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes|raw }}";
+            parent.parent.sMenuItem    = "{{ rawMenuItemTitle|translate|striptags }}";
+            parent.parent.sMenuSubItem = "{{ rawMenuSubItemTitle|translate|striptags }}";
+            parent.parent.sWorkArea    = "{% if isset(_act) %}{{ _act }}{% endif %}";
+            parent.parent.setTitle();
+        }
+    </script>
+{% endif %}

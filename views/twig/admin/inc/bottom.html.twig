@@ -1,0 +1,22 @@
+</div>
+
+<div class="actions">
+    {% apply spaceless %}
+        <ul>
+            {% include "bottomnavicustom.html.twig" %}
+
+            {% if method_exists(oView, 'getNaviItems') %}
+                {% for sKey, naviItem in oView.getNaviItems() %}
+                    <li><a {% if false == isset(firstitem) or false == firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.{{ sKey }}" href="#" onClick="{{ naviItem.sScript }}" target="edit">{{ translate({ ident: naviItem.sTranslationId }) }}</a> |</li>
+                {% endfor %}
+            {% endif %}
+
+            {% if oView.getHelpURL() %}
+                {# HELP #}
+                <li>
+                    <a {% if false == isset(firstitem) or not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.help" href="{{ oView.getHelpURL() }}" OnClick="window.open('{{ oView.getHelpURL() }}','D3_Help','width=800,height=600,resizable=no,scrollbars=yes');return false;">{{ translate({ ident: "TOOLTIPS_OPENHELP" }) }}</a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endapply %}
+</div>

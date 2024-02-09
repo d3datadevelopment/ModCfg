@@ -1,0 +1,118 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * https://www.d3data.de
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg;
+
+use D3\ModCfg\Application\Model\Install\d3updateinstaller;
+use Exception;
+use OxidEsales\Eshop\Core\Registry;
+
+$bootstrapFileName = getenv('ESHOP_BOOTSTRAP_PATH');
+if (!empty($bootstrapFileName)) {
+    $bootstrapFileName = realpath(trim(getenv('ESHOP_BOOTSTRAP_PATH')));
+} else {
+    $count = 0;
+    $bootstrapFileName = '../../../source/bootstrap.php';
+    $currentDirectory = __DIR__ . '/';
+    while ($count < 5) {
+        $count++;
+        if (file_exists($currentDirectory . $bootstrapFileName)) {
+            $bootstrapFileName = $currentDirectory . $bootstrapFileName;
+            break;
+        }
+        $bootstrapFileName = '../' . $bootstrapFileName;
+    }
+}
+
+if (!(file_exists($bootstrapFileName) && !is_dir($bootstrapFileName))) {
+    $items = [
+        "Unable to find eShop bootstrap.php file.",
+        "You can override the path by using ESHOP_BOOTSTRAP_PATH environment variable.",
+        "\n"
+    ];
+
+    $message = implode(" ", $items);
+
+    fwrite(STDERR, $message);
+    exit(1);
+}
+
+if (false === defined('OXID_PHP_UNIT')) {
+    require_once($bootstrapFileName);
+
+    define('OX_IS_ADMIN', true);
+}
+
+ini_set('error_reporting', E_ERROR);
+
+$status = (object)[
+    'noSuccess' => false,
+    'noException' => false
+];
+
+// set language
+$langs = getopt(null, ["lang:"]);
+$searchedValue = $langs['lang'] ?? '';
+$languages = Registry::getLang()->getLanguageArray();
+
+Registry::getLang()->setTplLanguage(
+    current(
+        array_merge(
+            array_filter(   // selected
+                $languages,
+                function ($e) use (&$searchedValue) {
+                    return $e->abbr == $searchedValue;
+                }
+            ),
+            [reset($languages)] // first item, if no language is selected
+        )
+    )->id
+);
+
+/** @var d3updateinstaller $updateInstaller */
+$updateInstaller = oxNew(d3updateinstaller::class);
+register_shutdown_function('D3\ModCfg\handleExit', $status, $updateInstaller);
+
+try {
+    $status->noSuccess = $updateInstaller->startModuleInstallation(false, true);
+    $status->noException = true;
+} catch (Exception $oEx) {
+    fwrite(STDERR, $oEx->getMessage().PHP_EOL);
+}
+
+function handleExit($status, d3updateinstaller $updateinstaller) {
+    if (($status->noSuccess) || (!$status->noException)) {
+        fwrite(STDERR, "There was an error while set up modules.".PHP_EOL);
+    }
+
+    if (!$status->noException) {
+        fwrite(STDERR, "Please look at `EXCEPTION_LOG.txt` for more details.".PHP_EOL);
+    }
+
+    if (($status->noException) && ($status->noSuccess)) {
+        fwrite(STDERR, "Please check the state of module installation.".PHP_EOL);
+    }
+
+    if ($status->noSuccess) {
+        fwrite(STDERR, $updateinstaller->getErrorMessage().PHP_EOL);
+    }
+}
+
+if ($status->noSuccess || !$status->noException) {
+    exit(1);
+}

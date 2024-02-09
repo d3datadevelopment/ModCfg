@@ -1,0 +1,295 @@
+<style>
+    #d3clrtmp_lib_cfg {
+        width: 98%;
+    }
+    #d3clrtmp_lib_cfg table {
+        width: 100%;
+    }
+    #d3clrtmp_lib_cfg table td {
+        width: 50%;
+    }
+</style>
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
+    <input type="hidden" name="fnc" value="save">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="modid" value="{{ oView.getSelectedModId() }}">
+    <input type="hidden" name="editval[oxid]" value="{{ oxid }}">
+
+    <table style="border: none" id="d3clrtmp_lib_cfg">
+        <tr>
+            <td style="vertical-align: top" class="edittext">
+
+                {% set blD3HasLog = oView.checkD3Log() %}
+                <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="blClrTmp_showcleartmpoptions">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS" }) }}
+                            </label>
+                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="hidden" name="value[blClrTmp_showcleartmpoptions]" value="0">
+                            <input id="blClrTmp_showcleartmpoptions" type="checkbox" name="value[blClrTmp_showcleartmpoptions]" value="1" {% if edit.getValue('blClrTmp_showcleartmpoptions') %} checked{% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="blClrTmp_shownoheaderform">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SHOWNOHEADERFORM" })|raw }}</label>
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="hidden" name="value[blClrTmp_shownoheaderform]" value="0">
+                            <input id="blClrTmp_shownoheaderform" type="checkbox" name="value[blClrTmp_shownoheaderform]" value="1" {% if edit.getValue('blClrTmp_shownoheaderform') %} checked{% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="iClrTmp_tickerThreshold">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_TICKERTHRESHOLD" }) }}</label>
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input id="iClrTmp_tickerThreshold" type="text" size="6" maxlength="6" name="value[iClrTmp_tickerThreshold]" value="{% if edit.getValue('iClrTmp_tickerThreshold') %}{{ edit.getValue('iClrTmp_tickerThreshold') }}{% else %}5000{% endif %}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="blClrTmp_nohtaccess">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_CREATE_NOHTACCESS" })|raw }}
+                            </label>
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="hidden" name="value[blClrTmp_nohtaccess]" value="0">
+                            <input id="blClrTmp_nohtaccess" type="checkbox" name="value[blClrTmp_nohtaccess]"
+                                   value="1" {% if edit.getValue('blClrTmp_nohtaccess') %} checked{% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="blClrTmp_nofolderremove">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_REMOVEFOLDERS" })|raw }}
+                            </label>
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="hidden" name="value[blClrTmp_nofolderremove]" value="0">
+                            <input id="blClrTmp_nofolderremove" type="checkbox" name="value[blClrTmp_nofolderremove]"
+                                   value="1" {% if edit.getValue('blClrTmp_nofolderremove') %} checked{% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="blClrTmp_noviewupdate">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_NOUPDATEVIEWS" })|raw }}
+                            </label>
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="hidden" name="value[blClrTmp_noviewupdate]" value="0">
+                            <input id="blClrTmp_noviewupdate" type="checkbox" name="value[blClrTmp_noviewupdate]"
+                                   value="1" {% if edit.getValue('blClrTmp_noviewupdate') %} checked{% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="sClrTmp_excluderegexp">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_EXCLUDEREGEXP" }) }}
+                            </label>
+                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input id="sClrTmp_excluderegexp" type="text" size="40" maxlength="255" name="value[sClrTmp_excluderegexp]"
+                                   value="{{ edit.getValue('sClrTmp_excluderegexp') }}">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            {{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_1" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left"></td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="sClrTmp_useraction1name">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_NAME" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_NAME_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_NAME_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="text" size="40" maxlength="100" id="sClrTmp_useraction1name"
+                                   name="value[sClrTmp_useraction1name]"
+                                   value="{% if edit.getValue('sClrTmp_useraction1name') %}{{ edit.getValue('sClrTmp_useraction1name') }}{% endif %}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="sClrTmp_useraction1pattern">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_PATTERN" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_PATTERN_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_PATTERN_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="text" size="40" maxlength="150" id="sClrTmp_useraction1pattern"
+                                   name="value[sClrTmp_useraction1pattern]"
+                                   value="{% if edit.getValue('sClrTmp_useraction1pattern') %}{{ edit.getValue('sClrTmp_useraction1pattern') }}{% endif %}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            {{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_2" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left"></td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="sClrTmp_useraction2name">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_NAME" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_NAME_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_NAME_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="text" size="40" maxlength="100" id="sClrTmp_useraction2name"
+                                   name="value[sClrTmp_useraction2name]"
+                                   value="{% if edit.getValue('sClrTmp_useraction2name') %}{{ edit.getValue('sClrTmp_useraction2name') }}{% endif %}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext ext_edittext">
+                            <label for="sClrTmp_useraction2pattern">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_USERACTION_PATTERN" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_USERACTION_PATTERN_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_USERACTION_PATTERN_DESC")} %}
+                        </td>
+                        <td class="edittext ext_edittext" style="text-align: left">
+                            <input type="text" size="40" maxlength="150" id="sClrTmp_useraction2pattern"
+                                   name="value[sClrTmp_useraction2pattern]"
+                                   value="{% if edit.getValue('sClrTmp_useraction2pattern') %}{{ edit.getValue('sClrTmp_useraction2pattern') }}{% endif %}">
+                        </td>
+                    </tr>
+                    {% if oView.isExecAvailable() %}
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_1" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left"></td>
+                        </tr>
+                        {# **** #}
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction1name">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="100" id="sClrTmp_systemaction1name"
+                                       name="value[sClrTmp_systemaction1name]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction1name') %}{{ edit.getValue('sClrTmp_systemaction1name') }}{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction1clrtmpreplace">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="checkbox" id="sClrTmp_systemaction1clrtmpreplace"
+                                       name="value[sClrTmp_systemaction1clrtmpreplace]"
+                                       value="1" {% if edit.getValue('sClrTmp_systemaction1clrtmpreplace') %}checked="checked"{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction1icon">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="100" id="sClrTmp_systemaction1icon"
+                                       name="value[sClrTmp_systemaction1icon]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction1icon') %}{{ edit.getValue('sClrTmp_systemaction1icon') }}{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction1command">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="150" id="sClrTmp_systemaction1command"
+                                       name="value[sClrTmp_systemaction1command]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction1command') %}{{ edit.getValue('sClrTmp_systemaction1command') }}{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                {{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_2" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left"></td>
+                        </tr>
+                        {# **** #}
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction2name">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_NAME_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="100" id="sClrTmp_systemaction2name"
+                                       name="value[sClrTmp_systemaction2name]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction2name') %}{{ edit.getValue('sClrTmp_systemaction2name') }}{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction2clrtmpreplace">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_CLRTMPREPLACE_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="checkbox" id="sClrTmp_systemaction2clrtmpreplace"
+                                       name="value[sClrTmp_systemaction2clrtmpreplace]"
+                                       value="1" {% if edit.getValue('sClrTmp_systemaction2clrtmpreplace') %}checked="checked"{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction2icon">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_ICON_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="100" id="sClrTmp_systemaction2icon"
+                                       name="value[sClrTmp_systemaction2icon]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction2icon') %}{{ edit.getValue('sClrTmp_systemaction2icon') }}{% endif %}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="edittext ext_edittext">
+                                <label for="sClrTmp_systemaction2command">{{ translate({ ident: "D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND" }) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND_DESC"), 'sHelpText': help_text("D3_CFG_CLRTMP_CFG_SYSTEMACTION_COMMAND_DESC")} %}
+                            </td>
+                            <td class="edittext ext_edittext" style="text-align: left">
+                                <input type="text" size="40" maxlength="150" id="sClrTmp_systemaction2command"
+                                       name="value[sClrTmp_systemaction2command]"
+                                       value="{% if edit.getValue('sClrTmp_systemaction2command') %}{{ edit.getValue('sClrTmp_systemaction2command') }}{% endif %}">
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td>
+                            <span class="d3modcfg_btn icon d3color-green">
+                                <button type="submit" name="save">
+                                    <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_SAVE" }) }}
+                                </button>
+                            </span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>

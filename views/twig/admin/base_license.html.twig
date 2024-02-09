@@ -1,0 +1,625 @@
+{% include "headitem.html.twig" with {title: "D3_CFG_MOD"|translate} %}
+
+<script type="text/javascript">
+    <!--
+    {% if updatelist == 1 %}
+        UpdateList('{{ oxid }}');
+    {% endif %}
+
+    function _groupExp(el)
+    {
+        let _cur = el.parentNode;
+
+        if (_cur.className === "exp") _cur.className = "";
+        else _cur.className = "exp";
+    }
+
+    -->
+</script>
+
+<style>
+    <!--
+    fieldset {
+        border:           1px inset black;
+        background-color: #F0F0F0;
+    }
+
+    legend {
+        font-weight: bold;
+    }
+
+    dl dt {
+        font-weight: normal;
+        width:       100%;
+    }
+
+    strong.version {
+        border:           1px solid black;
+        margin:           5px;
+        padding:          5px 10px;
+        background-color: white;
+        color:            black;
+    }
+
+    strong.version.error {
+        background-color: #FF3600;
+        color:            white;
+    }
+
+    .ext_edittext {
+        padding: 2px;
+    }
+
+    ul li.syscheck {
+        background:     none;
+        white-space:    normal;
+        padding-bottom: 10px;
+        padding-left:   34px;
+        text-indent:    -24px;
+    }
+
+    ul li.syscheck div.desc {
+        text-indent: 0;
+        margin:      5px 20px;
+    }
+
+    ul li.syscheck i {
+        margin: 0 0 0 23px;
+        height:       20px;
+    }
+
+    div.desc ul li {
+        list-style: inside;
+        background: none;
+    }
+
+    div.desc ul li ul li {
+        padding-left: 18px;
+    }
+
+    .extension_error {
+        margin-bottom: 10px;
+    }
+
+    -->
+</style>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
+    <input type="hidden" name="actshop" value="{{ shop.id }}">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+{% set sDownloadField = oView.getPhpVersionDownloadField() %}
+
+<table style="border: none; width: 100%">
+    <tr>
+        <td style="vertical-align: top">
+
+            {% if edit.getErrorMessage() %}
+                <div class="extension_error">
+                    {{ edit.getErrorMessage() }}
+                </div>
+            {% endif %}
+
+            <div class="groupExp">
+                <div class="exp">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_VERSION" }) }}
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            <div style="border-bottom: 1px solid silver;">
+                                <div>
+                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_TEXT1" }) }}{{ edit.getModTitle() }}{{ translate({ ident: "D3_CFG_MOD_VERSION_TEXT2" }) }} {{ edit.getFieldData('oxshopversion') }}
+                                </div>
+                                <div style="margin: 23px 0;">
+                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_INSTALLEDV" }) }}
+                                    <strong class="version {% if oView.checkModuleVersion() != 'OK' %}error{% endif %}">
+                                        {{ edit.getModVersion() }}
+                                    </strong>
+                                    {% if oView.checkModuleVersion() != 'OK' %}
+                                        <i class="fas fa-exclamation-triangle d3fa-17x d3fa-color-red" style="display:inline-block;"></i>
+                                        {{ translate({ ident: "D3_CFG_LIB_INSTALLEDVERSIONNOTCONGRUENT" }) }}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {% if oView.hasUpdate() %}
+                                {% if oView.getAction() == 'versionCheck' %}
+                                    <div style="margin: 10px 0;">
+                                        <strong>{{ translate({ ident: "D3_CFG_MOD_VERSION_RESULT" }) }}</strong>
+                                        {% if oView.getUpdateData('version') %}
+                                            <div style="margin: 23px 0 10px; padding-bottom: 10px; border-bottom: 1px solid silver;">
+                                                {{ translate({ ident: "D3_CFG_MOD_VERSION_AVAILVERSION" }) }}
+                                                <strong class="version" style="border-color: green;">
+                                                    {{ oView.getUpdateData('version') }}
+                                                </strong>
+                                                {% if oView.getUpdateData('infourl') %}
+                                                    <a href="{{ oView.getUpdateData('infourl') }}">{{ translate({ ident: "D3_CFG_MOD_VERSION_MODINFO" }) }}</a>
+                                                {% endif %}
+
+                                                {% if oView.getUpdateData(sDownloadField) %}
+                                                    <div style="padding: 20px 0 {% if oView.getUpdateData('autoupdate') > 0 and oView.getInstallClass() %}35px{% else %}0{% endif %};">
+                                                        {% if oView.getInstallClass() %}
+                                                            <form name="myedit" id="installMod" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                                                                {{ oViewConf.getHiddenSid()|raw }}
+                                                                <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
+                                                                <input type="hidden" name="oxid" value="{{ oxid }}">
+                                                                <input type="hidden" name="editval[oxid]" value="{{ oxid }}">
+                                                                <input type="hidden" name="fnc" value="installMod">
+                                                                <input type="hidden" name="modid" value="{{ edit.d3getModId() }}">
+                                                        {% endif %}
+                                                        {% set classparam = "cl=" ~ oViewConf.getActiveClassName() %}
+                                                        <div>
+                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD1" }) }}
+                                                            <a href="{{ oViewConf.getSelfLink()|raw|add_url_parameters("classparam")|add_url_parameters("fnc=filedownload") }}">
+                                                                <strong style="text-decoration: underline;">
+                                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD2" }) }}
+                                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD3" }) }}
+                                                                </strong>
+                                                            </a>
+                                                            {% if oView.getInstallClass() %}
+                                                                    {% if oView.getUpdateData('autoupdate') > 0 %}
+                                                                        {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD4" }) }}
+                                                                        <div class="d3modcfg_btn icon d3color-blue" style="margin: 10px 0 0 0;">
+                                                                            <button type="submit">
+                                                                                <i class="fas fa-question-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD5" }) }}
+                                                                            </button>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                </form>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% else %}
+                                            <div>
+                                                {{ translate({ ident: "D3_CFG_MOD_VERSION_NONEWVERSION" }) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    {% if oView.getNewestModuleData('version') %}
+                                        <div style="padding-top: 10px;">
+                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_NEWESTVERSION" }) }}
+                                            <strong class="version" style="border-color: yellow;">
+                                                {{ oView.getNewestModuleData('version') }}
+                                            </strong>
+                                            {% if oView.getNewestModuleData('infourl') %}
+                                                <a href="{{ oView.getNewestModuleData('infourl') }}">
+                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_MODINFO" }) }}
+                                                </a>
+                                            {% endif %}
+                                            <div style="padding-top: 20px;">
+                                                {% if oView.check4ShopUpdate(oView.getNewestModuleData('fromshop')) %}
+                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_NEWESTVERSION_NOTE_1" }) }}
+                                                    {{ oView.getNewestModuleData('fromshop') }}
+                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_NEWESTVERSION_NOTE_2" }) }}<br>
+                                                {% endif %}
+                                                {% if oView.check4LicenseUpdate(edit.d3getModId(), oView.getNewestModuleData('version')) %}
+                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_NEWESTVERSION_LIC" }) }}<br>
+                                                {% endif %}
+                                            </div>
+                                            {% if oView.getNewestModuleData(sDownloadField) %}
+                                                {% set classparam = "cl=" ~ oViewConf.getActiveClassName() %}
+                                                <div>
+                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD1" }) }}
+                                                    <a href="{{ oViewConf.getSelfLink()|raw|add_url_parameters("classparam")|add_url_parameters("fnc=filedownload")|add_url_parameters("type=newest") }}">
+                                                        <strong style="text-decoration: underline;">
+                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD2" }) }}
+                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD3" }) }}
+                                                        </strong>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    <div style="padding: 15px 0 40px;">
+                                        <form name="myedit" id="check_update" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                                            {{ oViewConf.getHiddenSid()|raw }}
+                                            <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
+                                            <input type="hidden" name="fnc" value="checkUpdate">
+                                            <input type="hidden" name="oxid" value="{{ oxid }}">
+                                            <input type="hidden" name="editval[oxid]" value="{{ oxid }}">
+
+                                            <div>
+                                                {{ translate({ ident: "D3_CFG_MOD_VERSION_CHECKTXT" }) }}
+                                            </div>
+                                            <div class="d3modcfg_btn icon d3color-blue" style="margin: 10px 0 0 0;">
+                                                <button type="submit">
+                                                    <i class="fas fa-question-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_VERSION_STARTCHECK" }) }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div></div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                            {{ translate({ ident: "D3_CFG_MOD_VERSION_AVAILLIST" }) }}
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="groupExp">
+                <div class="">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_DEV" }) }}
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            <div style="float: right; margin: 20px;">
+                                <i class="fab fa-d3 d3fa-color-blue" style="font-size: 6em;"></i>
+                            </div>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_TEXT1" }) }}<br>
+                            <br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_ADR1" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_ADR2" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_ADR3" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_ADR4" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_ADR5" }) }}<br>
+                            <br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_WEBLINK" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_MAILLINK" }) }}<br>
+                            <br>
+                            {{ translate({ ident: "D3_CFG_MOD_DEV_MODULELINK" }) }}<br>
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="groupExp">
+                <div class="">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT" }) }}
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT_1" }) }}<br>
+                            <br>
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT_2" }) }}<br>
+                            {# {{ translate({ ident: "D3_CFG_MOD_SUPPORT_3" }) }}<br> #}
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT_4" }) }}
+                            <a href="mailto:{{ translate({ ident: "D3_CFG_MOD_SUPPORT_MAIL" }) }}">
+                                {{ translate({ ident: "D3_CFG_MOD_SUPPORT_MAIL" }) }}
+                            </a><br>
+                            <br>
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT_5" }) }}<br>
+                            {{ translate({ ident: "D3_CFG_MOD_SUPPORT_6" }) }}
+                            <br>
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            {% if edit.isLicenseRequired() %}
+                {% if edit.getFieldData('oxserial') %}
+                    <div class="groupExp">
+                        <div class="">
+                            <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                                <span style="font-weight: bold;">
+                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS" }) }}
+                                </span>
+                            </a>
+                            <dl>
+                                <dt>
+                                    <table>
+                                        {% if edit.getLicenseData('result') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_GENERALVALID" }) }}
+                                                </td>
+                                                <td>
+                                                    {% set translKey = "D3_CFG_MOD_STATUS_" ~ edit.getLicenseData('result')|upper %}
+                                                    {{ translate({ ident: translKey }) }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('domain') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDDOMAIN" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getLicenseData('domain') }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('allow_local') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDLOCAL" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALID_YES" }) }}
+                                                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("D3_CFG_MOD_LICDETAILS_VALIDLOCAL_DESC"), 'sHelpText': help_text("D3_CFG_MOD_LICDETAILS_VALIDLOCAL_DESC")} %}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('startdate') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDFROMDATE" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getLicenseData('startdate') }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('enddate') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDTODATE" }) }}
+                                                </td>
+                                                <td>
+                                                    {% if edit.getExpireSpan() > 756864000 %}
+                                                        {{ translate({ ident: "D3_CFG_MOD_STATUS_NEVER_EXPIRES" }) }}
+                                                    {% else %}
+                                                        {{ edit.getLicenseData('enddate') }} ({{ oView.getExpireSpanString() }})
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('modid') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDFORMODID" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getLicenseData('modid') }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('modversion') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDFORMODVERSION" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getLicenseData('modversion') }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getFormatedShopEditionList() %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getFormatedShopEditionList() }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getFormatedShopIdList() %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALIDFORSHOPID" }) }}
+                                                </td>
+                                                <td>
+                                                    {{ edit.getFormatedShopIdList() }}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getLicenseData('isdemo') %}
+                                            <tr>
+                                                <td>
+                                                    {{ translate({ ident: "D3_CFG_MOD_LICDETAILS_ISTEST" }) }}
+                                                </td>
+                                                <td>
+                                                    {% if edit.getLicenseData('isdemo') %}{{ translate({ ident: "D3_CFG_MOD_LICDETAILS_VALID_YES" }) }}
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                        {% if edit.getConfigInfoData() %}
+                                            {% for sKey, mValue in edit.getConfigInfoData() %}
+                                                {% if edit.getLicenceOptionTranslation(sKey) %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ edit.getLicenceOptionTranslation(sKey) }}
+                                                        </td>
+                                                        <td>
+                                                            {{ mValue }}
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </table>
+                                </dt>
+                                <dd class="spacer"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
+                                {% if oView.hasLicenseKey() %}
+                                {{ translate({ ident: "D3_CFG_MOD_CHANGEKEY" }) }}
+                                {% else %}
+                                {{ translate({ ident: "D3_CFG_MOD_ACTIVATE" }) }}
+                                {% endif %}
+                            </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <iframe src="{{ oView.getLicenceFrameUrl(edit.d3getModId()) }}" style="width: 99%; height: 293px; border: none;"></iframe>
+                            </dt>
+                            <dd class="spacer"></dd>
+                        </dl>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if oView.hasNewsletterForm() %}
+                <div class="groupExp">
+                    <div class="">
+                        <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                            <span style="font-weight: bold;">
+                                {{ translate({ ident: "D3_CFG_MOD_STAYINFORMED" }) }}
+                            </span>
+                        </a>
+                        <dl>
+                            <dt>
+                                <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                                    {{ oViewConf.getHiddenSid()|raw }}
+                                    <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
+                                    <input type="hidden" name="fnc" value="setInfoMail">
+                                    <input type="hidden" name="oxid" value="{{ oxid }}">
+                                    <input type="hidden" name="editval[oxid]" value="{{ oxid }}">
+                                    <input type="hidden" name="service[bl_updateinfo]" value="0">
+                                    <input class="edittext ext_edittext" id="bl_updateinfo" type="checkbox" name="service[d3_cfg_mod__bl_updateinfo]" value='1' {% if service.d3_cfg_mod__bl_updateinfo.value == 1 %}checked{% endif %}>
+                                    <label for="bl_updateinfo">{{ translate({ ident: "D3_CFG_MOD_STAYINFORMED_1" }) }}</label><br>
+                                    <label for="s_updateinfomail">{{ translate({ ident: "D3_CFG_MOD_STAYINFORMED_2" }) }}</label>
+                                    <input type="text" class="editinput" id="s_updateinfomail" size="30" maxlength="255" name="service[d3_cfg_mod__s_updateinfomail]" value="{% if service.d3_cfg_mod__s_updateinfomail %}{{ service.d3_cfg_mod__s_updateinfomail }}{% else %}{{ actshopobj.oxshops__oxinfoemail.value }}{% endif %}">
+                                    <br>
+                                    <div class="d3modcfg_btn icon action_mail" style="margin: 10px 10px 0 0;">
+                                        <input type="submit" value="{{ translate({ ident: "D3_CFG_MOD_SAVE" }) }}">
+                                        <div></div>
+                                    </div>
+                                </form>
+                            </dt>
+                            <dd class="spacer"></dd>
+                        </dl>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="groupExp">
+                <div class="">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_SYS_CHECK" }) }}
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            <ul>
+                                <li class="syscheck">
+                                    {% if oView.d3CheckCurl() %}
+                                        <i class="fas fa-check-circle d3fa-17x d3fa-color-green" style="display: inline; margin: 0;"
+                                           title="{{ translate({ ident: "D3_CFG_MOD_SYS_CURLOK" }) }}"></i>
+                                        &nbsp;{{ translate({ ident: "D3_CFG_MOD_SYS_CURLOK" }) }}
+                                    {% else %}
+                                        {% if oView.d3ModUseCurl() %}
+                                            <i class="fas fa-times-circle d3fa-17x d3fa-color-red" style="display: inline; margin: 0;"
+                                               title="{{ translate({ ident: "D3_CFG_MOD_SYS_CURLREQ" }) }}"></i>
+                                            &nbsp;{{ translate({ ident: "D3_CFG_MOD_SYS_CURLREQ" }) }}
+                                        {% else %}
+                                            <i class="fas fa-exclamation-triangle d3fa-17x d3fa-color-orange" style="display: inline; margin: 0;"
+                                               title="{{ translate({ ident: "D3_CFG_MOD_SYS_CURLNOK" }) }}"></i>
+                                            &nbsp;{{ translate({ ident: "D3_CFG_MOD_SYS_CURLNOK" }) }}
+                                        {% endif %}
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            {% set oInstallCheck = oView.getInstallCheck() %}
+            <div class="groupExp">
+                <div class="{% if oInstallCheck.hasErrors() %}exp{% endif %}">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_INSTALLCHECK" }) }} "{{ edit.getModTitle() }}"
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            <ul>
+                                {% for oCheckItem in oInstallCheck.getArray() %}
+                                    <li class="syscheck">
+                                        {% if oCheckItem.hasCheckPassed() %}
+                                            <i class="fas fa-check-circle d3fa-17x d3fa-color-green"
+                                        {% else %}
+                                            <i class="fas fa-times-circle d3fa-17x d3fa-color-red"
+                                        {% endif %}
+                                        title="{{ translate({ ident: oCheckItem.getCheckMessageMultilangItem() }) }}"></i>
+
+                                        &nbsp;{{ translate({ ident: oCheckItem.getCheckMessageMultilangItem() }) }}
+                                        {% include "inputhelp.html.twig" with {'sHelpId': help_id(oCheckItem.getCheckDescMultiLangItem()), 'sHelpText': help_text(oCheckItem.getCheckDescMultiLangItem())} %}
+                                        {% if oCheckItem.getDetails() %}
+                                            <ul>
+                                                {% for sDetailItem in oCheckItem.getDetails() %}
+                                                    <li style="text-indent: 0;">{{ sDetailItem }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="groupExp">
+                <div class="{% if oView.hasBlogContent() %}exp{% endif %}">
+                    <a class="rc" onclick="_groupExp(this); return false;" href="#">
+                        <span style="font-weight: bold;">
+                            {{ translate({ ident: "D3_CFG_MOD_NEWS_NEWS" }) }}
+                        </span>
+                    </a>
+                    <dl>
+                        <dt>
+                            {% if oView.hasBlogContent() %}
+                                <ul>
+                                    {% for oBlog in oView.hasBlogContent() %}
+                                        <li class="syscheck">
+                                            <i class="fas fa-arrow-circle-right d3fa-17x d3fa-color-blue" style="display: inline; margin: 0;" title="{{ oBlog.title|replace('"', '') }}"></i>
+                                            <a href="{{ oBlog.link }}" target="blog">
+                                                {{ oBlog.date|date("d.m.Y H:i:s") }} -
+                                                <span style="font-weight: bold;">{{ oBlog.title }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <hr>
+                                {{ translate({ ident: "D3_CFG_MOD_NEWS_FURTHER1" }) }}
+                                <a href="{{ oView.getBlogBaseUrl() }}" target="blog">
+                                    <span style="font-weight: bold;">{{ oView.getBlogBaseUrl() }}</span>
+                                </a>
+                            {% else %}
+                                {{ translate({ ident: "D3_CFG_MOD_NEWS_FURTHER2" }) }}
+                                <a href="{{ oView.getBlogBaseUrl() }}" target="blog">
+                                    <b>{{ oView.getBlogBaseUrl() }}</b>
+                                </a>
+                            {% endif %}
+                        </dt>
+                        <dd class="spacer"></dd>
+                    </dl>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+</table>
+
+{% include "@d3modcfg_lib/admin/inc/inc.html.twig" with {blChangeTitle: false, blHideLinkBar: false} %}
