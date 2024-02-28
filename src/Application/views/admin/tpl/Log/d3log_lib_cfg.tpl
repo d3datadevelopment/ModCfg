@@ -34,7 +34,7 @@
                             </td>
                             <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_useExtendedLogging]" value="0">
-                                <input id="blLog_useExtendedLogging" type="checkbox" name="value[blLog_useExtendedLogging]" value="1" [{if $edit->getValue('blLog_useExtendedLogging')}] checked[{/if}]>
+                                <input id="blLog_useExtendedLogging" type="checkbox" name="value[blLog_useExtendedLogging]" value="1" [{if $edit->getValue('blLog_useExtendedLogging')}] checked[{/if}] [{$readonly}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_EXTENDED_LOGGING_HELP"}]
                             </td>
                         </tr>
@@ -44,7 +44,7 @@
                             </td>
                             <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_enableErrorReporting]" value="0">
-                                <input id="blLog_enableErrorReporting" type="checkbox" name="value[blLog_enableErrorReporting]" value="1" [{if $edit->getValue('blLog_enableErrorReporting')}] checked[{/if}]>
+                                <input id="blLog_enableErrorReporting" type="checkbox" name="value[blLog_enableErrorReporting]" value="1" [{if $edit->getValue('blLog_enableErrorReporting')}] checked[{/if}] [{$readonly}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_ENABLE_ERR_REPORT_HELP"}]
                             </td>
                         </tr>
@@ -54,7 +54,7 @@
                             </td>
                             <td class="edittext ext_edittext" style="text-align: left">
                                 <input type="hidden" name="value[blLog_enableExceptionReporting]" value="0">
-                                <input id="blLog_enableExceptionReporting" type="checkbox" name="value[blLog_enableExceptionReporting]" value="1" [{if $edit->getValue('blLog_enableExceptionReporting')}] checked[{/if}]>
+                                <input id="blLog_enableExceptionReporting" type="checkbox" name="value[blLog_enableExceptionReporting]" value="1" [{if $edit->getValue('blLog_enableExceptionReporting')}] checked[{/if}] [{$readonly}]>
                                        [{oxinputhelp ident="D3_LOG_CFG_ENABLE_EXC_REPORT_HELP"}]
                             </td>
                         </tr>
@@ -65,7 +65,7 @@
                         </td>
                         <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blLog_enableAdminProfiling]" value="0">
-                            <input id="blLog_enableAdminProfiling" type="checkbox" name="value[blLog_enableAdminProfiling]" value="1" [{if $edit->getValue('blLog_enableAdminProfiling')}] checked[{/if}]>
+                            <input id="blLog_enableAdminProfiling" type="checkbox" name="value[blLog_enableAdminProfiling]" value="1" [{if $edit->getValue('blLog_enableAdminProfiling')}] checked[{/if}] [{$readonly}]>
                                    [{oxinputhelp ident="D3_LOG_CFG_ENABLE_ADMINPROFILING_HELP"}]
                         </td>
                     </tr>
@@ -75,7 +75,7 @@
                         </td>
                         <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blLog_showAllExceptions]" value="0">
-                            <input id="blLog_showAllExceptions" type="checkbox" name="value[blLog_showAllExceptions]" value="1" [{if $edit->getValue('blLog_showAllExceptions')}] checked[{/if}]>
+                            <input id="blLog_showAllExceptions" type="checkbox" name="value[blLog_showAllExceptions]" value="1" [{if $edit->getValue('blLog_showAllExceptions')}] checked[{/if}] [{$readonly}]>
                                    [{oxinputhelp ident="D3_LOG_CFG_SHOWALLEXCEPTIONS_HELP"}]
                         </td>
                     </tr>
@@ -90,12 +90,12 @@
                                             <td>[{$iMailMessageId}].</td>
                                             [{assign var="sFieldName" value="sLog_messageadr"|cat:$iMailMessageId}]
                                             <td>[{oxmultilang ident="D3_LOG_CFG_MAILADDRESS"}]:
-                                                <input type="text" size="20" maxlength="80" name="value[[{$sFieldName}]]" value="[{$edit->getValue($sFieldName)}]">
+                                                <input type="text" size="20" maxlength="80" name="value[[{$sFieldName}]]" value="[{$edit->getValue($sFieldName)}]" [{$readonly}]>
                                             </td>
                                             <td>
                                                 <label for="[{$sFieldName}]">[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL"}]:</label>
                                                 [{assign var="sFieldName" value="sLog_messageerrlevel"|cat:$iMailMessageId}]
-                                                <select id="[{$sFieldName}]" class="edittext" name="value[[{$sFieldName}]]">
+                                                <select id="[{$sFieldName}]" class="edittext" name="value[[{$sFieldName}]]" [{$readonly}]>
                                                     <option style="background-color: silver;" value="" [{if $edit->getValue($sFieldName) == ''}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_NOERR"}]</option>
                                                     <option style="background-color: darkred; color: white;" value="emergency" [{if $edit->getValue($sFieldName) == 'emergency'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_EMERGENCY"}]</option>
                                                     <option style="background-color: #C00; color: white;" value="alert" [{if $edit->getValue($sFieldName) == 'alert'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_MAILERRLEVEL_ALERT"}]</option>
@@ -109,9 +109,9 @@
                                                 [{oxmultilang ident="D3_LOG_CFG_INTERVAL"}]:
                                                 [{assign var="sFieldName" value="sLog_messageinterval"|cat:$iMailMessageId}]
                                                 [{oxmultilang ident="D3_LOG_CFG_INTERVALMAX"}]
-                                                <input type="text" size="3" maxlength="4" value="[{if $edit->getValue($sFieldName)}][{$edit->getValue($sFieldName)}][{else}]1[{/if}]" name="value[[{$sFieldName}]]">
+                                                <input type="text" size="3" maxlength="4" value="[{if $edit->getValue($sFieldName)}][{$edit->getValue($sFieldName)}][{else}]1[{/if}]" name="value[[{$sFieldName}]]" [{$readonly}]>
                                                 [{assign var="sFieldName" value="sLog_messageintervaltype"|cat:$iMailMessageId}]
-                                                <select class="edittext" name="value[[{$sFieldName}]]">
+                                                <select class="edittext" name="value[[{$sFieldName}]]" [{$readonly}]>
                                                     <option value="day" [{if $edit->getValue($sFieldName) == 'day'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_DAYS"}]</option>
                                                     <option value="hour" [{if $edit->getValue($sFieldName) == 'hour'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_HOURS"}]</option>
                                                     <option value="minute" [{if $edit->getValue($sFieldName) == 'minute'}]selected[{/if}]>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_MINS"}]</option>
@@ -130,7 +130,7 @@
                     <tr>
                         <td>
                             <span class="d3modcfg_btn icon d3color-green">
-                                <button type="submit" name="save">
+                                <button type="submit" name="save" [{$readonly}]>
                                     <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_SAVE"}]
                                 </button>
                             </span>

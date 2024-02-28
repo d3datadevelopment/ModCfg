@@ -71,7 +71,7 @@ class d3cleartmp extends d3_cfg_mod_main
         $this->addTplParam('clearTagcloud', false);
         $this->addTplParam('clearMenu', false);
 
-        return parent::__construct();
+        parent::__construct();
     }
 
     /**

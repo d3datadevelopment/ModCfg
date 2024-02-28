@@ -334,7 +334,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                             </td>
                                                             <td class="edittext ext_edittext">
                                                                 <input type="hidden" name="[{if $oView->getModuleType() != 'lib'}]editval[oxactive][{/if}]" value='0'>
-                                                                <input id="[{$oModule->getId()}]_active" class="edittext ext_edittext" type="checkbox" name="[{if $oView->getModuleType() != 'lib'}]editval[oxactive][{/if}]" value='1' [{if $oModule->getFieldData('oxactive') == 1}]checked[{/if}]>
+                                                                <input id="[{$oModule->getId()}]_active" class="edittext ext_edittext" type="checkbox" name="[{if $oView->getModuleType() != 'lib'}]editval[oxactive][{/if}]" value='1' [{if $oModule->getFieldData('oxactive') == 1}]checked[{/if}] [{$readonly}]>
                                                                 [{oxinputhelp ident="D3_CFG_MOD_GENERAL_MODULEACTIVE_DESC"}]
                                                             </td>
                                                         </tr>
@@ -395,21 +395,21 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                                                 <td colspan="2">
                                                     <br>
                                                     <span class="d3modcfg_btn icon d3color-green">
-                                                        <button type="submit" name="save">
+                                                        <button type="submit" name="save" [{$readonly}]>
                                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_GENERAL_SAVE"}]
                                                         </button>
                                                     </span>
                                                     [{if $oModule->isLicenseRequired()}]
                                                         <span class="d3modcfg_btn icon d3color-blue" style="margin-left: 20px;">
                                                             [{assign var="licFrameUrl" value=$oView->getLicenceFrameUrl($oModule->d3GetModId())}]
-                                                            <button type="button" onClick="showLicForm('[{$sKey}]', '[{$licFrameUrl|oxescape:"url"}]'); return false;">
+                                                            <button type="button" onClick="showLicForm('[{$sKey}]', '[{$licFrameUrl|oxescape:"url"}]'); return false;" [{$readonly}]>
                                                                 <i class="fas fa-tag fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_ADDKEY"}]
                                                             </button>
                                                         </span>
 
                                                         [{if $oModule->getFieldData('oxserial')}]
                                                             <span class="d3modcfg_btn icon d3color-blue" style="margin-left: 20px;">
-                                                                <button type="button" onClick="getDetails('[{$sKey}]__licinfo', 'block', true); return false;">
+                                                                <button type="button" onClick="getDetails('[{$sKey}]__licinfo', 'block', true); return false;" [{$readonly}]>
                                                                     <i class="fas fa-info-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_SHOWKEY"}]
                                                                 </button>
                                                             </span>
@@ -654,7 +654,7 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
                             <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
                             <input type="hidden" name="fnc" value="getRemoteModList">
                             <span class="d3modcfg_btn icon d3color-blue">
-                                    <button type="submit">
+                                    <button type="submit" [{$readonly}]>
                                         <i class="fas fa-question-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_LIB_GETLIBLIST"}]
                                     </button>
                                 </span>

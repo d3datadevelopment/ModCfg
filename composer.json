@@ -36,7 +36,7 @@
     }
   },
   "require": {
-    "php": "7.3 - 7.4",
+    "php": "7.3 - 8.0",
     "ext-ionCube-Loader": "*",
     "oxid-esales/oxideshop-ce": "6.8 - 6.14",
     "d3/oxid-dic-handler": "^1.0",
@@ -59,7 +59,8 @@
     "splitbrain/php-cli": "^1.2.0"
   },
   "require-dev": {
-    "mikey179/vfsstream": "^1.6.8"
+    "mikey179/vfsstream": "^1.6.8",
+    "phpstan/phpstan": "^1.8"
   },
   "autoload": {
     "psr-4": {
@@ -73,5 +74,8 @@
     "src/bin/d3modules_install",
     "src/bin/d3cleartmp",
     "src/bin/d3maintenance"
-  ]
+  ],
+  "scripts": {
+    "phpstan": "./vendor/bin/phpstan --configuration=./vendor/d3/modcfg/phpstan.neon"
+  }
 }

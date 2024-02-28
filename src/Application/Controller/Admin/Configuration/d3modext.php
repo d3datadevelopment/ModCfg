@@ -43,7 +43,7 @@ class d3modext extends d3_cfg_mod_
     {
         d3install::getInstance()->startUpdateFrame();
 
-        return parent::__construct();
+        parent::__construct();
     }
 
     /**
