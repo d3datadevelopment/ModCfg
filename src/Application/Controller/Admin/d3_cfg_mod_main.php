@@ -68,7 +68,6 @@ class d3_cfg_mod_main extends AdminDetailsController
         $this->addTplParam('actlocation', false);
         $this->addTplParam('Errors', false);
         $this->addTplParam('box', 'box');
-        $this->addTplParam('readonly', false);
         $this->addTplParam('shop', Registry::getConfig()->getActiveShop());
         $this->addTplParam('art_category', null);
         $this->addTplParam('_act', null);
@@ -167,6 +166,7 @@ class d3_cfg_mod_main extends AdminDetailsController
         }
 
         $this->addTplParam('blShowLangSwitch', $this->_blD3ShowLangSwitch);
+
         if (false == $this->_blUseOwnOxid) {
             $this->addTplParam('oxid', $this->d3GetSet()->getId());
             $this->addTplParam('edit', $this->d3GetSet());

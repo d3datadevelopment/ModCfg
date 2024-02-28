@@ -17,7 +17,7 @@
         </span>
 
         <span class="d3modcfg_btn icon d3color-blue">
-            <button type="submit" name="save" class="saveinnewlangtext" onClick="document.myedit.fnc.value='d3exportProfile'" [{if $oxid == '-1'}] disabled[{/if}] [{$readonly_fields}] [{$custreadonly}]>
+            <button type="submit" name="save" class="saveinnewlangtext" onClick="document.myedit.fnc.value='d3exportProfile'" [{if $oxid == '-1'}] disabled[{/if}] [{$readonly}] [{$readonly_fields}] [{$custreadonly}]>
                 <i class="fas fa-download fa-inverse"></i>[{oxmultilang ident="D3_GENERAL_MODPROFILE_EXPORT"}]
             </button>
         </span>

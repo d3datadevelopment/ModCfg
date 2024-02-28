@@ -64,7 +64,7 @@ class d3modlib extends d3_cfg_mod_
     {
         d3install::getInstance()->startUpdateFrame();
 
-        return parent::__construct();
+        parent::__construct();
     }
 
     /**

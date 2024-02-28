@@ -2,10 +2,25 @@
 title: Changelog
 ---
 
+## 6.2.0.0 (2024-02-28)
+### Added
+- Rechte und Rollen Prüfungen in Templates integriert
+- Nur-Lesen-Attribute für eingeschränkt bearbeitbare Eingabefelder hinzugefügt
+- Kompatibilitätsadapter erkennt abweichende Versionsangaben des O3-Shop
+
+### Changed
+- Fehler beim Verbinden zu Remoteservern werden gefangen und behandelt
+- Ausnahmebehandlung reicht Exception weiter (Paypal Checkout verwendet Exceptions für reguläre Abläufe)
+
+### Fixed
+- falsche Shebang in der Vorlage für Shell-Scripte korrigiert
+
 ## 6.1.2.0 (2023-03-03)
 ### Added
 - installierbar in OXID 6.5.2 (CE 6.14)
 - DI-Container wird aus separatem Paket bezogen und ist nicht mehr Teil des Connectors
+### removed
+- Dependency Injection Container
 
 ## 6.1.1.0 (2022-12-20)
 ### Added

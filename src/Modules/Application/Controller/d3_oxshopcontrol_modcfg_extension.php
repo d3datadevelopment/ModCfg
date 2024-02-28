@@ -159,6 +159,9 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
                 }
 
                 $this->_d3WriteExc2Log($oEx);
+                
+                // rethrow for custom exception handling in 3rd party plugins
+                throw $oEx;
             }
         } else {
             parent::_process($sClass, $sFunction, $aParams, $aViewsChain);

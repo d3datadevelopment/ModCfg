@@ -59,7 +59,8 @@
     "splitbrain/php-cli": "^1.2.0"
   },
   "require-dev": {
-    "mikey179/vfsstream": "^1.6.8"
+    "mikey179/vfsstream": "^1.6.8",
+    "phpstan/phpstan": "^1.8"
   },
   "autoload": {
     "psr-4": {
@@ -73,5 +74,8 @@
     "src/bin/d3modules_install",
     "src/bin/d3cleartmp",
     "src/bin/d3maintenance"
-  ]
+  ],
+  "scripts": {
+    "phpstan": "./vendor/bin/phpstan --configuration=./vendor/d3/modcfg/phpstan.neon"
+  }
 }

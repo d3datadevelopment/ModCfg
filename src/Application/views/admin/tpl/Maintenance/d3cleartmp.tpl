@@ -277,7 +277,7 @@
                             <td class="edittext"><br>
                                 <br>
                                 <span class="d3modcfg_btn icon d3color-green[{if $blDevMode}]_inactive[{/if}]">
-                                    <button id="sumbitbtn" type="submit" name="save" [{if $blDevMode}]disabled="disabled" [{/if}] style="width: 150px;">
+                                    <button id="sumbitbtn" type="submit" name="save" [{$readonly}] [{if $blDevMode}]disabled="disabled" [{/if}] style="width: 150px;">
                                         <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_CLRTMP_SUBMIT"}]
                                     </button>
                                 </span>
@@ -387,7 +387,7 @@
                             <div style="margin: 5px 0 10px 0;">[{oxmultilang ident="D3_CFG_CLRTMP_DEV_DESC"}]</div>
                             <input type="hidden" name="value[blClrTmp_notmpuse]" value="[{if $blDevMode}]0[{else}]1[{/if}]">
                             <span class="d3modcfg_btn icon [{if $blDevMode}]d3color-green[{else}]d3color-orange[{/if}]">
-                                <button type="submit" name="save" onclick=''>
+                                <button type="submit" name="save" onclick='' [{$readonly}]>
                                     <i class="fa [{if $blDevMode}]fa-check-circle[{else}]fa-exclamation-triangle[{/if}] fa-inverse"></i>[{if $blDevMode}][{oxmultilang ident="D3_CFG_CLRTMP_DEV_BTNDEACT"}][{else}][{oxmultilang ident="D3_CFG_CLRTMP_DEV_BTNACT"}][{/if}]
                                 </button>
                             </span>

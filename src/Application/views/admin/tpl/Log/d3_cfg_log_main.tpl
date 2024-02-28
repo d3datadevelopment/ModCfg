@@ -204,7 +204,7 @@
                                 <label for="export_oxmodid">[{oxmultilang ident="D3_CFG_EXPORT_EXP_MODULE"}]</label>
                             </td>
                             <td class="edittext">
-                                <select name="export_oxmodid" id="export_oxmodid" class="editinput">
+                                <select name="export_oxmodid" id="export_oxmodid" class="editinput" [{$readonly}]>
                                     <option value="">[{$oView->getAllItemsTranslation()}]</option>
                                     [{foreach from=$oView->getModIdList() item="item"}]
                                         <option value="[{$item}]" [{if $oxmodid == $item}] selected[{/if}]>[{$item}]</option>
@@ -233,7 +233,7 @@
                                 <label for="export_oxclass">[{oxmultilang ident="D3_CFG_EXPORT_EXP_CLASS"}]</label>
                             </td>
                             <td class="edittext">
-                                <select name="export_oxclass" id="export_oxclass" class="editinput">
+                                <select name="export_oxclass" id="export_oxclass" class="editinput" [{$readonly}]>
                                     <option value="">[{oxmultilang ident="D3_CFG_EXPORT_EXP_CLASS_ALL"}]</option>
                                     [{foreach from=$oView->getClassList() item="item"}]
                                         <option value="[{$item}]" [{if $oxclass == $item}] selected[{/if}]>[{$item}]</option>
