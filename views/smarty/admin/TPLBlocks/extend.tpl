@@ -52,7 +52,7 @@
                             <tr>
                                 <td class="edittext" rowspan="4" style="padding: 10px 20px 10px 0; vertical-align: middle;">
                                     <label for="cleartplblockslist">[{oxmultilang ident="D3TPLBLOCKS_MODULE"}]</label>
-                                    <select name="tplblockmodule" size="1" id="cleartplblockslist">
+                                    <select name="tplblockmodule" size="1" id="cleartplblockslist" [{$readonly}]>
                                         <option value="">[{oxmultilang ident="D3TPLBLOCKS_CHOOSEMODULE"}]</option>
                                         [{foreach from=$oView->getTplBlockModules() item="sModuleId"}]
                                             <option value="[{$sModuleId}]">[{$sModuleId}]</option>
@@ -61,7 +61,7 @@
                                 </td>
                                 <td class="edittext" style="vertical-align: top; height: 30px; padding: 10px;">
                                     <span class="d3modcfg_btn icon d3color-orange">
-                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='clearTplBlocks';">
+                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='clearTplBlocks';" [{$readonly}]>
                                             <i class="fas fa-times-circle fa-inverse"></i>[{oxmultilang ident="D3TPLBLOCKS_REMBLOCKS"}]
                                         </button>
                                     </span> [{oxinputhelp ident="D3TPLBLOCKS_REMBLOCKS_DESC"}]
@@ -72,7 +72,7 @@
                             <tr>
                                 <td class="edittext" style="vertical-align: top; height: 30px; padding: 10px;">
                                     <span class="d3modcfg_btn icon d3color-blue">
-                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='deactivateTplBlocks';">
+                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='deactivateTplBlocks';" [{$readonly}]>
                                             <i class="fas fa-minus-circle fa-inverse"></i>[{oxmultilang ident="D3TPLBLOCKS_DEACTBLOCKS"}]
                                         </button>
                                     </span> [{oxinputhelp ident="D3TPLBLOCKS_DEACTBLOCKS_DESC"}]
@@ -81,7 +81,7 @@
                             <tr>
                                 <td class="edittext" style="vertical-align: top; height: 30px; padding: 10px;">
                                     <span class="d3modcfg_btn icon d3color-blue">
-                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='activateTplBlocks';">
+                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='activateTplBlocks';" [{$readonly}]>
                                             <i class="fas fa-plus-circle fa-inverse"></i>[{oxmultilang ident="D3TPLBLOCKS_ACTBLOCKS"}]
                                         </button>
                                     </span> [{oxinputhelp ident="D3TPLBLOCKS_ACTBLOCKS_DESC"}]
@@ -90,7 +90,7 @@
                             <tr>
                                 <td class="edittext" style="vertical-align: top; height: 30px; padding: 10px;">
                                     <span class="d3modcfg_btn icon d3color-blue">
-                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='refreshTplBlocks';">
+                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='refreshTplBlocks';" [{$readonly}]>
                                             <i class="fas fa-sync fa-inverse"></i>[{oxmultilang ident="D3TPLBLOCKS_REFBLOCKS"}]
                                         </button>
                                     </span> [{oxinputhelp ident="D3TPLBLOCKS_REFBLOCKS_DESC"}]
@@ -113,7 +113,7 @@
                             <tr>
                                 <td class="edittext" style="vertical-align: top; height: 30px; padding: 10px;">
                                     <span class="d3modcfg_btn icon d3color-blue">
-                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='clearDuplicates';">
+                                        <button id="sumbitbtn" type="submit" name="save" onClick="document.myedit.fnc.value='clearDuplicates';" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3TPLBLOCKS_CLEARDUPLICATES"}]
                                         </button>
                                     </span> [{oxinputhelp ident="D3TPLBLOCKS_CLEARDUPLICATES_DESC"}]

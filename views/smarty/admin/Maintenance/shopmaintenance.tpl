@@ -98,7 +98,7 @@
 
 
     <span class="d3modcfg_btn icon d3color-blue" style="margin-left: 17px;">
-        <button id="sumbitbtn" type="button" name="save" onclick="sendCheckForm();">
+        <button id="sumbitbtn" type="button" name="save" onclick="sendCheckForm();" [{$readonly}]>
             <i class="fas fa-info-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_CHECKALL"}]
         </button>
     </span>
@@ -120,7 +120,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('AccessioreToArticleOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('AccessioreToArticleOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.AccessioreToArticleOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -137,7 +137,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ActionsToArticleOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ActionsToArticleOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.ActionsToArticleOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -154,7 +154,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ArticleExtendsOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ArticleExtendsOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.ArticleExtendsOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -171,7 +171,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('CategoryToAttributeOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('CategoryToAttributeOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.CategoryToAttributeOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -188,7 +188,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('DeliveryToDeliverySetOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('DeliveryToDeliverySetOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.DeliveryToDeliverySetOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -205,7 +205,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('NewsSubscribedOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('NewsSubscribedOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.NewsSubscribedOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -222,7 +222,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ActionsOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ActionsOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2ActionsOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -239,7 +239,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ArticleOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ArticleOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2ArticleOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -256,7 +256,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2AttributeOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2AttributeOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2AttributeOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -273,7 +273,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2CategoryOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2CategoryOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2CategoryOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -290,7 +290,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2DeliveryOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2DeliveryOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2DeliveryOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -307,7 +307,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2DiscountOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2DiscountOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2DiscountOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -324,7 +324,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2GroupOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2GroupOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2GroupOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -341,7 +341,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ListOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2ListOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2ListOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -358,7 +358,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2PaymentOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2PaymentOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2PaymentOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -375,7 +375,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2SelectlistOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Object2SelectlistOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Object2SelectlistOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -392,7 +392,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Price2ArticleOrphans')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('Price2ArticleOrphans')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.Price2ArticleOrphans}])[{/if}]
                                         </button>
                                     </span>
@@ -417,7 +417,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('unassignInactiveCountries')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('unassignInactiveCountries')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.UnassignInactiveCountries}])[{/if}]
                                         </button>
                                     </span>
@@ -434,7 +434,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('DeactivateEmptyCategories')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('DeactivateEmptyCategories')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.DeactivateEmptyCategories}])[{/if}]
                                         </button>
                                     </span>
@@ -455,7 +455,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('InsertMissingArticleExtends')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('InsertMissingArticleExtends')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.InsertMissingArticleExtends}])[{/if}]
                                         </button>
                                     </span>
@@ -476,7 +476,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('SelfAssignedVariants')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('SelfAssignedVariants')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.SelfAssignedVariants}])[{/if}]
                                         </button>
                                     </span>
@@ -493,7 +493,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ClearVariantsWithoutParent')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CLEARDB"}]')) {sendForm('ClearVariantsWithoutParent')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.ClearVariantsWithoutParent}])[{/if}]
                                         </button>
                                     </span>
@@ -510,7 +510,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('DisableVariantsWithInactiveParent')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENERAL_CHANGEDB"}]')) {sendForm('DisableVariantsWithInactiveParent')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}][{if $blShowItem}] ([{$aCheckResults.DisableVariantsWithInactiveParent}])[{/if}]
                                         </button>
                                     </span>
@@ -527,7 +527,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedArticleImages')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedArticleImages')}" [{$readonly}]>
                                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>
@@ -539,7 +539,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedCategoryImages')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedCategoryImages')}" [{$readonly}]>
                                             <i class="fas fa-check-circle d3fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>
@@ -551,7 +551,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedManufacturerImages')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedManufacturerImages')}" [{$readonly}]>
                                             <i class="fas fa-check-circle d3fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>
@@ -563,7 +563,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedVendorImages')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedVendorImages')}" [{$readonly}]>
                                             <i class="fas fa-check-circle d3fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>
@@ -575,7 +575,7 @@
                                 </td>
                                 <td>
                                     <span class="d3modcfg_btn fixed icon d3color-green[{if $blShowItem}] d3ShowItem[{/if}]" style="">
-                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedWrappingImages')}">
+                                        <button id="sumbitbtn" type="button" name="save" onclick="if(confirm('[{oxmultilang ident="D3_CFG_CLRTMP_GENIMGS_WARN"}]')) {sendForm('ClearGeneratedWrappingImages')}" [{$readonly}]>
                                             <i class="fas fa-check-circle d3fa-17x fa-inverse"></i>[{oxmultilang ident="D3_CFG_MNT_SUBMIT"}]
                                         </button>
                                     </span>

@@ -1,5 +1,11 @@
 [{include file="headitem.tpl" title="d3mxsysitems"|oxmultilangassign}]
 
+[{if $readonly}]
+    [{assign var="readonly" value="readonly disabled"}]
+[{else}]
+    [{assign var="readonly" value=""}]
+[{/if}]
+
 <script type="text/javascript">
     <!--
     function _groupExp(el) {
@@ -48,8 +54,8 @@
                                 [{oxmultilang ident="D3_CFG_MAINTENANCE_REPAIRMODULES"}]
                             </dt>
                             <dd>
-                                <div class="d3modcfg_btn fixed icon d3color-blue">
-                                    <button type="submit" name="save" onclick="document.getElementById('myedit').fnc.value = 'repairModuleDbItems'; document.getElementById('myedit').submit(); return false;">
+                                <div class="d3modcfg_btn fixed icon d3color-blue" [{$readonly}]>
+                                    <button type="submit" name="save" onclick="document.getElementById('myedit').fnc.value = 'repairModuleDbItems'; document.getElementById('myedit').submit(); return false;" [{$readonly}]>
                                         <i class="fas fa-question-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MODITEM_PREVIEW"}]
                                     </button>
                                 </div>

@@ -1,0 +1,27 @@
+# This Software is the property of Data Development and is protected
+# by copyright law - it is NOT Freeware.
+#
+# Any unauthorized use of this software without a valid license
+# is a violation of the license agreement and will be prosecuted by
+# civil and criminal law.
+#
+# https://www.d3data.de
+#
+# @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+# @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+# @link      http://www.oxidmodule.com
+
+services:
+  _defaults:
+    autowire: true
+    public: true
+
+  d3ox.modcfg.OxDbConnection:
+    class:      'Doctrine\DBAL\Connection'
+    factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface', 'get']
+    shared:     true;
+
+  d3ox.modcfg.OxDbQueryBuilder:
+    class:      'Doctrine\DBAL\Query\QueryBuilder'
+    factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface', 'create']
+    shared:     false;

@@ -1,2 +1,59 @@
-<?php ?><?php /** This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 7.0.0.0 SourceGuardian (09.02.2024) @author  Daniel Seifert support@shopmodule.com @copyright (C) 2024, D3 Data Development @see https://www.d3data.de */ ?><?php
-if(!function_exists('sg_load')){$__v=phpversion();$__x=explode('.',$__v);$__v2=$__x[0].'.'.(int)$__x[1];$__u=strtolower(substr(php_uname(),0,3));$__ts=(@constant('PHP_ZTS') || @constant('ZEND_THREAD_SAFE')?'ts':'');$__f=$__f0='ixed.'.$__v2.$__ts.'.'.$__u;$__ff=$__ff0='ixed.'.$__v2.'.'.(int)$__x[2].$__ts.'.'.$__u;$__ed=@ini_get('extension_dir');$__e=$__e0=@realpath($__ed);$__dl=function_exists('dl') && function_exists('file_exists') && @ini_get('enable_dl') && !@ini_get('safe_mode');if($__dl && $__e && version_compare($__v,'5.2.5','<') && function_exists('getcwd') && function_exists('dirname')){$__d=$__d0=getcwd();if(@$__d[1]==':') {$__d=str_replace('\\','/',substr($__d,2));$__e=str_replace('\\','/',substr($__e,2));}$__e.=($__h=str_repeat('/..',substr_count($__e,'/')));$__f='/ixed/'.$__f0;$__ff='/ixed/'.$__ff0;while(!file_exists($__e.$__d.$__ff) && !file_exists($__e.$__d.$__f) && strlen($__d)>1){$__d=dirname($__d);}if(file_exists($__e.$__d.$__ff)) dl($__h.$__d.$__ff); else if(file_exists($__e.$__d.$__f)) dl($__h.$__d.$__f);}if(!function_exists('sg_load') && $__dl && $__e0){if(file_exists($__e0.'/'.$__ff0)) dl($__ff0); else if(file_exists($__e0.'/'.$__f0)) dl($__f0);}if(!function_exists('sg_load')){$__ixedurl='https://www.sourceguardian.com/loaders/download.php?php_v='.urlencode($__v).'&php_ts='.($__ts?'1':'0').'&php_is='.@constant('PHP_INT_SIZE').'&os_s='.urlencode(php_uname('s')).'&os_r='.urlencode(php_uname('r')).'&os_m='.urlencode(php_uname('m'));$__sapi=php_sapi_name();if(!$__e0) $__e0=$__ed;if(function_exists('php_ini_loaded_file')) $__ini=php_ini_loaded_file(); else $__ini='php.ini';if((substr($__sapi,0,3)=='cgi')||($__sapi=='cli')||($__sapi=='embed')){$__msg="\nPHP script '".__FILE__."' is protected by SourceGuardian and requires a SourceGuardian loader '".$__f0."' to be installed.\n\n1) Download the required loader '".$__f0."' from the SourceGuardian site: ".$__ixedurl."\n2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="\n3) Edit ".$__ini." and add 'extension=".$__f0."' directive";}}$__msg.="\n\n";}else{$__msg="<html><body>PHP script '".__FILE__."' is protected by <a href=\"https://www.sourceguardian.com/\">SourceGuardian</a> and requires a SourceGuardian loader '".$__f0."' to be installed.<br><br>1) <a href=\"".$__ixedurl."\" target=\"_blank\">Click here</a> to download the required '".$__f0."' loader from the SourceGuardian site<br>2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="<br>3) Edit ".$__ini." and add 'extension=".$__f0."' directive<br>4) Restart the web server";}}$__msg.="</body></html>";}die($__msg);exit();}}return sg_load('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');
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * https://www.d3data.de
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link          http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Controller\Admin\Log;
+
+use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\Install\d3install;
+use Doctrine\DBAL\Exception as DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+use OxidEsales\Eshop\Core\Exception\SystemComponentException;
+
+class d3_cfg_log extends d3_cfg_mod_
+{
+    protected $_hasListItems = true;
+
+    /**
+     * d3_cfg_log constructor.
+     * @throws DatabaseConnectionException
+     * @throws StandardException
+     * @throws SystemComponentException
+     * @throws DBALException
+     * @throws DatabaseErrorException
+     * @throws d3ShopCompatibilityAdapterException
+     */
+    public function __construct()
+    {
+        d3install::getInstance()->startUpdateFrame();
+
+        parent::__construct();
+    }
+
+    /**
+     * @return string
+     */
+    public function render()
+    {
+        $this->addTplParam('sListClass', d3_cfg_log_list::class);
+        $this->addTplParam('sMainClass', d3_cfg_log_main::class);
+
+        return parent::render();
+    }
+}

@@ -35,13 +35,13 @@
                         </td>
                         <td class="edittext ext_edittext" style="text-align: left">
                             <input type="hidden" name="value[blModCfg_noAdminHomeInfo]" value="0">
-                            <input id="blModCfg_noAdminHomeInfo" type="checkbox" name="value[blModCfg_noAdminHomeInfo]" value="1" [{if $value->d3_cfg_mod__blModCfg_noAdminHomeInfo}] checked[{/if}]>
+                            <input id="blModCfg_noAdminHomeInfo" type="checkbox" name="value[blModCfg_noAdminHomeInfo]" value="1" [{if $value->d3_cfg_mod__blModCfg_noAdminHomeInfo}] checked[{/if}] [{$readonly}]>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span class="d3modcfg_btn icon d3color-green">
-                                <button type="submit" name="save">
+                                <button type="submit" name="save" [{$readonly}]>
                                     <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_SAVE"}]
                                 </button>
                             </span>

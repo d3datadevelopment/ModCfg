@@ -71,7 +71,7 @@ function transferFields()
                             <label for="delete_oxmodid">[{oxmultilang ident="D3_CFG_CLEAN_DEL_MODULE"}]</label>
                         </td>
                         <td class="edittext">
-                            <select name="delete_oxmodid" id="delete_oxmodid" class="editinput">
+                            <select name="delete_oxmodid" id="delete_oxmodid" class="editinput" [{$readonly}]>
                                 <option value="">[{oxmultilang ident="D3_CFG_CLEAN_DEL_MODULE_ALL"}]</option>
                                 [{foreach from=$oView->getModIdList() item="item"}]
                                     <option value="[{$item}]">[{$item}]</option>
@@ -100,7 +100,7 @@ function transferFields()
                             <label for="delete_oxtype">[{oxmultilang ident="D3_CFG_CLEAN_DEL_TYPE"}]</label>
                         </td>
                         <td class="edittext">
-                            <select name="delete_oxtype" id="delete_oxtype" class="editinput">
+                            <select name="delete_oxtype" id="delete_oxtype" class="editinput" [{$readonly}]>
                                 <option value="">[{oxmultilang ident="D3_CFG_CLEAN_DEL_TYPE_ALL"}]</option>
                                 [{foreach from=$oView->getLogTypeList() item="item"}]
                                     <option value="[{$item}]">[{$item}]</option>

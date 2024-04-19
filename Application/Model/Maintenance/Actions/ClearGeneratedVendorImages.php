@@ -1,2 +1,44 @@
-<?php ?><?php /** This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 7.0.0.0 SourceGuardian (09.02.2024) @author  Daniel Seifert support@shopmodule.com @copyright (C) 2024, D3 Data Development @see https://www.d3data.de */ ?><?php
-if(!function_exists('sg_load')){$__v=phpversion();$__x=explode('.',$__v);$__v2=$__x[0].'.'.(int)$__x[1];$__u=strtolower(substr(php_uname(),0,3));$__ts=(@constant('PHP_ZTS') || @constant('ZEND_THREAD_SAFE')?'ts':'');$__f=$__f0='ixed.'.$__v2.$__ts.'.'.$__u;$__ff=$__ff0='ixed.'.$__v2.'.'.(int)$__x[2].$__ts.'.'.$__u;$__ed=@ini_get('extension_dir');$__e=$__e0=@realpath($__ed);$__dl=function_exists('dl') && function_exists('file_exists') && @ini_get('enable_dl') && !@ini_get('safe_mode');if($__dl && $__e && version_compare($__v,'5.2.5','<') && function_exists('getcwd') && function_exists('dirname')){$__d=$__d0=getcwd();if(@$__d[1]==':') {$__d=str_replace('\\','/',substr($__d,2));$__e=str_replace('\\','/',substr($__e,2));}$__e.=($__h=str_repeat('/..',substr_count($__e,'/')));$__f='/ixed/'.$__f0;$__ff='/ixed/'.$__ff0;while(!file_exists($__e.$__d.$__ff) && !file_exists($__e.$__d.$__f) && strlen($__d)>1){$__d=dirname($__d);}if(file_exists($__e.$__d.$__ff)) dl($__h.$__d.$__ff); else if(file_exists($__e.$__d.$__f)) dl($__h.$__d.$__f);}if(!function_exists('sg_load') && $__dl && $__e0){if(file_exists($__e0.'/'.$__ff0)) dl($__ff0); else if(file_exists($__e0.'/'.$__f0)) dl($__f0);}if(!function_exists('sg_load')){$__ixedurl='https://www.sourceguardian.com/loaders/download.php?php_v='.urlencode($__v).'&php_ts='.($__ts?'1':'0').'&php_is='.@constant('PHP_INT_SIZE').'&os_s='.urlencode(php_uname('s')).'&os_r='.urlencode(php_uname('r')).'&os_m='.urlencode(php_uname('m'));$__sapi=php_sapi_name();if(!$__e0) $__e0=$__ed;if(function_exists('php_ini_loaded_file')) $__ini=php_ini_loaded_file(); else $__ini='php.ini';if((substr($__sapi,0,3)=='cgi')||($__sapi=='cli')||($__sapi=='embed')){$__msg="\nPHP script '".__FILE__."' is protected by SourceGuardian and requires a SourceGuardian loader '".$__f0."' to be installed.\n\n1) Download the required loader '".$__f0."' from the SourceGuardian site: ".$__ixedurl."\n2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="\n3) Edit ".$__ini." and add 'extension=".$__f0."' directive";}}$__msg.="\n\n";}else{$__msg="<html><body>PHP script '".__FILE__."' is protected by <a href=\"https://www.sourceguardian.com/\">SourceGuardian</a> and requires a SourceGuardian loader '".$__f0."' to be installed.<br><br>1) <a href=\"".$__ixedurl."\" target=\"_blank\">Click here</a> to download the required '".$__f0."' loader from the SourceGuardian site<br>2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="<br>3) Edit ".$__ini." and add 'extension=".$__f0."' directive<br>4) Restart the web server";}}$__msg.="</body></html>";}die($__msg);exit();}}return sg_load('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');
+<?php
+
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ * http://www.shopmodule.com
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link          http://www.oxidmodule.com
+ */
+
+declare(strict_types=1);
+
+namespace D3\ModCfg\Application\Model\Maintenance\Actions;
+
+use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use Doctrine\DBAL\Exception as DBALException;
+use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
+use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
+use OxidEsales\Eshop\Core\Exception\StandardException;
+
+class ClearGeneratedVendorImages extends AbstractClearImagesAction
+{
+    /**
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     * @throws DBALException
+     * @throws StandardException
+     */
+    public function fixIt(): void
+    {
+        $oClrTmp = $this->getClrTmp();
+        $oClrTmp->clearGeneratedVendorImgs();
+
+        $this->getUtilsView()->addErrorToDisplay('D3_CFG_CLRTMP_GENWRPIMGS_SUCC');
+    }
+}

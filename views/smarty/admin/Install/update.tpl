@@ -7,6 +7,12 @@
 
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign}]
 
+[{if $readonly}]
+    [{assign var="readonly" value="readonly disabled"}]
+[{else}]
+    [{assign var="readonly" value=""}]
+[{/if}]
+
 <style>
     <!--
     ul li {
@@ -227,7 +233,7 @@
         <input type="hidden" name="fnc" value="delskiphashs">
         [{oxmultilang ident="D3_CFG_MOD_UPDATE_HASSKIPHASHES"}]<br>
         <span class="d3modcfg_btn icon d3color-green">
-            <button type="submit">
+            <button type="submit" [{$readonly}]>
                 <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_DELSKIPHASHES"}]
             </button>
         </span>
@@ -280,41 +286,43 @@
                 <input type="hidden" name="sUpdateClass" value="">
             [{/if}]
 
-            <div class="installoption [{if !$oView->hasDemoShopMode()}]checked[{/if}]" id="option_auto" [{if !$oView->hasDemoShopMode()}]onclick="changeOption('autoinstall', this);"[{/if}]>
-                <input type="radio" name="fnc" value="autoinstall" id="autoinstall" [{if $oView->hasDemoShopMode()}] disabled [{else}] onchange="changeElemColor(parentNode);" checked="checked"[{/if}]>
-                <h4>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL"}]</h4>
+            <div class="installoption [{if !$oView->hasDemoShopMode()}]checked[{/if}]" id="option_auto" [{if !$oView->hasDemoShopMode()}]onclick="changeOption('autoinstall', this);"[{/if}] [{$readonly}]>
+                <input type="radio" name="fnc" value="autoinstall" id="autoinstall" [{if $oView->hasDemoShopMode()}] disabled [{else}] onchange="changeElemColor(parentNode);" checked="checked"[{/if}] [{$readonly}]>
+                <h4><label for="autoinstall">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL"}]</label></h4>
                 <div id="auto_desclink" class="desclink" onclick="showDescText(this.id); return false;">[{oxmultilang ident="D3_CFG_MOD_UPDATE_MOREINFO"}]</div>
                 <div id="auto_desctext" class="invisible">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL_DESC"}]</div>
             </div>
-            <div class="installoption" id="option_manually" [{if !$oView->hasDemoShopMode()}]onclick="changeOption('manualyinstall', this);"[{/if}]>
-                <input type="radio" name="fnc" value="manualyinstall" id="manualyinstall" [{if $oView->hasDemoShopMode()}] disabled [{else}] onchange="changeElemColor(parentNode);" [{/if}]>
-                <h4>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL"}]</h4>
+            <div class="installoption" id="option_manually" [{if !$oView->hasDemoShopMode()}]onclick="changeOption('manualyinstall', this);"[{/if}] [{$readonly}]>
+                <input type="radio" name="fnc" value="manualyinstall" id="manualyinstall" [{if $oView->hasDemoShopMode()}] disabled [{else}] onchange="changeElemColor(parentNode);" [{/if}] [{$readonly}]>
+                <h4><label for="manualyinstall">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL"}]</label></h4>
                 <div id="manually_desclink" class="desclink" onclick="showDescText(this.id); return false;">[{oxmultilang ident="D3_CFG_MOD_UPDATE_MOREINFO"}]</div>
                 <div id="manually_desctext" class="invisible">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL_DESC"}]</div>
             </div>
-            <div class="installoption [{if $oView->hasDemoShopMode()}]checked[{/if}]" id="option_check" onclick="changeOption('checklist', this);">
-                <input type="radio"  [{if $oView->hasDemoShopMode()}] checked [{/if}] name="fnc" value="checklist" id="checklist" onchange="changeElemColor(parentNode);">
-                <h4>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_CHECKLIST"}]</h4>
+            <div class="installoption [{if $oView->hasDemoShopMode()}]checked[{/if}]" id="option_check" onclick="changeOption('checklist', this);" [{$readonly}]>
+                <input type="radio" [{if $oView->hasDemoShopMode()}] checked [{/if}] name="fnc" value="checklist" id="checklist" onchange="changeElemColor(parentNode);" [{$readonly}]>
+                <h4><label for="checklist">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_CHECKLIST"}]</label></h4>
                 <div id="check_desclink" class="desclink" onclick="showDescText(this.id); return false;">[{oxmultilang ident="D3_CFG_MOD_UPDATE_MOREINFO"}]</div>
                 <div id="check_desctext" class="invisible">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_CHECKLIST_DESC"}]</div>
                 <div>
-                    <input type="checkbox" id="checkasfile" name="checkasfile"><label for="checkasfile">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_CHECK_SAVEASFILE"}]</label>
+                    <input type="checkbox" id="checkasfile" name="checkasfile" [{$readonly}]>
+                    <label for="checkasfile">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_CHECK_SAVEASFILE"}]</label>
                 </div>
             </div>
             [{if !$oView->getHideSkip()}]
-                <div class="installoption" id="option_skip" onclick="changeOption('skipupdate', this);">
-                    <input type="radio" name="fnc" value="skipupdate" id="skipupdate" onchange="changeElemColor(parentNode);">
-                    <h4>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP"}]</h4>
+                <div class="installoption" id="option_skip" onclick="changeOption('skipupdate', this);" [{$readonly}]>
+                    <input type="radio" name="fnc" value="skipupdate" id="skipupdate" onchange="changeElemColor(parentNode);" [{$readonly}]>
+                    <h4><label for="skipupdate">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP"}]</label></h4>
                     <div id="skip_desclink" class="desclink" onclick="showDescText(this.id); return false;">[{oxmultilang ident="D3_CFG_MOD_UPDATE_MOREINFO"}]</div>
                     <div id="skip_desctext" class="invisible">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_DESC"}]</div>
                     <div>
-                        [{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1"}]
-                        <input type="text" name="intervalValue" size="3" maxlength="4" value="1" style="margin: 0;">
-                        <select class="edittext" name="intervalType" style="margin: 0;">
+                        <label for="intervalValue">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1"}]</label>
+                        <input type="text" id="intervalValue" name="intervalValue" size="3" maxlength="4" value="1" style="margin: 0;" [{$readonly}]>
+                        <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;" [{$readonly}]>
                             <option value="day">[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_DAYS"}]</option>
                             <option value="hour" selected>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_HOURS"}]</option>
                             <option value="minute">[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_MINS"}]</option>
-                        </select>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE2"}]
+                        </select>
+                        <label for="intervalType">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE2"}]</label>
                     </div>
                 </div>
             [{/if}]
@@ -360,25 +368,25 @@
                 [{if $oView->getUserSelections()}]
                     [{foreach from=$oView->getUserSelections() key="iKey" item="oSelection"}]
                         <span class="d3modcfg_btn icon d3color-green">
-                            <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').sUpdateMethod.value = '[{$oSelection->getMethodName()}]'; document.getElementById('manualyinstallform').submit();">
+                            <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').sUpdateMethod.value = '[{$oSelection->getMethodName()}]'; document.getElementById('manualyinstallform').submit();" [{$readonly}]>
                                 <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident=$oSelection->getTranslationIdent()}]
                             </button>
                         </span>
                     [{/foreach}]
                 [{else}]
                     <span class="d3modcfg_btn icon d3color-green">
-                        <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').submit();">
+                        <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').submit();" [{$readonly}]>
                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEPCONTINUE"}]
                         </button>
                     </span>
                 [{/if}]
                     <span class="d3modcfg_btn icon d3color-blue">
-                        <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'sessionskip'; document.getElementById('manualyinstallform').submit();">
+                        <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'sessionskip'; document.getElementById('manualyinstallform').submit();" [{$readonly}]>
                             <i class="fas fa-arrow-right fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_SESSIONSKIP"}]
                         </button>
                     </span>
                     <span class="d3modcfg_btn icon d3color-yellow">
-                        <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'everskip'; document.getElementById('manualyinstallform').submit();">
+                        <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'everskip'; document.getElementById('manualyinstallform').submit();" [{$readonly}]>
                             <i class="fas fa-arrow-right fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_SKIPEVER"}]
                         </button>
                     </span>
@@ -398,7 +406,7 @@
                 <input type="hidden" name="sUpdateClass" value="[{$sUpdateClass}]">
                 <input type="hidden" name="blReset" value="1">
                     <span class="d3modcfg_btn icon d3color-green">
-                        <button type="submit">
+                        <button type="submit" [{$readonly}]>
                             <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_MULTICONTINUE"}]
                         </button>
                     </span>
@@ -406,7 +414,7 @@
     [{elseif !$oView->getAction() && false == $oView->getModCfgUpdateRequiredMessage()}]
         <div class="installnavigation">
             <span class="d3modcfg_btn icon d3color-green">
-                <button type="submit" onclick="showProcessing();">
+                <button type="submit" onclick="showProcessing();" [{$readonly}]>
                     <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_START"}]
                 </button>
             </span>
@@ -422,13 +430,13 @@
                 <input type="hidden" name="fnc" value="skipupdate">
                 <input type="hidden" name="blReset" value="1">
                 <span class="d3modcfg_btn icon d3color-orange">
-                    <button type="submit">
+                    <button type="submit" [{$readonly}]>
                         <i class="far fa-clock fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP"}]
                     </button>
                 </span>
                 <label for="intervalValue">[{oxmultilang ident="D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1"}]</label>
-                <input type="text" name="intervalValue" id="intervalValue" size="3" maxlength="4" value="5" style="margin: 0;">
-                <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;">
+                <input type="text" name="intervalValue" id="intervalValue" size="3" maxlength="4" value="5" style="margin: 0;" [{$readonly}]>
+                <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;" [{$readonly}]>
                     <option value="day">[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_DAYS"}]</option>
                     <option value="hour">[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_HOURS"}]</option>
                     <option value="minute" selected>[{oxmultilang ident="D3_LOG_CFG_INTERVALMAX_MINS"}]</option>
@@ -457,7 +465,7 @@
             <input type="hidden" name="sUpdateMethod" value="[{$sUpdateMethod}]">
             <input type="hidden" name="sUpdateClass" value="[{$sUpdateClass}]">
             <span class="d3modcfg_btn icon d3color-green">
-                <button type="submit">
+                <button type="submit" [{$readonly}]>
                     <i class="fas fa-home fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_MULTIBACK"}]
                 </button>
             </span>
@@ -489,7 +497,7 @@
                 <input type="hidden" name="sUpdateMethod" value="[{$sUpdateMethod}]">
                 <input type="hidden" name="sUpdateClass" value="[{$sUpdateClass}]">
                 <span class="d3modcfg_btn icon d3color-green">
-                    <button type="submit">
+                    <button type="submit" [{$readonly}]>
                         <i class="fas fa-check-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_UPDATE_MULTICONTINUE"}]
                     </button>
                 </span>

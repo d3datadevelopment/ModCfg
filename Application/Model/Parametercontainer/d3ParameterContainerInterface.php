@@ -1,2 +1,66 @@
-<?php ?><?php /** This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 7.0.0.0 SourceGuardian (09.02.2024) @author  Daniel Seifert support@shopmodule.com @copyright (C) 2024, D3 Data Development @see https://www.d3data.de */ ?><?php
-if(!function_exists('sg_load')){$__v=phpversion();$__x=explode('.',$__v);$__v2=$__x[0].'.'.(int)$__x[1];$__u=strtolower(substr(php_uname(),0,3));$__ts=(@constant('PHP_ZTS') || @constant('ZEND_THREAD_SAFE')?'ts':'');$__f=$__f0='ixed.'.$__v2.$__ts.'.'.$__u;$__ff=$__ff0='ixed.'.$__v2.'.'.(int)$__x[2].$__ts.'.'.$__u;$__ed=@ini_get('extension_dir');$__e=$__e0=@realpath($__ed);$__dl=function_exists('dl') && function_exists('file_exists') && @ini_get('enable_dl') && !@ini_get('safe_mode');if($__dl && $__e && version_compare($__v,'5.2.5','<') && function_exists('getcwd') && function_exists('dirname')){$__d=$__d0=getcwd();if(@$__d[1]==':') {$__d=str_replace('\\','/',substr($__d,2));$__e=str_replace('\\','/',substr($__e,2));}$__e.=($__h=str_repeat('/..',substr_count($__e,'/')));$__f='/ixed/'.$__f0;$__ff='/ixed/'.$__ff0;while(!file_exists($__e.$__d.$__ff) && !file_exists($__e.$__d.$__f) && strlen($__d)>1){$__d=dirname($__d);}if(file_exists($__e.$__d.$__ff)) dl($__h.$__d.$__ff); else if(file_exists($__e.$__d.$__f)) dl($__h.$__d.$__f);}if(!function_exists('sg_load') && $__dl && $__e0){if(file_exists($__e0.'/'.$__ff0)) dl($__ff0); else if(file_exists($__e0.'/'.$__f0)) dl($__f0);}if(!function_exists('sg_load')){$__ixedurl='https://www.sourceguardian.com/loaders/download.php?php_v='.urlencode($__v).'&php_ts='.($__ts?'1':'0').'&php_is='.@constant('PHP_INT_SIZE').'&os_s='.urlencode(php_uname('s')).'&os_r='.urlencode(php_uname('r')).'&os_m='.urlencode(php_uname('m'));$__sapi=php_sapi_name();if(!$__e0) $__e0=$__ed;if(function_exists('php_ini_loaded_file')) $__ini=php_ini_loaded_file(); else $__ini='php.ini';if((substr($__sapi,0,3)=='cgi')||($__sapi=='cli')||($__sapi=='embed')){$__msg="\nPHP script '".__FILE__."' is protected by SourceGuardian and requires a SourceGuardian loader '".$__f0."' to be installed.\n\n1) Download the required loader '".$__f0."' from the SourceGuardian site: ".$__ixedurl."\n2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="\n3) Edit ".$__ini." and add 'extension=".$__f0."' directive";}}$__msg.="\n\n";}else{$__msg="<html><body>PHP script '".__FILE__."' is protected by <a href=\"https://www.sourceguardian.com/\">SourceGuardian</a> and requires a SourceGuardian loader '".$__f0."' to be installed.<br><br>1) <a href=\"".$__ixedurl."\" target=\"_blank\">Click here</a> to download the required '".$__f0."' loader from the SourceGuardian site<br>2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="<br>3) Edit ".$__ini." and add 'extension=".$__f0."' directive<br>4) Restart the web server";}}$__msg.="</body></html>";}die($__msg);exit();}}return sg_load('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');
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * https://www.d3data.de
+ *
+ * @copyright (C) D3 Data Development, Thomas Dartsch
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Parametercontainer;
+
+use D3\ModCfg\Application\Model\Exception\d3ParameterNotFoundException;
+
+interface d3ParameterContainerInterface
+{
+    /**
+     * Clears all parameters.
+     */
+    public function clear();
+
+    /**
+     * Adds parameters to the service container parameters.
+     * @param array $aParameters An array of parameters
+     */
+    public function add(array $aParameters);
+
+    /**
+     * Gets the service container parameters.
+     * @return array An array of parameters
+     */
+    public function all();
+
+    /**
+     * Gets a container parameter.
+     * @param string $sName The parameter name
+     * @return mixed  The parameter value
+     * @throws d3ParameterNotFoundException if the parameter is not defined
+     */
+    public function get($sName);
+
+    /**
+     * Sets a service container parameter.
+     * @param string $sName  The parameter name
+     * @param mixed  $mValue The parameter value
+     */
+    public function set($sName, $mValue);
+
+    /**
+     * Returns true if a parameter name is defined.
+     * @param string $sName The parameter name
+     * @return Boolean true if the parameter name is defined, false otherwise
+     */
+    public function has($sName);
+
+    /**
+     * @param $sName
+     */
+    public function remove($sName);
+}

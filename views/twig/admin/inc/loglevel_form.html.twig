@@ -2,10 +2,10 @@
     {% set oLog = oView.d3getLog() %}
     {% for sName, iStatus in oLog.getAllLogTypes() %}
         <input type="hidden" name="logtypes[{{ iStatus }}]" value="0">
-        <input type="checkbox" value="1" name="logtypes[{{ iStatus }}]" id="{% if oModule|default('') is not same as ('') %}{{ oModule.getId() }}{% endif %}_{{ sName }}_{{ iStatus }}" {% if oView.getLogStatus(sName, oModule) %} checked{% endif %}><label for="{% if oModule|default('') is not same as ('') %}{{ oModule.getId() }}{% endif %}_{{ sName }}_{{ iStatus }}">{{ oView.getLogTypeTranslation(sName) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id(""), 'sHelpText': help_text("")} %}<br>
+        <input type="checkbox" value="1" name="logtypes[{{ iStatus }}]" id="{% if oModule|default('') is not same as ('') %}{{ oModule.getId() }}{% endif %}_{{ sName }}_{{ iStatus }}" {{ readonly }} {% if oView.getLogStatus(sName, oModule) %} checked{% endif %}><label for="{% if oModule|default('') is not same as ('') %}{{ oModule.getId() }}{% endif %}_{{ sName }}_{{ iStatus }}">{{ oView.getLogTypeTranslation(sName) }}</label> {% include "inputhelp.html.twig" with {'sHelpId': help_id(""), 'sHelpText': help_text("")} %}<br>
     {% endfor %}
 {% else %}
-    <select id="loglevelelement" name="loglevel" class="edittext">
+    <select id="loglevelelement" name="loglevel" class="edittext" {{ readonly }}>
         <option value="userdefined">{{ translate({ ident: "D3_CFG_LOG_TYPE_USERDEFINED" }) }}</option>
         <option value="none" {% if oView.getLogStatus('none', oModule) %} selected{% endif %}>{{ translate({ ident: "D3_CFG_LOG_TYPE_NONE" }) }}</option>
         <option value="error" {% if oView.getLogStatus('error', oModule) %} selected{% endif %}>{{ translate({ ident: "D3_CFG_LOG_TYPE_ERROR" }) }}</option>

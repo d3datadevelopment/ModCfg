@@ -7,6 +7,12 @@
 
 {% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
 
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
 <style>
     <!--
     ul li {
@@ -227,7 +233,7 @@
         <input type="hidden" name="fnc" value="delskiphashs">
         {{ translate({ ident: "D3_CFG_MOD_UPDATE_HASSKIPHASHES" }) }}<br>
         <span class="d3modcfg_btn icon d3color-green">
-            <button type="submit">
+            <button type="submit" {{ readonly }}>
                 <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_DELSKIPHASHES" }) }}
             </button>
         </span>
@@ -279,41 +285,43 @@
                 <input type="hidden" name="sUpdateClass" value="">
             {% endif %}
 
-            <div class="installoption {% if not oView.hasDemoShopMode() %}checked{% endif %}" id="option_auto" {% if not oView.hasDemoShopMode() %}onclick="changeOption('autoinstall', this);"{% endif %}>
-                <input type="radio" name="fnc" value="autoinstall" id="autoinstall" {% if oView.hasDemoShopMode() %} disabled {% else %} onchange="changeElemColor(parentNode);" checked="checked"{% endif %}>
-                <h4>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL" }) }}</h4>
+            <div class="installoption {% if not oView.hasDemoShopMode() %}checked{% endif %}" id="option_auto" {% if not oView.hasDemoShopMode() %}onclick="changeOption('autoinstall', this);"{% endif %} {{ readonly }}>
+                <input type="radio" name="fnc" value="autoinstall" id="autoinstall" {% if oView.hasDemoShopMode() %} disabled {% else %} onchange="changeElemColor(parentNode);" checked="checked"{% endif %} {{ readonly }}>
+                <h4><label for="autoinstall">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL" }) }}</label></h4>
                 <div id="auto_desclink" class="desclink" onclick="showDescText(this.id); return false;">{{ translate({ ident: "D3_CFG_MOD_UPDATE_MOREINFO" }) }}</div>
                 <div id="auto_desctext" class="invisible">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_AUTOINSTALL_DESC" }) }}</div>
             </div>
-            <div class="installoption" id="option_manually" {% if not oView.hasDemoShopMode() %}onclick="changeOption('manualyinstall', this);"{% endif %}>
-                <input type="radio" name="fnc" value="manualyinstall" id="manualyinstall" {% if oView.hasDemoShopMode() %} disabled {% else %} onchange="changeElemColor(parentNode);" {% endif %}>
-                <h4>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL" }) }}</h4>
+            <div class="installoption" id="option_manually" {% if not oView.hasDemoShopMode() %}onclick="changeOption('manualyinstall', this);"{% endif %} {{ readonly }}>
+                <input type="radio" name="fnc" value="manualyinstall" id="manualyinstall" {% if oView.hasDemoShopMode() %} disabled {% else %} onchange="changeElemColor(parentNode);" {% endif %} {{ readonly }}>
+                <h4><label for="manualyinstall">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL" }) }}</label></h4>
                 <div id="manually_desclink" class="desclink" onclick="showDescText(this.id); return false;">{{ translate({ ident: "D3_CFG_MOD_UPDATE_MOREINFO" }) }}</div>
                 <div id="manually_desctext" class="invisible">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_MANUALYINSTALL_DESC" }) }}</div>
             </div>
-            <div class="installoption {% if oView.hasDemoShopMode() %}checked{% endif %}" id="option_check" onclick="changeOption('checklist', this);">
-                <input type="radio"  {% if oView.hasDemoShopMode() %} checked {% endif %} name="fnc" value="checklist" id="checklist" onchange="changeElemColor(parentNode);">
-                <h4>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_CHECKLIST" }) }}</h4>
+            <div class="installoption {% if oView.hasDemoShopMode() %}checked{% endif %}" id="option_check" onclick="changeOption('checklist', this);" {{ readonly }}>
+                <input type="radio"  {% if oView.hasDemoShopMode() %} checked {% endif %} name="fnc" value="checklist" id="checklist" onchange="changeElemColor(parentNode);" {{ readonly }}>
+                <h4><label for="checklist">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_CHECKLIST" }) }}</label></h4>
                 <div id="check_desclink" class="desclink" onclick="showDescText(this.id); return false;">{{ translate({ ident: "D3_CFG_MOD_UPDATE_MOREINFO" }) }}</div>
                 <div id="check_desctext" class="invisible">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_CHECKLIST_DESC" }) }}</div>
                 <div>
-                    <input type="checkbox" id="checkasfile" name="checkasfile"><label for="checkasfile">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_CHECK_SAVEASFILE" }) }}</label>
+                    <input type="checkbox" id="checkasfile" name="checkasfile" {{ readonly }}>
+                    <label for="checkasfile">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_CHECK_SAVEASFILE" }) }}</label>
                 </div>
             </div>
             {% if not oView.getHideSkip() %}
-                <div class="installoption" id="option_skip" onclick="changeOption('skipupdate', this);">
-                    <input type="radio" name="fnc" value="skipupdate" id="skipupdate" onchange="changeElemColor(parentNode);">
-                    <h4>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP" }) }}</h4>
+                <div class="installoption" id="option_skip" onclick="changeOption('skipupdate', this);" {{ readonly }}>
+                    <input type="radio" name="fnc" value="skipupdate" id="skipupdate" onchange="changeElemColor(parentNode);" {{ readonly }}>
+                    <h4><label for="skipupdate">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP" }) }}</label></h4>
                     <div id="skip_desclink" class="desclink" onclick="showDescText(this.id); return false;">{{ translate({ ident: "D3_CFG_MOD_UPDATE_MOREINFO" }) }}</div>
                     <div id="skip_desctext" class="invisible">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_DESC" }) }}</div>
                     <div>
-                        {{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1" }) }}
-                        <input type="text" name="intervalValue" size="3" maxlength="4" value="1" style="margin: 0;">
-                        <select class="edittext" name="intervalType" style="margin: 0;">
+                        <label for="intervalValue">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1" }) }}</label>
+                        <input type="text" id="intervalValue" name="intervalValue" size="3" maxlength="4" value="1" style="margin: 0;" {{ readonly }}>
+                        <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;" {{ readonly }}>
                             <option value="day">{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_DAYS" }) }}</option>
                             <option value="hour" selected>{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_HOURS" }) }}</option>
                             <option value="minute">{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_MINS" }) }}</option>
-                        </select>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE2" }) }}
+                        </select>
+                        <label for="intervalType">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE2" }) }}</label>
                     </div>
                 </div>
             {% endif %}
@@ -359,25 +367,25 @@
                 {% if oView.getUserSelections() %}
                     {% for iKey, oSelection in oView.getUserSelections() %}
                         <span class="d3modcfg_btn icon d3color-green">
-                                <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').sUpdateMethod.value = '{{ oSelection.getMethodName() }}'; document.getElementById('manualyinstallform').submit();">
+                                <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').sUpdateMethod.value = '{{ oSelection.getMethodName() }}'; document.getElementById('manualyinstallform').submit();" {{ readonly }}>
                                     <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: oSelection.getTranslationIdent() }) }}
                                 </button>
                             </span>
                     {% endfor %}
                 {% else %}
                     <span class="d3modcfg_btn icon d3color-green">
-                        <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').submit();">
+                        <button type="submit" onclick="showProcessing(); document.getElementById('manualyinstallform').setExecute.value = '1'; document.getElementById('manualyinstallform').fnc.value = 'manualyinstall'; document.getElementById('manualyinstallform').submit();" {{ readonly }}>
                             <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEPCONTINUE" }) }}
                         </button>
                     </span>
                 {% endif %}
                 <span class="d3modcfg_btn icon d3color-blue">
-                    <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'sessionskip'; document.getElementById('manualyinstallform').submit();">
+                    <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'sessionskip'; document.getElementById('manualyinstallform').submit();" {{ readonly }}>
                         <i class="fas fa-arrow-right fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_SESSIONSKIP" }) }}
                     </button>
                 </span>
                 <span class="d3modcfg_btn icon d3color-yellow">
-                    <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'everskip'; document.getElementById('manualyinstallform').submit();">
+                    <button type="submit" onclick="document.getElementById('manualyinstallform').setExecute.value = '0'; document.getElementById('manualyinstallform').fnc.value = 'everskip'; document.getElementById('manualyinstallform').submit();" {{ readonly }}>
                         <i class="fas fa-arrow-right fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_SKIPEVER" }) }}
                     </button>
                 </span>
@@ -397,7 +405,7 @@
                     <input type="hidden" name="sUpdateClass" value="{{ sUpdateClass }}">
                     <input type="hidden" name="blReset" value="1">
                     <span class="d3modcfg_btn icon d3color-green">
-                        <button type="submit">
+                        <button type="submit" {{ readonly }}>
                             <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_MULTICONTINUE" }) }}
                         </button>
                     </span>
@@ -405,7 +413,7 @@
         {% elseif not oView.getAction() and false == oView.getModCfgUpdateRequiredMessage() %}
             <div class="installnavigation">
                 <span class="d3modcfg_btn icon d3color-green">
-                    <button type="submit" onclick="showProcessing();">
+                    <button type="submit" onclick="showProcessing();" {{ readonly }}>
                         <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_START" }) }}
                     </button>
                 </span>
@@ -420,13 +428,13 @@
                     <input type="hidden" name="fnc" value="skipupdate">
                     <input type="hidden" name="blReset" value="1">
                     <span class="d3modcfg_btn icon d3color-orange">
-                        <button type="submit">
+                        <button type="submit" {{ readonly }}>
                             <i class="far fa-clock fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP" }) }}
                         </button>
                     </span>
                     <label for="intervalValue">{{ translate({ ident: "D3_CFG_MOD_UPDATE_STEP_SKIP_RANGE1" }) }}</label>
-                    <input type="text" name="intervalValue" id="intervalValue" size="3" maxlength="4" value="5" style="margin: 0;">
-                    <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;">
+                    <input type="text" name="intervalValue" id="intervalValue" size="3" maxlength="4" value="5" style="margin: 0;" {{ readonly }}>
+                    <select class="edittext" name="intervalType" id="intervalType" style="margin: 0;" {{ readonly }}>
                         <option value="day">{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_DAYS" }) }}</option>
                         <option value="hour">{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_HOURS" }) }}</option>
                         <option value="minute" selected>{{ translate({ ident: "D3_LOG_CFG_INTERVALMAX_MINS" }) }}</option>
@@ -455,7 +463,7 @@
                 <input type="hidden" name="sUpdateMethod" value="{{ sUpdateMethod }}">
                 <input type="hidden" name="sUpdateClass" value="{{ sUpdateClass }}">
                 <span class="d3modcfg_btn icon d3color-green">
-                    <button type="submit">
+                    <button type="submit" {{ readonly }}>
                         <i class="fas fa-home fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_MULTIBACK" }) }}
                     </button>
                 </span>
@@ -487,7 +495,7 @@
                     <input type="hidden" name="sUpdateMethod" value="{{ sUpdateMethod }}">
                     <input type="hidden" name="sUpdateClass" value="{{ sUpdateClass }}">
                     <span class="d3modcfg_btn icon d3color-green">
-                        <button type="submit">
+                        <button type="submit" {{ readonly }}>
                             <i class="fas fa-check-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_UPDATE_MULTICONTINUE" }) }}
                         </button>
                     </span>

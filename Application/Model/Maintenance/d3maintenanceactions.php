@@ -1,2 +1,133 @@
-<?php ?><?php /** This Software is the property of D³ Data Development and is protected by copyright law - it is NOT Freeware.  Any unauthorized use of this software without a valid license key is a violation of the license agreement and will be prosecuted by civil and criminal law.  Inhaber: Thomas Dartsch Alle Rechte vorbehalten  @package Modul-Connector @version 7.0.0.0 SourceGuardian (09.02.2024) @author  Daniel Seifert support@shopmodule.com @copyright (C) 2024, D3 Data Development @see https://www.d3data.de */ ?><?php
-if(!function_exists('sg_load')){$__v=phpversion();$__x=explode('.',$__v);$__v2=$__x[0].'.'.(int)$__x[1];$__u=strtolower(substr(php_uname(),0,3));$__ts=(@constant('PHP_ZTS') || @constant('ZEND_THREAD_SAFE')?'ts':'');$__f=$__f0='ixed.'.$__v2.$__ts.'.'.$__u;$__ff=$__ff0='ixed.'.$__v2.'.'.(int)$__x[2].$__ts.'.'.$__u;$__ed=@ini_get('extension_dir');$__e=$__e0=@realpath($__ed);$__dl=function_exists('dl') && function_exists('file_exists') && @ini_get('enable_dl') && !@ini_get('safe_mode');if($__dl && $__e && version_compare($__v,'5.2.5','<') && function_exists('getcwd') && function_exists('dirname')){$__d=$__d0=getcwd();if(@$__d[1]==':') {$__d=str_replace('\\','/',substr($__d,2));$__e=str_replace('\\','/',substr($__e,2));}$__e.=($__h=str_repeat('/..',substr_count($__e,'/')));$__f='/ixed/'.$__f0;$__ff='/ixed/'.$__ff0;while(!file_exists($__e.$__d.$__ff) && !file_exists($__e.$__d.$__f) && strlen($__d)>1){$__d=dirname($__d);}if(file_exists($__e.$__d.$__ff)) dl($__h.$__d.$__ff); else if(file_exists($__e.$__d.$__f)) dl($__h.$__d.$__f);}if(!function_exists('sg_load') && $__dl && $__e0){if(file_exists($__e0.'/'.$__ff0)) dl($__ff0); else if(file_exists($__e0.'/'.$__f0)) dl($__f0);}if(!function_exists('sg_load')){$__ixedurl='https://www.sourceguardian.com/loaders/download.php?php_v='.urlencode($__v).'&php_ts='.($__ts?'1':'0').'&php_is='.@constant('PHP_INT_SIZE').'&os_s='.urlencode(php_uname('s')).'&os_r='.urlencode(php_uname('r')).'&os_m='.urlencode(php_uname('m'));$__sapi=php_sapi_name();if(!$__e0) $__e0=$__ed;if(function_exists('php_ini_loaded_file')) $__ini=php_ini_loaded_file(); else $__ini='php.ini';if((substr($__sapi,0,3)=='cgi')||($__sapi=='cli')||($__sapi=='embed')){$__msg="\nPHP script '".__FILE__."' is protected by SourceGuardian and requires a SourceGuardian loader '".$__f0."' to be installed.\n\n1) Download the required loader '".$__f0."' from the SourceGuardian site: ".$__ixedurl."\n2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="\n3) Edit ".$__ini." and add 'extension=".$__f0."' directive";}}$__msg.="\n\n";}else{$__msg="<html><body>PHP script '".__FILE__."' is protected by <a href=\"https://www.sourceguardian.com/\">SourceGuardian</a> and requires a SourceGuardian loader '".$__f0."' to be installed.<br><br>1) <a href=\"".$__ixedurl."\" target=\"_blank\">Click here</a> to download the required '".$__f0."' loader from the SourceGuardian site<br>2) Install the loader to ";if(isset($__d0)){$__msg.=$__d0.DIRECTORY_SEPARATOR.'ixed';}else{$__msg.=$__e0;if(!$__dl){$__msg.="<br>3) Edit ".$__ini." and add 'extension=".$__f0."' directive<br>4) Restart the web server";}}$__msg.="</body></html>";}die($__msg);exit();}}return sg_load('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');
+<?php
+/**
+ * This Software is the property of Data Development and is protected
+ * by copyright law - it is NOT Freeware.
+ *
+ * Any unauthorized use of this software without a valid license
+ * is a violation of the license agreement and will be prosecuted by
+ * civil and criminal law.
+ *
+ * https://www.d3data.de
+ *
+ * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
+ * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
+ * @link      http://www.oxidmodule.com
+ */
+
+namespace D3\ModCfg\Application\Model\Maintenance;
+
+use D3\ModCfg\Application\Model\Maintenance\Actions\AccessioreToArticleOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ActionInterface;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ActionsToArticleOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ArticleExtendsOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\CategoryToAttributeOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearGeneratedArticleImages;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearGeneratedCategoryImages;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearGeneratedManufacturerImages;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearGeneratedVendorImages;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearGeneratedWrappingImages;
+use D3\ModCfg\Application\Model\Maintenance\Actions\ClearVariantsWithoutParent;
+use D3\ModCfg\Application\Model\Maintenance\Actions\DeactivateEmptyCategories;
+use D3\ModCfg\Application\Model\Maintenance\Actions\DeliveryToDeliverySetOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\DisableVariantsWithInactiveParent;
+use D3\ModCfg\Application\Model\Maintenance\Actions\InsertMissingArticleExtends;
+use D3\ModCfg\Application\Model\Maintenance\Actions\NewsSubscribedOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2ActionsOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2ArticleOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2AttributeOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2CategoryOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2DeliveryOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2DiscountOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2GroupOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2ListOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2PaymentOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Object2SelectlistOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\Price2ArticleOrphans;
+use D3\ModCfg\Application\Model\Maintenance\Actions\SelfAssignedVariants;
+use D3\ModCfg\Application\Model\Maintenance\Actions\UnassignInactiveCountries;
+use OxidEsales\Eshop\Core\Registry;
+use ReflectionClass;
+use ReflectionException;
+
+class d3maintenanceactions
+{
+    public array $aCheckResults = [];
+
+    /**
+     * @return array
+     * @throws ReflectionException
+     */
+    public function getActionList(): array
+    {
+        $actions = [];
+
+        foreach ([
+            AccessioreToArticleOrphans::class,  //        'ClearAcc2Art',
+            ActionsToArticleOrphans::class,     //        'ClearAct2Art',
+            ArticleExtendsOrphans::class,       //        'ClearArtextends',
+            CategoryToAttributeOrphans::class,  //        'ClearCat2Attrib',
+            DeliveryToDeliverySetOrphans::class,//        'ClearDel2Delset',
+            NewsSubscribedOrphans::class,       //        'ClearNewssubscribed',
+            Object2ActionsOrphans::class,       //        'ClearObj2Action',
+            Object2ArticleOrphans::class,       //        'ClearObj2Art',
+            Object2AttributeOrphans::class,     //        'ClearObj2Attrib',
+            Object2CategoryOrphans::class,      //        'ClearObj2Cat',
+            Object2DeliveryOrphans::class,      //        'ClearObject2Delivery',
+            Object2DiscountOrphans::class,      //        'ClearObj2Disc',
+            Object2GroupOrphans::class,         //        'ClearObj2Group',
+            Object2ListOrphans::class,          //        'ClearObj2List',
+            Object2PaymentOrphans::class,       //        'ClearObj2Payment',
+            Object2SelectlistOrphans::class,    //        'ClearObj2Sellist',
+            Price2ArticleOrphans::class,        //        'ClearPrice2Art',
+            UnassignInactiveCountries::class,   //        'UnassignInactiveCountries',
+            DeactivateEmptyCategories::class,   //        'DeactivateEmptyCategories',
+            InsertMissingArticleExtends::class, //        'OxArtextendsItems',
+            SelfAssignedVariants::class,        //        'VariantParentAsVar',
+            ClearVariantsWithoutParent::class,  //        'ClearVariantsWithoutParent',
+            DisableVariantsWithInactiveParent::class,   //        'VariantActive',
+            ClearGeneratedArticleImages::class, //        'clearGenArticleImgs'
+            ClearGeneratedCategoryImages::class,//        'clearGenCategoryImgs'
+            ClearGeneratedManufacturerImages::class,    //        'clearGenManufacturerImgs'
+            ClearGeneratedVendorImages::class,  //        'clearGenVendorImgs'
+            ClearGeneratedWrappingImages::class,//        'clearGenWrappingImgs'
+        ] as $actionClassName) {
+            $actions[(new ReflectionClass($actionClassName))->getShortName()] = $actionClassName;
+        }
+
+        return $actions;
+    }
+
+    /**
+     * @return array
+     * @throws ReflectionException
+     */
+    public function getCheckResults(): array
+    {
+        $aResults = Registry::getSession()->getVariable('aD3ShopMaintenanceResults') ?? [];
+
+        foreach (array_keys($this->getActionList()) as $sActionIdent) {
+            $aResults[$sActionIdent] ??= 0;
+        }
+
+        return $aResults;
+    }
+
+    /**
+     * @return array
+     * @throws ReflectionException
+     */
+    public function checkAllActions(): array
+    {
+        $aCheckResults = [];
+
+        foreach ($this->getActionList() as $ident => $actionClass) {
+            /** @var ActionInterface $action */
+            $action = oxNew($actionClass);
+            $aCheckResults[$ident] = $action->getAffectedRows();
+        }
+
+        Registry::getSession()->setVariable('aD3ShopMaintenanceResults', $aCheckResults);
+
+        return $aCheckResults;
+    }
+}
