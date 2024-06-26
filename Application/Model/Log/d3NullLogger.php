@@ -17,9 +17,10 @@
 
 namespace D3\ModCfg\Application\Model\Log;
 
+use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
-class d3NullLogger implements d3LogInterface
+class d3NullLogger implements d3LogInterface, LoggerInterface
 {
     use LoggerTrait;
 

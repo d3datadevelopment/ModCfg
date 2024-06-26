@@ -178,15 +178,6 @@
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
 </form>
 
-{% if sInstallModId %}
-    {{ translate({ ident: "D3_CFG_MOD_VERSION_INSTALLSTATUS" }) }}
-    <iframe src="{{ oView.getInstallModiFrameLink() }}" style="width: 100%; height: 95%; border: none; overflow: hidden" name="d3_mod_install">
-    </iframe>
-    <style>
-        div.box{background-image: none !important;}
-    </style>
-
-{% else %}
     {% if sErrorMLMsg %}
         <div class="extension_error">
             {{ translate({ ident: sErrorMLMsg }) }}
@@ -196,7 +187,6 @@
         <tr>
             <td style="vertical-align: top" class="edittext">
                 {% set aRemoteMods = oView.getRemoteMods() %}
-                {% set sDownloadField = oView.getPhpVersionDownloadField() %}
                 <fieldset>
                     <legend>
                         {{ translate({ ident: oView.getTitleIdent() }) }}
@@ -580,13 +570,8 @@
                                     {% set formatclass = "" %}
                                     {% set iconclass = "fas fa-question-circle d3fa-17x d3fa-color-disabled" %}
                                     {% set aRemoteModData = oView.getRemoteModuleData(oView.getRemoteModVar(oModule, 'modid')) %}
-                                    {% if _context['aRemoteModData.availableversion.' ~ sDownloadField] %}
-                                        {% set updateicon = "fas fa-plus-circle d3fa-17x d3fa-color-green" %}
-                                        {% set icondesc = "D3_MOD_LIB_INSTALL"|translate %}
-                                    {% else %}
-                                        {% set updateicon = "fas fa-question-circle d3fa-17x d3fa-color-disabled" %}
-                                        {% set icondesc = "" %}
-                                    {% endif %}
+                                    {% set updateicon = "fas fa-question-circle d3fa-17x d3fa-color-disabled" %}
+                                    {% set icondesc = "" %}
 
                                     <tr>
                                         <td class="{{ listclass }} {{ formatclass }}" style="height: 24px; text-align: center;">
@@ -673,7 +658,6 @@
             alert('{{ translate({ ident: "D3_CFG_LIB_NOINSTALLNOTICE" }) }}');
         </script>
     {% endif %}
-{% endif %}
 
 {% include "@d3modcfg_lib/admin/inc/inc.html.twig" %}
 

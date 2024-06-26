@@ -234,11 +234,6 @@ class d3_cfg_mod_licence extends AdminDetailsController
         return $this->oNewestData[$sPart];
     }
 
-    public function installMod()
-    {
-        $this->addTplParam('sInstallModId', Registry::get(Request::class)->getRequestEscapedParameter('modid'));
-    }
-
     /**
      * request newsletter form
      */
@@ -453,35 +448,6 @@ class d3_cfg_mod_licence extends AdminDetailsController
     }
 
     /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function filedownload()
-    {
-        if (! Registry::get(d3utils::class)->hasDemoshopMode()) {
-            $this->checkUpdate();
-
-            /** @var d3filesystem $oFS */
-            $oFS = oxNew(d3filesystem::class);
-            if (strtolower(Registry::get(Request::class)->getRequestEscapedParameter('type')) == 'newest') {
-                if ($this->getNewestModuleData($this->getPhpVersionDownloadField(true)) && $this->getInstallClass()) {
-                    $oFS->startDirectDownload($this->getNewestModuleData($this->getPhpVersionDownloadField(true)));
-                } elseif ($this->getNewestModuleData($this->getPhpVersionDownloadField()) && $this->getInstallClass()) {
-                    $oFS->startDirectDownload($this->getNewestModuleData($this->getPhpVersionDownloadField()));
-                }
-            } elseif ($this->getUpdateData($this->getPhpVersionDownloadField(true)) && $this->getInstallClass()) {
-                $oFS->startDirectDownload($this->getUpdateData($this->getPhpVersionDownloadField(true)));
-            } elseif ($this->getUpdateData($this->getPhpVersionDownloadField()) && $this->getInstallClass()) {
-                $oFS->startDirectDownload($this->getUpdateData($this->getPhpVersionDownloadField()));
-            }
-        }
-    }
-
-    /**
      * @return string
      */
     public function d3GetMenuItemTitle()
@@ -606,15 +572,6 @@ class d3_cfg_mod_licence extends AdminDetailsController
             Registry::getLang()->translateString("D3_CFG_MOD_STATUS_EXPIRES_IN"),
             $this->d3GetSet()->getExpireTimeSpan()
         );
-    }
-
-    /**
-     * @param bool $blForceIonCube
-     * @return bool|string
-     */
-    public function getPhpVersionDownloadField($blForceIonCube = false)
-    {
-        return d3install::getInstance()->getPhpVersionDownloadField($blForceIonCube);
     }
 
     /**

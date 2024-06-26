@@ -56,26 +56,24 @@ services:
       - 'getSession'
     shared:     true
 
+  # deprecated
   d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Container\ContainerFactory:
     class:      'OxidEsales\EshopCommunity\Internal\Container\ContainerFactory'
     factory:    ['OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getInstance']
-    shared:     true;
+    shared:     true
 
+  # deprecated
   d3ox.modcfg.OxDiContainer:
     class:      'ProjectServiceContainer'
     factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getContainer']
-    shared:     true;
+    shared:     true
 
   d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface:
-    class:      'OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface'
-    factory:    ['@d3ox.modcfg.OxDiContainer', 'get']
-    shared:     true;
-    arguments:
-      - 'OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface'
+    class: OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProvider
+    shared: true
 
   d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface:
-    class:      'OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface'
-    factory:    ['@d3ox.modcfg.OxDiContainer', 'get']
-    shared:     true;
+    class: OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactory
+    shared: true
     arguments:
-      - 'OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface'
+      - '@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface'

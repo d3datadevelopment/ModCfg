@@ -25,6 +25,7 @@ use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
+use DateTime;
 use Doctrine\DBAL\Exception as DBALException;
 use OxidEsales\Eshop\Application\Model\Shop;
 use OxidEsales\Eshop\Core\Email;
@@ -61,7 +62,7 @@ class d3_cfg_log_main extends d3_cfg_mod_main
         parent::init();
         $this->oLog = oxNew(d3log::class);
 
-        $this->addTplParam('deftime', date('Y-m-d H:i:s', strtotime('-1 week')));
+        $this->addTplParam('deftime', (new DateTime('1 week ago'))->format('Y-m-d H:i:s'));
     }
 
     /**

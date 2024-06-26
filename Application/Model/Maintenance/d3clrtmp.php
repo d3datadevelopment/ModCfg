@@ -488,10 +488,6 @@ class d3clrtmp extends Base
         if (false == is_object($this->_d3GetSet()) || false == $this->_d3GetSet()->getValue('blClrTmp_showcleartmpoptions')) {
             $this->_getFileSystemHandler()->setDevMode(false);
 
-            if ($this->_iLimit) {
-                $this->_getFileSystemHandler()->setLimit($this->_iLimit, $this->_iLimitTimeStamp);
-            }
-
             if (is_object($this->_d3GetSet()) && $this->_d3GetSet()->getValue('blClrTmp_nofolderremove')) {
                 $blRecursive = false;
             }

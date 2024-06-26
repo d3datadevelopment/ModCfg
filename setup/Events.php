@@ -178,7 +178,7 @@ class Events
         $iKey = array_search('fnc', $aLowerKeys);
         $sSearch = $aParamsKeys[$iKey]."=".$aParams[$aParamsKeys[$iKey]];
         $aUrl['query'] = str_replace($sSearch, '', $aUrl['query']);
-        $sPort = $aUrl['port'] ? ':'.$aUrl['port'] : '';
+        $sPort = (isset($aUrl['port']) && strlen((string) $aUrl['port'])) ? ':'.$aUrl['port'] : '';
         $sCurrUrl = $aUrl['scheme'].'://'.$aUrl['host'].$sPort.$aUrl['path'].'?'.$aUrl['query'];
 
         return $sCurrUrl;

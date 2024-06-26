@@ -56,7 +56,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'picture.svg',
-    'version'     => '7.0.1.0',
+    'version'     => '7.1.0.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',
@@ -101,7 +101,6 @@ $aModule = [
         'd3shopmaintenance'         => ModuleAdminMntController\d3shopmaintenance::class,
 
         'd3mod_activation'          => ModuleAdminInstallController\d3mod_activation::class,
-        'd3_mod_install'            => ModuleAdminInstallController\d3_mod_install::class,
     ],
     'blocks'      => [
         [

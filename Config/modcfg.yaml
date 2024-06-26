@@ -151,3 +151,9 @@ services:
   D3\ModCfg\Application\Model\Configuration\d3_cfg_mod_licencecheck.args.modcfg:
     synthetic:  true
     shared:     true
+
+  D3\ModCfg\Application\Model\download:
+    class:      'D3\ModCfg\Application\Model\download'
+    factory:    'oxNew'
+    arguments:
+      - 'D3\ModCfg\Application\Model\download'

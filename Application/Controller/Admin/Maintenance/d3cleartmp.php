@@ -21,6 +21,7 @@ use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Constants;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
+use D3\ModCfg\Application\Model\FileSizeFormatter;
 use D3\ModCfg\Application\Model\Install\d3install;
 use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Maintenance\d3clrtmp;
@@ -171,9 +172,9 @@ class d3cleartmp extends d3_cfg_mod_main
     /**
      * @return string
      */
-    public function getTmpSize()
+    public function getTmpSize(): string
     {
-        return $this->_getFileSystemHandler()->formatBytes($this->oFS->dirsize($this->getTmpPath()));
+        return (oxNew(FileSizeFormatter::class))->format($this->oFS->dirsize($this->getTmpPath()));
     }
 
     /**

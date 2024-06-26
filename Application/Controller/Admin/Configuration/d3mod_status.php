@@ -18,7 +18,6 @@
 namespace D3\ModCfg\Application\Controller\Admin\Configuration;
 
 use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
-use D3\ModCfg\Application\Controller\Admin\Install\d3_mod_install;
 use D3\ModCfg\Application\Model\Constants;
 use D3\ModCfg\Application\Model\d3utils;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
@@ -70,7 +69,6 @@ class d3mod_status extends d3_cfg_mod_main
      */
     public function __construct()
     {
-        $this->addTplParam('sInstallModId', false);
         $this->addTplParam('blGetRemoteUpdateStatus', false);
         $this->addTplParam('sErrorMLMsg', false);
 
@@ -345,27 +343,6 @@ class d3mod_status extends d3_cfg_mod_main
         return false;
     }
 
-    public function installMod()
-    {
-        $sLibId = Registry::get(Request::class)->getRequestEscapedParameter('modid');
-        $this->addTplParam('sInstallModId', $sLibId);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInstallModiFrameLink()
-    {
-        $aParams = [
-            'cl'    => d3_mod_install::class,
-            'modid' => Registry::get(Request::class)->getRequestEscapedParameter('modid'),
-            'shp'   => Registry::getConfig()->getShopId(),
-        ];
-        $sURL    = Registry::get(d3utils::class)->getAdminClassUrl($aParams);
-
-        return $sURL;
-    }
-
     /**
      * @return array
      */
@@ -442,64 +419,6 @@ class d3mod_status extends d3_cfg_mod_main
     }
 
     /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function filedownload()
-    {
-        $sDownloadUrl = $this->_getDownloadUrl();
-
-        /** @var d3filesystem $oFS */
-        $oFS = oxNew(d3filesystem::class);
-        // default timeout (1 sec.) isn't enough for downloading module zip files via curl
-        $oFS->setCurlTimeOut(25);
-
-        if (! Registry::get(d3utils::class)->hasDemoshopMode() &&
-             $sDownloadUrl &&
-             $oFS->checkAvailability($sDownloadUrl)
-        ) {
-            $oFS->startDirectDownload($sDownloadUrl);
-        } else {
-            $this->addTplParam('sErrorMLMsg', 'D3_CFG_LIB_DOWNLOAD_UNAVAILABLE');
-        }
-    }
-
-    /**
-     * @return false|string
-     * @throws ContainerExceptionInterface
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws DatabaseException
-     * @throws NotFoundExceptionInterface
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    protected function _getDownloadUrl()
-    {
-        $aLibInfo = $this->getRemoteModuleData(Registry::get(Request::class)->getRequestEscapedParameter('modid'), true);
-
-        if ($aLibInfo &&
-            is_array($aLibInfo) &&
-            $aLibInfo['availableversion'] &&
-            is_array($aLibInfo['availableversion'])
-        ) {
-            if ($aLibInfo['availableversion'][$this->getPhpVersionDownloadField(true)]) {
-                return $aLibInfo['availableversion'][$this->getPhpVersionDownloadField(true)];
-            } elseif ($aLibInfo['availableversion'][$this->getPhpVersionDownloadField(false)]) {
-                return $aLibInfo['availableversion'][$this->getPhpVersionDownloadField(false)];
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * @return string
      */
     public function getSelectedModId()
@@ -565,15 +484,6 @@ class d3mod_status extends d3_cfg_mod_main
         }
 
         return false;
-    }
-
-    /**
-     * @param bool $blForceIonCube
-     * @return bool|string
-     */
-    public function getPhpVersionDownloadField($blForceIonCube = false)
-    {
-        return d3install::getInstance()->getPhpVersionDownloadField($blForceIonCube);
     }
 
     /**

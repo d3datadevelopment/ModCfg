@@ -14,6 +14,7 @@
 
 namespace D3\ModCfg\Application\Model\Exception;
 
+use DateTimeImmutable;
 use Exception;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
@@ -33,9 +34,8 @@ class d3modprofile_exception extends StandardException
      */
     public function getString()
     {
-        return self::class . " (time: " . date(
-            'Y-m-d H:i:s'
-        ) . "): [{$this->code}]: {$this->message} - Faulty ModProfile: " . $this->getModCfgId();
+        return self::class . " (time: " . (new DateTimeImmutable())->format('Y-m-d H:i:s')
+            . "): [{$this->code}]: {$this->message} - Faulty ModProfile: " . $this->getModCfgId();
         //." \n Stack Trace: {$this->getTraceAsString()}\n\n";
     }
 

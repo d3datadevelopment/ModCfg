@@ -28,14 +28,6 @@ class d3_cfg_mod_ extends AdminController
     protected $_sListItemFrameRelation = '40%,*';
 
     /**
-     * @return string
-     */
-    public function render()
-    {
-        return parent::render();
-    }
-
-    /**
      * @return bool
      */
     public function hasListItems()

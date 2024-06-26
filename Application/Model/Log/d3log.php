@@ -24,6 +24,7 @@ use D3\ModCfg\Application\Model\Parametercontainer\Registry as D3ModCfgRegistry;
 use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension;
+use DateTimeImmutable;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\Exception as DBALDriverException;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -44,9 +45,10 @@ use OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInte
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
-class d3log extends BaseModel implements d3LogInterface
+class d3log extends BaseModel implements d3LogInterface, LoggerInterface
 {
     use LoggerTrait;
 
@@ -419,7 +421,7 @@ class d3log extends BaseModel implements d3LogInterface
                     'oxshopid'    => Registry::getConfig()->getShopId(),
                     'oxsessid'    => $sSessID,
                     'oxlogtype'   => strtolower($this->getErrorModeName($iLogType)),
-                    'oxtime'      => date('Y-m-d H:i:s'),
+                    'oxtime'      => (new DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'oxmodid'     => $sModID,
                     'oxprofileid' => $this->d3getProfileId() ?: 'none',
                     'oxclass'     => $sClass,
@@ -1043,7 +1045,9 @@ class d3log extends BaseModel implements d3LogInterface
         $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
 
         $sWhere = $this->getLogSet()->getValue('sLog_messagetimestamp' . $iSlot) ? "oxtime > " . $db->quote(
-            date('Y-m-d H:i:s', $this->getLogSet()->getValue('sLog_messagetimestamp' . $iSlot))
+            (new DateTimeImmutable())
+                ->setTimestamp($this->getLogSet()->getValue('sLog_messagetimestamp' . $iSlot))
+                ->format('Y-m-d H:i:s')
         ) . " " : '1 ';
 
         $aLevelFilter = [];
@@ -1578,7 +1582,7 @@ class d3log extends BaseModel implements d3LogInterface
 
         $sTime = Registry::get(Request::class)->getRequestEscapedParameter('export_oxtime');
         if ($sTime) {
-            $aWhere['oxtime'] = date('Y-m-d H:i:s', strtotime($sTime));
+            $aWhere['oxtime'] = (new DateTimeImmutable($sTime))->format('Y-m-d H:i:s');
             Registry::getConfig()->getActiveView()->addTplParam('oxtime', $sTime);
         }
 

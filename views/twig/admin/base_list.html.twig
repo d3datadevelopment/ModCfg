@@ -109,22 +109,16 @@
                         <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                             <div class="r1">
                                 <div class="b1">
-                                    TODO: fix dynamic variables in base_list.html.twig
-                                    {{ _context['where.' ~ listTable ~ '.oxsort'] }}
-{#
-                                    <input class="listedit" type="text" size="10" maxlength="128" name="where[{{ listTable }}][oxsort]" value="{{ where.$listTable.oxsort|raw }}"
+                                    <input class="listedit" type="text" size="10" maxlength="128" name="where[{{ listTable }}][oxsort]" value="{{ attribute(attribute(where, listTable), 'oxsort')|raw }}"
                                     {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
-#}
                                 </div>
                             </div>
                         </td>
                         <td style="vertical-align: top" class="listfilter" nowrap>
                             <div class="r1">
                                 <div class="b1">
-{#
-                                    <input class="listedit" type="text" size="25" maxlength="128" name="where[{{ listTable }}][oxtitle]" value="{{ where.$listTable.oxtitle|raw }}"
+                                    <input class="listedit" type="text" size="25" maxlength="128" name="where[{{ listTable }}][oxtitle]" value="{{ attribute(attribute(where, listTable), 'oxtitle')|raw }}"
                                     {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
-#}
                                 </div>
                             </div>
                         </td>

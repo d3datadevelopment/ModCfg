@@ -178,15 +178,6 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-[{if $sInstallModId}]
-    [{oxmultilang ident="D3_CFG_MOD_VERSION_INSTALLSTATUS"}]
-    <iframe src="[{$oView->getInstallModiFrameLink()}]" style="width: 100%; height: 95%; border: none; overflow: hidden" name="d3_mod_install">
-    </iframe>
-    <style>
-        div.box{background-image: none !important;}
-    </style>
-
-[{else}]
     [{if $sErrorMLMsg}]
         <div class="extension_error">
             [{oxmultilang ident=$sErrorMLMsg}]
@@ -196,7 +187,6 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
         <tr>
             <td style="vertical-align: top" class="edittext">
                 [{assign var="aRemoteMods" value=$oView->getRemoteMods()}]
-                [{assign var="sDownloadField" value=$oView->getPhpVersionDownloadField()}]
                 <fieldset>
                     <legend>
                         [{oxmultilang ident=$oView->getTitleIdent()}]
@@ -674,7 +664,6 @@ function getDetails(sElemId, sDisplayType, blCollapseOld)
             alert('[{oxmultilang ident="D3_CFG_LIB_NOINSTALLNOTICE"}]');
         </script>
     [{/if}]
-[{/if}]
 
 [{include file="@d3modcfg_lib/admin/inc/inc.tpl"}]
 

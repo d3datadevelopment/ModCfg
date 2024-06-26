@@ -98,8 +98,6 @@
     <input type="hidden" name="editlanguage" value="[{$editlanguage}]">
 </form>
 
-[{assign var="sDownloadField" value=$oView->getPhpVersionDownloadField()}]
-
 <table style="border: none; width: 100%">
     <tr>
         <td style="vertical-align: top">
@@ -148,41 +146,6 @@
                                                 [{if $oView->getUpdateData('infourl')}]
                                                     <a href="[{$oView->getUpdateData('infourl')}]">[{oxmultilang ident="D3_CFG_MOD_VERSION_MODINFO"}]</a>
                                                 [{/if}]
-
-                                                [{if $oView->getUpdateData($sDownloadField)}]
-                                                    <div style="padding: 20px 0 [{if $oView->getUpdateData('autoupdate') > 0 && $oView->getInstallClass()}]35px[{else}]0[{/if}];">
-                                                        [{if $oView->getInstallClass()}]
-                                                            <form name="myedit" id="installMod" action="[{$oViewConf->getSelfLink()}]" method="post">
-                                                                [{$oViewConf->getHiddenSid()}]
-                                                                <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-                                                                <input type="hidden" name="oxid" value="[{$oxid}]">
-                                                                <input type="hidden" name="editval[oxid]" value="[{$oxid}]">
-                                                                <input type="hidden" name="fnc" value="installMod">
-                                                                <input type="hidden" name="modid" value="[{$edit->d3getModId()}]">
-                                                        [{/if}]
-                                                        [{assign var="classparam" value="cl="|cat:$oViewConf->getActiveClassName()}]
-                                                        <div>
-                                                            [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD1"}]
-                                                            <a href="[{$oViewConf->getSelfLink()|oxaddparams:$classparam|oxaddparams:"fnc=filedownload"}]">
-                                                                <strong style="text-decoration: underline;">
-                                                                    [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD2"}]
-                                                                    [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD3"}]
-                                                                </strong>
-                                                            </a>
-                                                            [{if $oView->getInstallClass()}]
-                                                                    [{if $oView->getUpdateData('autoupdate') > 0}]
-                                                                        [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD4"}]
-                                                                        <div class="d3modcfg_btn icon d3color-blue" style="margin: 10px 0 0 0;">
-                                                                            <button type="submit">
-                                                                                <i class="fas fa-question-circle fa-inverse"></i>[{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD5"}]
-                                                                            </button>
-                                                                        </div>
-                                                                    [{/if}]
-                                                                </form>
-                                                            [{/if}]
-                                                        </div>
-                                                    </div>
-                                                [{/if}]
                                             </div>
                                         [{else}]
                                             <div>
@@ -211,18 +174,6 @@
                                                     [{oxmultilang ident="D3_CFG_MOD_VERSION_NEWESTVERSION_LIC"}]<br>
                                                 [{/if}]
                                             </div>
-                                            [{if $oView->getNewestModuleData($sDownloadField)}]
-                                                [{assign var="classparam" value="cl="|cat:$oViewConf->getActiveClassName()}]
-                                                <div>
-                                                    [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD1"}]
-                                                    <a href="[{$oViewConf->getSelfLink()|oxaddparams:$classparam|oxaddparams:"fnc=filedownload"|oxaddparams:"type=newest"}]">
-                                                        <strong style="text-decoration: underline;">
-                                                            [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD2"}]
-                                                            [{oxmultilang ident="D3_CFG_MOD_VERSION_UPDLOAD3"}]
-                                                        </strong>
-                                                    </a>
-                                                </div>
-                                            [{/if}]
                                         </div>
                                     [{/if}]
                                 [{else}]

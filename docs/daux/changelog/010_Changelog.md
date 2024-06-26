@@ -7,9 +7,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.0.1.0...rel_7.x)
+## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.1.0.0...rel_7.x)
 
-## [7.0.1.0](https://git.d3data.de/D3Private/ModCfg/compare/7.0.0.0...7.0.0.0) - 2024-04-19
+## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.0.1.0...7.1.0.0) - 2024-06-26
+### Added
+- Multilanguage-Verwendung von ModProfile und ModCfg einstellbar am jeweiligen Datenbank-Eintrag
+- d3log ist PSR-3 kompatibel
+
+### Changed
+- D3 Services vom OXID DI Container entkoppelt
+- date auf DateTime umgestellt
+- Encoder + Decoder optimiert
+- Datenbank Extra Attribute normalisiert (für ON UPDATE CURRENT TIMESTAMP in MariaDb)
+- Dateisystemfunktionen optimiert (verwendet nun i.d.R Symfony bzw. Guzzle)
+- Dateigrößenformatierung in separate Klasse ausgelagert
+- Download-Funktion in separate Klasse ausgelagert
+
+### Fixed
+- Syntaxfehler in DIC Konfiguration
+
+### Removed
+- veralteten Installationsprozess bereinigt
+- alternative Server-zu-Server-Verbindung entfernt
+
+## [7.0.1.0](https://git.d3data.de/D3Private/ModCfg/compare/7.0.0.0...7.0.1.0) - 2024-04-19
 ### Added
 - Symfony DBAL Services im Dependency Injection Container
 - Fehlerbehandlung in Dateiexistenzprüfung

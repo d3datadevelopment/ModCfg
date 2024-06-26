@@ -19,9 +19,12 @@ services:
   d3ox.modcfg.OxDbConnection:
     class:      'Doctrine\DBAL\Connection'
     factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface', 'get']
-    shared:     true;
+    shared:     true
 
   d3ox.modcfg.OxDbQueryBuilder:
     class:      'Doctrine\DBAL\Query\QueryBuilder'
     factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface', 'create']
-    shared:     false;
+    shared:     false
+
+  Symfony\Component\Filesystem\Filesystem:
+    class:      'Symfony\Component\Filesystem\Filesystem'

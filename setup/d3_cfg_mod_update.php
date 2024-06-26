@@ -94,20 +94,22 @@ class d3_cfg_mod_update extends d3install_updatebase
               'do'    => 'deleteDuplicateBlockItems'],
         ['check' => 'hasNonNamespacedRolesBemainExtension',
               'do'    => 'removeNonNamespacedRolesBemainExtension'],
+        ['check' => 'hasModcfgMultilangSetting',
+              'do'    => 'addModcfgMultilangSetting'],
         ['check' => 'checkModCfgSameRevision',
               'do'    => 'updateModCfgSameRevision'],
     ];
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '7.0.1.0';
+    public $sModVersion = '7.1.0.0';
     public $sBaseConf =
-        'rSyv2==ZUZ0UGRFMmpiYnZhSTlLeFlDc2MyRFdKOGxQVGNycjVqdFpxL2N0WTUrS3ZvdmVjY20wMndTM
-DBUN0FPOGNnbmFoU0RyME9HMmk4cXZsMXBXeUFjYm5RUU5kSGNVME5PcmFsWGFoV2dPQzRTTnRHWlRFV
-21BR1dqMlFwWDl3UHhXY2xMZGF5Z294OXlQK3VxNmVjcDlacWhrUnhyWHlqK0h1YXlXVXZERURFMWZST
-WVCR2pxQTdyZE5QTXFjdERIdXdIaHFiU0NpNjdLVnZ5SDZvMHZGRGdrQ3lOaXlpcldPeDBKUUE0V3BBQ
-1BWMDBpM0lnc2w3aWNVQVVzeXNuOXlHbzhtQkJHWk12d0VGVmhTcmluVlNPZ1gyQmY5T3VwRmhsWUc3Y
-2ZhUG4vczkwVWRDS0ZYSUx6UU1PUEpoRFg=';
+        'yb0v2==ZExxanpJS0JNUzBrUlJ4UWZBeG0zL0RKYTlaTHIrVGFOTm1ZaUllenUzK2ZheXFpNFBudm5WL
+1J0bGd2amYrYm9YSXVSeFAxeVpRaitkc1VwTHlweVJFSE1naHBrRUp5Zmd2OG9IWDIxS2I0Z2JNTkNTN
+XduS0toRmdEd2FsWTRTUzB2MXJXWm5pcFdDT2kzNUw2cm14QXo4S0lzWnJ0S1VhY1QxRXBldVdleXpuK
+21OTlAwdStkRVJmVGdMditpbWVZKzU2NldGcVhiM2ozZkhzdGNTVldXaGJCS0xnK3IzOGpVdFpzUkYxM
+nFSRjR2R0dqTlFBKzd4TkllOGpSbE9QSC9qdkladzFVdnJJQXdoYnV6WVFKcFdpcHA2OXk0K0N6eDVZb
+U5LRmRmeStIUFFqQ1pNOC9tbjZRUURISko=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -289,6 +291,16 @@ WVCR2pxQTdyZE5QTXFjdERIdXdIaHFiU0NpNjdLVnZ5SDZvMHZGRGdrQ3lOaXlpcldPeDBKUUE0V3BBQ
             'blNull'      => false,
             'sDefault'    => '0',
             'sComment'    => 'revision after successful update',
+            'sExtra'      => '',
+            'blMultilang' => false,
+        ],
+        'USEMULTILANG'  => [
+            'sTableName'  => 'd3_cfg_mod',
+            'sFieldName'  => 'USEMULTILANG',
+            'sType'       => 'TINYINT(1)',
+            'blNull'      => true,
+            'sDefault'    => 'NULL',
+            'sComment'    => 'takes data from fields in other languages, if set',
             'sExtra'      => '',
             'blMultilang' => false,
         ],
@@ -490,6 +502,16 @@ WVCR2pxQTdyZE5QTXFjdERIdXdIaHFiU0NpNjdLVnZ5SDZvMHZGRGdrQ3lOaXlpcldPeDBKUUE0V3BBQ
             'blNull'      => false,
             'sDefault'    => 'default',
             'sComment'    => 'data type',
+            'sExtra'      => '',
+            'blMultilang' => false,
+        ],
+        'PROF_MULTILANG'  => [
+            'sTableName'  => 'd3modprofile',
+            'sFieldName'  => 'USEMULTILANG',
+            'sType'       => 'TINYINT(1)',
+            'blNull'      => true,
+            'sDefault'    => 'NULL',
+            'sComment'    => 'takes data from fields in other languages, if set',
             'sExtra'      => '',
             'blMultilang' => false,
         ],

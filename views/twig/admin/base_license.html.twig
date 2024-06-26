@@ -98,8 +98,6 @@
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
 </form>
 
-{% set sDownloadField = oView.getPhpVersionDownloadField() %}
-
 <table style="border: none; width: 100%">
     <tr>
         <td style="vertical-align: top">
@@ -148,41 +146,6 @@
                                                 {% if oView.getUpdateData('infourl') %}
                                                     <a href="{{ oView.getUpdateData('infourl') }}">{{ translate({ ident: "D3_CFG_MOD_VERSION_MODINFO" }) }}</a>
                                                 {% endif %}
-
-                                                {% if oView.getUpdateData(sDownloadField) %}
-                                                    <div style="padding: 20px 0 {% if oView.getUpdateData('autoupdate') > 0 and oView.getInstallClass() %}35px{% else %}0{% endif %};">
-                                                        {% if oView.getInstallClass() %}
-                                                            <form name="myedit" id="installMod" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
-                                                                {{ oViewConf.getHiddenSid()|raw }}
-                                                                <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
-                                                                <input type="hidden" name="oxid" value="{{ oxid }}">
-                                                                <input type="hidden" name="editval[oxid]" value="{{ oxid }}">
-                                                                <input type="hidden" name="fnc" value="installMod">
-                                                                <input type="hidden" name="modid" value="{{ edit.d3getModId() }}">
-                                                        {% endif %}
-                                                        {% set classparam = "cl=" ~ oViewConf.getActiveClassName() %}
-                                                        <div>
-                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD1" }) }}
-                                                            <a href="{{ oViewConf.getSelfLink()|raw|add_url_parameters("classparam")|add_url_parameters("fnc=filedownload") }}">
-                                                                <strong style="text-decoration: underline;">
-                                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD2" }) }}
-                                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD3" }) }}
-                                                                </strong>
-                                                            </a>
-                                                            {% if oView.getInstallClass() %}
-                                                                    {% if oView.getUpdateData('autoupdate') > 0 %}
-                                                                        {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD4" }) }}
-                                                                        <div class="d3modcfg_btn icon d3color-blue" style="margin: 10px 0 0 0;">
-                                                                            <button type="submit">
-                                                                                <i class="fas fa-question-circle fa-inverse"></i>{{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD5" }) }}
-                                                                            </button>
-                                                                        </div>
-                                                                    {% endif %}
-                                                                </form>
-                                                            {% endif %}
-                                                        </div>
-                                                    </div>
-                                                {% endif %}
                                             </div>
                                         {% else %}
                                             <div>
@@ -211,18 +174,6 @@
                                                     {{ translate({ ident: "D3_CFG_MOD_VERSION_NEWESTVERSION_LIC" }) }}<br>
                                                 {% endif %}
                                             </div>
-                                            {% if oView.getNewestModuleData(sDownloadField) %}
-                                                {% set classparam = "cl=" ~ oViewConf.getActiveClassName() %}
-                                                <div>
-                                                    {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD1" }) }}
-                                                    <a href="{{ oViewConf.getSelfLink()|raw|add_url_parameters("classparam")|add_url_parameters("fnc=filedownload")|add_url_parameters("type=newest") }}">
-                                                        <strong style="text-decoration: underline;">
-                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD2" }) }}
-                                                            {{ translate({ ident: "D3_CFG_MOD_VERSION_UPDLOAD3" }) }}
-                                                        </strong>
-                                                    </a>
-                                                </div>
-                                            {% endif %}
                                         </div>
                                     {% endif %}
                                 {% else %}

@@ -15,6 +15,8 @@
 
 namespace D3\ModCfg\Application\Model\Exception;
 
+use DateTimeImmutable;
+
 /**
  * handle d3_cfg_mod specific exceptions
  */
@@ -27,9 +29,8 @@ class d3_cfg_mod_exception extends d3modprofile_exception
      */
     public function getString()
     {
-        $sStr = self::class . " (time: " . date(
-            'Y-m-d H:i:s'
-        ) . "): [{$this->code}]: {$this->message} ";
+        $sStr = self::class . " (time: " . (new DateTimeImmutable())->format('Y-m-d H:i:s')
+            . "): [{$this->code}]: {$this->message} ";
 
         if ($this->getCompareData()) {
             $sStr .= "(".$this->getCompareData().") ";

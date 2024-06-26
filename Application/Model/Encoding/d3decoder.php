@@ -17,6 +17,8 @@
 
 namespace D3\ModCfg\Application\Model\Encoding;
 
+use JsonException;
+
 class d3decoder
 {
     public const DEC_DEFAULT   = 'default';
@@ -30,169 +32,174 @@ class d3decoder
     public const DEC_UUENC     = 'uuencode';
     public const DEC_QUOTED    = 'quoted';
 
-    protected $_aDecodingMethods = [
-        'default'   => 'decodeDefault',
-        'json'      => 'decodeJson',
-        'utf-8'     => 'decodeUtf8',
-        'gzip'      => 'decodeGZip',
-        'serialize' => 'decodeSerialize',
-        'rawurl'    => 'decodeRawUrl',
-        'url'       => 'decodeUrl',
-        'base64'    => 'decodeBase64',
-        'uuencode'  => 'decodeUUEncode',
-        'quoted'    => 'decodeQuotedPrintable',
-    ];
-
     /**
      * @param string $_sDecodingType
      */
-    public function __construct(protected $_sDecodingType)
+    public function __construct(protected string $_sDecodingType = self::DEC_DEFAULT)
     {
     }
 
     /**
      * @return string
      */
-    public function getDecodingType()
+    public function getDecodingType(): string
     {
         return $this->_sDecodingType;
     }
 
     /**
-     * @return string
+     * @param string|null $encodedValue
+     *
+     * @return mixed
+     * @throws JsonException
      */
-    public function getDecodingMethodName()
+    public function decode(?string $encodedValue): mixed
     {
-        $sType = strtolower($this->getDecodingType());
-
-        if (is_array($this->_aDecodingMethods)
-            && count($this->_aDecodingMethods)
-            && isset($this->_aDecodingMethods[$sType])
-        ) {
-            return $this->_aDecodingMethods[strtolower($this->getDecodingType())];
-        }
-
-        return $this->_aDecodingMethods['default'];
+        return match (strtolower($this->getDecodingType())) {
+            self::DEC_JSON      => $this->decodeJson($encodedValue),
+            self::DEC_UTF8      => $this->decodeUtf8($encodedValue),
+            self::DEC_GZIP      => $this->decodeGZip($encodedValue),
+            self::DEC_SERIALIZE => $this->decodeSerialize($encodedValue),
+            self::DEC_RAWURL    => $this->decodeRawUrl($encodedValue),
+            self::DEC_URL       => $this->decodeUrl($encodedValue),
+            self::DEC_BASE64    => $this->decodeBase64($encodedValue),
+            self::DEC_UUENC     => $this->decodeUUEncode($encodedValue),
+            self::DEC_QUOTED    => $this->decodeQuotedPrintable($encodedValue),
+            default             => $this->decodeDefault($encodedValue)
+        };
     }
 
     /**
-     * @param $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decode($mValue)
+    public function decodeDefault(?string $encodedValue): mixed
     {
-        $mRet = call_user_func([$this, $this->getDecodingMethodName()], $mValue);
-
-        return $mRet;
+        return unserialize(
+            rawurldecode(
+                base64_decode($encodedValue ?? '')
+            )
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
+     * @throws JsonException
      */
-    public function decodeDefault($mValue)
+    public function decodeJson(?string $encodedValue): mixed
     {
-        return unserialize(rawurldecode(base64_decode($mValue)));
+        return json_decode(
+            html_entity_decode($encodedValue ?? '', ENT_QUOTES),
+            null,
+            512,
+            JSON_THROW_ON_ERROR
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeJson($mValue)
+    public function decodeUtf8(?string $encodedValue): mixed
     {
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return json_decode($mValue, null, 512, JSON_THROW_ON_ERROR);
+        return unserialize(
+            utf8_decode(
+                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+            )
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeUtf8($mValue)
+    public function decodeSerialize(?string $encodedValue): mixed
     {
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return unserialize(utf8_decode($mValue));
+        return unserialize(
+            html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeSerialize($mValue)
+    public function decodeUrl(?string $encodedValue): mixed
     {
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return unserialize($mValue);
+        return unserialize(
+            urldecode($encodedValue ?? '')
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeUrl($mValue)
+    public function decodeRawUrl(?string $encodedValue): mixed
     {
-        return unserialize(urldecode($mValue));
+        return unserialize(
+            rawurldecode($encodedValue ?? '')
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
      * @return string
      */
-    public function decodeRawUrl($mValue)
+    public function decodeBase64(?string $encodedValue): mixed
     {
-        return unserialize(rawurldecode($mValue));
+        return unserialize(
+            base64_decode($encodedValue ?? '')
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeBase64($mValue)
+    public function decodeGZip(?string $encodedValue): mixed
     {
-        return unserialize(base64_decode($mValue));
+        return unserialize(
+            gzdecode(
+                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+            )
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string|null
+     * @return mixed
      */
-    public function decodeGZip($mValue)
+    public function decodeUUEncode(?string $encodedValue): mixed
     {
-        if (false == $mValue || $mValue == '') {
-            return null;
-        }
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return unserialize(gzdecode($mValue));
+        return unserialize(
+            convert_uudecode(
+                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+            )
+        );
     }
 
     /**
-     * @param mixed $mValue
+     * @param string|null $encodedValue
      *
-     * @return string
+     * @return mixed
      */
-    public function decodeUUEncode($mValue)
+    public function decodeQuotedPrintable(?string $encodedValue): mixed
     {
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return unserialize(convert_uudecode($mValue));
-    }
-
-    /**
-     * @param mixed $mValue
-     *
-     * @return string
-     */
-    public function decodeQuotedPrintable($mValue)
-    {
-        $mValue = html_entity_decode($mValue, ENT_QUOTES);
-        return unserialize(quoted_printable_decode($mValue));
+        return unserialize(
+            quoted_printable_decode(
+                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+            )
+        );
     }
 }
