@@ -102,15 +102,15 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '6.2.0.0';
-    public $sModRevision = '6200';
+    public $sModVersion = '6.2.1.0';
+    public $sModRevision = '6210';
     public $sBaseConf =
-        'ucKv2==ZzVhcEt6S1BveE9hOHRiZDdXQitKMWswcEFwWkNJTC9nQmNEbTRFSEorK3AyVDFDY3R2ei9rV
-EpTZ3N0d3BpMnA2R3pBQngyWSs1T3RQTW0yYzZ2QkZZRjZ4RklWeW5saHhDam9TVlpaNFpQZmErYUdjV
-Wo1bXo5TmExU3VaY3hDWDFEQkljSXFxR3p0THd3ZkhFUmlTaU9LVlQwSXlJNlRMcjVuYkllNmx6czlzN
-GNGdUJnYmpqUFloLzZaTHVZc08zWjBvRGdzSFZaRW5CVHlGQjFCTnN6ZTZqaFcwWk9BcVcwZkptaGZMT
-W9qbUtRY1hCQk9TQktPbStEcHoxTmlPY2pSNUhDQlhZdHdNeDhoTlRacjRHZnpPNkJyK3lzZjBzdHRaS
-nRrNnh3cDFGVlMyWjVwa1YreExaWllDcEs=';
+        'bIiv2==VktYTVFXblBzZXR2dFdpdGhtbVNlOWhnRm9Yblh0dGVwTHo2YmVENS81RExFUk5zamZOdG14L
+y9pNTFxWk1DamNBMHBLSTRaN2F3elJWbzVZYUU4VmYzRWFXdWtVa1RzWGxKeXM3N25aU003emt0bjl4K
+zJIOG1ySGF2eFZQMzFHVjF3M1JiSXc1TUFWajBjVExsbGN1YTAzelhpbVdvOG11azVOdENodkJCOTgwR
+HpGKzhzenhZa3Z0dHV6Z3dqYXM1WXhnOFBRd0NHdWNkN0R4RDIzZTZ6SXpmZlcyckdJWFRDZ1BiT055W
+WN5cnpQK2RoWlpEWGkvWEthVTE3R21rM2J5eVJPS0x4VGh5OFA2aWcyeDRZWW1ud1l3U0xEL25FU29XU
+FZqL2ZkM2ErRDhXWkM1Q2Y4dTY1S3NOR24=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -302,7 +302,7 @@ nRrNnh3cDFGVlMyWjVwa1YreExaWllDcEs=';
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'last change',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
 
@@ -503,7 +503,7 @@ nRrNnh3cDFGVlMyWjVwa1YreExaWllDcEs=';
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'last change',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
         'VARI_OXID'  => array(
@@ -553,7 +553,7 @@ nRrNnh3cDFGVlMyWjVwa1YreExaWllDcEs=';
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'last change',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
         'CACHE_OXID'  => array(
@@ -603,7 +603,7 @@ nRrNnh3cDFGVlMyWjVwa1YreExaWllDcEs=';
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'last change',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
     );

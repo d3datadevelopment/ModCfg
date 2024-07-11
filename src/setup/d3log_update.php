@@ -196,7 +196,7 @@ class d3log_update extends d3install_updatebase
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'insert time',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
         'TA_OXID'                => array(
@@ -286,7 +286,7 @@ class d3log_update extends d3install_updatebase
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'insert time',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
         'TA_D3TRANSACTIONTIME'   => array(
@@ -376,7 +376,7 @@ class d3log_update extends d3install_updatebase
             'blNull'      => false,
             'sDefault'    => 'CURRENT_TIMESTAMP',
             'sComment'    => 'insert time',
-            'sExtra'      => '',
+            'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ),
     );
