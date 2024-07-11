@@ -2,6 +2,12 @@
 title: Changelog
 ---
 
+## 6.2.1.0 (2024-07-11)
+### Added
+- Kompatibilität mit O3-Shop integriert
+- "on update current timestamp" verfügbar in MariaDB
+- aktualisierter Timestamp in d3_cfg_mod und d3log
+
 ## 6.2.0.0 (2024-02-28)
 ### Added
 - Rechte und Rollen Prüfungen in Templates integriert
