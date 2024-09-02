@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 // @codeCoverageIgnoreStart
@@ -167,7 +165,7 @@ return [
     'D3_CFG_MOD_LICDETAILS_VALIDFORMODID'      => 'valid for:',
     'D3_CFG_MOD_LICDETAILS_VALIDFORMODVERSION' => 'module version:',
     'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPID'     => 'shop id:',
-    'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION'=> 'shop edition:',
+    'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION' => 'shop edition:',
     'D3_CFG_MOD_LICDETAILS_ISTEST'             => 'trial version:',
     'D3_CFG_MOD_LICDETAILS_ACTIDENT'           => 'activation ID:',
     'D3_CFG_MOD_LICDETAILS_LICKEY'             => 'license key:',
@@ -275,7 +273,7 @@ return [
     'D3_CFG_MOD_ACTIVATION_DATA_MODULE'        => 'Module:',
     'D3_CFG_MOD_ACTIVATION_DATA_MODULE_DESC'   => 'The module will be permanently noted in the future license. Therefore, please only use the activation ID of the corresponding module. Please note that your module purchase must also have been made for the right shop edition. Otherwise you can not activate this module. If you would like to activate the module for another module, please leave this assistant and call it in the module to be activated.',
     'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION'    => 'Module version:',
-    'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION_DESC'=> 'The module version will be permanently noted in the future license. In addition to the expiration date, the module version decides which future updates / upgrades you can use with this license. If you are planning a module update at short notice, please clarify the procedure with us.',
+    'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION_DESC' => 'The module version will be permanently noted in the future license. In addition to the expiration date, the module version decides which future updates / upgrades you can use with this license. If you are planning a module update at short notice, please clarify the procedure with us.',
     'D3_CFG_MOD_ACTIVATION_DATA_DOMAIN'        => 'Domain:',
     'D3_CFG_MOD_ACTIVATION_DATA_DOMAIN_DESC'   => 'The domain will be permanently noted in the future license. Decisive here is the main store domain, which is entered in the configuration file of the shop. Language and client-dependent domains and subdomains are not included in the license. If you would like to use this module in a shop under a different domain, please activate it only there.',
     'D3_CFG_MOD_ACTIVATION_DATA_SHOP'          => 'Subshop ID:',
@@ -462,14 +460,14 @@ return [
     'D3_CFG_CLRTMP_DEV_DEACTPRODUCTIVE'    => 'For the developer mode, deactivate the productive mode of the shop.',
 
     'D3_CFG_CLRTMP_MODULELOGGING'          => 'Logging',
-    'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS'=> 'hide common clear tmp options',
+    'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS' => 'hide common clear tmp options',
     'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS_DESC' => 'If your server constellation stores the shop\'s temporary files in a way that does not allow deletion from the extension, you can hide the default deletion features. If you have system commands to delete the files, you can configure and display them instead.',
     'D3_CFG_CLRTMP_CFG_SHOWNOHEADERFORM'   => '<span style="font-weight: bold;">don\'t</span> show clear tmp form in head area',
     'D3_CFG_CLRTMP_CFG_CREATE_NOHTACCESS'  => '<span style="font-weight: bold;">don\'t</span> create a .htaccess file',
     'D3_CFG_CLRTMP_CFG_REMOVEFOLDERS'      => '<span style="font-weight: bold;">don\'t</span> delete included foreign folders',
     'D3_CFG_CLRTMP_CFG_NOUPDATEVIEWS'      => '<span style="font-weight: bold;">don\'t</span> update view tables',
     'D3_CFG_CLRTMP_CFG_EXCLUDEREGEXP'      => 'RegExp pattern matches elements, which shouldn\'t deleted (without delimiter)',
-    'D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC'=> 'Specify a valid regular expression here that matches all files that are <b> NOT </b> to be deleted. The delimiter (%) is set by the script. Clear texts must be quoted appropriately. <br> Example: <ul> <li> <span style = "font-family: Courier, monospace;">. * </span> for all entries </li> <li> <span style="font-family: Courier, monospace;">. * \\. svn </span> for all files ending in .svn </li> </ul>',
+    'D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC' => 'Specify a valid regular expression here that matches all files that are <b> NOT </b> to be deleted. The delimiter (%) is set by the script. Clear texts must be quoted appropriately. <br> Example: <ul> <li> <span style = "font-family: Courier, monospace;">. * </span> for all entries </li> <li> <span style="font-family: Courier, monospace;">. * \\. svn </span> for all files ending in .svn </li> </ul>',
     'D3_CFG_CLRTMP_HASNOEXCLUDEPATTERN'    => 'exclude pattern set',
     'D3_CFG_CLRTMP_CFG_USERACTION_DESC'    => 'With a custom deletion task, you can extend the TMP Empty tool with its own deletion tasks. These tasks are only shown if you have filled them.',
     'D3_CFG_CLRTMP_CFG_USERACTION_1'       => 'userdefined action 1:',

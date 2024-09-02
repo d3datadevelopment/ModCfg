@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link          http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\setup;
@@ -199,6 +199,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_OXID'                => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXID',
@@ -209,6 +212,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_OXSHOPID'            => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXSHOPID',
@@ -219,6 +225,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_OXSESSID'            => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXSESSID',
@@ -229,6 +238,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3MODID'             => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3MODID',
@@ -239,6 +251,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3PROFILEID'         => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3PROFILEID',
@@ -249,6 +264,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3GROUP'             => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3GROUP',
@@ -259,6 +277,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3REFERENCE'         => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3REFERENCE',
@@ -269,6 +290,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3LOGNR'             => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3LOGNR',
@@ -279,6 +303,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => 'AUTO_INCREMENT',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_OXTIMESTAMP'         => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXTIMESTAMP',
@@ -289,6 +316,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => 'ON UPDATE CURRENT_TIMESTAMP',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3TRANSACTIONTIME'   => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3TRANSACTIONTIME',
@@ -299,6 +329,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3TRANSACTIONSTATUS' => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3TRANSACTIONSTATUS',
@@ -309,6 +342,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3ACTION'            => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3ACTION',
@@ -319,6 +355,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'TA_OXVALUE'             => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'D3TRANSACTIONDATA',
@@ -329,6 +368,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXID'               => [
             'sTableName'  => 'd3_d3log_oxobject2d3transactionlog',
             'sFieldName'  => 'OXID',
@@ -339,6 +381,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXOBJECTID'         => [
             'sTableName'  => 'd3_d3log_oxobject2d3transactionlog',
             'sFieldName'  => 'OXOBJECTID',
@@ -349,6 +394,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'O2D_D3TRANSACTIONLOGID' => [
             'sTableName'  => 'd3_d3log_oxobject2d3transactionlog',
             'sFieldName'  => 'D3GROUP',
@@ -359,6 +407,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXTYPE'             => [
             'sTableName'  => 'd3_d3log_oxobject2d3transactionlog',
             'sFieldName'  => 'OXTYPE',
@@ -369,6 +420,9 @@ class d3log_update extends d3install_updatebase
             'sExtra'      => '',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXTIMESTAMP'         => [
             'sTableName'  => 'd3_d3log_oxobject2d3transactionlog',
             'sFieldName'  => 'OXTIMESTAMP',
@@ -433,6 +487,9 @@ class d3log_update extends d3install_updatebase
                 'OXCLASS' => 'OXLOGTYPE',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_PRIMARY'             => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_PRIMARY,
@@ -440,6 +497,9 @@ class d3log_update extends d3install_updatebase
                 'OXID' => 'OXID',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3LOGNR'             => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_UNIQUE,
@@ -448,6 +508,9 @@ class d3log_update extends d3install_updatebase
                 'D3LOGNR' => 'D3LOGNR',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3ACTION'            => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -456,6 +519,9 @@ class d3log_update extends d3install_updatebase
                 'D3ACTION' => 'D3ACTION',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3TRANSACTIONTIME'   => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -464,6 +530,9 @@ class d3log_update extends d3install_updatebase
                 'D3TRANSACTIONTIME' => 'D3TRANSACTIONTIME',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3MODID'             => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -472,6 +541,9 @@ class d3log_update extends d3install_updatebase
                 'D3MODID' => 'D3MODID',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3TRANSACTIONSTATUS' => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -480,6 +552,9 @@ class d3log_update extends d3install_updatebase
                 'D3TRANSACTIONSTATUS' => 'D3TRANSACTIONSTATUS',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3REFERENCE' => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -488,6 +563,9 @@ class d3log_update extends d3install_updatebase
                 'D3REFERENCE' => 'D3REFERENCE',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'TA_D3GROUP_D3LOGNR_D3ACTION' => [
             'sTableName' => 'd3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -498,6 +576,9 @@ class d3log_update extends d3install_updatebase
                 'D3ACTION' => 'D3ACTION',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'O2D_PRIMARY'            => [
             'sTableName' => 'd3_d3log_oxobject2d3transactionlog',
             'sType'      => d3database::INDEX_TYPE_PRIMARY,
@@ -505,6 +586,9 @@ class d3log_update extends d3install_updatebase
                 'OXID' => 'OXID',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXTYPE'             => [
             'sTableName' => 'd3_d3log_oxobject2d3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -512,6 +596,9 @@ class d3log_update extends d3install_updatebase
                 'OXTYPE' => 'OXTYPE',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'O2D_OXOBJECTID'             => [
             'sTableName' => 'd3_d3log_oxobject2d3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -519,6 +606,9 @@ class d3log_update extends d3install_updatebase
                 'OXOBJECTID' => 'OXOBJECTID',
             ],
         ],
+        /**
+         * @deprecated
+         */
         'O2D_D3GROUP'             => [
             'sTableName' => 'd3_d3log_oxobject2d3transactionlog',
             'sType'      => d3database::INDEX_TYPE_INDEX,
@@ -529,6 +619,9 @@ class d3log_update extends d3install_updatebase
     ];
 
     public $aRenameFields = [
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXMODID', 'oxmodid'], // is case sensitive
@@ -536,6 +629,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'module id',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXPROFILEID', 'oxprofileid'],
@@ -543,6 +639,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'profile id',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXGROUPID', 'oxgroupid'],
@@ -550,6 +649,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'internal reference identification',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXREFERENCE', 'oxreference'],
@@ -557,6 +659,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'external transaction identifier',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXTRANSACTIONTIME', 'oxtransactiontime'],
@@ -564,6 +669,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'transaction time',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXLOGTYPE', 'oxlogtype'],
@@ -571,6 +679,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'transaction status',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXACTION', 'oxaction'],
@@ -578,6 +689,9 @@ class d3log_update extends d3install_updatebase
             'sComment'       => 'request or response ',
             'blMultilang'    => false,
         ],
+        /**
+         * @deprecated
+         */
         [
             'sTableName'     => 'd3transactionlog',
             'mOldFieldNames' => ['OXVALUE', 'oxvalue'],
@@ -588,16 +702,25 @@ class d3log_update extends d3install_updatebase
     ];
 
     public $aDeleteFields = [
+        /**
+         * @deprecated
+         */
         'OXPAYMENTID' => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXPAYMENTID',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXUSERID'    => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXUSERID',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXORDERID'   => [
             'sTableName'  => 'd3transactionlog',
             'sFieldName'  => 'OXORDERID',
@@ -606,26 +729,41 @@ class d3log_update extends d3install_updatebase
     ];
 
     public $aDeleteIndexes = [
+        /**
+         * @deprecated
+         */
         'OXLOGNR'           => [
             'sTableName'  => 'd3transactionlog',
             'sName'       => 'OXLOGNR',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXACTION'          => [
             'sTableName'  => 'd3transactionlog',
             'sName'       => 'OXACTION',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXTRANSACTIONTIME' => [
             'sTableName'  => 'd3transactionlog',
             'sName'       => 'OXTRANSACTIONTIME',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXMODID'           => [
             'sTableName'  => 'd3transactionlog',
             'sName'       => 'OXMODID',
             'blMultilang' => false,
         ],
+        /**
+         * @deprecated
+         */
         'OXLOGTYPE'         => [
             'sTableName'  => 'd3transactionlog',
             'sName'       => 'OXLOGTYPE',
@@ -694,6 +832,7 @@ class d3log_update extends d3install_updatebase
      * @return bool true, if table has wrong engine
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function checkTALogTableEngine()
     {
@@ -708,6 +847,7 @@ class d3log_update extends d3install_updatebase
      * @return bool
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function updateTALogTableEngine()
     {
@@ -721,6 +861,7 @@ class d3log_update extends d3install_updatebase
      * @return bool true, if table has wrong engine
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function checkO2DLogTableEngine()
     {
@@ -735,6 +876,7 @@ class d3log_update extends d3install_updatebase
      * @return bool
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function updateO2DLogTableEngine()
     {
@@ -749,6 +891,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function isTALogTableNotExisting()
     {
@@ -761,6 +904,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function updateTALogTableExist()
     {
@@ -905,6 +1049,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function checkO2DLogTableExist()
     {
@@ -917,6 +1062,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function updateO2DLogTableExist()
     {
@@ -940,6 +1086,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function hasOldTALogTable()
     {
@@ -959,6 +1106,7 @@ class d3log_update extends d3install_updatebase
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
+     * @deprecated
      */
     public function deleteOldTALogTable()
     {

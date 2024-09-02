@@ -9,10 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.1.0.0...rel_7.x)
 
-## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.0.1.0...7.1.0.0) - 2024-06-26
+## [7.1.1.0] (https://git.d3data.de/D3Private/ModCfg/compare/7.1.0.0...7.1.1.0) - 2024-08-30
+### Added
+- Psr3Adapter um d3log an Schnittstellen fuer PSR-kompatible Logger anzubinden
+### Deprecated
+- Transaktionslog
+
+## [7.1.0.0] (https://git.d3data.de/D3Private/ModCfg/compare/7.0.1.0...7.1.0.0) - 2024-06-26
 ### Added
 - Multilanguage-Verwendung von ModProfile und ModCfg einstellbar am jeweiligen Datenbank-Eintrag
-- d3log ist PSR-3 kompatibel
+- d3log ist PSR-3 kompatibler
 
 ### Changed
 - D3 Services vom OXID DI Container entkoppelt

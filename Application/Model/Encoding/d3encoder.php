@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\Application\Model\Encoding;
@@ -53,7 +51,7 @@ class d3encoder
      * @return string
      * @throws JsonException
      */
-    public function encode( mixed $decodedValue): string
+    public function encode(mixed $decodedValue): string
     {
         return match (strtolower($this->getEncodingType())) {
             self::ENC_JSON      => $this->encodeJson($decodedValue),
@@ -74,7 +72,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeDefault( mixed $decodedValue): string
+    public function encodeDefault(mixed $decodedValue): string
     {
         return base64_encode(
             rawurlencode(
@@ -91,7 +89,7 @@ class d3encoder
      * @return string
      * @throws JsonException
      */
-    public function encodeJson( mixed $decodedValue): string
+    public function encodeJson(mixed $decodedValue): string
     {
         return json_encode($decodedValue, JSON_THROW_ON_ERROR);
     }
@@ -101,7 +99,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeUtf8( mixed $decodedValue): string
+    public function encodeUtf8(mixed $decodedValue): string
     {
         return utf8_encode(
             serialize(
@@ -115,7 +113,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeSerialize( mixed $decodedValue): string
+    public function encodeSerialize(mixed $decodedValue): string
     {
         return serialize(
             $decodedValue
@@ -127,7 +125,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeUrl( mixed $decodedValue): string
+    public function encodeUrl(mixed $decodedValue): string
     {
         return urlencode(
             serialize(
@@ -141,7 +139,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeRawUrl( mixed $decodedValue): string
+    public function encodeRawUrl(mixed $decodedValue): string
     {
         return rawurlencode(
             serialize(
@@ -155,7 +153,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeBase64( mixed $decodedValue): string
+    public function encodeBase64(mixed $decodedValue): string
     {
         return base64_encode(
             serialize(
@@ -169,7 +167,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeGZip( mixed $decodedValue): string
+    public function encodeGZip(mixed $decodedValue): string
     {
         return gzencode(
             serialize(
@@ -183,7 +181,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeUUEncode( mixed $decodedValue): string
+    public function encodeUUEncode(mixed $decodedValue): string
     {
         return convert_uuencode(
             serialize(
@@ -197,7 +195,7 @@ class d3encoder
      *
      * @return string
      */
-    public function encodeQuotedPrintable( mixed $decodedValue): string
+    public function encodeQuotedPrintable(mixed $decodedValue): string
     {
         return quoted_printable_encode(
             serialize(

@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\setup;
@@ -102,14 +100,14 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '7.1.0.0';
+    public $sModVersion = '7.1.1.0';
     public $sBaseConf =
-        'yb0v2==ZExxanpJS0JNUzBrUlJ4UWZBeG0zL0RKYTlaTHIrVGFOTm1ZaUllenUzK2ZheXFpNFBudm5WL
-1J0bGd2amYrYm9YSXVSeFAxeVpRaitkc1VwTHlweVJFSE1naHBrRUp5Zmd2OG9IWDIxS2I0Z2JNTkNTN
-XduS0toRmdEd2FsWTRTUzB2MXJXWm5pcFdDT2kzNUw2cm14QXo4S0lzWnJ0S1VhY1QxRXBldVdleXpuK
-21OTlAwdStkRVJmVGdMditpbWVZKzU2NldGcVhiM2ozZkhzdGNTVldXaGJCS0xnK3IzOGpVdFpzUkYxM
-nFSRjR2R0dqTlFBKzd4TkllOGpSbE9QSC9qdkladzFVdnJJQXdoYnV6WVFKcFdpcHA2OXk0K0N6eDVZb
-U5LRmRmeStIUFFqQ1pNOC9tbjZRUURISko=';
+        'Kzov2==N0pHQ3NJWTE3NklmRWY2RUwxNzZrcDhKMW1pVVM5TGZrNndUUXoycFUxNTVZVEJ0bllBd1l6S
+nhPRDNwOHZQUm94RXpESHZFUTJEZzVKMUZkS2NaWktkYy9rS1BZbE1SR3FsUmlGazFHZmlhNVZSbFh4Z
+nFicDFCTmU1S29BVWxtMEY1bHhLOTkyTmxPZWlYWVZDL1oxbW4vQ284YkcydUVoWGRyRTdZTEZwTVJOQ
+251dDBzVnpYSUc0SU5hODlmUWNlcUxtQ3FDNGFhMGtvc2VLbFpoRkdxSmFCZ0ozbERLVHczbDNLVjV6W
+mZ5ZEwzWTZORENqRFZOUHlRWm9mcnFObjd2WHVhWDVHR1FQeHVVMTNlWEJhNVQvMmd5Z0MxNWpUYkxGT
+2FSMUNYTzk2NWIxTGNieGFJdld6Z3hQQ0o=';
     public $sRequirements = '';
     public $sBaseValue = '';
 

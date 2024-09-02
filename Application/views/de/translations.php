@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * http://www.shopmodule.com
+ * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 // @codeCoverageIgnoreStart
@@ -167,7 +165,7 @@ return [
     'D3_CFG_MOD_LICDETAILS_VALIDFORMODID'      => 'gültig für:',
     'D3_CFG_MOD_LICDETAILS_VALIDFORMODVERSION' => 'Modulversion:',
     'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPID'     => 'Shop-ID:',
-    'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION'=> 'Shop-Edition:',
+    'D3_CFG_MOD_LICDETAILS_VALIDFORSHOPEDITION' => 'Shop-Edition:',
     'D3_CFG_MOD_LICDETAILS_ISTEST'             => 'Testversion:',
     'D3_CFG_MOD_LICDETAILS_ACTIDENT'           => 'Aktivierungsident:',
     'D3_CFG_MOD_LICDETAILS_LICKEY'             => 'Lizenzschlüssel:',
@@ -276,7 +274,7 @@ return [
     'D3_CFG_MOD_ACTIVATION_DATA_MODULE'        => 'Modul:',
     'D3_CFG_MOD_ACTIVATION_DATA_MODULE_DESC'   => 'Das Modul wird fest in der zukünftigen Lizenz vermerkt. Verwenden Sie daher bitte auch nur den Aktivierungsident des dazu gehörenden Moduls. Beachten Sie, dass Ihr Modulkauf auch für die richtige Shopedition erfolgt sein muss. Andernfalls können Sie dieses Modul nicht aktivieren. Möchten Sie die Aktivierung für ein anderes Modul durchführen, verlassen Sie bitte diesen Assistent und rufen diesen in dem zu aktivierenden Modul auf.',
     'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION'    => 'Modulversion:',
-    'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION_DESC'=> 'Die Modulversion wird fest in der zukünftigen Lizenz vermerkt. Neben dem Ablaufdatum entscheidet die Modulversion, welche zukünftigen Updates / Upgrades Sie mit dieser Lizenz verwenden können. Planen Sie kurzfristig eine Modulaktualisierung, klären Sie bitte mit uns die Vorgehensweise.',
+    'D3_CFG_MOD_ACTIVATION_DATA_MODVERSION_DESC' => 'Die Modulversion wird fest in der zukünftigen Lizenz vermerkt. Neben dem Ablaufdatum entscheidet die Modulversion, welche zukünftigen Updates / Upgrades Sie mit dieser Lizenz verwenden können. Planen Sie kurzfristig eine Modulaktualisierung, klären Sie bitte mit uns die Vorgehensweise.',
     'D3_CFG_MOD_ACTIVATION_DATA_DOMAIN'        => 'Domain:',
     'D3_CFG_MOD_ACTIVATION_DATA_DOMAIN_DESC'   => 'Die Domain wird fest in der zukünftigen Lizenz vermerkt. Ausschlag gebend ist hier die Shophauptdomain, die in der Konfigurationsdatei des Shops eingetragen ist. Sprach- und mandantenabhängige Domains sowie Subdomains werden bei der Lizenz nicht berücksichtigt. Möchten Sie dieses Modul in einem Shop unter einer anderen Domain einsetzen, führen Sie dessen Aktivierung bitte nur dort durch.',
     'D3_CFG_MOD_ACTIVATION_DATA_SHOP'          => 'Shop-Mandant:',
@@ -463,14 +461,14 @@ return [
     'D3_CFG_CLRTMP_DEV_DEACTPRODUCTIVE'    => 'Deaktivieren Sie für den Entwicklermodus zwingend den Produktivmodus des Shops.',
 
     'D3_CFG_CLRTMP_MODULELOGGING'          => 'Logging',
-    'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS'=> 'allgemeine TMP-leeren-Funktionen ausblenden',
+    'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS' => 'allgemeine TMP-leeren-Funktionen ausblenden',
     'D3_CFG_CLRTMP_CFG_SHOWCLEARTMPOPTIONS_DESC' => 'Wenn Ihre Serverkonstellation die temporären Dateien des Shops in einer Weise ablegt, die ein Löschen über die Erweiterung nicht ermöglicht, können Sie hierüber die Standardlöschfunktionen ausblenden. Stehen Ihnen Systembefehle zum Löschen der Dateien zur Verfügung, können Sie diese statt dessen entsprechend konfigurieren und anzeigen lassen.',
     'D3_CFG_CLRTMP_CFG_SHOWNOHEADERFORM'   => 'Schnellzugriff auf TMP-leeren im Headerbereich <span style="font-weight: bold;">nicht</span> zeigen',
     'D3_CFG_CLRTMP_CFG_CREATE_NOHTACCESS'  => '<span style="font-weight: bold;">keine</span> .htaccess-Datei erstellen',
     'D3_CFG_CLRTMP_CFG_REMOVEFOLDERS'      => 'enthaltene shopfremde Ordner <span style="font-weight: bold;">nicht</span> löschen',
     'D3_CFG_CLRTMP_CFG_NOUPDATEVIEWS'      => 'View-Tabellen <span style="font-weight: bold;">nicht</span> aktualisieren',
     'D3_CFG_CLRTMP_CFG_EXCLUDEREGEXP'      => 'RegExp-Pattern für vom Löschen auszuschließende Elemente (ohne Delimiter)',
-    'D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC'=> 'Geben Sie hier einen gültigen regulären Ausdruck an, der alle Dateien matched, die <b>NICHT</b> gelöscht werden sollen. Der Delimiter (%) wird durch das Script gesetzt. Klartexte sind passend gequoted einzugeben.<br>Bsp.: <ul><li><span style="font-family: Courier, monospace;">.*</span> für alle Einträge</li><li><span style="font-family: Courier, monospace;">.*\\.svn</span> für alle Dateien mit der Endung .svn</li></ul>',
+    'D3_CFG_CLRTMP_CFG_EXCLUDEPATTERN_DESC' => 'Geben Sie hier einen gültigen regulären Ausdruck an, der alle Dateien matched, die <b>NICHT</b> gelöscht werden sollen. Der Delimiter (%) wird durch das Script gesetzt. Klartexte sind passend gequoted einzugeben.<br>Bsp.: <ul><li><span style="font-family: Courier, monospace;">.*</span> für alle Einträge</li><li><span style="font-family: Courier, monospace;">.*\\.svn</span> für alle Dateien mit der Endung .svn</li></ul>',
     'D3_CFG_CLRTMP_HASNOEXCLUDEPATTERN'    => 'Ausschlusspattern gesetzt',
     'D3_CFG_CLRTMP_CFG_USERACTION_DESC'    => 'Mit benutzerdefinierten Löschaufgabe können Sie das TMP-leeren-Tool um eigene Löschaufgaben erweitern. Diese Aufgaben werden nur gezeigt, wenn Sie diese befüllt haben.',
     'D3_CFG_CLRTMP_CFG_USERACTION_1'       => 'benutzerdefinierte Löschaufgabe 1:',

@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link          http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\Application\Model\Log;
@@ -20,7 +18,7 @@ namespace D3\ModCfg\Application\Model\Log;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
-class d3NullLogger implements d3LogInterface, LoggerInterface
+class d3NullLogger implements d3LogInterface
 {
     use LoggerTrait;
 
@@ -69,18 +67,18 @@ class d3NullLogger implements d3LogInterface, LoggerInterface
     }
 
     /**
-     * @param int $iLogType
-     * @param string $sClass
-     * @param string $sFnc
-     * @param int $iLine
+     * @param int         $level
+     * @param string      $sClass
+     * @param string      $sFnc
+     * @param int         $iLine
      * @param string|null $sAction
      * @param string|null $mText
-     * @param bool $blDie
+     * @param bool        $blDie
      *
      * @return d3LogInterface
      */
     public function log(
-        $iLogType = d3LogLevel::EMERGENCY,
+        $level = d3LogLevel::EMERGENCY,
         $sClass = self::class,
         $sFnc = __FUNCTION__,
         $iLine = __LINE__,

@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\Application\Controller\Admin;
@@ -243,10 +241,10 @@ class d3_cfg_mod_licence extends AdminDetailsController
         $oInfoMailXML     = false;
         $iError           = false;
 
-//        $aParams = oxConfig::getParameter("service");
+        //        $aParams = oxConfig::getParameter("service");
 
-//        $sEMail   = trim($aParams['d3_cfg_mod__s_updateinfomail']);
-//        $blActive = (bool)$aParams['d3_cfg_mod__bl_updateinfo'];
+        //        $sEMail   = trim($aParams['d3_cfg_mod__s_updateinfomail']);
+        //        $blActive = (bool)$aParams['d3_cfg_mod__bl_updateinfo'];
         /*
                 if (strlen($sEMail) && !d3_oxUtils_cfg::getInstance()->D3checkEmail($sEMail))
                 {
@@ -262,7 +260,7 @@ class d3_cfg_mod_licence extends AdminDetailsController
         //if ($iError) return;
 
         // is removed
-//        d3_oxUtils_cfg::getInstance()->SaveModCfg($this->soxId);
+        //        d3_oxUtils_cfg::getInstance()->SaveModCfg($this->soxId);
         //$this->d3GetSet()->d3_cfg_mod__importer_supdateinfomail = new oxField($sEMail, oxField::T_RAW);
         //$this->d3GetSet()->d3_cfg_mod__importer_blupdateinfo = new oxField($blActive, oxField::T_RAW);
         //$this->d3GetSet()->Save();

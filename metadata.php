@@ -1,18 +1,18 @@
 <?php
+
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
+
 use D3\ModCfg\Modules\Application\Controller\Admin\d3_navigation_modcfgupdate;
 use D3\ModCfg\Modules\Application\Model\d3_oxshop_modcfg;
 use D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension;
@@ -56,7 +56,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'picture.svg',
-    'version'     => '7.1.0.0',
+    'version'     => '7.1.1.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',

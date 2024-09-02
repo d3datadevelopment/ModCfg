@@ -1,18 +1,16 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link      http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 use D3\ModCfg\setup as ModuleSetup;
@@ -173,6 +171,7 @@ $aModule = [
         'd3/modcfg/Application/Model/Shopcompatibility/d3ShopCompatibilityAdapterHandler.php',
         'd3/modcfg/Application/Model/Shopcompatibility/d3shopversionconverter.php',
 
+        /** @deprecated  */
         'd3/modcfg/Application/Model/Transactionlog/d3transactionlog.php',
         'd3/modcfg/Application/Model/Transactionlog/d3transactionloglist.php',
         'd3/modcfg/Application/Model/Transactionlog/Reader/AbstractReader.php',

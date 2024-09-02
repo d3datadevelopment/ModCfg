@@ -1,22 +1,21 @@
 <?php
 
 /**
- * This Software is the property of Data Development and is protected
- * by copyright law - it is NOT Freeware.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
- * Any unauthorized use of this software without a valid license
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
  * @copyright (C) D3 Data Development (Inh. Thomas Dartsch)
- * @author        D3 Data Development - Daniel Seifert <support@shopmodule.com>
- * @link          http://www.oxidmodule.com
+ * @author    D3 Data Development - Daniel Seifert <info@shopmodule.com>
+ * @link      https://www.oxidmodule.com
  */
 
 namespace D3\ModCfg\Application\Model\Log;
 
+use InvalidArgumentException;
 use Psr\Log\LogLevel;
 
 class d3LogLevel extends LogLevel
@@ -100,4 +99,19 @@ class d3LogLevel extends LogLevel
 
     public const EMPTY_AND_BELOW = self::DEV_AND_BELOW
         & ~self::DEV_GROUP;             // 7680
+
+    public static function stringToIntLevel(string $stringLevel): int
+    {
+        return match ($stringLevel) {
+            LogLevel::EMERGENCY     => self::EMERGENCY,
+            LogLevel::ALERT         => self::ALERT,
+            LogLevel::CRITICAL      => self::CRITICAL,
+            LogLevel::ERROR         => self::ERROR,
+            LogLevel::WARNING       => self::WARNING,
+            LogLevel::NOTICE        => self::NOTICE,
+            LogLevel::INFO          => self::INFO,
+            LogLevel::DEBUG         => self::DEBUG,
+            default                 => throw new InvalidArgumentException('unknown loglevel '.$stringLevel)
+        };
+    }
 }
