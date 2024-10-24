@@ -33,3 +33,11 @@ Im Zusammenspiel mit der OPcache-Erweiterung beobachteten wir in der Vergangenhe
 
 * deaktivieren Sie in den `opcache.optimization_level`-Einstellungen mit Bit 5 die Control flow graph optimization (Standard in PHP 8 mit deaktiviertem Bit: 0x7FFEBFEF) oder
 * deaktivieren Sie die OPcache-Erweiterung komplett
+
+## Auffälligkeiten mit dem benötigten SourceGuardian Loader
+
+Der genannte Loader kann unter Umständen Konflikte mit folgenden PHP-Erweiterungen auslösen:
+* XDebug
+* Tideways
+
+Prüfen Sie bitte, ob die genannten Erweiterungen benötigt werden und deaktivieren Sie diese gegebenenfalls.
