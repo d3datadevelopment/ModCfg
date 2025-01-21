@@ -101,10 +101,12 @@ class d3encoder
      */
     public function encodeUtf8(mixed $decodedValue): string
     {
-        return utf8_encode(
+        return mb_convert_encoding(
             serialize(
                 $decodedValue
-            )
+            ),
+            'UTF-8',
+            'ISO-8859-1'
         );
     }
 

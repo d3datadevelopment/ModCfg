@@ -30,9 +30,6 @@ use D3\ModCfg\Application\Controller\Admin\Log as ModuleAdminLogController;
 use D3\ModCfg\Application\Controller\Admin\Maintenance as ModuleAdminMntController;
 use D3\ModCfg\Application\Controller\Admin\TPLBlocks as ModuleAdminTplController;
 
-/**
- * Metadata version
- */
 $sMetadataVersion = '2.1';
 
 $sModuleId = Constants::OXID_MODULE_ID;
@@ -56,7 +53,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'picture.svg',
-    'version'     => '7.1.1.1',
+    'version'     => '7.1.2.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',

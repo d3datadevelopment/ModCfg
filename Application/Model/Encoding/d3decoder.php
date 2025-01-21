@@ -105,8 +105,10 @@ class d3decoder
     public function decodeUtf8(?string $encodedValue): mixed
     {
         return unserialize(
-            utf8_decode(
-                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
+            mb_convert_encoding(
+                html_entity_decode($encodedValue ?? '', ENT_QUOTES),
+                'ISO-8859-1',
+                'UTF-8'
             )
         );
     }

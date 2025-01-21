@@ -9,7 +9,9 @@
     "d3",
     "connector",
     "configuration",
-    "license"
+    "license",
+    "d3dependencycheck",
+    "id_d3modcfg_lib"
   ],
   "authors": [
     {
@@ -32,7 +34,7 @@
   "require": {
     "php": "^8.0",
     "ext-sourceguardian": ">=14",
-    "oxid-esales/oxideshop-ce": "7.0 - 7.1",
+    "oxid-esales/oxideshop-ce": "7.0 - 7.2",
     "d3/oxid-dic-handler": "^2.1.1.0",
     "d3/oxid-twig-extensions": "^1.0",
     "ext-openssl": "*",
