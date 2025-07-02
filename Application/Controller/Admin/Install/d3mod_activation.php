@@ -133,7 +133,9 @@ final class d3mod_activation extends d3_cfg_mod_main
         $aLicData = [];
         $this->_sNextStep = 'submitData';
 
-        $sKey = trim(Registry::get(Request::class)->getRequestEscapedParameter('licencekey'));
+        // don't escape serial key with linebreaks
+        $sKey = trim(Registry::get(Request::class)->getRequestParameter('licencekey'));
+
         if ($this->getActivationType() == 'boughtoxidmodule'
             && strlen($sKey) > 32
         ) {

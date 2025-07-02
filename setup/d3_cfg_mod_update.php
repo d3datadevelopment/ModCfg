@@ -100,14 +100,14 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '7.1.2.0';
+    public $sModVersion = '7.2.0.0';
     public $sBaseConf =
-        '4j8v2==aDBHSGQveUxnVzRSU3VvaVNUUG5ONVdqejl5Zm1NSi9FZzFJamdEdElEZGtuNlducGtBems4R
-S9jR0ZlTGhvVDNHcFBEOXFLcEw5U1Q1bDBKc1VvZVNNWmg3c3ZjV0d0VkdRbVBRNm41Q2tUQWJZWk9Nd
-HB0bjZobEtucnFab21jU3MyWTRadU9OYi9qNzNZVzdtZEE3Rjdyd3ArM21Nc1FGZ09jTHNFSlJCaEluY
-noyOFZkZ0hzNlc4a3p5bkpMRHNnQU5YVk5yUCswWjJ4YVI4SXljUEgvRlNoL0FZclpDNWhJazV6dXkzd
-zBUK09KV1ZxMG1EYURRdzNEb2prbXZ3b3RGYXgrWGU4bGJKczdRbisraWRQaUVSSU94YTBGUk12c3hhV
-TRCTy9DTm90bUR1QWd5MG1odTZscDVqQW0=';
+        '775v2==bjhZUGFBUlhTeDVRZW1NNytOQlQ0dlM5dVVYK0VwWkQ0VEZ5cFJpOFVJdzVSUUYrTnk5Znhlc
+WN0a2dmV2ZHdGVkdHRYRmlIaGtHb2ZaNDVGa1R1Sks1UW9wT01EVTYxREhtZ1pZd1dqTS9QWE5GajU0e
+nBwU3lEUEozM0g1eVBmTzR0SDAwT3NLWXIyUHZlM1p2VFd5ei96T1djSTRyVHFKdU1WTkE2TTRqcTNRa
+XJRV2UyYUw1aEZSbHVNQjRJVzY2QzFldHZDRkV5bVZiak9PYzVmSnQrbWVCenBZWVZwdHZDbEZQUTN1Y
+3FvaGxuQmw0bDU0NzZNdU5IWTNTKzc0UnhuaEZ1WTlvam83c3drS0plaVJ1djBBRVg4OExBemg4aW0vS
+WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
     public $sRequirements = '';
     public $sBaseValue = '';
 

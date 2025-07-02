@@ -15,7 +15,9 @@
 
 namespace D3\ModCfg\Application\Model\Log;
 
+use D3\ModCfg\Application\Model\d3bitmask;
 use InvalidArgumentException;
+use Monolog\Logger;
 use Psr\Log\LogLevel;
 
 class d3LogLevel extends LogLevel
@@ -102,7 +104,7 @@ class d3LogLevel extends LogLevel
 
     public static function stringToIntLevel(string $stringLevel): int
     {
-        return match ($stringLevel) {
+        return match (trim(strtolower($stringLevel))) {
             LogLevel::EMERGENCY     => self::EMERGENCY,
             LogLevel::ALERT         => self::ALERT,
             LogLevel::CRITICAL      => self::CRITICAL,
@@ -112,6 +114,22 @@ class d3LogLevel extends LogLevel
             LogLevel::INFO          => self::INFO,
             LogLevel::DEBUG         => self::DEBUG,
             default                 => throw new InvalidArgumentException('unknown loglevel '.$stringLevel)
+        };
+    }
+
+    public static function convertToMonologLevel(int $d3Loglevel): int
+    {
+        $bit = oxNew(d3bitmask::class);
+        return match (true) {
+            $bit->isBitSetByPosition( $d3Loglevel, self::DEBUG) => Logger::DEBUG,
+            $bit->isBitSetByPosition( $d3Loglevel, self::INFO) => Logger::INFO,
+            $bit->isBitSetByPosition( $d3Loglevel, self::NOTICE) => Logger::NOTICE,
+            $bit->isBitSetByPosition( $d3Loglevel, self::WARNING) => Logger::WARNING,
+            $bit->isBitSetByPosition( $d3Loglevel, self::ERROR) => Logger::ERROR,
+            $bit->isBitSetByPosition( $d3Loglevel, self::CRITICAL) => Logger::CRITICAL,
+            $bit->isBitSetByPosition( $d3Loglevel, self::ALERT) => Logger::ALERT,
+            $bit->isBitSetByPosition( $d3Loglevel, self::EMERGENCY) => Logger::EMERGENCY,
+            default => Logger::EMERGENCY,      // no appropriate Monolog level
         };
     }
 }

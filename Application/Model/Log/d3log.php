@@ -82,6 +82,16 @@ class d3log extends BaseModel implements d3LogInterface
     ];
 
     public $aLogGroups = [
+        'debug'      => [
+            'DEBUG'     => true,
+            'INFO'      => true,
+            'NOTICE'    => true,
+            'WARNING'   => true,
+            'EMERGENCY' => true,
+            'ALERT'     => true,
+            'CRITICAL'  => true,
+            'ERROR'     => true,
+        ],
         'info'      => [
             'INFO'      => true,
             'NOTICE'    => true,
@@ -782,13 +792,13 @@ class d3log extends BaseModel implements d3LogInterface
             $aLogTypes = Registry::get(Request::class)->getRequestEscapedParameter('logtypes');
 
             /** set DEBUG mode */
-            if ($aLogTypes && is_array($aLogTypes) && isset($aLogTypes['7'])) {
-                $aLog['DEBUG'] = $aLogTypes['7'] ? true : false;
+            if ($aLogTypes && is_array($aLogTypes) && isset($aLogTypes[d3LogLevel::DEBUG])) {
+                $aLog['DEBUG'] = $aLogTypes[d3LogLevel::DEBUG] ? true : false;
             }
 
             /** set TEST mode */
-            if ($aLogTypes && is_array($aLogTypes) && isset($aLogTypes['8'])) {
-                $aLog['TEST'] = $aLogTypes['8'] ? true : false;
+            if ($aLogTypes && is_array($aLogTypes) && isset($aLogTypes[d3LogLevel::TEST])) {
+                $aLog['TEST'] = $aLogTypes[d3LogLevel::TEST] ? true : false;
             }
         } else {
             return false;

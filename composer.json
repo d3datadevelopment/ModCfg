@@ -34,7 +34,7 @@
   "require": {
     "php": "^8.0",
     "ext-sourceguardian": ">=15",
-    "oxid-esales/oxideshop-ce": "7.0 - 7.2",
+    "oxid-esales/oxideshop-ce": "7.0 - 7.3",
     "d3/oxid-dic-handler": "^2.1.1.0",
     "d3/oxid-twig-extensions": "^1.0",
     "ext-openssl": "*",
@@ -54,7 +54,8 @@
     "guzzlehttp/guzzle": "^6.3.3 || ^7.0",
     "splitbrain/php-cli": "^1.2.0",
     "beberlei/assert": "^3.3.0",
-    "symfony/filesystem": "^6.4.3"
+    "symfony/filesystem": "^6.4.3",
+    "symfony/string": "^6"
   },
   "require-dev": {
     "d3/testingtools": "^1.2.0.0",

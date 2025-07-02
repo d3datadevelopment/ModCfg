@@ -713,6 +713,7 @@ return [
     'D3_CFG_LOG_TYPE_WARNING'               => 'Fehler und Warnungen',
     'D3_CFG_LOG_TYPE_NOTICE'                => 'Fehler, Warnungen, Notizen',
     'D3_CFG_LOG_TYPE_INFO'                  => 'alle Fehler- und Infolevel',
+    'D3_CFG_LOG_TYPE_DEBUG'                 => 'alle Fehler-, Info- und Debuglevel',
     'D3_CFG_LOG_TYPE_USERDEFINED'           => 'benutzerdefiniert',
 
     'D3_LOGTYPE_EMERGENCY'                  => 'eskalierende Fehler (Emergency)',

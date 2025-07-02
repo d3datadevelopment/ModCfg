@@ -37,7 +37,8 @@ class d3clrtmp extends Base
     protected $_iLimit;
     protected $_iLimitTimeStamp;
     protected $_blHideErrorMsg = false;
-    protected $_sSmartyFolderName = 'smarty';
+    protected $templateCacheFolderName = 'template_cache';
+    protected $moduleCacheFolderName = 'modules';
     public $blUpdateViewCheck = false;
     public $blMallAdminCheck = true;
 
@@ -80,9 +81,11 @@ class d3clrtmp extends Base
         $blRet = $this->_clearCache(null, true) && $this->updateViews();
 
         if ($this->_d3GetSet()->getValue('blClrTmp_nofolderremove')) {
-            $this->_getFileSystemHandler()->del_dir($this->getTmpPath($this->_sSmartyFolderName), false, true, true);
-            $this->_createSmartyFolder();
+            $this->_getFileSystemHandler()->del_dir($this->getTmpPath($this->templateCacheFolderName), false, true, true);
+            $this->_createTemplateCacheFolder();
         }
+
+        $this->_createModuleCacheFolder();
 
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             stopProfile(__METHOD__);
@@ -108,7 +111,7 @@ class d3clrtmp extends Base
 
         $sPattern = "%.*(?<!class_file_paths)\.{1}php$%"; // % is delimiter; all, except 'class_file_paths'
 
-        $blRet = (bool)$this->_clearCache($sPattern, false, $this->_sSmartyFolderName);
+        $blRet = (bool)$this->_clearCache($sPattern, false, $this->templateCacheFolderName);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             stopProfile(__METHOD__);
         }
@@ -505,11 +508,11 @@ class d3clrtmp extends Base
             $this->_getFileSystemHandler()->setIncludeRegExp(null);
             $this->_getFileSystemHandler()->setExcludeRegExp(null);
 
-            if (is_object($this->_d3GetSet()) && false == $this->_d3GetSet()->getValue('blClrTmp_nohtaccess')) {
+            if ( is_object($this->_d3GetSet()) && !$this->_d3GetSet()->getValue( 'blClrTmp_nohtaccess' ) ) {
                 $this->_createTmpHtaccess();
             }
 
-            $this->_createSmartyFolder();
+            $this->_createTemplateCacheFolder();
         } else {
             $this->d3RunClrTmpCommand();
             $iDelItems = 1;
@@ -533,7 +536,7 @@ class d3clrtmp extends Base
         }
         $sFileName = $this->getTmpPath() . '.htaccess';
 
-        if (false == $this->_getFileSystemHandler()->exists($sFileName)) {
+        if ( !$this->_getFileSystemHandler()->exists( $sFileName ) ) {
             $sContent =
                 "# disabling file access\n<FilesMatch .*>\n<IfModule mod_authz_core.c>\nRequire all denied\n</IfModule>\n<IfModule !mod_authz_core.c>\norder allow,deny\ndeny from all\n</IfModule>".
                 "\n</FilesMatch>\n\nOptions -Indexes";
@@ -552,14 +555,38 @@ class d3clrtmp extends Base
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    protected function _createSmartyFolder()
+    protected function _createTemplateCacheFolder()
     {
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             startProfile(__METHOD__);
         }
-        $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->_sSmartyFolderName);
+        $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->templateCacheFolderName);
 
-        if (false == $this->_getFileSystemHandler()->exists($sFolder)) {
+        if ( ! $this->_getFileSystemHandler()->exists( $sFolder ) ) {
+            $this->_getFileSystemHandler()->create_dir_tree($sFolder);
+        }
+
+        if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
+            stopProfile(__METHOD__);
+        }
+    }
+
+    /**
+     * @throws DBALException
+     * @throws DatabaseConnectionException
+     * @throws DatabaseErrorException
+     * @throws StandardException
+     * @throws d3ShopCompatibilityAdapterException
+     * @throws d3_cfg_mod_exception
+     */
+    protected function _createModuleCacheFolder()
+    {
+        if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
+            startProfile(__METHOD__);
+        }
+        $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->moduleCacheFolderName);
+
+        if ( ! $this->_getFileSystemHandler()->exists( $sFolder ) ) {
             $this->_getFileSystemHandler()->create_dir_tree($sFolder);
         }
 

@@ -69,30 +69,38 @@ class Object2DeliveryOrphans extends AbstractAction
         $oQB = $this->getQueryBuilder();
         $oQB->from('oxobject2delivery', $tableAlias)
             ->leftJoin($tableAlias, 'oxarticles', 'art', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'art.oxid'))
+            ->leftJoin($tableAlias, 'oxcategories', 'cat', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'cat.oxid'))
             ->leftJoin($tableAlias, 'oxdelivery', 'del', $oQB->expr()->eq($tableAlias.'.oxdeliveryid', 'del.oxid'))
             ->leftJoin($tableAlias, 'oxcountry', 'cou', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'cou.oxid'))
-            ->leftJoin($tableAlias, 'oxdeliveryset', 'des', $oQB->expr()->eq($tableAlias.'.oxdeliveryid', 'des.oxid'))
+            ->leftJoin($tableAlias, 'oxdeliveryset', 'des', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'des.oxid'))
+            ->leftJoin($tableAlias, 'oxgroups', 'gro', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'gro.oxid'))
+            ->leftJoin($tableAlias, 'oxuser', 'usr', $oQB->expr()->eq($tableAlias.'.oxobjectid', 'usr.oxid'))
             ->where(
                 $oQB->expr()->or(
+                    $oQB->expr()->isNull('del.oxid'),
                     $oQB->expr()->and(
                         $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxarticles')),
-                        $oQB->expr()->or(
-                            $oQB->expr()->isNull('art.oxid'),
-                            $oQB->expr()->isNull('del.oxid')
-                        )
+                        $oQB->expr()->isNull('art.oxid')
                     ),
-                    $oQB->expr()->or(
-                        $oQB->expr()->isNull('cou.oxid'),
-                        $oQB->expr()->or(
-                            $oQB->expr()->and(
-                                $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxcountry')),
-                                $oQB->expr()->isNull('del.oxid')
-                            ),
-                            $oQB->expr()->and(
-                                $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxdelset')),
-                                $oQB->expr()->isNull('des.oxid')
-                            )
-                        )
+                    $oQB->expr()->and(
+                        $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxcategories')),
+                        $oQB->expr()->isNull('cat.oxid')
+                    ),
+                    $oQB->expr()->and(
+                        $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxcountry')),
+                        $oQB->expr()->isNull('cou.oxid')
+                    ),
+                    $oQB->expr()->and(
+                        $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxdelset')),
+                        $oQB->expr()->isNull('des.oxid')
+                    ),
+                    $oQB->expr()->and(
+                        $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxgroups')),
+                        $oQB->expr()->isNull('gro.oxid')
+                    ),
+                    $oQB->expr()->and(
+                        $oQB->expr()->eq($tableAlias.'.oxtype', $oQB->createNamedParameter('oxuser')),
+                        $oQB->expr()->isNull('usr.oxid')
                     )
                 )
             );

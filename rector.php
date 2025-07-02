@@ -63,9 +63,9 @@ return static function (RectorConfig $rectorConfig): void {
             ReturnTypeFromStrictNewArrayRector::class,
 
             // Dead Code
-            RemoveParentCallWithoutParentRector::class,     // Rector don't know module parents
+            RemoveParentCallWithoutParentRector::class,     // Rector doesn't know module parents
 
-            // Code Quality                                 // Rector don't know module parents
+            // Code Quality                                 // Rector doesn't know module parents
             ForeachItemsAssignToEmptyArrayToAssignRector::class,
             InlineArrayReturnAssignRector::class,
             CompleteDynamicPropertiesRector::class,

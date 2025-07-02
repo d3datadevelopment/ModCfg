@@ -15,10 +15,8 @@ title: Systemanforderungen
     * OXID eShop in Compilation Version 
         * 7.0.x
         * 7.1.x
-<<<<<<< HEAD
-=======
         * 7.2.x
->>>>>>> a61ea0f5 (update documentation)
+        * 7.3.x
 * Templaterenderer und Themes
     * Smarty-Templates
       * admin

@@ -53,7 +53,7 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'picture.svg',
-    'version'     => '7.1.2.0',
+    'version'     => '7.2.0.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
     'url'         => 'http://www.oxidmodule.com',

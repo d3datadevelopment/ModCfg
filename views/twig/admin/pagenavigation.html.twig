@@ -12,6 +12,9 @@
         .d3pagenavigation .disabled {
             color: #787878;
         }
+        .d3pagenavigation select {
+            padding: 5px 10px;
+        }
     </style>
     <table style="padding: 0; border-spacing: 0; border-collapse: collapse" class="d3pagenavigation">
         <tr>
@@ -24,8 +27,10 @@
                         {% endfor %}
                         <label for="page">{{ translate({ ident: "NAVIGATION_PAGE" }) }}</label>
                         <select id="page" name="page" onchange="this.parentNode.submit();">
-                            {% for site in $d3pagenavi->getFirstPage()..$d3pagenavi->getLastPage()+1 %}
-                                <option value="{{ loop.index0 }}</option>
+                            {% for site in d3pagenavi.getFirstPage()..d3pagenavi.getLastPage() %}
+                                <option value="{{ loop.index }}" {% if loop.index == d3pagenavi.getCurrentPage() %}selected="selected"{% endif %}>
+                                    {{ loop.index }}
+                                </option>
                             {% endfor %}
                         </select> / {{ d3pagenavi.getLastPage() }}
                     </form>

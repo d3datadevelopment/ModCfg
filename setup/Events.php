@@ -29,7 +29,6 @@ use OxidEsales\Eshop\Core\Request;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\Event\FinalizingModuleActivationEvent;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\EventSubscriber\DispatchLegacyEventsSubscriber;
-use OxidEsales\Smarty\Module\TemplateExtension\TemplateBlockExtensionDaoInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -134,16 +133,6 @@ class Events
         $eventDispatcher->dispatch(
             new FinalizingModuleActivationEvent(Registry::getConfig()->getShopId(), Constants::OXID_MODULE_ID)
         );
-
-        $container = ContainerFactory::getInstance()->getContainer();
-
-        // remove added Smarty template blocks, to prevent duplicates
-        //        if ($container->has(TemplateBlockExtensionDaoInterface::class)) {
-        //            $container->get(TemplateBlockExtensionDaoInterface::class)->deleteExtensions(
-        //                Constants::OXID_MODULE_ID,
-        //                Registry::getConfig()->getShopId()
-        //            );
-        //        }
     }
 
     /**
