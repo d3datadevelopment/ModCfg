@@ -17,6 +17,7 @@ title: Systemanforderungen
         * 7.1.x
         * 7.2.x
         * 7.3.x
+        * 7.4.x
 * Templaterenderer und Themes
     * Smarty-Templates
       * admin
@@ -39,7 +40,7 @@ Im Zusammenspiel mit der OPcache-Erweiterung beobachteten wir in der Vergangenhe
 ## Auffälligkeiten mit dem benötigten SourceGuardian Loader
 
 Der genannte Loader kann unter Umständen Konflikte mit folgenden PHP-Erweiterungen auslösen:
-* XDebug
-* Tideways
+* XDebug > gleichzeitiger Betrieb beider Extensions ist unseres Wissens nach nicht möglich
+* Tideways > setzen Sie die Einstellung `tideways.features.observer=0` in der php.ini
 
 Prüfen Sie bitte, ob die genannten Erweiterungen benötigt werden und deaktivieren Sie diese gegebenenfalls.

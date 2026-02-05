@@ -22,7 +22,6 @@ use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Install\d3install;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\d3str;
-use D3\ModCfg\Application\Model\d3filesystem;
 use D3\ModCfg\Application\Model\Log\d3log;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHandler;
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;

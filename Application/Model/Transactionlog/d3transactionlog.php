@@ -16,13 +16,11 @@
 namespace D3\ModCfg\Application\Model\Transactionlog;
 
 use BadMethodCallException;
+use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Parametercontainer\Registry;
 use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
-use Doctrine\DBAL\Connection;
 use Exception;
 use OxidEsales\Eshop\Core\Model\BaseModel;
-use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
@@ -347,8 +345,7 @@ final class d3transactionlog extends BaseModel
      */
     protected function _getFilterFieldQuery($sField, $sValue)
     {
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         if (strtolower(trim($sField)) == 'd3transactiondata') {
             return 'CONVERT(FROM_BASE64('.$this->getCoreTableName() . '.' . $sField . ') USING latin1) LIKE ' .

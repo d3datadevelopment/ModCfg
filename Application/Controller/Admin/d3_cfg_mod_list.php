@@ -17,7 +17,7 @@ namespace D3\ModCfg\Application\Controller\Admin;
 
 use D3\ModCfg\Application\Model\Configuration\d3modprofile;
 use D3\ModCfg\Application\Model\Constants;
-use Doctrine\DBAL\Connection;
+use D3\ModCfg\Application\Model\d3database;
 use Doctrine\DBAL\Driver\Exception;
 use Doctrine\DBAL\Exception as DBALException;
 use DOMAttr;
@@ -33,7 +33,6 @@ use OxidEsales\Eshop\Core\StrRegular;
 use OxidEsales\Eshop\Core\Str;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -157,8 +156,7 @@ class d3_cfg_mod_list extends AdminListController
      */
     protected function prepareWhereQuery($aWhere, $sqlFull)
     {
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
         $sQ = parent::prepareWhereQuery($aWhere, $sqlFull);
 
         $oProfiles = $this->d3getListItemObject();
@@ -196,8 +194,7 @@ class d3_cfg_mod_list extends AdminListController
 
         // count SQL
         $oQB = ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
         $oQB->select('count(*)')->from('');
 
         $sSql = $oStr->preg_replace('/select .*? from/i', $oQB->getSQL(), $sSql);
@@ -309,8 +306,7 @@ class d3_cfg_mod_list extends AdminListController
     {
         // sorting
         $aSortFields = $this->getListSorting();
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         if (is_array($aSortFields) && count($aSortFields)) {
             // only add order by at full sql not for count(*)

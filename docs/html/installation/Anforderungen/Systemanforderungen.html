@@ -72,7 +72,7 @@
     <div class="Page__header">
         <h1><a href="../../installation/Anforderungen/Systemanforderungen.html">Anforderungen</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../installation/Anforderungen/Systemanforderungen.html">Systemanforderungen</a></h1>
                 <span class="ModifiedDate">
-                        02.07.2025        </span>
+                        05.02.2026        </span>
                     </div>
 
     <div class="s-content">
@@ -103,6 +103,7 @@
 <li>7.1.x</li>
 <li>7.2.x</li>
 <li>7.3.x</li>
+<li>7.4.x</li>
 </ul>
 </li>
 </ul>
@@ -137,8 +138,8 @@
 <h2 id="page_Auffalligkeiten-mit-dem-benotigten-SourceGuardian-Loader">Auffälligkeiten mit dem benötigten SourceGuardian Loader</h2>
 <p>Der genannte Loader kann unter Umständen Konflikte mit folgenden PHP-Erweiterungen auslösen:</p>
 <ul>
-<li>XDebug</li>
-<li>Tideways</li>
+<li>XDebug &gt; gleichzeitiger Betrieb beider Extensions ist unseres Wissens nach nicht möglich</li>
+<li>Tideways &gt; setzen Sie die Einstellung <code>tideways.features.observer=0</code> in der php.ini</li>
 </ul>
 <p>Prüfen Sie bitte, ob die genannten Erweiterungen benötigt werden und deaktivieren Sie diese gegebenenfalls.</p>
     </div>

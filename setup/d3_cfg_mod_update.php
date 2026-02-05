@@ -15,7 +15,6 @@
 
 namespace D3\ModCfg\setup;
 
-use OxidEsales\Eshop\Application\Controller\Admin\RolesBackendMain;
 use D3\ModCfg\Application\Model\Constants;
 use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Install\d3install_updatebase;
@@ -23,11 +22,9 @@ use D3\ModCfg\Application\Model\Shopcompatibility\d3ShopCompatibilityAdapterHand
 use D3\ModCfg\Application\Model\Shopcompatibility\d3shopversionconverter;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbtable;
 use D3\ModCfg\Application\Model\Installwizzard\d3installdbrecord;
-use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\Exception as DBALDriverException;
 use Exception;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\Bridge\ModuleActivationBridge;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\Bridge\ModuleActivationBridgeInterface;
@@ -100,14 +97,14 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '7.2.0.0';
+    public $sModVersion = '7.3.0.0';
     public $sBaseConf =
-        '775v2==bjhZUGFBUlhTeDVRZW1NNytOQlQ0dlM5dVVYK0VwWkQ0VEZ5cFJpOFVJdzVSUUYrTnk5Znhlc
-WN0a2dmV2ZHdGVkdHRYRmlIaGtHb2ZaNDVGa1R1Sks1UW9wT01EVTYxREhtZ1pZd1dqTS9QWE5GajU0e
-nBwU3lEUEozM0g1eVBmTzR0SDAwT3NLWXIyUHZlM1p2VFd5ei96T1djSTRyVHFKdU1WTkE2TTRqcTNRa
-XJRV2UyYUw1aEZSbHVNQjRJVzY2QzFldHZDRkV5bVZiak9PYzVmSnQrbWVCenBZWVZwdHZDbEZQUTN1Y
-3FvaGxuQmw0bDU0NzZNdU5IWTNTKzc0UnhuaEZ1WTlvam83c3drS0plaVJ1djBBRVg4OExBemg4aW0vS
-WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
+        'veHv2==WDl3eWRPcGFhSGZuRUxLbkx0V0x2TGRkdUg3cEFlNzhnbmpDZUxNTW5lZW5qVFlTQ1JDcUpQZ
+1FJOVZCdGJ1S0FKL1BIcVFxQlFUOVB5VFcwODRsMEFwZDhRT3VkQnEvKzhsU0wvdUFqZHF4eENScmNSe
+DIrWEoxOEdBcjB0azJXMUwyNk5YQUZRREVNaHBGeGtMT2lQUWJSdGdGVEtzNjBnZjFIYitUb0dIQ3BEQ
+nB3ZVlORnNRbDZtRFpWMGwrQkpTaGpvZ2ZZL1I2MzhTYTZqaEdscVZaWHAyNUhkWU5RTUFOcHB5VmVpV
+VFQWFRIUU5RMFcwcnM3YjlDR0o0T2FnLzFVa09Zbk02UDY1Y2V5a2E0amxLU2dzN1ZEUm9tMDFBN1Fjb
+TZKVUNMSXZIQVhhVUxEend2akEzdks4dng=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -1388,9 +1385,7 @@ WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
         }
 
         $sMessage = '# '.Registry::getLang()->translateString('D3_CFG_MOD_UPDATE_JOB_SQL').PHP_EOL;
-
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         if (!count($db->prepare("SHOW INDEX FROM oxtplblocks WHERE Column_name = 'D3DELETEID'")->executeQuery()->fetchAllAssociative())) {
             $sMessage .= "
@@ -1432,10 +1427,13 @@ WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
      */
     public function hasNonNamespacedRolesBemainExtension()
     {
+        // no ::class because this class is optional
+        $class = 'OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain';
+
         $aModules = Registry::getConfig()->getConfigParam('aModules');
         if (is_array($aModules)
-            && isset($aModules[RolesBackendMain::class])
-            && stristr($aModules[RolesBackendMain::class], 'd3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights')
+            && isset($aModules[$class])
+            && stristr($aModules[$class], 'd3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights')
         ) {
             return true;
         }
@@ -1450,6 +1448,9 @@ WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
      */
     public function removeNonNamespacedRolesBemainExtension()
     {
+        // no ::class because this class is optional
+        $class = 'OxidEsales\\Eshop\\Application\\Controller\\Admin\\RolesBackendMain';
+
         $oConfig = Registry::getConfig();
         /** @var Shop $activeShop */
         $activeShop = $oConfig->getActiveShop();
@@ -1461,9 +1462,9 @@ WxHWWsvL0NLL2xaME1xZ1NVV05qUDBNeE4=';
                 $this->_changeToShop($oShop->getId());
 
                 $aModules = $oConfig->getConfigParam('aModules');
-                $aExtensions = array_flip(explode('&', $aModules[RolesBackendMain::class]));
+                $aExtensions = array_flip(explode('&', $aModules[$class]));
                 unset($aExtensions['d3/modcfg/Modules/Application/Controller/Admin/d3_roles_bemain_rolesrights']);
-                $aModules[RolesBackendMain::class] = implode('&', array_flip($aExtensions));
+                $aModules[$class] = implode('&', array_flip($aExtensions));
 
                 $this->fixOxconfigVariable(
                     'aModules',

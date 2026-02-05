@@ -23,7 +23,6 @@ use D3\ModCfg\Application\Model\Exception\d3ShopCompatibilityAdapterException;
 use D3\ModCfg\Application\Model\Exception\d3_cfg_mod_exception;
 use D3\ModCfg\Modules\Application\Controller\d3_oxshopcontrol_modcfg_extension;
 use DateTimeImmutable;
-use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\Exception as DBALDriverException;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Exception;
@@ -39,11 +38,9 @@ use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use Doctrine\DBAL\Exception as DBALException;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
 class d3log extends BaseModel implements d3LogInterface
@@ -970,8 +967,7 @@ class d3log extends BaseModel implements d3LogInterface
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             startProfile(__METHOD__);
         }
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         foreach ($this->getUsedMailMessageSlots() as $iSlotId) {
             if ($this->_checkMailMessageSlot($iSlotId)) {
@@ -1049,8 +1045,7 @@ class d3log extends BaseModel implements d3LogInterface
      */
     protected function _getMailDataSelect($iSlot)
     {
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         $sWhere = $this->getLogSet()->getValue('sLog_messagetimestamp' . $iSlot) ? "oxtime > " . $db->quote(
             (new DateTimeImmutable())
@@ -1219,8 +1214,7 @@ class d3log extends BaseModel implements d3LogInterface
      */
     public function getLogTypePriorityList4Query(): string
     {
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
         return implode(',', array_map([$db, 'quote'], $this->getLogTypePriorityList()));
     }
 
@@ -1607,9 +1601,7 @@ class d3log extends BaseModel implements d3LogInterface
         }
 
         $sSelect = $this->buildSelectString($aWhere);
-
-        /** @var Connection $db */
-        $db = ContainerFactory::getInstance()->getContainer()->get(ConnectionProviderInterface::class)->get();
+        $db = d3database::getInstance()->getDBConnection();
 
         $aSearch = ['oxtime ='];
         $aReplace = ['oxtime >'];

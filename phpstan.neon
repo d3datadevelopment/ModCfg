@@ -5,7 +5,13 @@ parameters:
         - ../../oxid-esales/oxideshop-ce/source/oxfunctions.php
         - ../../oxid-esales/oxideshop-ce/source/overridablefunctions.php
     paths:
-        - .
+        - Application
+        - assets
+        - bin
+        - Config
+        - Modules
+        - setup
+        - views
     excludePaths:
         - build
         - docs
@@ -17,3 +23,12 @@ parameters:
     checkMissingIterableValueType: false
     featureToggles:
         disableRuntimeReflectionProvider: true
+    ignoreErrors:
+        - '#Call to an undefined static method D3\\ModCfg\\Modules\\Application\\Controller\\d3_oxshopcontrol_modcfg_extension_parent::handleAccessRightsException\(\)\.#'
+        - '#Parameter \$exception of method D3\\ModCfg\\Modules\\Application\\Controller\\d3_oxshopcontrol_modcfg_extension::handleAccessRightsException\(\) has invalid type OxidEsales\\Eshop\\Core\\Exception\\AccessRightException\.#'
+        - '#Call to an undefined method D3\\ModCfg\\Modules\\Application\\Controller\\Admin\\d3_roles_bemain_rolesrights::.*#'
+        - '#Call to an undefined static method D3\\ModCfg\\Modules\\Application\\Controller\\Admin\\d3_roles_bemain_rolesrights_parent::.*#'
+        - '#Call to an undefined method OxidEsales\\Eshop\\Core\\Config::onShopChange\(\)\.#'
+        - '#Call to method .* on an unknown class OxidEsales\\Eshop\\Core\\Element2ShopRelationsDbGateway\.#'
+        - '#Class OxidEsales\\Eshop\\Core\\Element2ShopRelationsDbGateway not found\.#'
+        - '#PHPDoc tag @var for variable \$oElem2ShopDbGateway contains unknown class OxidEsales\\Eshop\\Core\\Element2ShopRelationsDbGateway\.#'

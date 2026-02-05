@@ -72,7 +72,7 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
             $oD3Log = oxNew(d3log::class);
             $oD3Log->setModId('ErrorReporting');
             if (class_exists(d3_cfg_mod::class) && d3_cfg_mod::isCallable()) {
-                $oD3Log->setLogType($oD3Log->getLogSet()->getFieldData('oxismodulelog'));
+                $oD3Log->setLogType($oD3Log->getLogSet()->getFieldData('oxismodulelog') ?? 0);
             }
             $oD3Log->registerErrorHandler();
         }

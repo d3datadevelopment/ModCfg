@@ -89,8 +89,6 @@ class d3InstallCheckModuleVersionsIdentical implements d3InstallCheckInterface
      */
     protected function _compareModuleVersions($moduleVersion)
     {
-        $moduleVersions = $this->_setErrorCase($moduleVersion);
-
         if (isset($moduleVersion) &&
             $moduleVersion == $this->_oSet->getModVersion()
         ) {

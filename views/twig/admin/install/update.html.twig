@@ -529,8 +529,8 @@
 {% if oView.getAction() == 'autoinstall' and not oView.getError() %}
     <script type='text/javascript'>
         {% if oView.getRefreshUrl() == oView.getFormerClassUrl() %}
-        top.oxid.admin.reloadNavigation('{{ oViewConf.getActiveShopId() }}');
+            top.oxid.admin.reloadNavigation('{{ oViewConf.getActiveShopId() }}');
         {% endif %}
-        document.location = '{{ oView.getRefreshUrl() }}';
+        document.location = '{{ oView.getRefreshUrl()|raw }}';
     </script>
 {% endif %}

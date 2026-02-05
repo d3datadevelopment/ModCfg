@@ -91,10 +91,6 @@ td.listitem2 .image {
 	height: 20px;
 }
 
-.d3install_btn {
-	background
-}
-
 .statusyellow {
 	width: 5px;
     background-color: #FFCC00;

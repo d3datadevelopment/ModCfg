@@ -19,7 +19,6 @@ use DateTimeImmutable;
 use Exception;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Utils;
 
 /**
  * handle d3modprofile specific exceptions

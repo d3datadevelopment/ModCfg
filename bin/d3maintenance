@@ -39,56 +39,75 @@ use splitbrain\phpcli\Exception;
 use splitbrain\phpcli\Options;
 
 // @codeCoverageIgnoreStart
+function findFile(string $filePath): string
+{
+    $candidates = [];
+    $scriptPath = realpath($_SERVER['argv'][0] ?? '');
+    if ($scriptPath === false) {
+        throw new RuntimeException('Cannot resolve script path');
+    }
 
-require_once(__DIR__.'/../../../../../vendor/autoload.php');
+    $dir = dirname($scriptPath);
+    $attempts = 0;
+
+    while ($attempts < 10) {
+        $autoload = $dir . DIRECTORY_SEPARATOR.$filePath;
+        $composer = $dir . '/composer.json';
+
+        if (file_exists($autoload) && file_exists($composer)) {
+            return realpath($autoload);
+        }
+
+        $candidates[] = $autoload;
+        $parent = dirname($dir);
+        if ($parent === $dir) {
+            break;
+        }
+
+        $dir = $parent;
+        $attempts++;
+    }
+
+    throw new RuntimeException('Could not find file '.implode(', ', $candidates));
+}
+
+require_once(findFile(implode(DIRECTORY_SEPARATOR, ['vendor', 'autoload.php'])));
 
 $bootstrapFileName = getenv('ESHOP_BOOTSTRAP_PATH');
 if (!empty($bootstrapFileName)) {
     $bootstrapFileName = realpath(trim(getenv('ESHOP_BOOTSTRAP_PATH')));
 } else {
-    $count = 0;
-    $bootstrapFileName = '../../../'. ShopPackageInstaller::SHOP_SOURCE_DIRECTORY .'/bootstrap.php';
-    $currentDirectory = __DIR__ . '/';
-    while ($count < 5) {
-        $count++;
-        if (file_exists($currentDirectory . $bootstrapFileName)) {
-            $bootstrapFileName = $currentDirectory . $bootstrapFileName;
-            break;
-        }
-        $bootstrapFileName = '../' . $bootstrapFileName;
+    try {
+        $bootstrapFileName = findFile(
+            implode( DIRECTORY_SEPARATOR, [ShopPackageInstaller::SHOP_SOURCE_DIRECTORY,'bootstrap.php'] )
+        );
+    } catch (RuntimeException) {
+        $bootstrapFileName = '';
     }
 }
 
-if (!(file_exists($bootstrapFileName) && !is_dir($bootstrapFileName))) {
+if (!file_exists($bootstrapFileName) && !is_dir($bootstrapFileName)) {
     $items = [
         "Unable to find eShop bootstrap.php file.",
         "You can override the path by using ESHOP_BOOTSTRAP_PATH environment variable.",
         "\n"
     ];
-
     $message = implode(" ", $items);
-
-    die($message);
+    fwrite(STDERR, $message);
+    exit(1);
 }
 
-if (false === defined('OXID_PHP_UNIT')) {
+if (!defined('OXID_PHP_UNIT')) {
     require_once($bootstrapFileName);
 
     // required for recalculating order and generating pdf
     define('OX_IS_ADMIN', true);
 }
 
-if (false == function_exists('isAdmin')) {
-    /**
-     * @return bool
-     */
-    function isAdmin()
+if (!function_exists('isAdmin')) {
+    function isAdmin(): bool
     {
-        if (defined('OX_IS_ADMIN')) {
-            return OX_IS_ADMIN;
-        }
-
-        return true;
+        return ! defined( 'OX_IS_ADMIN' ) || OX_IS_ADMIN;
     }
 }
 
@@ -409,8 +428,11 @@ $cli = new d3maintenance();
 if (false === defined('OXID_PHP_UNIT')) {
     try {
         $cli->run();
+        exit();
     } catch ( ExceptionAlias $e) {
         $cli->error($e->getMessage());
+        exit(1);
     }
 }
+exit();
 // @codeCoverageIgnoreEnd

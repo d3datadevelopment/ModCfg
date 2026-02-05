@@ -32,6 +32,8 @@ use OxidEsales\Eshop\Core\UtilsFile;
 
 class d3clrtmp extends Base
 {
+    public const CACHE_FILE_PREFIX_PATTERN = 'oxc|oxeec|oxpec';
+
     protected $_sModId = 'd3modcfg_lib';
     protected $_oFS;
     protected $_iLimit;
@@ -109,9 +111,9 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(?<!class_file_paths)\.{1}php$%"; // % is delimiter; all, except 'class_file_paths'
+        $blRet = (bool) $this->_getFileSystemHandler()->del_dir($this->getTmpPath($this->templateCacheFolderName), false, true, true);
+        $this->_createTemplateCacheFolder();
 
-        $blRet = (bool)$this->_clearCache($sPattern, false, $this->templateCacheFolderName);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             stopProfile(__METHOD__);
         }
@@ -159,7 +161,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec)_menu_[a-z]{2}_xml.*\.{1}txt$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.")_menu_[a-z]{2}[0-9]*_xml.*\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -184,7 +186,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec)_class_file_paths\.{1}php$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.")_class_file_paths\.{1}php$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -209,7 +211,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec)_aLocal.*Cache\.{1}txt$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.")_aLocal.*Cache\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -234,7 +236,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec)_tagcloud__.*_[0-9]{1}[_]{1,2}\.{1}txt$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.")_tagcloud__.*_[0-9]{1}[_]{1,2}\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -259,7 +261,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec).*seo\.{1}txt$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.").*seo\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -284,9 +286,9 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%(config)\..*(module).*\.{1}txt$%"; // % is delimiter
+        $blRet = (bool) $this->_getFileSystemHandler()->del_dir($this->getTmpPath($this->moduleCacheFolderName), false, true, true);
+        $this->_createModuleCacheFolder();
 
-        $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             stopProfile(__METHOD__);
         }
@@ -309,7 +311,7 @@ class d3clrtmp extends Base
             startProfile(__METHOD__);
         }
 
-        $sPattern = "%.*(oxeec|oxpec)_.*(allfields|fieldnames|tbdsc).*\.{1}txt$%"; // % is delimiter
+        $sPattern = "%.*(".self::CACHE_FILE_PREFIX_PATTERN.")_.*(allfields|fieldnames|tbdsc).*\.{1}txt$%"; // % is delimiter
 
         $blRet = (bool)$this->_clearCache($sPattern);
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
@@ -606,8 +608,12 @@ class d3clrtmp extends Base
         if ((bool) Registry::get(ConfigFile::class)->getVar('iDebug')) {
             startProfile(__METHOD__);
         }
-        if (false == $this->blUpdateViewCheck ||
-            (is_object($this->_d3GetSet()) && false == $this->_d3GetSet()->getValue('blClrTmp_noviewupdate'))
+        if (!$this->blUpdateViewCheck ||
+            (
+                is_object($this->_d3GetSet()) &&
+                !$this->_d3GetSet()->getValue('blClrTmp_noviewupdate') &&
+                Registry::getConfig()->getConfigParam('blShowUpdateViews')
+            )
         ) {
             if (false == $this->blMallAdminCheck
                 || Registry::getSession()->getVariable("malladmin")

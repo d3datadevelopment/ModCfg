@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.2.0.0...rel_7.x)
 
+## [7.3.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.2.0.0...7.3.0.0) - 2026-02-05
+### Added
+- disable view update button if view updates are disabled
+- mySQL8 utf8_ -> utf8mbX_ collation handling
+- installable in OXID 7.4
+- CI capabilities
+
+### Changed
+- default log type if no one is set
+
+### Fixed
+- incomplete cache file prefixes
+- logout in setup wizard
+
 ## [7.2.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.1.2.0...7.2.0.0) - 2025-07-02
 ### Added
 - installierbar in OXID 7.3
