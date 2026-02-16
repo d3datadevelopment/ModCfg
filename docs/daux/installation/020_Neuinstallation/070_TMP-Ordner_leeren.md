@@ -13,7 +13,7 @@ Sofern die Views nicht automatisch aktualisiert werden, führen Sie dies noch du
 Alle TMP-leeren-Aktionen stehen Ihnen ebenfalls auf der Kommandozeile (CLI) zur Verfügung. Führen Sie diesen Befehl im Hauptverzeichnis Ihres Shops (oberhalb des `source`- und `vendor`-Verzeichnisses) aus:
 
 ```bash
-./vendor/bin/d3cleartmp
+./vendor/bin/oe-console d3:modcfg:cleartmp all
 ```
 
 > [i] Erfordert Ihre Installation eine andere Vorgehensweise zum Leeren des Caches oder zum Aktualisieren der Datenbank-Viewtabellen, führen Sie diese bitte aus.

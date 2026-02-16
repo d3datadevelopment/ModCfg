@@ -120,6 +120,7 @@ $updateInstaller = oxNew(d3updateinstaller::class);
 register_shutdown_function('D3\ModCfg\handleExit', $status, $updateInstaller);
 
 try {
+    fwrite(STDOUT, 'This script is deprecated and will removed in a next release. Please change to oe-console commands'.PHP_EOL);
     $status->noSuccess = $updateInstaller->startModuleInstallation(false, true);
     $status->noException = true;
 } catch (Exception $oEx) {

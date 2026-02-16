@@ -17,5 +17,5 @@ Ob erforderliche Updates ausgeführt werden sollen, können Sie jederzeit im Adm
 Der Installationsassistent steht Ihnen ebenfalls auf der Kommandozeile (CLI) zur Verfügung. Führen Sie diesen Befehl im Hauptverzeichnis Ihres Shops (oberhalb des `source`- und `vendor`-Verzeichnisses) aus:
 
 ```bash
-./vendor/bin/d3modules_install
+./vendor/bin/oe-console d3:modcfg:modules:setup
 ```

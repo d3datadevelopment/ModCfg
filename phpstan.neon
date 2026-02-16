@@ -20,7 +20,6 @@ parameters:
         - IntelliSenseHelper.php
     level: 3
     phpVersion: 80300
-    checkMissingIterableValueType: false
     featureToggles:
         disableRuntimeReflectionProvider: true
     ignoreErrors:

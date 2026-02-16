@@ -7,7 +7,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.2.0.0...rel_7.x)
+## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.4.0.0...rel_7.x)
+
+## [7.4.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.3.0.0...7.4.0.0) - 2026-02-16
+### Added
+- CLI command to set license key to a specified module
+
+### Added
+- d3:modcfg:log:cleanup command to oe-console
+- d3:modcfg:log:status command to oe-console
+- d3:modcfg:cleartmp command to oe-console
+- d3:modcfg:modules:setup command to oe-console
+
+### deprecated
+- d3maintenance CLI command
+- d3cleartmp CLI command
+- d3modules_install CLI command
 
 ## [7.3.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.2.0.0...7.3.0.0) - 2026-02-05
 ### Added

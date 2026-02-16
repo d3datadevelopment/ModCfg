@@ -9,8 +9,8 @@ Title: Schnellstart per Composer
 ```bash
 php composer require {$composerident}:^{$moduleversion} --update-no-dev
 ./vendor/bin/oe-console oe:module:activate {$metadataident}
-./vendor/bin/d3modules_install
-./vendor/bin/d3cleartmp
+./vendor/bin/oe-console d3:modcfg:modules:setup
+./vendor/bin/oe-console d3:modcfg:cleartmp all
 ```
 
 Detailliertere Angaben zur Installation entnehmen Sie bitte den folgenden Seiten.

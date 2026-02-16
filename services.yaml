@@ -17,3 +17,28 @@ services:
 
   D3\ModCfg\Core\Twig\d3modcfgcheckExtension:
     tags: ['twig.extension']
+
+  D3\ModCfg\Application\Command\ClearTmp:
+    class: D3\ModCfg\Application\Command\ClearTmp
+    tags:
+      - { name: 'console.command', command: 'd3:modcfg:cleartmp' }
+
+  D3\ModCfg\Application\Command\LogCleanup:
+    class: D3\ModCfg\Application\Command\LogCleanup
+    tags:
+      - { name: 'console.command', command: 'd3:modcfg:log:cleanup' }
+
+  D3\ModCfg\Application\Command\LogStatus:
+    class: D3\ModCfg\Application\Command\LogStatus
+    tags:
+      - { name: 'console.command', command: 'd3:modcfg:log:status' }
+
+  D3\ModCfg\Application\Command\LicenseSet:
+    class: D3\ModCfg\Application\Command\LicenseSet
+    tags:
+      - { name: 'console.command', command: 'd3:modcfg:license:set' }
+
+  D3\ModCfg\Application\Command\ModuleSetup:
+    class: D3\ModCfg\Application\Command\ModuleSetup
+    tags:
+      - { name: 'console.command', command: 'd3:modcfg:modules:setup' }

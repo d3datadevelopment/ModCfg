@@ -131,6 +131,9 @@ Registry::getLang()->setTplLanguage(
 );
 // @codeCoverageIgnoreEnd
 
+/**
+ * @deprecated
+ */
 class d3maintenance extends CLI
 {
     const OPTION_VERSION = 'version';
@@ -214,6 +217,8 @@ class d3maintenance extends CLI
      */
     protected function main(Options $options)
     {
+        $this->info('This script is deprecated and will removed in a next release. Please change to oe-console commands');
+
         if ( $options->getOpt( self::OPTION_VERSION ) ) {
             $container = ContainerFactory::getInstance()->getContainer();
             $shopConfiguration = $container->get(ShopConfigurationDaoBridgeInterface::class)->get();
