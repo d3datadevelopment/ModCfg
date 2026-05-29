@@ -2,6 +2,10 @@
 title: Changelog
 ---
 
+## 6.2.2.0 (2026-05-29)
+### Changed
+- Shopversionsnormalisierung verarbeitet Prefix
+
 ## 6.2.1.0 (2024-07-11)
 ### Added
 - Kompatibilität mit O3-Shop integriert
