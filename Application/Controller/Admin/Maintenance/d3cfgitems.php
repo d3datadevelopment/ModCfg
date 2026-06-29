@@ -27,6 +27,7 @@ use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
+use RuntimeException;
 
 class d3cfgitems extends d3_cfg_mod_main
 {
@@ -132,34 +133,29 @@ class d3cfgitems extends d3_cfg_mod_main
         return false;
     }
 
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function save()
+    public function save(): void
     {
-        if (false == Registry::get(d3utils::class)->hasDemoshopMode()) {
-            $this->blSaveRet = false;
+        $exception = new RuntimeException('write function is disabled because of security reasons.');
+        Registry::getUtilsView()->addErrorToDisplay($exception);
 
-            if (false == $this->oFS) {
-                $this->oFS = oxNew(d3filesystem::class);
-            }
-            $sContent = Registry::get(Request::class)->getRequestEscapedParameter('newcfg');
-
-            if ($this->hasRequiredWriteProtection()) {
-                $sPermission = 0444;
-            } else {
-                $sPermission = 0644;
-            }
-
-            if ($this->oFS->chmod($this->getFileName(), 0644)) {
-                $this->blSaveRet = $this->oFS->createFile($this->getFileName(), $sContent, true, $sPermission);
-            }
-        }
+//        if (false == Registry::get(d3utils::class)->hasDemoshopMode()) {
+//            $this->blSaveRet = false;
+//
+//            if (false == $this->oFS) {
+//                $this->oFS = oxNew(d3filesystem::class);
+//            }
+//            $sContent = Registry::get(Request::class)->getRequestEscapedParameter('newcfg');
+//
+//            if ($this->hasRequiredWriteProtection()) {
+//                $sPermission = 0444;
+//            } else {
+//                $sPermission = 0644;
+//            }
+//
+//            if ($this->oFS->chmod($this->getFileName(), 0644)) {
+//                $this->blSaveRet = $this->oFS->createFile($this->getFileName(), $sContent, true, $sPermission);
+//            }
+//        }
     }
 
     public function editFile()

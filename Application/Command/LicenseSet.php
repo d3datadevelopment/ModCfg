@@ -1,8 +1,10 @@
 <?php
 
 /**
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
@@ -57,18 +59,12 @@ class LicenseSet extends Command
             ->addArgument(
                 self::ARGUMENT_SHOPID,
                 InputArgument::REQUIRED,
-                sprintf(
-                    'ID of the selected shop, possible values are: "%1$s"',
-                    $this->getShopIdList()
-                )
+                'ID of the selected shop'
             )
             ->addArgument(
                 self::ARGUMENT_MODULEID,
                 InputArgument::REQUIRED,
-                sprintf(
-                    'ID of the module in question, possible values are: "%1$s"',
-                    $this->getModuleIdList()
-                )
+                'ID of the module in question'
             )
             ->addArgument(
                 self::ARGUMENT_LICENSEKEY,
@@ -84,7 +80,7 @@ class LicenseSet extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_QUIET) {
-            Registry::getSession()->setVariable( 'd3cfgmodcli_quiet', true );
+            Registry::getSession()->setVariable('d3cfgmodcli_quiet', true);
         }
 
         $stopWatch = new Stopwatch();
@@ -144,15 +140,6 @@ class LicenseSet extends Command
     protected function isLocked(): bool
     {
         return !$this->lock();
-    }
-
-    protected function getShopIdList(): string
-    {
-        $config     = Registry::getConfig();
-        return implode(
-            ', ',
-            $config->getShopIds()
-        );
     }
 
     protected function getModuleIdList(): string

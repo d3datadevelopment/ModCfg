@@ -121,14 +121,14 @@ class d3LogLevel extends LogLevel
     {
         $bit = oxNew(d3bitmask::class);
         return match (true) {
-            $bit->isBitSetByPosition( $d3Loglevel, self::DEBUG) => Logger::DEBUG,
-            $bit->isBitSetByPosition( $d3Loglevel, self::INFO) => Logger::INFO,
-            $bit->isBitSetByPosition( $d3Loglevel, self::NOTICE) => Logger::NOTICE,
-            $bit->isBitSetByPosition( $d3Loglevel, self::WARNING) => Logger::WARNING,
-            $bit->isBitSetByPosition( $d3Loglevel, self::ERROR) => Logger::ERROR,
-            $bit->isBitSetByPosition( $d3Loglevel, self::CRITICAL) => Logger::CRITICAL,
-            $bit->isBitSetByPosition( $d3Loglevel, self::ALERT) => Logger::ALERT,
-            $bit->isBitSetByPosition( $d3Loglevel, self::EMERGENCY) => Logger::EMERGENCY,
+            $bit->isBitSetByPosition($d3Loglevel, self::DEBUG) => Logger::DEBUG,
+            $bit->isBitSetByPosition($d3Loglevel, self::INFO) => Logger::INFO,
+            $bit->isBitSetByPosition($d3Loglevel, self::NOTICE) => Logger::NOTICE,
+            $bit->isBitSetByPosition($d3Loglevel, self::WARNING) => Logger::WARNING,
+            $bit->isBitSetByPosition($d3Loglevel, self::ERROR) => Logger::ERROR,
+            $bit->isBitSetByPosition($d3Loglevel, self::CRITICAL) => Logger::CRITICAL,
+            $bit->isBitSetByPosition($d3Loglevel, self::ALERT) => Logger::ALERT,
+            $bit->isBitSetByPosition($d3Loglevel, self::EMERGENCY) => Logger::EMERGENCY,
             default => Logger::EMERGENCY,      // no appropriate Monolog level
         };
     }

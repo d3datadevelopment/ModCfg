@@ -19,7 +19,7 @@ use Psr\Log\LoggerTrait;
 
 class d3NullLogger implements d3LogInterface
 {
-    use LoggerTrait;
+    //    use LoggerTrait;
 
     /**
      * @param string $sModId
@@ -51,6 +51,11 @@ class d3NullLogger implements d3LogInterface
     public function setLogType($iLogType1, $iLogType2 = null, $iLogType3 = null)
     {
         return $this;
+    }
+
+    public function getLogType(): int
+    {
+        return 0;
     }
 
     /**

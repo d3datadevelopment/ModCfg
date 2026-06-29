@@ -106,7 +106,7 @@ class d3InstallCheckHasNoInstallItem implements d3InstallCheckInterface
             preg_match('@'.$sSearchPattern.'@', $aFileInfos['file'])
         ) {
             return str_replace('.php', '', $aFileInfos['file']);
-        };
+        }
 
         return false;
     }

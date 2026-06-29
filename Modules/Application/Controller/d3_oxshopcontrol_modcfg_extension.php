@@ -156,9 +156,9 @@ class d3_oxshopcontrol_modcfg_extension extends d3_oxshopcontrol_modcfg_extensio
                 parent::process($class, $function, $parameters, $viewsChain);
             } catch (Exception $oEx) {
                 if (d3_cfg_mod::get($this->_sLogSetId)->getValue('blLog_showAllExceptions')) {
-                    echo $oEx->getMessage();
+                    echo htmlspecialchars($oEx->getMessage(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
                     echo "<pre>";
-                    print_r($oEx);
+                    echo htmlspecialchars(print_r($oEx, true), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
                     echo "</pre>";
                 }
 

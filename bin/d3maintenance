@@ -25,10 +25,8 @@ use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Platforms\DateIntervalUnit;
 use Exception as ExceptionAlias;
 use OxidEsales\ComposerPlugin\Installer\Package\ShopPackageInstaller;
-use OxidEsales\Eshop\Core\Config;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Session;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use OxidEsales\EshopCommunity\Internal\Framework\Module\Configuration\Bridge\ShopConfigurationDaoBridgeInterface;
@@ -86,7 +84,7 @@ if (!empty($bootstrapFileName)) {
     }
 }
 
-if (!file_exists($bootstrapFileName) && !is_dir($bootstrapFileName)) {
+if (!is_string($bootstrapFileName) || !is_file($bootstrapFileName)) {
     $items = [
         "Unable to find eShop bootstrap.php file.",
         "You can override the path by using ESHOP_BOOTSTRAP_PATH environment variable.",
@@ -229,7 +227,7 @@ class d3maintenance extends CLI
         }
 
         if ( $options->getOpt( self::OPTION_QUIET ) ) {
-            d3GetOxidDIC()->get('d3ox.modcfg.'.Session::class)->setVariable( 'd3modcfg_quiet', true );
+            Registry::getSession()->setVariable( 'd3modcfg_quiet', true );
         }
 
         $arguments = $options->getArgs();
@@ -243,7 +241,7 @@ class d3maintenance extends CLI
             $value = $aTranslation['value'];
             $unit = $aTranslation['unit'];
 
-            if (((bool) strlen($value) || (bool) strlen($value)) &&
+            if (((bool) strlen($value) || (bool) strlen($unit)) &&
                 (
                     false === is_numeric($value) ||
                     false === in_array(strtoupper($unit), array_map('strtoupper', $this->getTimeUnitList()), true)
@@ -267,8 +265,7 @@ class d3maintenance extends CLI
                 $this->error( $oEx->getMessage() );
             }
         } finally {
-            /** @var Config $config */
-            $config = d3GetOxidDIC()->get( 'd3ox.modcfg.' . Config::class );
+            $config = Registry::getConfig();
             // @codeCoverageIgnoreStart
             if (false === defined('OXID_PHP_UNIT')) {
                 $config->pageClose();
@@ -290,9 +287,20 @@ class d3maintenance extends CLI
     {
         $lang = Registry::getLang();
 
-        if ( (bool) strlen( $value ) || (bool) strlen( $value ) ) {
+        if (
+            !strlen($value) ||
+            !strlen($unit) ||
+            false === is_numeric($value) ||
+            false === in_array(strtoupper($unit), array_map('strtoupper', $this->getTimeUnitList()), true)
+        ) {
+            throw oxNew(RuntimeException::class, $lang->translateString('D3_LOG_CLI_UNVALID_PARAMETERS'));
+        }
+
+        if (strlen($value) && strlen($unit)) {
+            $log = d3log::get('d3modcfg_lib', 0);
+
             $queryBuilder = ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
-            $queryBuilder->delete( d3GetOxidDIC()->get( 'd3.modcfg.log_get' )->getCoreTableName() )
+            $queryBuilder->delete( $log->getCoreTableName() )
                          ->where( 'oxtime < DATE_SUB(NOW(), INTERVAL ' . $queryBuilder->createNamedParameter( $value, ParameterType::INTEGER ) . ' ' . $unit . ')' );
 
             $this->debug( d3database::getInstance()->getPreparedStatementQuery( $queryBuilder->getSQL(), $queryBuilder->getParameters() ) );
@@ -322,14 +330,16 @@ class d3maintenance extends CLI
 
         $queryBuilder = ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
 
+        $log = d3log::get('d3modcfg_lib', 0);
+
         $queryBuilder->select('count(*)', 'oxlogtype', 'DATE_FORMAT(OXTIME, \'%Y-%m\')')
-                     ->from(d3GetOxidDIC()->get('d3.modcfg.log_get')->getCoreTableName())
+                     ->from($log->getCoreTableName())
                      ->groupBy('DATE_FORMAT(OXTIME, \'%Y-%m\')')
                      ->addGroupBy('OXLOGTYPE')
                      ->orderBy('DATE_FORMAT(OXTIME, \'%Y-%m\')', 'DESC')
                      ->addOrderBy("FIELD(OXLOGTYPE, '".$this->getLogTypeListString()."')");
 
-        if ((bool) strlen($value) || (bool) strlen($value)) {
+        if ((bool) strlen($value) || (bool) strlen($unit)) {
             $queryBuilder->where(
                 'oxtime < DATE_SUB(NOW(), INTERVAL ' .
                 $queryBuilder->createNamedParameter( $value, ParameterType::INTEGER ) . ' ' . $unit . ')'
@@ -399,8 +409,7 @@ class d3maintenance extends CLI
      */
     public function getLogTypeList()
     {
-        /** @var d3log $log */
-        $log = d3GetOxidDIC()->get('d3.modcfg.log_get');
+        $log = d3log::get('d3modcfg_lib', 0);
 
         $bitmask = oxNew( d3bitmask::class);
         $range = $bitmask->removeBit(d3LogLevel::ERROR_AND_BELOW, d3LogLevel::EMPTY_AND_BELOW);

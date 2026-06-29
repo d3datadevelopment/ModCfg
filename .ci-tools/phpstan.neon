@@ -1,27 +1,25 @@
 parameters:
     scanFiles:
-        - IntelliSenseHelper.php
-        - ../../oxid-esales/oxideshop-ce/source/bootstrap.php
-        - ../../oxid-esales/oxideshop-ce/source/oxfunctions.php
-        - ../../oxid-esales/oxideshop-ce/source/overridablefunctions.php
+        - ../IntelliSenseHelper.php
+        - ../../../oxid-esales/oxideshop-ce/source/bootstrap.php
+        - ../../../oxid-esales/oxideshop-ce/source/oxfunctions.php
+        - ../../../oxid-esales/oxideshop-ce/source/overridablefunctions.php
     paths:
-        - Application
-        - assets
-        - bin
-        - Config
-        - Modules
-        - setup
-        - views
+        - ../Application
+        - ../assets
+        - ../bin
+        - ../Config
+        - ../Modules
+        - ../setup
+        - ../views
     excludePaths:
-        - build
-        - docs
-        - resources
-        - Tests
-        - IntelliSenseHelper.php
+        - ../build
+        - ../docs
+        - ../resources
+        - ../Tests
+        - ../IntelliSenseHelper.php
     level: 3
     phpVersion: 80300
-    featureToggles:
-        disableRuntimeReflectionProvider: true
     ignoreErrors:
         - '#Call to an undefined static method D3\\ModCfg\\Modules\\Application\\Controller\\d3_oxshopcontrol_modcfg_extension_parent::handleAccessRightsException\(\)\.#'
         - '#Parameter \$exception of method D3\\ModCfg\\Modules\\Application\\Controller\\d3_oxshopcontrol_modcfg_extension::handleAccessRightsException\(\) has invalid type OxidEsales\\Eshop\\Core\\Exception\\AccessRightException\.#'

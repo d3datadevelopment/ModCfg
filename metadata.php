@@ -33,13 +33,12 @@ use D3\ModCfg\Application\Controller\Admin\TPLBlocks as ModuleAdminTplController
 $sMetadataVersion = '2.1';
 
 $sModuleId = Constants::OXID_MODULE_ID;
-$sLogo = '<img src="https://logos.oxidmodule.com/d3logo.svg" alt="(D3)" style="height:1em;width:1em"> ';
 
 $aModule = [
     'id'          => $sModuleId,
     'title'       => [
-        'de'    => $sLogo.' Modul-Connector',
-        'en'    => $sLogo.' Module Connector',
+        'de'    => '(D3) Modul-Connector',
+        'en'    => '(D3) Module Connector',
     ],
     'description' => [
         'de' => 'enth&auml;lt:<ul><li>Modulkonfiguration</li>'.
@@ -53,10 +52,10 @@ $aModule = [
     ],
     'lang'        => 'de',
     'thumbnail'   => 'picture.svg',
-    'version'     => '7.4.0.0',
+    'version'     => '7.5.0.0',
     'author'      => 'D&sup3; Data Development (Inh. Thomas Dartsch)',
     'email'       => 'support@shopmodule.com',
-    'url'         => 'http://www.oxidmodule.com',
+    'url'         => 'https://www.oxidmodule.com',
     'extend'      => [
         definitionFileContainer::class                  => ModCfgServices::class,
         OxidAdminController\NavigationController::class => d3_navigation_modcfgupdate::class,

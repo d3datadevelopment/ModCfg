@@ -49,7 +49,7 @@
     <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName()|raw }}">
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
     {% for key, formparam in oView.d3getAdditionalFormParams() %}
-        <input type="hidden" name="{{ key }}" value="{{ formparam }}">
+        <input type="hidden" name="{{ key }}" value="{{ formparam|e }}">
     {% endfor %}
 </form>
 
@@ -63,7 +63,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_MODULE" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxmodid') }}
+                            {{ edit.getFieldData('oxmodid')|e }}
                         </td>
                     </tr>
                     <tr>
@@ -71,7 +71,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_TIME" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxtime') }}
+                            {{ edit.getFieldData('oxtime')|e }}
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_COUNTER" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxcounter') }}
+                            {{ edit.getFieldData('oxcounter')|e }}
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_LOGTYPE" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxlogtype') }}
+                            {{ edit.getFieldData('oxlogtype')|e }}
                         </td>
                     </tr>
 
@@ -96,7 +96,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_SESSID" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxsessid') }}
+                            {{ edit.getFieldData('oxsessid')|e }}
                         </td>
                     </tr>
 
@@ -105,7 +105,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_CLASS" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxclass') }}
+                            {{ edit.getFieldData('oxclass')|e }}
                         </td>
                     </tr>
 
@@ -114,7 +114,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_FUNCTION" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxfnc') }}
+                            {{ edit.getFieldData('oxfnc')|e }}
                         </td>
                     </tr>
 
@@ -123,7 +123,7 @@
                             {{ translate({ ident: "D3_CFG_LOG_LINE" }) }}&nbsp;
                         </td>
                         <td class="edittext">
-                            {{ edit.getFieldData('oxline') }}
+                            {{ edit.getFieldData('oxline')|e }}
                         </td>
                     </tr>
 
@@ -139,7 +139,7 @@
                                 {{ translate({ ident: "D3_CFG_LOG_ACTION" }) }}&nbsp;
                             </td>
                             <td class="edittext">
-                                {{ edit.getFieldData('oxaction') }}
+                                {{ edit.getFieldData('oxaction')|e }}
                             </td>
                         </tr>
                     {% endif %}
@@ -150,7 +150,7 @@
                         <td class="edittext">
                             <fieldset class="codepre" id="codeformat">
                                 <div>
-                                    {{ edit.getFieldData('oxtext') }}
+                                    {{ edit.getFieldData('oxtext')|e }}
                                 </div>
                             </fieldset>
                         </td>
@@ -184,7 +184,7 @@
         <input type="hidden" name="oxid" value="{{ oxid }}">
         <input type="hidden" name="voxid" value="{{ oxid }}">
         {% for key, formparam in oView.d3getAdditionalFormParams() %}
-            <input type="hidden" name="{{ key }}" value="{{ formparam }}">
+            <input type="hidden" name="{{ key }}" value="{{ formparam|e }}">
         {% endfor %}
 
         <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 50%">
@@ -217,7 +217,7 @@
                                 <label for="export_oxtime">{{ translate({ ident: "D3_CFG_EXPORT_EXP_TIME" }) }}</label>
                             </td>
                             <td class="edittext">
-                                <input type="text" class="editinput" size="32" maxlength="19" name="export_oxtime" id="export_oxtime" value="{% if oxtime %}{{ oxtime }}{% else %}{{ deftime }}{% endif %}" {{ readonly }}>
+                                <input type="text" class="editinput" size="32" maxlength="19" name="export_oxtime" id="export_oxtime" value="{% if oxtime %}{{ oxtime|e }}{% else %}{{ deftime|e }}{% endif %}" {{ readonly }}>
                             </td>
                         </tr>
                         <tr>

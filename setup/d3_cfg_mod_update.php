@@ -89,6 +89,8 @@ class d3_cfg_mod_update extends d3install_updatebase
               'do'    => 'deleteDuplicateBlockItems'],
         ['check' => 'hasNonNamespacedRolesBemainExtension',
               'do'    => 'removeNonNamespacedRolesBemainExtension'],
+        ['check' => 'hasD3ModProfileMultilangDateColumns',
+            'do'    => 'removeD3ModProfileMultilangDateColumns'],
         ['check' => 'hasModcfgMultilangSetting',
               'do'    => 'addModcfgMultilangSetting'],
         ['check' => 'checkModCfgSameRevision',
@@ -97,14 +99,14 @@ class d3_cfg_mod_update extends d3install_updatebase
 
     public $sModKey = 'd3modcfg_lib';
     public $sModName = 'Modul-Connector';
-    public $sModVersion = '7.4.0.0';
+    public $sModVersion = '7.5.0.0';
     public $sBaseConf =
-        'Pj6v2==M09Zenl6TzBxY1NDS1RHZ003QmZFblJwbVhBNDNXOHhJRjE2K2gwTGlsdGhBRUlBdTM0MjZVa
-Hg2SDlnL0ZWZFVuSDRnYlltWTBNeGtwN3lmYys0UXFmY2Fia0lKaDh5R0lQZXZBaG9hMzVsMWVJejNjU
-UZJaUFCN2N3T09qdFVIWGNacjgzaG1YUXhYN3VJbkVaS1VIV0JpVkhBV3lGQmpUOHZ0VnBtOVVQNWp4S
-G5aTzEzV3pZUTF2eFJieTFIMEQ4b0xEQXZmUGZ0cmdRSzJMZ21CV1FJSGhDcXB1L2xRRzl2K0hrTDZqT
-FcycUNNVXFHTjFPUWZGek9IaTZLbm5kTDNFN3lUVlMyVnlLVU9IVytib2tUZ3VPUythY0lUNkErUkEvM
-nB0K0Y4MjZaQ3ZuSlg5UzhDVEhuUk9kUDY=';
+        'WwXv2==MkhaaVZlTmpnbFRQMjQ0aG9Da0toZ3ZVclJaT3BKVjF1Tkc4Tm1EeWVBQncwWEJxMjNBdlNye
+UxkV05wVUtrR3dkaWR2aURKbHEzbG5KT1oyMFBuZGF1cXhIK0VNMytCVG5KWEtDMFFiZXBMMVh0NVAyQ
+klRM3dPZUpuNTdHREdzaDV1RGNtTCsrYVp2N1JUbnYrNGE3ZEFZS0c2Q2k0SkVlRUIvdDNTVmgxQjl3R
+0x6UkV3NlU3cUM3RmpPT0xHVXZuMkw0dVZ4N3p6NFpEcTJNOTQycE1yUmlTYkt0VGdZOVhRcWJpdXRwd
+StGWSthbFc0V29hQnU2eW9DVVgvNnJiZEZnRHFySVU2R3ZFVlRwNHlJRjd4WVZITXErcE81dXp4UzJDN
+0RXSitYaUhCSkJhR2JKamFoNzhLUFZqdFE=';
     public $sRequirements = '';
     public $sBaseValue = '';
 
@@ -368,7 +370,7 @@ nB0K0Y4MjZaQ3ZuSlg5UzhDVEhuUk9kUDY=';
             'sDefault'    => '0000-00-00 00:00:00',
             'sComment'    => 'active from date',
             'sExtra'      => '',
-            'blMultilang' => true,
+            'blMultilang' => false,
         ],
         'PROF_OXACTIVETO'       => [
             'sTableName'  => 'd3modprofile',
@@ -378,7 +380,7 @@ nB0K0Y4MjZaQ3ZuSlg5UzhDVEhuUk9kUDY=';
             'sDefault'    => '0000-00-00 00:00:00',
             'sComment'    => 'active to date',
             'sExtra'      => '',
-            'blMultilang' => true,
+            'blMultilang' => false,
         ],
         'PROF_OXMODID'        => [
             'sTableName'  => 'd3modprofile',
@@ -424,11 +426,11 @@ nB0K0Y4MjZaQ3ZuSlg5UzhDVEhuUk9kUDY=';
             'sTableName'  => 'd3modprofile',
             'sFieldName'  => 'OXUPDATE',
             'sType'       => 'DATETIME',
-            'blNull'      => true,
-            'sDefault'    => 'NULL',
+            'blNull'      => false,
+            'sDefault'    => '0000-00-00 00:00:00',
             'sComment'    => 'update date',
             'sExtra'      => '',
-            'blMultilang' => true,
+            'blMultilang' => false,
         ],
         'PROF_OXMODVERSION'      => [
             'sTableName'  => 'd3modprofile',
@@ -1502,5 +1504,81 @@ nB0K0Y4MjZaQ3ZuSlg5UzhDVEhuUk9kUDY=';
             unset($this->aFields['PROF_OXSHOPINCL']);
             unset($this->aFields['PROF_OXSHOPEXCL']);
         }
+    }
+
+    /**
+     * MySQL 8 multilang fallback issue for DateTime columns
+     */
+    public function hasD3ModProfileMultilangDateColumns(): bool
+    {
+        $db = d3database::getInstance()->getDBConnection();
+
+        $sql = "
+        SELECT COUNT(*)
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = DATABASE()
+          AND TABLE_NAME = 'd3modprofile'
+          AND (
+              COLUMN_NAME LIKE 'OXACTIVEFROM\\_%'
+              OR COLUMN_NAME LIKE 'OXACTIVETO\\_%'
+              OR COLUMN_NAME LIKE 'OXUPDATE\\_%'
+          )
+    ";
+
+        return (bool) $db->executeQuery($sql)->fetchOne();
+    }
+
+    public function removeD3ModProfileMultilangDateColumns(): bool
+    {
+        $blRet = true;
+
+        if (!$this->hasD3ModProfileMultilangDateColumns()) {
+            return $blRet;
+        }
+
+        $db = d3database::getInstance()->getDBConnection();
+
+        $columns = $db->executeQuery("
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = DATABASE()
+          AND TABLE_NAME = 'd3modprofile'
+          AND (
+              COLUMN_NAME LIKE 'OXACTIVEFROM\\_%'
+              OR COLUMN_NAME LIKE 'OXACTIVETO\\_%'
+              OR COLUMN_NAME LIKE 'OXUPDATE\\_%'
+          )
+        ORDER BY ORDINAL_POSITION
+    ")->fetchFirstColumn();
+
+        if (!count($columns)) {
+            return $blRet;
+        }
+
+        $dropColumns = [];
+
+        foreach ($columns as $column) {
+            $dropColumns[] = 'DROP COLUMN `'.$column.'`';
+        }
+
+        $sMessage = '# '.Registry::getLang()->translateString('D3_CFG_MOD_UPDATE_JOB_SQL').PHP_EOL;
+
+        $sMessage .= "
+        SET @d3_old_sql_mode = @@SESSION.sql_mode;
+
+        SET SESSION sql_mode = REPLACE(@@SESSION.sql_mode, 'NO_ZERO_DATE', '');
+        SET SESSION sql_mode = REPLACE(@@SESSION.sql_mode, 'NO_ZERO_IN_DATE', '');
+
+        ALTER TABLE `d3modprofile`
+            ".implode(",\n            ", $dropColumns).";
+
+        SET SESSION sql_mode = @d3_old_sql_mode;
+    ";
+
+        $blRet = $this->sqlExecute($sMessage);
+        $this->setRequiredViewUpdate('d3modprofile');
+        $this->setActionLog('SQL', $sMessage, __METHOD__);
+
+        return $blRet;
     }
 }

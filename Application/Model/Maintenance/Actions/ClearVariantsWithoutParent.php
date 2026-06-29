@@ -51,40 +51,29 @@ class ClearVariantsWithoutParent extends AbstractAction
     {
         $baseQuery = $this->getBaseQuery('oav');
         $baseQuery->select('oav.oxid');
-        $allIds = $baseQuery->execute()->fetchAllNumeric();
+        $allIds = array_column($baseQuery->execute()->fetchAllNumeric(), 0);
 
-        $queryBuilder = $this->getQueryBuilder();
-        $queryBuilder->delete('oxarticles', 'deleteTable')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'delTable.oxid',
-                    implode(
-                        ', ',
-                        array_map(
-                            fn ($id) => $queryBuilder->createNamedParameter($id),
-                            $allIds
+        $queries = [];
+        foreach (['oxarticles', 'oxartextends'] as $deleteTable) {
+            $queryBuilder = $this->getQueryBuilder();
+            $queryBuilder->delete($deleteTable, 'deleteTable')
+                ->where(
+                    $queryBuilder->expr()->in(
+                        'deleteTable.oxid',
+                        implode(
+                            ', ',
+                            array_map(
+                                fn ($id) => $queryBuilder->createNamedParameter($id),
+                                $allIds
+                            )
                         )
                     )
-                )
-            );
-
-        $queryBuilder = $this->getQueryBuilder();
-        $queryBuilder->delete('oxartextends', 'deleteTable')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'delTable.oxid',
-                    implode(
-                        ', ',
-                        array_map(
-                            fn ($id) => $queryBuilder->createNamedParameter($id),
-                            $allIds
-                        )
-                    )
-                )
-            );
+                );
+            $queries[] = count($allIds) ? $queryBuilder : null;
+        }
 
         $this->_performAction(
-            [count($allIds) ? $queryBuilder : null],
+            $queries,
             'D3_CFG_CLRTMP_ASSIGNVARIANTWOPARENT_SUCC'
         );
     }

@@ -16,6 +16,7 @@
 namespace D3\ModCfg\Application\Model\Encoding;
 
 use JsonException;
+use stdClass;
 
 class d3decoder
 {
@@ -74,7 +75,7 @@ class d3decoder
      */
     public function decodeDefault(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             rawurldecode(
                 base64_decode($encodedValue ?? '')
             )
@@ -104,7 +105,7 @@ class d3decoder
      */
     public function decodeUtf8(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             mb_convert_encoding(
                 html_entity_decode($encodedValue ?? '', ENT_QUOTES),
                 'ISO-8859-1',
@@ -120,7 +121,7 @@ class d3decoder
      */
     public function decodeSerialize(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             html_entity_decode($encodedValue ?? '', ENT_QUOTES)
         );
     }
@@ -132,7 +133,7 @@ class d3decoder
      */
     public function decodeUrl(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             urldecode($encodedValue ?? '')
         );
     }
@@ -144,7 +145,7 @@ class d3decoder
      */
     public function decodeRawUrl(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             rawurldecode($encodedValue ?? '')
         );
     }
@@ -156,7 +157,7 @@ class d3decoder
      */
     public function decodeBase64(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             base64_decode($encodedValue ?? '')
         );
     }
@@ -168,11 +169,11 @@ class d3decoder
      */
     public function decodeGZip(?string $encodedValue): mixed
     {
-        return unserialize(
-            gzdecode(
-                html_entity_decode($encodedValue ?? '', ENT_QUOTES)
-            )
+        $decodedValue = @gzdecode(
+            html_entity_decode($encodedValue ?? '', ENT_QUOTES)
         );
+
+        return $this->safeUnserialize($decodedValue);
     }
 
     /**
@@ -182,7 +183,7 @@ class d3decoder
      */
     public function decodeUUEncode(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             convert_uudecode(
                 html_entity_decode($encodedValue ?? '', ENT_QUOTES)
             )
@@ -196,10 +197,33 @@ class d3decoder
      */
     public function decodeQuotedPrintable(?string $encodedValue): mixed
     {
-        return unserialize(
+        return $this->safeUnserialize(
             quoted_printable_decode(
                 html_entity_decode($encodedValue ?? '', ENT_QUOTES)
             )
         );
+    }
+
+    protected function safeUnserialize(string|false|null $value): mixed
+    {
+        if (!is_string($value) || $value === '') {
+            return false;
+        }
+
+        try {
+            $decodedValue = @unserialize($value, [
+                'allowed_classes' => [
+                    stdClass::class,
+                ],
+            ]);
+        } catch (\Throwable) {
+            return false;
+        }
+
+        if ($decodedValue instanceof \__PHP_Incomplete_Class) {
+            return false;
+        }
+
+        return $decodedValue;
     }
 }

@@ -183,12 +183,9 @@ class d3cleartmp extends d3_cfg_mod_main
         return $this->_getFileSystemHandler()->filecount($this->getTmpPath());
     }
 
-    /**
-     *
-     */
-    public function getHelpUrl()
+    public function getHelpUrl(): string
     {
-        return;
+        return '';
     }
 
     /**
@@ -469,35 +466,5 @@ class d3cleartmp extends d3_cfg_mod_main
         }
 
         return $blReturn;
-    }
-
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3ExecCommand1()
-    {
-        /** @var d3clrtmp $oClrTmp */
-        $oClrTmp = oxNew(d3clrtmp::class);
-        $oClrTmp->d3ExecCommand(1);
-    }
-
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3ExecCommand2()
-    {
-        /** @var d3clrtmp $oClrTmp */
-        $oClrTmp = oxNew(d3clrtmp::class);
-        $oClrTmp->d3ExecCommand(2);
     }
 }

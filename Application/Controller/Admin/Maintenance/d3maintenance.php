@@ -46,7 +46,7 @@ class d3maintenance extends d3_cfg_mod_main
         $container = ContainerFactory::getInstance()->getContainer();
         $queryBuilder = $container->get(QueryBuilderFactoryInterface::class)->create();
         $queryBuilder->delete('oxconfig')
-            ->where("oxvarname IN ('".implode("','", $aRemoveFields)."'")
+            ->where("oxvarname IN ('".implode("','", $aRemoveFields)."')")
             ->andWhere('oxshopid = '.$queryBuilder->createNamedParameter($shop->getId()));
 
         $queryBuilder->execute();

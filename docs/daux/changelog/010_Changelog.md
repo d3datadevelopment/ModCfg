@@ -7,13 +7,55 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.4.0.0...rel_7.x)
+## [Unreleased](https://git.d3data.de/D3Private/ModCfg/compare/7.5.0.0...rel_7.x)
+
+## [7.5.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.4.1.0...7.5.0.0) - 2026-06-29
+## Added
+- Added support for OXID eShop 7.5 and PHP 8.5.
+
+## Changed
+- Improved license validation and activation handling.
+- Improved module state management.
+- Improved export filename sanitization.
+- Improved module ID detection and query sorting.
+- Normalized configuration and license data handling.
+- Improved encoder/decoder robustness.
+- Improved exception handling and logging.
+- Improved controller error rendering.
+- Improved database query handling using prepared statements.
+- Improved maintenance routines and parameter validation.
+- Updated CI configuration and test setup.
+- Updated PHPStan configuration for PHP 8.5 compatibility.
+
+## Security
+- Restricted file system and HTTP(S) access to safer defaults.
+- Restricted MIME type resolution to secure defaults.
+- Improved input validation and secure data handling.
+- Removed obsolete shell command execution functionality.
+- Prevented ambiguous SQL column references.
+
+## Removed
+- Removed obsolete PHPStan configuration.
+- Removed MySQL 8 incompatible multilingual datetime columns from database views.
+
+## Fixed
+- Fixed activation form handling.
+- Fixed encoding issues in the file generator.
+- Fixed various maintenance-related issues.
+- Fixed edge cases in encoder/decoder processing.
+- Fixed several minor issues and improved overall stability.
+
+## [7.4.1.0](https://git.d3data.de/D3Private/ModCfg/compare/7.4.0.0...7.4.1.0) - 2026-05-21
+### Fixed
+- deal with empty "getSqlActiveSnippet" return
+
+### Changed
+- replace D3 DI container
+- remove business logic from Symfony services
 
 ## [7.4.0.0](https://git.d3data.de/D3Private/ModCfg/compare/7.3.0.0...7.4.0.0) - 2026-02-16
 ### Added
 - CLI command to set license key to a specified module
-
-### Added
 - d3:modcfg:log:cleanup command to oe-console
 - d3:modcfg:log:status command to oe-console
 - d3:modcfg:cleartmp command to oe-console

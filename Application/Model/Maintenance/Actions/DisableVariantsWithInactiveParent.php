@@ -52,7 +52,7 @@ class DisableVariantsWithInactiveParent extends AbstractAction
     {
         $baseQuery = $this->getBaseQuery('oav');
         $baseQuery->select('oav.oxid');
-        $allIds = $baseQuery->execute()->fetchAllNumeric();
+        $allIds = array_column($baseQuery->execute()->fetchAllNumeric(), 0);
 
         $queryBuilder = $this->getQueryBuilder();
         $queryBuilder->update('oxarticles', 'updateTable')

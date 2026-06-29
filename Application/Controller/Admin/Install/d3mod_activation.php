@@ -15,6 +15,8 @@
 
 namespace D3\ModCfg\Application\Controller\Admin\Install;
 
+use Assert\Assert;
+use Assert\InvalidArgumentException;
 use D3\ModCfg\Application\Controller\Admin\d3_cfg_mod_main;
 use D3\ModCfg\Application\Model\Configuration\d3_cfg_mod;
 use D3\ModCfg\Application\Model\Constants;
@@ -38,7 +40,7 @@ final class d3mod_activation extends d3_cfg_mod_main
     protected $_sNextStep = 'getActivationType';
     protected $_sActivationType;
     protected $_sThisTemplate = '@'.Constants::OXID_MODULE_ID.'/admin/install/activation';
-    protected $_blSubmitStatus = false;
+    protected ?int $_blSubmitStatus = null;
     protected $_sModSerial = '';
     protected $_sNotSuccessMessage = '';
     protected $_sValidTo = '';
@@ -69,7 +71,16 @@ final class d3mod_activation extends d3_cfg_mod_main
      */
     public function render()
     {
-        $this->addTplParam('oModule', d3_cfg_mod::get(Registry::get(Request::class)->getRequestEscapedParameter('modid')));
+        try {
+            $errMessage = Registry::getLang()->translateString('D3_CFG_MOD_LICDETAILS_FORMERR', null, true);
+            Assert::that( $this->_sNextStep )->inArray( [ 'getActivationType', 'getActivationData', 'submitData', 'saveSerialSuccess' ], $errMessage );
+            Assert::that($this->_sNextStep != 'getActivationData' || $this->getActivationType())->true($errMessage);
+
+            $this->addTplParam( 'oModule', d3_cfg_mod::get( Registry::get( Request::class )->getRequestEscapedParameter( 'modid' ) ) );
+
+        } catch (InvalidArgumentException $e) {
+            Registry::getUtilsView()->addErrorToDisplay($e);
+        }
 
         return parent::render();
     }
@@ -168,11 +179,11 @@ final class d3mod_activation extends d3_cfg_mod_main
             }
 
             $this->_sModSerial         = $aLicData['sSerial'];
-            $this->_blSubmitStatus     = $aLicData['iError'];
+            $this->_blSubmitStatus     = (int) $aLicData['iError'];
             $this->_sNotSuccessMessage = $aLicData['sErrMsg'];
             $this->_sValidTo           = $aLicData['sValidTo'];
 
-            if ($this->_blSubmitStatus === '0' && $this->_sModSerial) {
+            if ($this->_blSubmitStatus === 0 && $this->_sModSerial) {
                 $this->_oModule->setSerial($this->_sModSerial);
                 $this->_saveActIdent($sKey);
                 $this->_oModule->save();
@@ -293,9 +304,9 @@ final class d3mod_activation extends d3_cfg_mod_main
     }
 
     /**
-     * @return bool
+     * @return ?int
      */
-    public function getSubmitStatus()
+    public function getSubmitStatus(): ?int
     {
         return $this->_blSubmitStatus;
     }
@@ -303,18 +314,18 @@ final class d3mod_activation extends d3_cfg_mod_main
     /**
      * @return string
      */
-    public function getNotSuccessMessage()
+    public function getNotSuccessMessage(): string
     {
         $sIdent = "D3_CFG_MOD_ACTIVATION_ERR";
 
         match ($this->getSubmitStatus()) {
-            '1' => $sIdent .= "MISSINGPARAMS",
-            '2' => $sIdent .= "UNKNOWNMODULE",
-            '3' => $sIdent .= "TOMUCHTESTLIC",
-            '4' => $sIdent .= "NOORDER",
-            '5' => $sIdent .= "WRONGEDITION",
-            '6' => $sIdent .= "DIFFERENTSHOPS",
-            '7' => $sIdent .= "NEWERMAJORVERSION",
+            1 => $sIdent .= "MISSINGPARAMS",
+            2 => $sIdent .= "UNKNOWNMODULE",
+            3 => $sIdent .= "TOMUCHTESTLIC",
+            4 => $sIdent .= "NOORDER",
+            5 => $sIdent .= "WRONGEDITION",
+            6 => $sIdent .= "DIFFERENTSHOPS",
+            7 => $sIdent .= "NEWERMAJORVERSION",
             default => Registry::getLang()->translateString($sIdent),
         };
 

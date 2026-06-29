@@ -50,14 +50,14 @@ class d3_cfg_log_list extends d3_cfg_mod_list
             $sPwrSearchFld = "oxaction";
         }
 
-        /** @var d3log $oD3Log */
-        $oD3Log = null;
         $oList  = $this->getItemList();
 
         $this->_aViewData["art_category"] = null;
         $this->_aViewData["_act"] = null;
         $this->_aViewData["readonly"] = false;
         $this->_aViewData["folder"] = false;
+
+        $oD3Log = null;
 
         if ($oList) {
             /**
@@ -180,9 +180,10 @@ class d3_cfg_log_list extends d3_cfg_mod_list
      */
     public function deleteentry()
     {
-        /** @var d3log $oLog */
         $oLog = oxNew(d3log::class);
         $oLog->delLog();
+
+        return null;
     }
 
     /**

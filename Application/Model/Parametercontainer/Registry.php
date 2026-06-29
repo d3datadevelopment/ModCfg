@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
@@ -41,7 +43,7 @@ class Registry
     /**
      * @param BaseModel $baseModel
      */
-    public function add(BaseModel $baseModel)
+    public function add(BaseModel $baseModel): void
     {
         if (is_null($baseModel->getId())) {
             $baseModel->setId();
@@ -57,21 +59,24 @@ class Registry
      * save and clear objects
      * @throws Exception
      */
-    public function save()
+    public function save(): void
     {
-        if ($this->shoudISave) {
-            foreach ($this->objects as $object) {
-                /** @var $object BaseModel */
-                if (false == $object->exists()) {
-                    $object->save();
+        try {
+            if ($this->shoudISave) {
+                foreach ($this->objects as $object) {
+                    /** @var BaseModel $object */
+                    if (! $object->exists()) {
+                        $object->save();
+                    }
                 }
             }
+        } finally {
+            $this->objects = [];
+            $this->shoudISave = false;
         }
-
-        $this->objects = [];
     }
 
-    public function allowSave()
+    public function allowSave(): void
     {
         $this->shoudISave = true;
     }

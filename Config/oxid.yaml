@@ -11,6 +11,8 @@
 # @author    D3 Data Development - Daniel Seifert <support@shopmodule.com>
 # @link      http://www.oxidmodule.com
 
+# deprecated
+
 services:
   _defaults:
     autowire: true
@@ -18,19 +20,19 @@ services:
 
   # article
   d3ox.modcfg.OxidEsales\Eshop\Application\Model\Article:
-    class:      'OxidEsales\Eshop\Application\Model\Article'
-    factory:    'oxNew'
-    shared:     false
+    class: 'OxidEsales\Eshop\Application\Model\Article'
+    factory: 'oxNew'
+    shared: false
     arguments:
       - 'OxidEsales\Eshop\Application\Model\Article'
 
   # config
   d3ox.modcfg.OxidEsales\Eshop\Core\Config:
-    class:      'OxidEsales\Eshop\Core\Config'
+    class: 'OxidEsales\Eshop\Core\Config'
     factory:
       - 'OxidEsales\Eshop\Core\Registry'
       - 'getConfig'
-    shared:     true
+    shared: true
 
   # language
   d3ox.modcfg.OxidEsales\Eshop\Core\Language:
@@ -50,23 +52,23 @@ services:
 
   # session
   d3ox.modcfg.OxidEsales\Eshop\Core\Session:
-    class:      'OxidEsales\Eshop\Core\Session'
+    class: 'OxidEsales\Eshop\Core\Session'
     factory:
       - 'OxidEsales\Eshop\Core\Registry'
       - 'getSession'
-    shared:     true
+    shared: true
 
   # deprecated
   d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Container\ContainerFactory:
-    class:      'OxidEsales\EshopCommunity\Internal\Container\ContainerFactory'
-    factory:    ['OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getInstance']
-    shared:     true
+    class: 'OxidEsales\EshopCommunity\Internal\Container\ContainerFactory'
+    factory: ['OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getInstance']
+    shared: true
 
   # deprecated
   d3ox.modcfg.OxDiContainer:
-    class:      'ProjectServiceContainer'
-    factory:    ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getContainer']
-    shared:     true
+    class: 'ProjectServiceContainer'
+    factory: ['@d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Container\ContainerFactory', 'getContainer']
+    shared: true
 
   d3ox.modcfg.OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProviderInterface:
     class: OxidEsales\EshopCommunity\Internal\Framework\Database\ConnectionProvider

@@ -16,9 +16,9 @@
 namespace D3\ModCfg\Application\Model\Exception;
 
 use DateTimeImmutable;
-use Exception;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
+use Throwable;
 
 /**
  * handle d3modprofile specific exceptions
@@ -48,7 +48,15 @@ class d3modprofile_exception extends StandardException
 
             $logger = Registry::getLogger();
             $logger->error($sLogMsg);
-        } catch (Exception) {
+        } catch (Throwable $exception) {
+            error_log(
+                sprintf(
+                    '[%s] Logging failed in %s::debugOut(): %s',
+                    date('Y-m-d H:i:s'),
+                    self::class,
+                    $exception->getMessage()
+                )
+            );
         }
     }
 

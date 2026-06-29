@@ -72,21 +72,69 @@
     <div class="Page__header">
         <h1><a href="../changelog/Changelog.html">Changelog</a></h1>
                 <span class="ModifiedDate">
-                        16.02.2026        </span>
+                        29.06.2026        </span>
                     </div>
 
     <div class="s-content">
         <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/" class="Link--external">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html" class="Link--external">Semantic Versioning</a>.</p>
-<h2 id="page_Unreleased"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.4.0.0...rel_7.x" class="Link--external">Unreleased</a></h2>
-<h2 id="page_7-4-0-0-2026-02-16"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.3.0.0...7.4.0.0" class="Link--external">7.4.0.0</a> - 2026-02-16</h2>
-<h3 id="page_Added">Added</h3>
+<h2 id="page_Unreleased"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.5.0.0...rel_7.x" class="Link--external">Unreleased</a></h2>
+<h2 id="page_7-5-0-0-2026-06-29"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.4.1.0...7.5.0.0" class="Link--external">7.5.0.0</a> - 2026-06-29</h2>
+<h2 id="page_Added">Added</h2>
 <ul>
-<li>CLI command to set license key to a specified module</li>
+<li>Added support for OXID eShop 7.5 and PHP 8.5.</li>
 </ul>
+<h2 id="page_Changed">Changed</h2>
+<ul>
+<li>Improved license validation and activation handling.</li>
+<li>Improved module state management.</li>
+<li>Improved export filename sanitization.</li>
+<li>Improved module ID detection and query sorting.</li>
+<li>Normalized configuration and license data handling.</li>
+<li>Improved encoder/decoder robustness.</li>
+<li>Improved exception handling and logging.</li>
+<li>Improved controller error rendering.</li>
+<li>Improved database query handling using prepared statements.</li>
+<li>Improved maintenance routines and parameter validation.</li>
+<li>Updated CI configuration and test setup.</li>
+<li>Updated PHPStan configuration for PHP 8.5 compatibility.</li>
+</ul>
+<h2 id="page_Security">Security</h2>
+<ul>
+<li>Restricted file system and HTTP(S) access to safer defaults.</li>
+<li>Restricted MIME type resolution to secure defaults.</li>
+<li>Improved input validation and secure data handling.</li>
+<li>Removed obsolete shell command execution functionality.</li>
+<li>Prevented ambiguous SQL column references.</li>
+</ul>
+<h2 id="page_Removed">Removed</h2>
+<ul>
+<li>Removed obsolete PHPStan configuration.</li>
+<li>Removed MySQL 8 incompatible multilingual datetime columns from database views.</li>
+</ul>
+<h2 id="page_Fixed">Fixed</h2>
+<ul>
+<li>Fixed activation form handling.</li>
+<li>Fixed encoding issues in the file generator.</li>
+<li>Fixed various maintenance-related issues.</li>
+<li>Fixed edge cases in encoder/decoder processing.</li>
+<li>Fixed several minor issues and improved overall stability.</li>
+</ul>
+<h2 id="page_7-4-1-0-2026-05-21"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.4.0.0...7.4.1.0" class="Link--external">7.4.1.0</a> - 2026-05-21</h2>
+<h3 id="page_Fixed-2">Fixed</h3>
+<ul>
+<li>deal with empty &quot;getSqlActiveSnippet&quot; return</li>
+</ul>
+<h3 id="page_Changed-2">Changed</h3>
+<ul>
+<li>replace D3 DI container</li>
+<li>remove business logic from Symfony services</li>
+</ul>
+<h2 id="page_7-4-0-0-2026-02-16"><a href="https://git.d3data.de/D3Private/ModCfg/compare/7.3.0.0...7.4.0.0" class="Link--external">7.4.0.0</a> - 2026-02-16</h2>
 <h3 id="page_Added-2">Added</h3>
 <ul>
+<li>CLI command to set license key to a specified module</li>
 <li>d3:modcfg:log:cleanup command to oe-console</li>
 <li>d3:modcfg:log:status command to oe-console</li>
 <li>d3:modcfg:cleartmp command to oe-console</li>
@@ -106,11 +154,11 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html" class=
 <li>installable in OXID 7.4</li>
 <li>CI capabilities</li>
 </ul>
-<h3 id="page_Changed">Changed</h3>
+<h3 id="page_Changed-2">Changed</h3>
 <ul>
 <li>default log type if no one is set</li>
 </ul>
-<h3 id="page_Fixed">Fixed</h3>
+<h3 id="page_Fixed-2">Fixed</h3>
 <ul>
 <li>incomplete cache file prefixes</li>
 <li>logout in setup wizard</li>
@@ -181,7 +229,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html" class=
 <ul>
 <li>Syntaxfehler in DIC Konfiguration</li>
 </ul>
-<h3 id="page_Removed">Removed</h3>
+<h3 id="page_Removed-2">Removed</h3>
 <ul>
 <li>veralteten Installationsprozess bereinigt</li>
 <li>alternative Server-zu-Server-Verbindung entfernt</li>

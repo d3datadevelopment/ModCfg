@@ -45,7 +45,7 @@ use Psr\Log\LoggerTrait;
 
 class d3log extends BaseModel implements d3LogInterface
 {
-    use LoggerTrait;
+    //    use LoggerTrait;
 
     // single log levels
     public const EMERGENCY = d3LogLevel::EMERGENCY; // Int 0, Bit 1
@@ -922,7 +922,7 @@ class d3log extends BaseModel implements d3LogInterface
                 $aSlots[] = $i;
             } else {
                 break;
-            };
+            }
         }
 
         return $aSlots;
@@ -1124,13 +1124,13 @@ class d3log extends BaseModel implements d3LogInterface
         $sText .= "<table style='border: 1px solid silver;'>";
         foreach ($aStatus as $aUniqueStatus) {
             $aUniqueStatus = array_change_key_case($aUniqueStatus, CASE_UPPER);
-            $sText .= "<tr><td>".$aUniqueStatus['COUNTER']."x</td>";
-            $sText .= "<td>".$aUniqueStatus['OXLOGTYPE']."</td>";
+            $sText .= "<tr><td>".$this->_escapeMailHtml((string) $aUniqueStatus['COUNTER'])."x</td>";
+            $sText .= "<td>".$this->_escapeMailHtml((string) $aUniqueStatus['OXLOGTYPE'])."</td>";
             $sText .= "<td>".sprintf(
                 $oLang->translateString('D3_LOGMAIL_INMODULE', $iDefaultLang, true),
-                $aUniqueStatus['OXMODID']
+                $this->_escapeMailHtml((string) $aUniqueStatus['OXMODID'])
             )."</td>";
-            $sText .= "<td>".str_replace([chr(10), chr(13)], '', $aUniqueStatus['TEXT'])."</td></tr>";
+            $sText .= "<td>".$this->_escapeMailHtml(str_replace([chr(10), chr(13)], '', (string) $aUniqueStatus['TEXT']))."</td></tr>";
         }
         $sText .= "</table>";
 
@@ -1140,6 +1140,16 @@ class d3log extends BaseModel implements d3LogInterface
         $sText .= $oLang->translateString('D3_LOGTYPE_DESC', $iDefaultLang, true);
 
         return $sText;
+    }
+
+    /**
+     * @param string $sValue
+     *
+     * @return string
+     */
+    protected function _escapeMailHtml(string $sValue): string
+    {
+        return htmlspecialchars($sValue, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 
     /**
@@ -1477,15 +1487,13 @@ class d3log extends BaseModel implements d3LogInterface
                 break;
             case E_WARNING:
             case E_USER_WARNING:
+            case E_STRICT:
                 $sErrState = d3LogLevel::WARNING;
                 break;
             case E_ERROR:
             case E_RECOVERABLE_ERROR:
             case E_USER_ERROR:
                 $sErrState = d3LogLevel::EMERGENCY;
-                break;
-            case E_STRICT:
-                $sErrState = d3LogLevel::WARNING;
                 break;
             case null:
                 $sErrState = d3LogLevel::NONE;

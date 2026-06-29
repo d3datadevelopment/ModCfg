@@ -34,7 +34,7 @@
   "require": {
     "php": "^8.0",
     "ext-sourceguardian": ">=16",
-    "oxid-esales/oxideshop-ce": "7.0 - 7.4",
+    "oxid-esales/oxideshop-ce": "7.0 - 7.5",
     "d3/oxid-dic-handler": "^2.1.1.0",
     "d3/oxid-twig-extensions": "^1.0",
     "ext-openssl": "*",
@@ -62,9 +62,9 @@
     "phpunit/phpunit": "^9.6",
     "mikey179/vfsstream": "^1.6.8",
     "friendsofphp/php-cs-fixer": "^3.13.0",
-    "phpstan/phpstan": "^1.10",
+    "phpstan/phpstan": "^2.2",
     "boxblinkracer/phpunuhi": "^1.12",
-    "rector/rector": "^0.18.13"
+    "rector/rector": "^2.4"
   },
   "autoload": {
     "psr-4": {
@@ -78,16 +78,16 @@
     "bin/d3maintenance"
   ],
   "scripts": {
-    "php-cs-fixer_audit": "./vendor/bin/php-cs-fixer list-files --config=./vendor/d3/modcfg/.php-cs-fixer.php",
-    "php-cs-fixer_fix": "./vendor/bin/php-cs-fixer fix --config=./vendor/d3/modcfg/.php-cs-fixer.php",
+    "php-cs-fixer_audit": "XDEBUG_MODE=off ./vendor/bin/php-cs-fixer list-files --config=./vendor/d3/modcfg/.ci-tools/.php-cs-fixer.php",
+    "php-cs-fixer_fix": "XDEBUG_MODE=off ./vendor/bin/php-cs-fixer fix --config=./vendor/d3/modcfg/.ci-tools/.php-cs-fixer.php",
 
-    "phpstan": "./vendor/bin/phpstan --configuration=vendor/d3/modcfg/phpstan.neon analyse",
+    "phpstan": "XDEBUG_MODE=off ./vendor/bin/phpstan --configuration=vendor/d3/modcfg/.ci-tools/phpstan.neon analyse",
 
-    "phpunit": "XDEBUG_MODE=off ./vendor/bin/phpunit --config=vendor/d3/modcfg/ --no-coverage",
-    "phpunit-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --config=vendor/d3/modcfg/ --coverage-html=vendor/d3/modcfg/Tests/result/coverage",
+    "phpunit": "XDEBUG_MODE=off ./vendor/bin/phpunit --config=vendor/d3/modcfg/.ci-tools/ --no-coverage",
+    "phpunit-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --config=vendor/d3/modcfg/.ci-tools/ --coverage-html=reports/phpunit/modcfg",
 
-    "rector": "./vendor/bin/rector process --dry-run --config ./vendor/d3/modcfg/rector.php",
+    "rector": "./vendor/bin/rector process --dry-run --config ./vendor/d3/modcfg/.ci-tools/rector.php",
 
-    "phpunuhi": "./vendor/bin/phpunuhi --configuration=vendor/d3/modcfg/phpunuhi.xml validate"
+    "phpunuhi": "./vendor/bin/phpunuhi --configuration=vendor/d3/modcfg/.ci-tools/phpunuhi.xml validate"
   }
 }

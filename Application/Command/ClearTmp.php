@@ -1,8 +1,10 @@
 <?php
 
 /**
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
@@ -34,18 +36,18 @@ class ClearTmp extends Command
 
     public const COMMAND_TITLE = 'clear tmp folder command';
 
-    const ARGUMENT_TYPE = 'type';
+    public const ARGUMENT_TYPE = 'type';
 
-    const TYPE_ALL = 'all';
-    const TYPE_TEMPLATES = 'templates';
-    const TYPE_DATABASE = 'database';
-    const TYPE_LANGUAGE = 'language';
-    const TYPE_MENU = 'menu';
-    const TYPE_CLASSPATH = 'classpath';
-    const TYPE_STRUCTURE = 'structure';
-    const TYPE_TAGCLOUD = 'tagcloud';
-    const TYPE_MODULE = 'module';
-    const TYPE_SEO = 'seo';
+    public const TYPE_ALL = 'all';
+    public const TYPE_TEMPLATES = 'templates';
+    public const TYPE_DATABASE = 'database';
+    public const TYPE_LANGUAGE = 'language';
+    public const TYPE_MENU = 'menu';
+    public const TYPE_CLASSPATH = 'classpath';
+    public const TYPE_STRUCTURE = 'structure';
+    public const TYPE_TAGCLOUD = 'tagcloud';
+    public const TYPE_MODULE = 'module';
+    public const TYPE_SEO = 'seo';
 
     /**
      * @codeCoverageIgnore
@@ -76,7 +78,7 @@ class ClearTmp extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_QUIET) {
-            Registry::getSession()->setVariable( 'd3cfgmodcli_quiet', true );
+            Registry::getSession()->setVariable('d3cfgmodcli_quiet', true);
         }
 
         $stopWatch = new Stopwatch();
@@ -160,7 +162,7 @@ class ClearTmp extends Command
 
     protected function getTypeMethod(string $type): string
     {
-        return match ( strtolower( $type ) ) {
+        return match (strtolower($type)) {
             self::TYPE_ALL => 'clearAllCache',
             self::TYPE_TEMPLATES => 'clearFrontendCache',
             self::TYPE_DATABASE => 'clearDataBaseStructCache',
@@ -180,6 +182,6 @@ class ClearTmp extends Command
      */
     protected function getClearTmp(): d3clrtmp
     {
-        return oxNew( d3clrtmp::class );
+        return oxNew(d3clrtmp::class);
     }
 }

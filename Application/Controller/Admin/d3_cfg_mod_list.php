@@ -25,12 +25,9 @@ use DOMElement;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminListController;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Model\ListModel;
-use OxidEsales\Eshop\Core\StrMb;
 use OxidEsales\Eshop\Core\TableViewNameGenerator;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
-use OxidEsales\Eshop\Core\StrRegular;
-use OxidEsales\Eshop\Core\Str;
 use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
@@ -189,26 +186,32 @@ class d3_cfg_mod_list extends AdminListController
      */
     protected function _calcListItemsCount($sSql)
     {
-        /** @var StrMb|StrRegular $oStr */
-        $oStr = Str::getStr();
-
-        // count SQL
-        $oQB = ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
         $db = d3database::getInstance()->getDBConnection();
-        $oQB->select('count(*)')->from('');
 
-        $sSql = $oStr->preg_replace('/select .*? from/i', $oQB->getSQL(), $sSql);
-
-        // removing order by
-        $sSql = $oStr->preg_replace('/order by .*$/i', '', $sSql);
-
-        $sSql .= ' LIMIT 1';
+        $sSql = $this->_buildCountQuery($sSql);
 
         // con of list items which fits current search conditions
         $this->_iListSize = (int) $db->prepare($sSql)->executeQuery()->fetchOne();
 
         // set it into session that other frames know about size of DB
         Registry::getSession()->setVariable('iArtCnt', $this->_iListSize);
+    }
+
+    /**
+     * Builds a stable count query from a list query without rewriting its SELECT clause.
+     *
+     * @param string $sSql
+     * @return string
+     */
+    protected function _buildCountQuery($sSql)
+    {
+        $sSql = trim($sSql);
+
+        // remove trailing paging and ordering only; keep the original query shape intact
+        $sSql = preg_replace('/\s+limit\s+\d+(?:\s*,\s*\d+)?\s*$/i', '', $sSql, 1) ?? $sSql;
+        $sSql = preg_replace('/\s+order\s+by\s+[\s\S]*$/i', '', $sSql, 1) ?? $sSql;
+
+        return 'SELECT COUNT(*) FROM (' . $sSql . ') AS d3_count';
     }
 
     /**

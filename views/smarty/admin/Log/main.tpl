@@ -63,7 +63,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_MODULE"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxmodid')}]
+                            [{$edit->getFieldData('oxmodid')|oxescape:"html"}]
                         </td>
                     </tr>
                     <tr>
@@ -71,7 +71,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_TIME"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxtime')}]
+                            [{$edit->getFieldData('oxtime')|oxescape:"html"}]
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_COUNTER"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxcounter')}]
+                            [{$edit->getFieldData('oxcounter')|oxescape:"html"}]
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_LOGTYPE"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxlogtype')}]
+                            [{$edit->getFieldData('oxlogtype')|oxescape:"html"}]
                         </td>
                     </tr>
 
@@ -96,7 +96,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_SESSID"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxsessid')}]
+                            [{$edit->getFieldData('oxsessid')|oxescape:"html"}]
                         </td>
                     </tr>
 
@@ -105,7 +105,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_CLASS"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxclass')}]
+                            [{$edit->getFieldData('oxclass')|oxescape:"html"}]
                         </td>
                     </tr>
 
@@ -114,7 +114,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_FUNCTION"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxfnc')}]
+                            [{$edit->getFieldData('oxfnc')|oxescape:"html"}]
                         </td>
                     </tr>
 
@@ -123,7 +123,7 @@
                             [{oxmultilang ident="D3_CFG_LOG_LINE"}]&nbsp;
                         </td>
                         <td class="edittext">
-                            [{$edit->getFieldData('oxline')}]
+                            [{$edit->getFieldData('oxline')|oxescape:"html"}]
                         </td>
                     </tr>
 
@@ -139,7 +139,7 @@
                                 [{oxmultilang ident="D3_CFG_LOG_ACTION"}]&nbsp;
                             </td>
                             <td class="edittext">
-                                [{$edit->getFieldData('oxaction')}]
+                                [{$edit->getFieldData('oxaction')|oxescape:"html"}]
                             </td>
                         </tr>
                     [{/if}]
@@ -150,7 +150,7 @@
                         <td class="edittext">
                             <fieldset class="codepre" id="codeformat">
                                 <div>
-                                    [{$edit->getFieldData('oxtext')}]
+                                    [{$edit->getFieldData('oxtext')|oxescape:"html"}]
                                 </div>
                             </fieldset>
                         </td>

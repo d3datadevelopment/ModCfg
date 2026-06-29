@@ -75,34 +75,6 @@
 <table style="width: 98%; border: none; padding: 0; border-spacing: 0; border-collapse: collapse">
     <tr>
         <td style="vertical-align: top; width: 50%;" class="edittext">
-            {% block d3cleartmp_syscommand1 %}
-                {% if oCfg.getValue('sClrTmp_systemaction1command') %}
-                    <span class="d3modcfg_btn icon d3color-green commandBtn">
-                        <button onclick="this.style.color = 'red'; window.location.href = '{{ oViewConf.getSelfLink()|raw }}&cl={{ oViewConf.getActiveClassName()|raw }}&amp;fnc=d3ExecCommand1&amp;';" title="{{ oCfg.getValue('sClrTmp_systemaction1name') }}">
-                            {% if oCfg.getValue('sClrTmp_systemaction1icon') %}
-                                <i class="fa {{ oCfg.getValue('sClrTmp_systemaction1icon') }}"></i>
-                            {% endif %}
-                            {{ oCfg.getValue('sClrTmp_systemaction1name') }}
-                        </button>
-                    </span>
-                {% endif %}
-            {% endblock %}
-
-            {% block d3cleartmp_syscommand2 %}
-                {% if oCfg.getValue('sClrTmp_systemaction2command') %}
-                    <span class="d3modcfg_btn icon d3color-green commandBtn">
-                        <button onclick="this.style.color = 'red'; window.location.href = '{{ oViewConf.getSelfLink()|raw }}&cl={{ oViewConf.getActiveClassName()|raw }}&amp;fnc=d3ExecCommand2&amp;';" title="{{ oCfg.getValue('sClrTmp_systemaction2name') }}">
-                            {% if oCfg.getValue('sClrTmp_systemaction2icon') %}
-                                <i class="fa {{ oCfg.getValue('sClrTmp_systemaction2icon') }}"></i>
-                            {% endif %}
-                            {{ oCfg.getValue('sClrTmp_systemaction2name') }}
-                        </button>
-                    </span>
-                {% endif %}
-            {% endblock %}
-
-            <div class="clear"></div>
-
             {% block d3cleartmp_form %}
                 <form name="delform" id="delform" action="{{ oViewConf.getSelfLink()|raw }}" method="post" onsubmit="{% if not oView.hasTicker() %}document.getElementById('mask').className='on';document.getElementById('popup2').className='d3loader-2 on';{% endif %} return;">
                     {{ oViewConf.getHiddenSid()|raw }}

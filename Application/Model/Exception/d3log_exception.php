@@ -21,31 +21,26 @@ use OxidEsales\Eshop\Core\Exception\DatabaseConnectionException;
 use OxidEsales\Eshop\Core\Exception\DatabaseErrorException;
 use OxidEsales\Eshop\Core\Exception\StandardException;
 use OxidEsales\Eshop\Core\Registry;
+use Throwable;
 
 class d3log_exception extends StandardException
 {
-    /** @var d3log */
-    public $oD3Log;
-    public $iErrorLevel;
-    public $sLogText;
+    public string $sLogText;
 
     /**
      * @param d3log $oD3Log
      * @param int   $iErrorLevel
      * @param       $sMessage
      */
-    public function __construct(d3log $oD3Log, $iErrorLevel = d3log::ERROR, $sMessage = "not set")
+    public function __construct(public d3log $oD3Log, public int $iErrorLevel = d3log::ERROR, $sMessage = "not set")
     {
-        $this->setLog($oD3Log);
-        $this->setErrorLevel($iErrorLevel);
-
         parent::__construct($sMessage);
     }
 
     /**
      * @param d3log $oD3Log
      */
-    public function setLog(d3log $oD3Log)
+    public function setLog(d3log $oD3Log): void
     {
         $this->oD3Log = $oD3Log;
     }
@@ -53,7 +48,7 @@ class d3log_exception extends StandardException
     /**
      * @param int $iErrorLevel
      */
-    public function setErrorLevel($iErrorLevel = d3log::ERROR)
+    public function setErrorLevel(int $iErrorLevel = d3log::ERROR): void
     {
         $this->iErrorLevel = $iErrorLevel;
     }
@@ -62,7 +57,7 @@ class d3log_exception extends StandardException
     /**
      * @param $sMessage
      */
-    public function setLogText($sMessage)
+    public function setLogText($sMessage): void
     {
         $this->sLogText = $sMessage;
     }
@@ -70,13 +65,12 @@ class d3log_exception extends StandardException
     /**
      * @return string
      */
-    public function getLogText()
+    public function getLogText(): string
     {
         return $this->sLogText;
     }
 
     /**
-     * @return mixed|void
      * @throws DBALException
      * @throws DatabaseConnectionException
      * @throws DatabaseErrorException
@@ -84,18 +78,45 @@ class d3log_exception extends StandardException
      * @throws d3ShopCompatibilityAdapterException
      * @throws d3_cfg_mod_exception
      */
-    public function debugOut()
+    public function debugOut(): void
     {
-        $logger = Registry::getLogger();
-        $logger->error($this);
+        try {
+            $logger = Registry::getLogger();
 
-        $this->oD3Log->log(
-            $this->iErrorLevel,
-            self::class,
-            __FUNCTION__,
-            __LINE__,
-            $this->getMessage(),
-            $this->getLogText()
-        );
+            if ($logger && method_exists($logger, 'error')) {
+                $logger->error($this);
+            }
+        } catch (Throwable $exception) {
+            error_log(
+                sprintf(
+                    '[%s] Registry logger failed in %s::debugOut(): %s',
+                    date('Y-m-d H:i:s'),
+                    self::class,
+                    $exception->getMessage()
+                )
+            );
+        }
+
+        try {
+            if ($this->oD3Log && method_exists($this->oD3Log, 'log')) {
+                $this->oD3Log->log(
+                    $this->iErrorLevel,
+                    self::class,
+                    __FUNCTION__,
+                    __LINE__,
+                    $this->getMessage(),
+                    $this->getLogText()
+                );
+            }
+        } catch (Throwable $exception) {
+            error_log(
+                sprintf(
+                    '[%s] D3 logger failed in %s::debugOut(): %s',
+                    date('Y-m-d H:i:s'),
+                    self::class,
+                    $exception->getMessage()
+                )
+            );
+        }
     }
 }

@@ -73,7 +73,7 @@ window.onLoad = top.reloadEditFrame();
         <input type="hidden" name="delete_oxmodid" value="">
         <input type="hidden" name="delete_oxtype" value="">
         {% for key, formparam in oView.d3getAdditionalFormParams() %}
-            <input type="hidden" name="{{ key }}" value="{{ formparam }}">
+            <input type="hidden" name="{{ key }}" value="{{ formparam|e }}">
         {% endfor %}
 
         <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 100%">
@@ -92,9 +92,9 @@ window.onLoad = top.reloadEditFrame();
                             <select class="listedit" name="where[{{ listTable }}][oxlogtype]">
                             <option value="">--</option>
                             {% for item in oView.getLogTypeList() %}
-                                <option value="{{ item }}"
+                                <option value="{{ item|e }}"
                                         {% if where.d3log.oxlogtype == item %}selected{% endif %}
-                                >{{ item }}</option>
+                                >{{ item|e }}</option>
                             {% endfor %}
                         </select>
                     </div></div>
@@ -102,14 +102,14 @@ window.onLoad = top.reloadEditFrame();
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="20" maxlength="128"
-                                name="where[{{ listTable }}][oxtime]" value="{{ where.d3log.oxtime }}"
+                        name="where[{{ listTable }}][oxtime]" value="{{ where.d3log.oxtime|e }}"
                         {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                     </div></div>
                 </td>
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="8" maxlength="128"
-                                name="where[{{ listTable }}][oxcounter]" value="{{ where.d3log.oxcounter }}"
+                        name="where[{{ listTable }}][oxcounter]" value="{{ where.d3log.oxcounter|e }}"
                        {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                     </div></div>
                 </td>
@@ -118,9 +118,9 @@ window.onLoad = top.reloadEditFrame();
                             <select class="listedit" name="where[{{ listTable }}][oxmodid]">
                             <option value="">--</option>
                             {% for item in oView.getModIdList() %}
-                                <option value="{{ item }}"
+                                <option value="{{ item|e }}"
                                         {% if where.d3log.oxmodid == item %}selected{% endif %}
-                                >{{ item }}</option>
+                                >{{ item|e }}</option>
                             {% endfor %}
                         </select>
                     </div></div>
@@ -128,14 +128,14 @@ window.onLoad = top.reloadEditFrame();
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="20" maxlength="128"
-                                name="where[{{ listTable }}][oxclass]" value="{{ where.d3log.oxclass }}"
+                        name="where[{{ listTable }}][oxclass]" value="{{ where.d3log.oxclass|e }}"
                         {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                     </div></div>
                 </td>
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="20" maxlength="128"
-                                name="where[{{ listTable }}][oxsessid]" value="{{ where.d3log.oxsessid }}"
+                        name="where[{{ listTable }}][oxsessid]" value="{{ where.d3log.oxsessid|e }}"
                         {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                     </div></div>
                 </td>
@@ -153,7 +153,7 @@ window.onLoad = top.reloadEditFrame();
                             {% endfor %}
                         </select>
                         <input class="listedit" type="text" size="25" maxlength="128"
-                                name="where[{{ listTable }}][{{ pwrsearchfld|lower }}]" value="{{ pwrsearchinput }}"
+                                name="where[{{ listTable }}][{{ pwrsearchfld|lower }}]" value="{{ pwrsearchinput|e }}"
                         {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                     </div></div>
                 </td>
@@ -161,39 +161,39 @@ window.onLoad = top.reloadEditFrame();
             <tr>
                 <td class="listheader first" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxlogtype', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_LOGTYPE" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_LOGTYPE" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxtime', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_TIME" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_TIME" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxcounter', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_COUNTER" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_COUNTER" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxmodid', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_MODULE" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_MODULE" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxclass', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_CLASS" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_CLASS" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15">&nbsp;
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', 'oxsessid', 'asc');document.search.submit();" class="listheader">
-                        {{ translate({ ident: "D3_CFG_LOG_SESSID" }) }}
+                        {{ translate({ ident: "D3_CFG_LOG_SESSID" })|e }}
                     </a>
                 </td>
                 <td class="listheader" height="15" colspan="2">
                     <a href="Javascript:top.oxid.admin.setSorting( document.search, 'd3log', '{{ pwrsearchfld|lower }}', 'asc');document.search.submit();" class="listheader">
                         {% set ident = "D3_CFG_FIELDTITLE_" ~ pwrsearchfld %}
                         {% set ident = ident|upper %}
-                        {{ translate({ ident: ident }) }}
+                        {{ translate({ ident: ident })|e }}
                     </a>
                 </td>
             </tr>
@@ -215,49 +215,49 @@ window.onLoad = top.reloadEditFrame();
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxlogtype') }}
+                                {{ listitem.getFieldData('oxlogtype')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxtime') }}
+                                {{ listitem.getFieldData('oxtime')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxcounter') }}
+                                {{ listitem.getFieldData('oxcounter')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxmodid') }}
+                                {{ listitem.getFieldData('oxmodid')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxclass') }}
+                                {{ listitem.getFieldData('oxclass')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.getFieldData('oxsessid') }}
+                                {{ listitem.getFieldData('oxsessid')|e }}
                             </a>
                         </div>
                     </td>
                     <td class="{{ listclass }}" style="vertical-align: top">
                         <div class="listitemfloating">
                             <a href="Javascript:EditThis('{{ listitem.getId() }}');" class="{{ listclass }}">
-                                {{ listitem.pwrsearchval|truncate(50, "..", false)  }}
+                                {{ listitem.pwrsearchval|e|truncate(50, "..", false)  }}
                             </a>
                         </div>
                     </td>

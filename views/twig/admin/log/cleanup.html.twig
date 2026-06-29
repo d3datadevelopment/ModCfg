@@ -74,7 +74,7 @@ function transferFields()
                             <select name="delete_oxmodid" id="delete_oxmodid" class="editinput" {{ readonly }}>
                                 <option value="">{{ translate({ ident: "D3_CFG_CLEAN_DEL_MODULE_ALL" }) }}</option>
                                 {% for item in oView.getModIdList() %}
-                                    <option value="{{ item }}">{{ item }}</option>
+                                    <option value="{{ item|e }}">{{ item|e }}</option>
                                 {% endfor %}
                             </select>
                         </td>
@@ -84,7 +84,7 @@ function transferFields()
                             <label for="delete_oxfromtime">{{ translate({ ident: "D3_CFG_CLEAN_DEL_FROMTIME" }) }}</label>
                         </td>
                         <td class="edittext">
-                            <input type="text" class="editinput" size="32" maxlength="{{ edit.d3log__oxtime.fldmax_length }}" id="delete_oxfromtime" name="delete_oxfromtime" value="{{ '1970-01-01'|date("Y-m-d H:i:s") }}" {{ readonly }}>
+                            <input type="text" class="editinput" size="32" maxlength="{{ edit.d3log__oxtime.fldmax_length }}" id="delete_oxfromtime" name="delete_oxfromtime" value="{{ '1970-01-01'|date("Y-m-d H:i:s")|e }}" {{ readonly }}>
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +92,7 @@ function transferFields()
                             <label for="delete_oxtotime">{{ translate({ ident: "D3_CFG_CLEAN_DEL_TOTIME" }) }}</label>
                         </td>
                         <td class="edittext">
-                            <input type="text" class="editinput" size="32" maxlength="{{ edit.d3log__oxtime.fldmax_length }}" name="delete_oxtotime" id="delete_oxtotime" value="{{ "now"|date("Y-m-d H:i:s") }}" {{ readonly }}>
+                            <input type="text" class="editinput" size="32" maxlength="{{ edit.d3log__oxtime.fldmax_length }}" name="delete_oxtotime" id="delete_oxtotime" value="{{ "now"|date("Y-m-d H:i:s")|e }}" {{ readonly }}>
                         </td>
                     </tr>
                     <tr>
@@ -103,7 +103,7 @@ function transferFields()
                             <select name="delete_oxtype" id="delete_oxtype" class="editinput" {{ readonly }}>
                                 <option value="">{{ translate({ ident: "D3_CFG_CLEAN_DEL_TYPE_ALL" }) }}</option>
                                 {% for item in oView.getLogTypeList() %}
-                                    <option value="{{ item }}">{{ item }}</option>
+                                    <option value="{{ item|e }}">{{ item|e }}</option>
                                 {% endfor %}
                             </select>
                         </td>

@@ -1,8 +1,10 @@
 <?php
 
 /**
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
@@ -51,7 +53,7 @@ class ModuleSetup extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_QUIET) {
-            Registry::getSession()->setVariable( 'd3cfgmodcli_quiet', true );
+            Registry::getSession()->setVariable('d3cfgmodcli_quiet', true);
         }
 
         $stopWatch = new Stopwatch();
@@ -107,6 +109,6 @@ class ModuleSetup extends Command
      */
     protected function getUpdateInstaller(): d3updateinstaller
     {
-        return oxNew( d3updateinstaller::class );
+        return oxNew(d3updateinstaller::class);
     }
 }

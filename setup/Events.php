@@ -83,6 +83,8 @@ class Events
 
         $sConfirmUrl = self::getConfirmUrl();
         $sCancelUrl = self::getCancelUrl();
+        $sConfirmUrlJs = json_encode($sConfirmUrl, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $sCancelUrlJs = json_encode($sCancelUrl, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
         echo "
         <script type='text/javascript'>
@@ -94,9 +96,9 @@ class Events
                     )
                 )
             ) {
-                window.location.href = '{$sConfirmUrl}';
+                window.location.href = {$sConfirmUrlJs};
 	        } else {
-		        window.location.href = '{$sCancelUrl}';
+		        window.location.href = {$sCancelUrlJs};
 	        }
         </script>";
 

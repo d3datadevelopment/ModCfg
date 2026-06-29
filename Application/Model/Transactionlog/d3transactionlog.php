@@ -16,13 +16,11 @@
 namespace D3\ModCfg\Application\Model\Transactionlog;
 
 use BadMethodCallException;
-use D3\ModCfg\Application\Model\d3database;
 use D3\ModCfg\Application\Model\Parametercontainer\Registry;
 use D3\ModCfg\Application\Model\Transactionlog\Reader\AbstractReader;
 use Exception;
+use InvalidArgumentException;
 use OxidEsales\Eshop\Core\Model\BaseModel;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
 
 /**
@@ -214,9 +212,34 @@ final class d3transactionlog extends BaseModel
      */
     public function getTransactiondata()
     {
-        $this->reader->read(unserialize(base64_decode($this->getFieldData('d3transactiondata'))));
+        $this->reader->read($this->decodeTransactionData($this->getFieldData('d3transactiondata')));
 
         return $this->reader;
+    }
+
+    /**
+     * @param string|null $encodedTransactionData
+     *
+     * @return mixed
+     */
+    protected function decodeTransactionData(?string $encodedTransactionData)
+    {
+        if (!$encodedTransactionData) {
+            return null;
+        }
+
+        $decodedData = base64_decode($encodedTransactionData, true);
+        if ($decodedData === false || $decodedData === '') {
+            return null;
+        }
+
+        $transactionData = @unserialize($decodedData, ['allowed_classes' => false]);
+
+        if ($transactionData === false && $decodedData !== serialize(false)) {
+            throw new RuntimeException('Transaction data could not be decoded safely.');
+        }
+
+        return $transactionData;
     }
 
     /**
@@ -314,45 +337,75 @@ final class d3transactionlog extends BaseModel
     {
         $list  = oxNew(d3transactionloglist::class, $this);
         $type  = self::TYPE_RESPONSE;
+        [$filterQuery, $filterParameters] = $this->_getFilterQuery($aFilter);
+
         $query = <<<QUERY
             SELECT {$this->getCoreTableName()}.* FROM {$this->getCoreTableName()}
             LEFT JOIN d3_d3log_oxobject2d3transactionlog ON {$this->getCoreTableName()}.d3group = d3_d3log_oxobject2d3transactionlog.d3group
             WHERE
-                d3_d3log_oxobject2d3transactionlog.oxobjectid = '{$object->getId()}'
-                AND {$this->getCoreTableName()}.d3action = '{$type}' AND {$this->_getFilterQuery($aFilter)}
-            ORDER BY {$this->getCoreTableName()}.d3lognr
+                d3_d3log_oxobject2d3transactionlog.oxobjectid = ?
+                AND {$this->getCoreTableName()}.d3action = ?
             QUERY;
-        $list->selectString($query);
+
+        if ($filterQuery !== '') {
+            $query .= ' AND '.$filterQuery;
+        }
+
+        $query .= " ORDER BY {$this->getCoreTableName()}.d3lognr";
+
+        $list->selectString($query, array_merge([$object->getId(), $type], $filterParameters));
 
         return $list;
     }
 
     /**
      * @param array $aFilter
-     * @return string
+     *
+     * @return array{0:string,1:array}
      */
-    protected function _getFilterQuery($aFilter)
+    protected function _getFilterQuery(array $aFilter): array
     {
-        return count($aFilter) ? implode(' AND ', array_map([$this, '_getFilterFieldQuery'], array_keys($aFilter), $aFilter)) : ' 1 ';
+        if (!count($aFilter)) {
+            return ['', []];
+        }
+
+        $parameters = [];
+        $filterSql = implode(
+            ' AND ',
+            array_map(
+                function ($field, $value) use (&$parameters) {
+                    return $this->_getFilterFieldQuery((string) $field, $value, $parameters);
+                },
+                array_keys($aFilter),
+                $aFilter
+            )
+        );
+
+        return [$filterSql, $parameters];
     }
 
     /**
      * @param $sField
      * @param $sValue
+     * @param array $parameters
+     *
      * @return string
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
-    protected function _getFilterFieldQuery($sField, $sValue)
+    protected function _getFilterFieldQuery(string $sField, $sValue, array &$parameters): string
     {
-        $db = d3database::getInstance()->getDBConnection();
+        $sField = trim($sField);
 
-        if (strtolower(trim($sField)) == 'd3transactiondata') {
-            return 'CONVERT(FROM_BASE64('.$this->getCoreTableName() . '.' . $sField . ') USING latin1) LIKE ' .
-                $db->quote($sValue);
+        if ($sField === '' || !preg_match('/^[a-z0-9_]+$/i', $sField)) {
+            throw new InvalidArgumentException('Invalid transaction log filter field supplied.');
         }
 
-        return $this->getCoreTableName().'.'.$sField . ' LIKE ' . $db->quote($sValue);
+        $parameters[] = $sValue;
+
+        if (strtolower($sField) === 'd3transactiondata') {
+            return 'CONVERT(FROM_BASE64('.$this->getCoreTableName() . '.' . $sField . ') USING latin1) LIKE ?';
+        }
+
+        return $this->getCoreTableName().'.'.$sField . ' LIKE ?';
     }
 
     /**
@@ -367,10 +420,10 @@ final class d3transactionlog extends BaseModel
         $query = <<<QUERY
             SELECT {$this->getCoreTableName()}.* FROM {$this->getCoreTableName()}
             WHERE
-               {$this->getCoreTableName()}.d3group = '{$sGroupNumber}'
+               {$this->getCoreTableName()}.d3group = ?
             ORDER BY {$this->getCoreTableName()}.d3lognr
             QUERY;
-        $list->selectString($query);
+        $list->selectString($query, [$sGroupNumber]);
 
         return $list;
     }

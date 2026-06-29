@@ -488,6 +488,8 @@ class d3clrtmp extends Base
      */
     protected function _clearCache($sRegExp, $blRecursive = false, $sFolder = false)
     {
+        $iDelItems = 0;
+
         if (false == is_object($this->_d3GetSet()) || false == $this->_d3GetSet()->getValue('blClrTmp_showcleartmpoptions')) {
             $this->_getFileSystemHandler()->setDevMode(false);
 
@@ -510,14 +512,11 @@ class d3clrtmp extends Base
             $this->_getFileSystemHandler()->setIncludeRegExp(null);
             $this->_getFileSystemHandler()->setExcludeRegExp(null);
 
-            if ( is_object($this->_d3GetSet()) && !$this->_d3GetSet()->getValue( 'blClrTmp_nohtaccess' ) ) {
+            if (is_object($this->_d3GetSet()) && !$this->_d3GetSet()->getValue('blClrTmp_nohtaccess')) {
                 $this->_createTmpHtaccess();
             }
 
             $this->_createTemplateCacheFolder();
-        } else {
-            $this->d3RunClrTmpCommand();
-            $iDelItems = 1;
         }
 
         return $iDelItems;
@@ -538,7 +537,7 @@ class d3clrtmp extends Base
         }
         $sFileName = $this->getTmpPath() . '.htaccess';
 
-        if ( !$this->_getFileSystemHandler()->exists( $sFileName ) ) {
+        if (!$this->_getFileSystemHandler()->exists($sFileName)) {
             $sContent =
                 "# disabling file access\n<FilesMatch .*>\n<IfModule mod_authz_core.c>\nRequire all denied\n</IfModule>\n<IfModule !mod_authz_core.c>\norder allow,deny\ndeny from all\n</IfModule>".
                 "\n</FilesMatch>\n\nOptions -Indexes";
@@ -564,7 +563,7 @@ class d3clrtmp extends Base
         }
         $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->templateCacheFolderName);
 
-        if ( ! $this->_getFileSystemHandler()->exists( $sFolder ) ) {
+        if (! $this->_getFileSystemHandler()->exists($sFolder)) {
             $this->_getFileSystemHandler()->create_dir_tree($sFolder);
         }
 
@@ -588,7 +587,7 @@ class d3clrtmp extends Base
         }
         $sFolder = $this->_getFileSystemHandler()->trailingslashit($this->getTmpPath() . $this->moduleCacheFolderName);
 
-        if ( ! $this->_getFileSystemHandler()->exists( $sFolder ) ) {
+        if (! $this->_getFileSystemHandler()->exists($sFolder)) {
             $this->_getFileSystemHandler()->create_dir_tree($sFolder);
         }
 
@@ -740,62 +739,5 @@ class d3clrtmp extends Base
     {
         unset($sKey);
         $sType = $sPrefix.$sType;
-    }
-
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3RunClrTmpCommand()
-    {
-        if (false == is_object($this->_d3GetSet())) {
-            return;
-        }
-
-        for ($i = 1; $i <= 2; $i++) {
-            $sClrTmpReplacementName = "sClrTmp_systemaction{$i}clrtmpreplace";
-            if ($this->_d3GetSet()->getValue($sClrTmpReplacementName)) {
-                $this->d3ExecCommand($i);
-            }
-        }
-    }
-
-    /**
-     * @param $iSlot
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3ExecCommand($iSlot)
-    {
-        if (false == is_object($this->_d3GetSet())) {
-            return;
-        }
-
-        $sCommandName = "sClrTmp_systemaction{$iSlot}command";
-        if ($this->_d3GetSet()->getValue($sCommandName)) {
-            $oLog = $this->_d3GetSet()->d3getLog();
-            if (function_exists('exec') && exec('echo EXEC') == 'EXEC') {
-                exec(escapeshellcmd($this->_d3GetSet()->getValue($sCommandName)), $aReturn);
-                $oLog->log(
-                    d3log::INFO,
-                    self::class,
-                    __FUNCTION__,
-                    __LINE__,
-                    'run system command',
-                    'Command: '. $this->_d3GetSet()->getValue($sCommandName).PHP_EOL.
-                    'Result: '. implode(PHP_EOL, $aReturn)
-                );
-            } else {
-                $oLog->log(d3log::ERROR, self::class, __FUNCTION__, __LINE__, 'exec function unavailable');
-            }
-        }
     }
 }

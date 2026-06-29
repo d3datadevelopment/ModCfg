@@ -61,7 +61,15 @@ class InsertMissingArticleExtends extends AbstractAction
 
         /** @var d3utils $oD3Utils */
         $oD3Utils = Registry::get(d3utils::class);
-        $aArtExtendsFields = array_fill_keys($oD3Utils->getArtExtendsFields(), "''");
+
+        $artExtendsColumnList = array_map(
+            function ($columnName) {
+                return 'oae.'.$columnName;
+            },
+            $oD3Utils->getArtExtendsFields()
+        );
+
+        $aArtExtendsFields = array_fill_keys($artExtendsColumnList, "''");
         $aMergedFields = array_merge($aNonArtExtendsFields, $aArtExtendsFields);
         $aQueryFields = array_diff_key($aMergedFields, $aDefaultValueFields);
         $artextendsFields = array_keys($aQueryFields);

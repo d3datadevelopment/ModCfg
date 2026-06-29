@@ -1,8 +1,10 @@
 <?php
 
 /**
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
@@ -28,7 +30,6 @@ use Doctrine\DBAL\Platforms\DateIntervalUnit;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Exception;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Session;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
@@ -43,8 +44,8 @@ class LogStatus extends Command
 {
     public const COMMAND_TITLE = 'log status command';
 
-    const ARGUMENT_CLEANUP_VALUE = 'value';
-    const ARGUMENT_CLEANUP_UNIT  = 'unit';
+    public const ARGUMENT_CLEANUP_VALUE = 'value';
+    public const ARGUMENT_CLEANUP_UNIT  = 'unit';
 
     /**
      * @codeCoverageIgnore
@@ -83,7 +84,7 @@ class LogStatus extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_QUIET) {
-            d3GetOxidDIC()->get('d3ox.modcfg.'.Session::class)->setVariable( 'd3modcfg_quiet', true );
+            Registry::getSession()->setVariable('d3modcfg_quiet', true);
         }
 
         $stopWatch = new Stopwatch();
@@ -105,7 +106,7 @@ class LogStatus extends Command
             $queryBuilder = $this->getQueryBuilder();
 
             $queryBuilder->select('count(*)', 'oxlogtype', 'DATE_FORMAT(OXTIME, \'%Y-%m\')')
-                ->from(d3GetOxidDIC()->get('d3.modcfg.log_get')->getCoreTableName())
+                ->from(d3log::get('d3modcfg_lib', 0)->getCoreTableName())
                 ->groupBy('DATE_FORMAT(OXTIME, \'%Y-%m\')')
                 ->addGroupBy('OXLOGTYPE')
                 ->orderBy('DATE_FORMAT(OXTIME, \'%Y-%m\')', 'DESC')
@@ -115,7 +116,8 @@ class LogStatus extends Command
                 $queryBuilder->where(
                     'oxtime < DATE_SUB(NOW(), INTERVAL ' .
                     $queryBuilder->createNamedParameter(
-                        $input->getArgument(self::ARGUMENT_CLEANUP_VALUE), ParameterType::INTEGER
+                        $input->getArgument(self::ARGUMENT_CLEANUP_VALUE),
+                        ParameterType::INTEGER
                     ) . ' ' . $input->getArgument(self::ARGUMENT_CLEANUP_UNIT) . ')'
                 );
             }
@@ -124,7 +126,8 @@ class LogStatus extends Command
                 $output->writeln(sprintf(
                     '<comment>%s</comment>',
                     d3database::getInstance()->getPreparedStatementQuery(
-                        $queryBuilder->getSQL(), $queryBuilder->getParameters()
+                        $queryBuilder->getSQL(),
+                        $queryBuilder->getParameters()
                     )
                 ));
             }
@@ -182,9 +185,9 @@ class LogStatus extends Command
     protected function getLogTypeList(): array
     {
         /** @var d3log $log */
-        $log = d3GetOxidDIC()->get('d3.modcfg.log_get');
+        $log = d3log::get('d3modcfg_lib', 0);
 
-        $bitmask = oxNew( d3bitmask::class);
+        $bitmask = oxNew(d3bitmask::class);
         $range = $bitmask->removeBit(d3LogLevel::ERROR_AND_BELOW, d3LogLevel::EMPTY_AND_BELOW);
 
         return $log->getLogTypeListByRange($range);
@@ -196,6 +199,6 @@ class LogStatus extends Command
      */
     protected function getQueryBuilder(): QueryBuilder
     {
-        return ContainerFactory::getInstance()->getContainer()->get( QueryBuilderFactoryInterface::class )->create();
+        return ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
     }
 }

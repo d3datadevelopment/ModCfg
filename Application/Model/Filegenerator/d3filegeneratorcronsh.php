@@ -56,10 +56,30 @@ class d3filegeneratorcronsh extends d3filegenerator
         return array_merge(
             parent::getContext(),
             [
-                'sPHPInterpreterPath'   => $this->getPHPInterpreterPath(),
-                'sScriptPath'           => $this->_sScriptPath ?: null,
-                'aParameters'           => $this->_aSortedParameterList ?: null,
+                'sPHPInterpreterPath'   => $this->quoteShellArgument($this->getPHPInterpreterPath()),
+                'sScriptPath'           => $this->quoteShellArgument($this->_sScriptPath ?: ''),
+                'aParameters'           => $this->quoteShellArguments($this->_aSortedParameterList ?: []),
             ]
+        );
+    }
+
+    protected function quoteShellArgument(string $sValue): string
+    {
+        return escapeshellarg(str_replace(["\r", "\n"], '', $sValue));
+    }
+
+    /**
+     * @param array $aParameters
+     *
+     * @return array
+     */
+    protected function quoteShellArguments(array $aParameters): array
+    {
+        return array_map(
+            function ($sParameter) {
+                return $this->quoteShellArgument((string) $sParameter);
+            },
+            $aParameters
         );
     }
 }

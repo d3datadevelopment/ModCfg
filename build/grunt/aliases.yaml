@@ -1,5 +1,5 @@
 production:
-#  - "jshint:module"
+  #  - "jshint:module"
   - "less:module"
   - "less:module_unminified"
   - "uglify:module"

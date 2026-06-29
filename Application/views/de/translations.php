@@ -170,6 +170,7 @@ return [
     'D3_CFG_MOD_LICDETAILS_ACTIDENT'           => 'Aktivierungsident:',
     'D3_CFG_MOD_LICDETAILS_LICKEY'             => 'Lizenzschlüssel:',
     'D3_CFG_MOD_LICDETAILS_TESTLICENSE'        => '(Testlizenz)',
+    'D3_CFG_MOD_LICDETAILS_FORMERR'            => 'Bitte laden Sie das Formular neu und wählen bitte eine Option.',
 
     'D3_CFG_MOD_TRYORBUY'                      => 'Testen oder Kaufen?',
     'D3_CFG_MOD_TRYORBUY_1'                    => 'Demo-Schlüssel anfordern',

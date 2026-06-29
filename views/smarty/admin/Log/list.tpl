@@ -73,7 +73,7 @@ window.onLoad = top.reloadEditFrame();
         <input type="hidden" name="delete_oxmodid" value="">
         <input type="hidden" name="delete_oxtype" value="">
         [{foreach from=$oView->d3getAdditionalFormParams() key="key" item="formparam"}]
-            <input type="hidden" name="[{$key}]" value="[{$formparam}]">
+            <input type="hidden" name="[{$key}]" value="[{$formparam|oxescape:"html"}]">
         [{/foreach}]
 
         <table style="border: none; padding: 0; border-spacing: 0; border-collapse: collapse; width: 100%">
@@ -92,9 +92,9 @@ window.onLoad = top.reloadEditFrame();
                             <select class="listedit" name="where[[{$listTable}]][oxlogtype]">
                             <option value="">--</option>
                             [{foreach from=$oView->getLogTypeList() item="item"}]
-                                <option value="[{$item}]"
+                                <option value="[{$item|oxescape:"html"}]"
                                         [{if $where.d3log.oxlogtype == $item}]selected[{/if}]
-                                >[{$item}]</option>
+                                >[{$item|oxescape:"html"}]</option>
                             [{/foreach}]
                         </select>
                     </div></div>
@@ -109,7 +109,7 @@ window.onLoad = top.reloadEditFrame();
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="8" maxlength="128"
-                                name="where[[{$listTable}]][oxcounter]" value="[{$where.d3log.oxcounter}]"
+                                name="where[[{$listTable}]][oxcounter]" value="[{$where.d3log.oxcounter|oxescape:"html"}]"
                        [{include file="help.tpl" helpid=searchfieldoxdynamic}]>
                     </div></div>
                 </td>
@@ -118,9 +118,9 @@ window.onLoad = top.reloadEditFrame();
                             <select class="listedit" name="where[[{$listTable}]][oxmodid]">
                             <option value="">--</option>
                             [{foreach from=$oView->getModIdList() item="item"}]
-                                <option value="[{$item}]"
+                                <option value="[{$item|oxescape:"html"}]"
                                         [{if $where.d3log.oxmodid == $item}]selected[{/if}]
-                                >[{$item}]</option>
+                                >[{$item|oxescape:"html"}]</option>
                             [{/foreach}]
                         </select>
                     </div></div>
@@ -128,14 +128,14 @@ window.onLoad = top.reloadEditFrame();
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="20" maxlength="128"
-                                name="where[[{$listTable}]][oxclass]" value="[{$where.d3log.oxclass}]"
+                                name="where[[{$listTable}]][oxclass]" value="[{$where.d3log.oxclass|oxescape:"html"}]"
                         [{include file="help.tpl" helpid=searchfieldoxdynamic}]>
                     </div></div>
                 </td>
                 <td style="height: 20px; vertical-align: middle" class="listfilter" nowrap>
                     <div class="r1"><div class="b1">
                         <input class="listedit" type="text" size="20" maxlength="128"
-                                name="where[[{$listTable}]][oxsessid]" value="[{$where.d3log.oxsessid}]"
+                                name="where[[{$listTable}]][oxsessid]" value="[{$where.d3log.oxsessid|oxescape:"html"}]"
                         [{include file="help.tpl" helpid=searchfieldoxdynamic}]>
                     </div></div>
                 </td>
@@ -216,49 +216,49 @@ window.onLoad = top.reloadEditFrame();
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxlogtype')}]
+                                [{$listitem->getFieldData('oxlogtype')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxtime')}]
+                                [{$listitem->getFieldData('oxtime')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxcounter')}]
+                                [{$listitem->getFieldData('oxcounter')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxmodid')}]
+                                [{$listitem->getFieldData('oxmodid')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxclass')}]
+                                [{$listitem->getFieldData('oxclass')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="height: 15px; vertical-align:top">
                         <div class="listitemfloating">&nbsp;
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->getFieldData('oxsessid')}]
+                                [{$listitem->getFieldData('oxsessid')|oxescape:"html"}]
                             </a>
                         </div>
                     </td>
                     <td class="[{$listclass}]" style="vertical-align: top">
                         <div class="listitemfloating">
                             <a href="Javascript:EditThis('[{$listitem->getId()}]');" class="[{$listclass}]">
-                                [{$listitem->pwrsearchval|truncate:50:"..":false }]
+                                [{$listitem->pwrsearchval|truncate:50:"..":false|oxescape:"html"}]
                             </a>
                         </div>
                     </td>

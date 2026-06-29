@@ -15,7 +15,9 @@
 
 namespace D3\ModCfg\Application\Model\Encoding;
 
+use InvalidArgumentException;
 use JsonException;
+use stdClass;
 
 class d3encoder
 {
@@ -76,7 +78,7 @@ class d3encoder
     {
         return base64_encode(
             rawurlencode(
-                serialize(
+                $this->encodeSerialize(
                     $decodedValue
                 )
             )
@@ -102,7 +104,7 @@ class d3encoder
     public function encodeUtf8(mixed $decodedValue): string
     {
         return mb_convert_encoding(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             ),
             'UTF-8',
@@ -117,6 +119,8 @@ class d3encoder
      */
     public function encodeSerialize(mixed $decodedValue): string
     {
+        $this->assertSerializablePayload($decodedValue);
+
         return serialize(
             $decodedValue
         );
@@ -130,7 +134,7 @@ class d3encoder
     public function encodeUrl(mixed $decodedValue): string
     {
         return urlencode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
@@ -144,7 +148,7 @@ class d3encoder
     public function encodeRawUrl(mixed $decodedValue): string
     {
         return rawurlencode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
@@ -158,7 +162,7 @@ class d3encoder
     public function encodeBase64(mixed $decodedValue): string
     {
         return base64_encode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
@@ -172,7 +176,7 @@ class d3encoder
     public function encodeGZip(mixed $decodedValue): string
     {
         return gzencode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
@@ -186,7 +190,7 @@ class d3encoder
     public function encodeUUEncode(mixed $decodedValue): string
     {
         return convert_uuencode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
@@ -200,9 +204,40 @@ class d3encoder
     public function encodeQuotedPrintable(mixed $decodedValue): string
     {
         return quoted_printable_encode(
-            serialize(
+            $this->encodeSerialize(
                 $decodedValue
             )
         );
+    }
+
+    protected function assertSerializablePayload(mixed $value): void
+    {
+        if ($value instanceof stdClass) {
+            return;
+        }
+
+        if (is_resource($value)) {
+            throw new InvalidArgumentException('Resources are not allowed for encoded payloads.');
+        }
+
+        if (is_object($value)) {
+            throw new InvalidArgumentException('Only stdClass objects are allowed for encoded payloads.');
+        }
+
+        if (is_array($value)) {
+            array_walk_recursive($value, function ($item): void {
+                if ($item instanceof stdClass) {
+                    return;
+                }
+
+                if (is_resource($item)) {
+                    throw new InvalidArgumentException('Resources are not allowed for encoded payloads.');
+                }
+
+                if (is_object($item)) {
+                    throw new InvalidArgumentException('Only stdClass objects are allowed for encoded payloads.');
+                }
+            });
+        }
     }
 }

@@ -87,22 +87,32 @@ abstract class AbstractAction implements ActionInterface
     protected function _performAction(array $aClearQueries, $sMessageIdent): void
     {
         $iRow = 0;
+        $blHadError = false;
+        $blHasExecuted = false;
 
         /** @var ?QueryBuilder $clearQuery */
         foreach ($aClearQueries as $clearQuery) {
+            if (!$clearQuery) {
+                continue;
+            }
+
             try {
-                $iRow += $clearQuery ? $clearQuery->execute() : 0;
+                $iRow += $clearQuery->execute();
+                $blHasExecuted = true;
             } catch (DoctrineException $e) {
+                $blHadError = true;
                 Registry::getUtilsView()->addErrorToDisplay($e);
             }
         }
 
-        Registry::get(UtilsView::class)->addErrorToDisplay(
-            sprintf(
-                Registry::getLang()->translateString($sMessageIdent),
-                $iRow
-            )
-        );
+        if (!$blHadError && $blHasExecuted) {
+            Registry::get(UtilsView::class)->addErrorToDisplay(
+                sprintf(
+                    Registry::getLang()->translateString($sMessageIdent),
+                    $iRow
+                )
+            );
+        }
     }
 
     /**

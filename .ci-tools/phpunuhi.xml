@@ -1,6 +1,6 @@
 <phpunuhi
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../boxblinkracer/phpunuhi/config.xsd"
+        xsi:noNamespaceSchemaLocation="../../../boxblinkracer/phpunuhi/config.xsd"
 >
     <translations>
         <set name="Backend">
@@ -11,8 +11,8 @@
                 <php/>
             </format>
             <locales>
-                <locale name="de">./Application/views/%locale_lc%/translations.php</locale>
-                <locale name="en">./Application/views/%locale_lc%/translations.php</locale>
+                <locale name="de">../Application/views/%locale_lc%/translations.php</locale>
+                <locale name="en">../Application/views/%locale_lc%/translations.php</locale>
             </locales>
         </set>
     </translations>

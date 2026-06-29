@@ -51,6 +51,15 @@ use OxidEsales\Eshop\Core\Request;
 class d3_mod_update extends AdminController
 {
     public $sThisTemplate = '@'.Constants::OXID_MODULE_ID.'/admin/install/update';
+    private const ALLOWED_FUNCTIONS = [
+        'skipupdate',
+        'sessionskip',
+        'everskip',
+        'checklist',
+        'autoinstall',
+        'manualyinstall',
+    ];
+
     protected $_sMenuSubItemTitle = 'D3_INSTALL';
     protected $_sStep = false;
     public $sRedirectStep = false;
@@ -88,7 +97,7 @@ class d3_mod_update extends AdminController
         $this->addTplParam('sUpdateMethod', Registry::getConfig()->getActiveView()->getViewDataElement('sUpdateMethod'));
         $this->addTplParam('sUpdateClass', Registry::getConfig()->getActiveView()->getViewDataElement('sUpdateClass'));
 
-        if ($this->sFnc && method_exists($this, $this->sFnc)) {
+        if ($this->sFnc && in_array($this->sFnc, self::ALLOWED_FUNCTIONS, true)) {
             $sRet = $this->{$this->sFnc}();
         } elseif ($this->sFnc) {
             $this->addTplParam('blNonExistingFunction', $this->sFnc);
@@ -132,11 +141,13 @@ class d3_mod_update extends AdminController
         $oUpdateBase->setUpdateSkipFlag();
     }
 
-    public function sessionskip()
+    public function sessionskip(): void
     {
         $sCheckMethod  = Registry::get(Request::class)->getRequestEscapedParameter('sCheckMethod');
         $sUpdateMethod = Registry::get(Request::class)->getRequestEscapedParameter('sUpdateMethod');
-        $sUpdateClass  = Registry::get(Request::class)->getRequestEscapedParameter('sUpdateClass');
+        $sUpdateClass  = $this->resolveUpdateClass(
+            (string) Registry::get(Request::class)->getRequestEscapedParameter('sUpdateClass')
+        );
         Registry::get(Request::class)->getRequestEscapedParameter('exectype');
 
         /** @var d3install_updatebase $oUpdateBase */
@@ -150,12 +161,14 @@ class d3_mod_update extends AdminController
         Registry::getSession()->setVariable('aD3UpdateSkipHashs', $aSkipHashs);
     }
 
-    public function everskip()
+    public function everskip(): void
     {
         if (! $this->hasDemoShopMode()) {
             $sCheckMethod  = Registry::get(Request::class)->getRequestEscapedParameter('sCheckMethod');
             $sUpdateMethod = Registry::get(Request::class)->getRequestEscapedParameter('sUpdateMethod');
-            $sUpdateClass  = Registry::get(Request::class)->getRequestEscapedParameter('sUpdateClass');
+            $sUpdateClass  = $this->resolveUpdateClass(
+                (string) Registry::get(Request::class)->getRequestEscapedParameter('sUpdateClass')
+            );
             Registry::get(Request::class)->getRequestEscapedParameter('exectype');
 
             /** @var d3install_updatebase $oUpdateBase */
@@ -172,6 +185,28 @@ class d3_mod_update extends AdminController
         } else {
             $this->sessionskip();
         }
+    }
+
+    /**
+     * @param string $sRequestedClass
+     * @throws StandardException
+     *
+     * @return string
+     */
+    protected function resolveUpdateClass(string $sRequestedClass): string
+    {
+        $sRequestedClass = trim($sRequestedClass);
+        $aAllowedClasses = d3install::getInstance()->getUpdateInstaller()->getSetupClasses();
+
+        if (
+            !in_array($sRequestedClass, $aAllowedClasses, true)
+            || !class_exists($sRequestedClass)
+            || !is_a($sRequestedClass, d3install_updatebase::class, true)
+        ) {
+            throw oxNew(StandardException::class, 'Invalid update class requested');
+        }
+
+        return $sRequestedClass;
     }
 
     /**

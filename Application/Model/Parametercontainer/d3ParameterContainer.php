@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
  *
@@ -45,7 +47,7 @@ class d3ParameterContainer implements d3ParameterContainerInterface
     public function add(array $aParameters)
     {
         foreach ($aParameters as $sKey => $mValue) {
-            $this->set(strtolower($sKey), $mValue);
+            $this->set($sKey, $mValue);
         }
     }
 
@@ -66,11 +68,9 @@ class d3ParameterContainer implements d3ParameterContainerInterface
      */
     public function get($sName)
     {
-        $sName = strtolower($sName);
+        $sName = $this->normalizeParameterName($sName);
 
-        if (false == array_key_exists($sName, $this->aParameters) ||
-            false == $sName
-        ) {
+        if (!array_key_exists($sName, $this->aParameters)) {
             throw new d3ParameterNotFoundException($sName);
         }
 
@@ -85,7 +85,7 @@ class d3ParameterContainer implements d3ParameterContainerInterface
      */
     public function set($sName, $mValue)
     {
-        $this->aParameters[strtolower($sName)] = $mValue;
+        $this->aParameters[$this->normalizeParameterName($sName)] = $mValue;
     }
 
     /**
@@ -95,7 +95,13 @@ class d3ParameterContainer implements d3ParameterContainerInterface
      */
     public function has($sName)
     {
-        return array_key_exists(strtolower($sName), $this->aParameters);
+        try {
+            $sName = $this->normalizeParameterName($sName);
+        } catch (d3ParameterNotFoundException) {
+            return false;
+        }
+
+        return array_key_exists($sName, $this->aParameters);
     }
 
     /**
@@ -105,6 +111,27 @@ class d3ParameterContainer implements d3ParameterContainerInterface
      */
     public function remove($sName)
     {
-        unset($this->aParameters[strtolower($sName)]);
+        try {
+            $sName = $this->normalizeParameterName($sName);
+        } catch (d3ParameterNotFoundException) {
+            return;
+        }
+
+        unset($this->aParameters[$sName]);
+    }
+
+    /**
+     * @param mixed $sName
+     *
+     * @return string
+     * @throws d3ParameterNotFoundException
+     */
+    protected function normalizeParameterName($sName)
+    {
+        if (!is_string($sName) || trim($sName) === '') {
+            throw new d3ParameterNotFoundException('');
+        }
+
+        return strtolower($sName);
     }
 }

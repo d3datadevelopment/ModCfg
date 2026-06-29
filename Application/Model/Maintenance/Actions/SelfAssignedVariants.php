@@ -51,7 +51,7 @@ class SelfAssignedVariants extends AbstractAction
     {
         $baseQuery = $this->getBaseQuery('oa');
         $baseQuery->select('oa.oxid');
-        $allIds = $baseQuery->execute()->fetchAllNumeric();
+        $allIds = array_column($baseQuery->execute()->fetchAllNumeric(), 0);
 
         $queryBuilder = $this->getQueryBuilder();
         $queryBuilder->update('oxarticles', 'updateTable')
@@ -59,7 +59,7 @@ class SelfAssignedVariants extends AbstractAction
             ->set('updateTable.oxtitle', 'unassigned article')
             ->where(
                 $queryBuilder->expr()->in(
-                    'delTable.oxid',
+                    'updateTable.oxid',
                     implode(
                         ', ',
                         array_map(

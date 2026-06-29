@@ -163,7 +163,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             $sModId = is_array($mModule) ? $mModule['id'] : $mModule;
 
             $oModule = d3_cfg_mod::get($sModId);
-            $sLinkTarget = 'http://www.oxidmodule.com/';
+            $sLinkTarget = 'https://www.oxidmodule.com/';
 
             if ($oModule->isExpired()) {
                 $aMessages[$sModId.'_exp'] = sprintf(
@@ -219,7 +219,7 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
         $iAllTimeOut = 10;
         $aModuleList = d3_cfg_mod::get('d3modcfg_lib')->getModuleList(Registry::getConfig()->getShopId());
         $iModuleCount = count($aModuleList);
-        $dTimeOut = $iAllTimeOut / $iModuleCount > 1 ? 1 : $iAllTimeOut / $iModuleCount;
+        $dTimeOut = min($iAllTimeOut / $iModuleCount, 1);
 
         foreach ($aModuleList as $mModule) {
             $sModId = is_array($mModule) ? $mModule['id'] : $mModule;
@@ -337,35 +337,5 @@ class d3_navigation_modcfgupdate extends d3_navigation_modcfgupdate_parent
             Registry::getConfig()->getActiveView()->addTplParam('clearLang', true);
             $oClrTmp->clearLangCache();
         }
-    }
-
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3ExecCommand1()
-    {
-        /** @var d3clrtmp $oClrTmp */
-        $oClrTmp = oxNew(d3clrtmp::class);
-        $oClrTmp->d3ExecCommand(1);
-    }
-
-    /**
-     * @throws DBALException
-     * @throws DatabaseConnectionException
-     * @throws DatabaseErrorException
-     * @throws StandardException
-     * @throws d3ShopCompatibilityAdapterException
-     * @throws d3_cfg_mod_exception
-     */
-    public function d3ExecCommand2()
-    {
-        /** @var d3clrtmp $oClrTmp */
-        $oClrTmp = oxNew(d3clrtmp::class);
-        $oClrTmp->d3ExecCommand(2);
     }
 }

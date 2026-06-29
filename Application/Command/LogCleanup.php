@@ -1,8 +1,10 @@
 <?php
 
 /**
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Copyright (c) D3 Data Development (Inh. Thomas Dartsch)
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
  * https://www.d3data.de
  *
@@ -18,12 +20,11 @@ namespace D3\ModCfg\Application\Command;
 use Assert\Assert;
 use D3\ModCfg\Application\Model\Constants;
 use D3\ModCfg\Application\Model\d3database;
+use D3\ModCfg\Application\Model\Log\d3log;
 use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Platforms\DateIntervalUnit;
 use Doctrine\DBAL\Query\QueryBuilder;
-use Exception;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\Session;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
@@ -34,6 +35,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Throwable;
 
 class LogCleanup extends Command
 {
@@ -41,8 +43,8 @@ class LogCleanup extends Command
 
     public const COMMAND_TITLE = 'cleanup log command';
 
-    const ARGUMENT_CLEANUP_VALUE = 'value';
-    const ARGUMENT_CLEANUP_UNIT  = 'unit';
+    public const ARGUMENT_CLEANUP_VALUE = 'value';
+    public const ARGUMENT_CLEANUP_UNIT  = 'unit';
 
     /**
      * @codeCoverageIgnore
@@ -76,7 +78,7 @@ class LogCleanup extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($output->getVerbosity() === OutputInterface::VERBOSITY_QUIET) {
-            d3GetOxidDIC()->get('d3ox.modcfg.'.Session::class)->setVariable( 'd3modcfg_quiet', true );
+            Registry::getSession()->setVariable('d3modcfg_quiet', true);
         }
 
         $stopWatch = new Stopwatch();
@@ -97,34 +99,38 @@ class LogCleanup extends Command
             $exitCode = Command::SUCCESS;
             $statusMessage = '<info>Successfully finished.</info>';
 
-            Assert::that($input->getArgument(self::ARGUMENT_CLEANUP_VALUE))
+            $cleanupValue = $input->getArgument(self::ARGUMENT_CLEANUP_VALUE);
+            $cleanupUnit  = strtoupper($input->getArgument(self::ARGUMENT_CLEANUP_UNIT));
+
+            Assert::that($cleanupValue)
                 ->integerish('Missing or invalid parameters, please check the passed arguments');
-            Assert::that($input->getArgument(self::ARGUMENT_CLEANUP_UNIT))
+            Assert::that($cleanupUnit)
                 ->inArray($this->getTimeUnitList(), 'Missing or invalid parameters, please check the passed arguments');
 
             $queryBuilder = $this->getQueryBuilder();
-            $queryBuilder->delete( d3GetOxidDIC()->get( 'd3.modcfg.log_get' )->getCoreTableName() )
-                ->where( 'oxtime < DATE_SUB(NOW(), INTERVAL ' .
+            $queryBuilder->delete(d3log::get('d3modcfg_lib', 0)->getCoreTableName())
+                ->where('oxtime < DATE_SUB(NOW(), INTERVAL ' .
                          $queryBuilder->createNamedParameter(
-                             $input->getArgument(self::ARGUMENT_CLEANUP_UNIT), ParameterType::INTEGER
-                         ) . ' ' . $input->getArgument(self::ARGUMENT_CLEANUP_UNIT) . ')' );
+                             (int) $cleanupValue,
+                             ParameterType::INTEGER
+                         ) . ' ' . $cleanupUnit . ')');
 
             if ($output->getVerbosity() === OutputInterface::VERBOSITY_DEBUG) {
                 $output->writeln(sprintf(
                     '<comment>%s</comment>',
                     d3database::getInstance()->getPreparedStatementQuery(
-                        $queryBuilder->getSQL(), $queryBuilder->getParameters()
+                        $queryBuilder->getSQL(),
+                        $queryBuilder->getParameters()
                     )
                 ));
             }
 
-            $affected = $queryBuilder->execute()->columnCount();
-
+            $affected = $queryBuilder->execute();
             $output->writeln(sprintf(
                 '<info>%1$s entries were removed</info>',
                 $affected
             ));
-        } catch (Exception $exception) {
+        } catch (Throwable $exception) {
             $logger->error(
                 Constants::OXID_MODULE_ID . ': ' . $exception->getMessage(),
                 ['exception' => $exception]
@@ -171,6 +177,6 @@ class LogCleanup extends Command
      */
     protected function getQueryBuilder(): QueryBuilder
     {
-        return ContainerFactory::getInstance()->getContainer()->get( QueryBuilderFactoryInterface::class )->create();
+        return ContainerFactory::getInstance()->getContainer()->get(QueryBuilderFactoryInterface::class)->create();
     }
 }
